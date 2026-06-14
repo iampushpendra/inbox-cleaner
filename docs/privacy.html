@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Inbox Cleaner</title>
+  <style>
+    body { font-family: -apple-system, sans-serif; max-width: 720px; margin: 60px auto; padding: 0 24px; color: #202124; line-height: 1.7; }
+    h1 { font-size: 28px; margin-bottom: 6px; }
+    h2 { font-size: 18px; margin: 28px 0 8px; }
+    p, li { color: #3c4043; }
+    a { color: #1a73e8; }
+    .updated { color: #80868b; font-size: 14px; margin-bottom: 32px; }
+  </style>
+</head>
+<body>
+  <h1>📥 Inbox Cleaner — Privacy Policy</h1>
+  <p class="updated">Last updated: June 15, 2026</p>
+
+  <p>Inbox Cleaner is a browser-based tool that helps you analyse and clean up your Gmail inbox.
+     This policy explains what data we access and how it's used.</p>
+
+  <h2>What data we access</h2>
+  <p>Inbox Cleaner requests access to your Gmail account via the Google OAuth 2.0 flow.
+     Specifically, we request:</p>
+  <ul>
+    <li><strong>From header</strong> and <strong>Date header</strong> of each email — used to build the sender list and count emails.</li>
+    <li><strong>Label IDs</strong> — used to identify which Gmail category (Primary, Social, Promotions, Updates, Forums) each email belongs to.</li>
+  </ul>
+  <p>We do <strong>not</strong> read email subject lines, email body content, attachments, recipients, or any other metadata.</p>
+
+  <h2>How data is used</h2>
+  <ul>
+    <li>Sender data is stored only in your browser's <code>localStorage</code> on your device.</li>
+    <li>Nothing is sent to any external server. The only network calls made are directly from your browser to Google's Gmail API (gmail.googleapis.com).</li>
+    <li>Deleting emails is performed via Google's <code>messages.batchDelete</code> API — triggered manually by you.</li>
+  </ul>
+
+  <h2>Data retention</h2>
+  <p>Scan results are cached in <code>localStorage</code> on your device. You can clear this at any time by signing out or clearing your browser data. We retain no data ourselves.</p>
+
+  <h2>Third-party access</h2>
+  <p>We do not sell, share, or transfer your Gmail data to any third party. The only service that receives your data is Google (to fulfil the Gmail API requests you initiate).</p>
+
+  <h2>Revoking access</h2>
+  <p>You can revoke Inbox Cleaner's access to your Google account at any time at
+     <a href="https://myaccount.google.com/permissions" target="_blank">myaccount.google.com/permissions</a>.</p>
+
+  <h2>Contact</h2>
+  <p>Questions? Email <a href="mailto:pushpendra.singh@freed.care">pushpendra.singh@freed.care</a>.</p>
+</body>
+</html>
