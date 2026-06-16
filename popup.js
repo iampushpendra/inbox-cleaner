@@ -221,8 +221,8 @@ function promptDelete() {
   const totalEmails = allSenders.filter(s => selected.has(s.email)).reduce((a, s) => a + s.count, 0);
   const sndr = selected.size;
   modalText.textContent =
-    `This will permanently delete ${n(totalEmails)} email${totalEmails !== 1 ? 's' : ''} ` +
-    `from ${sndr} sender${sndr !== 1 ? 's' : ''}. You cannot undo this.`;
+    `Move ${n(totalEmails)} email${totalEmails !== 1 ? 's' : ''} from ${sndr} sender${sndr !== 1 ? 's' : ''} to Trash? ` +
+    `Gmail auto-purges Trash after 30 days.`;
   modal.classList.remove('hidden');
 }
 

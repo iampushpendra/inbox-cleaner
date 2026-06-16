@@ -5,7 +5,7 @@
 // Replace with your Web Application OAuth 2.0 client_id from Google Cloud Console.
 // (APIs & Services → Credentials → OAuth 2.0 Client IDs → Web application)
 const CLIENT_ID   = '122732831058-4akm53dm4f32upmuc744cvtk28q80m6r.apps.googleusercontent.com';
-const SCOPES      = 'https://www.googleapis.com/auth/gmail.readonly https://mail.google.com/';
+const SCOPES      = 'https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.modify';
 const GMAIL_BASE  = 'https://gmail.googleapis.com/gmail/v1';
 const BATCH_URL   = 'https://www.googleapis.com/batch/gmail/v1';
 const STORAGE_KEY = 'inboxCleanerData';
@@ -194,6 +194,21 @@ function parseMultipart(text, boundary) {
   return results;
 }
 
+async function batchTrash(token, ids) {
+  const bnd  = 'ic_t_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6);
+  const body = ids.map(id =>
+    `--${bnd}\r\nContent-Type: application/http\r\n\r\n` +
+    `POST /gmail/v1/users/me/messages/${id}/trash HTTP/1.1\r\n\r\n`
+  ).join('') + `--${bnd}--`;
+  const r = await fetch(BATCH_URL, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': `multipart/mixed; boundary=${bnd}` },
+    body,
+  });
+  if (r.status === 403 || r.status === 429) throw Object.assign(new Error('rate'), { code: 429 });
+  if (!r.ok) throw new Error(`batch:${r.status}`);
+}
+
 async function batchHeaders(token, ids) {
   const bnd  = 'ic_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8);
   const body = ids.map(id =>
@@ -374,8 +389,8 @@ function promptDelete() {
   const totalEmails = allSenders.filter(s => selected.has(s.email)).reduce((a, s) => a + s.count, 0);
   const sndr = selected.size;
   $('modal-text').textContent =
-    `This will permanently delete ${n(totalEmails)} email${totalEmails !== 1 ? 's' : ''} ` +
-    `from ${sndr} sender${sndr !== 1 ? 's' : ''}. This cannot be undone.`;
+    `Move ${n(totalEmails)} email${totalEmails !== 1 ? 's' : ''} from ${sndr} sender${sndr !== 1 ? 's' : ''} to Trash? ` +
+    `Gmail auto-purges Trash after 30 days, or you can empty it manually.`;
   $('modal').classList.remove('hidden');
 }
 
@@ -411,10 +426,10 @@ async function confirmDelete() {
       $('delete-fill').style.width = `${pct}%`;
       $('delete-text').textContent = `Deleting ${n(ids.length)} emails from ${email}… (${si + 1}/${emails.length})`;
 
-      // Batch delete in 1000-chunks
-      for (let i = 0; i < ids.length; i += 1000) {
-        await backoff(() => gPost(token, '/users/me/messages/batchDelete', { ids: ids.slice(i, i + 1000) }));
-        if (i + 1000 < ids.length) await sleep(500);
+      // Batch trash in 100-chunks
+      for (let i = 0; i < ids.length; i += 100) {
+        await backoff(() => batchTrash(token, ids.slice(i, i + 100)));
+        if (i + 100 < ids.length) await sleep(400);
       }
 
       // Update cache

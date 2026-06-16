@@ -28,7 +28,7 @@
     "client_id": "122732831058-ppn14vfei993okt1763la6g3rtffq8s7.apps.googleusercontent.com",
     "scopes": [
       "https://www.googleapis.com/auth/gmail.readonly",
-      "https://mail.google.com/"
+      "https://www.googleapis.com/auth/gmail.modify"
     ]
   }
 }

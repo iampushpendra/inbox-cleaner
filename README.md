@@ -1,74 +1,100 @@
-# Inbox Cleaner — Chrome Extension
+# 📥 Inbox Cleaner
 
-See who's filling your Gmail across every category. Select senders and delete all their emails in one click.
+**See who's filling your Gmail. Select senders and move all their emails to Trash in one click.**
+
+[![Live App](https://img.shields.io/badge/Live%20App-open-blue?style=flat-square)](https://iampushpendra.github.io/inbox-cleaner/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
 ---
 
-## One-time setup (takes ~5 minutes)
+## What it does
 
-### 1 · Enable the Gmail API
+Most Gmail cleaners only show your Primary inbox. Inbox Cleaner scans **all 5 categories** — Primary, Social, Promotions, Updates, Forums — and shows a ranked list of who's occupying the most space:
 
-1. Go to **console.cloud.google.com** → your project `clever-airship-439516-k1`
-2. APIs & Services → Library → search **Gmail API** → **Enable**
+- **Email count** per sender (color-coded: red ≥100, orange ≥50)
+- **Category badges** showing which Gmail tab their mail lands in
+- **Last received** — relative timestamp of most recent email
+- **Checkbox selection** — pick one sender or dozens at once
+- **One-click Trash** — moves everything from selected senders to Trash in seconds
 
-### 2 · Create a Chrome Extension OAuth client
+Works entirely in your browser. No server. No data ever leaves your device.
 
-> You already have a Desktop app client. You need a separate one for Chrome extensions.
+---
 
-1. APIs & Services → **Credentials** → Create Credentials → **OAuth 2.0 Client ID**
-2. Application type: **Chrome Extension**
-3. Name: `Inbox Cleaner`
-4. **Item ID** field: paste your extension ID (get it in step 4, then come back)
-5. Click **Create** → copy the `client_id` (looks like `122732831058-xxxx.apps.googleusercontent.com`)
+## Try it
 
-### 3 · Put the client_id in manifest.json
+**[→ Open the web app](https://iampushpendra.github.io/inbox-cleaner/)** — nothing to install, works on any browser
 
-Open `manifest.json` and replace the placeholder:
+Or load it as a Chrome extension (see [Extension setup](#chrome-extension-setup) below).
 
-```json
-"oauth2": {
-  "client_id": "YOUR_CLIENT_ID_HERE.apps.googleusercontent.com",
-  ...
-}
+---
+
+## How it works
+
+```
+Sign in with Google
+       │
+       ▼
+Pass 1 — messages.list (500/page)
+  Collects all message IDs across your inbox
+       │
+       ▼
+Pass 2 — Gmail Batch API (100 msgs/request)
+  Reads only: From header · Date header · Label IDs
+  Never reads: subject, body, attachments, recipients
+       │
+       ▼
+Group by sender → ranked list
+       │
+  [You select senders + click "Move to Trash"]
+       │
+       ▼
+  from:<email> search → collect IDs
+  → messages.trash in batches of 100
 ```
 
-### 4 · Load the extension in Chrome
+**OAuth scopes:**
+| Scope | Purpose |
+|-------|---------|
+| `gmail.readonly` | List messages, read From/Date headers |
+| `gmail.modify` | Move emails to Trash |
 
-1. Open `chrome://extensions`
-2. Toggle **Developer mode** ON (top right)
-3. Click **Load unpacked** → select this `inbox-cleaner` folder
-4. Copy the **Extension ID** shown under the extension name
-5. Go back to step 2 and paste it into the OAuth client's Item ID field, then save
-
-### 5 · Add yourself as a test user
-
-APIs & Services → **OAuth consent screen** → **Test users** → Add your Gmail address.
-
-### 6 · Reload the extension
-
-In `chrome://extensions`, click the refresh icon on Inbox Cleaner. You're done.
-
----
-
-## Usage
-
-Click the 📥 icon in your toolbar.
-
-- **First run** → click **Scan my inbox**. Chrome asks for Gmail permission — approve it.
-- Scanning takes **1–3 minutes** for large inboxes. Results are cached; reopening is instant.
-- **Filter** by name or email with the search bar.
-- **Sort** by most emails, name A→Z, or most recent.
-- **Check** one or more senders → **Delete all** → confirm.
-- Click **↺** to re-scan after deleting.
+No `https://mail.google.com/` (full access) is ever requested.
 
 ---
 
 ## Privacy
 
-- Everything runs locally in your browser.
-- No data is sent anywhere except to Google's Gmail API on your behalf.
-- Scans read metadata only (From + Date headers) — no email content is ever read.
-- Deletes use `messages.batchDelete` which moves emails to Trash; Gmail auto-purges Trash after 30 days.
+- **No server** — all API calls go directly from your browser to `gmail.googleapis.com`
+- **Metadata only** — only `From` and `Date` headers are read, never subject or body
+- **Local cache** — scan results live in `localStorage` on your device, cleared on sign-out
+- **Trash, not delete** — emails go to Gmail Trash and stay there 30 days before auto-purge; you can restore them any time
+
+[Full privacy policy →](https://iampushpendra.github.io/inbox-cleaner/privacy.html)
+
+---
+
+## Chrome Extension setup
+
+1. Clone or download this repo
+2. Open `chrome://extensions` → enable **Developer mode** (top right)
+3. **Load unpacked** → select the repo root folder (not `docs/`)
+4. Click the 📥 icon in your Chrome toolbar
+
+Uses `chrome.identity.getAuthToken` — no redirect URI or backend needed.
+
+---
+
+## Tech stack
+
+| Layer | Detail |
+|-------|--------|
+| Auth (web app) | Google Identity Services `initTokenClient` — token flow, no backend |
+| Auth (extension) | `chrome.identity.getAuthToken` |
+| Scan | Gmail multipart batch API — 100 messages per request |
+| Trash | Gmail multipart batch API — `POST /messages/{id}/trash` × 100 per request |
+| Storage | `localStorage` (web) · `chrome.storage.local` (extension) |
+| Framework | None — vanilla JS, zero dependencies, zero build step |
 
 ---
 
@@ -76,14 +102,30 @@ Click the 📥 icon in your toolbar.
 
 ```
 inbox-cleaner/
-  manifest.json       Chrome extension config
-  background.js       Service worker — Gmail API + OAuth
-  popup.html          Extension popup UI
-  popup.css           Styles (dark-mode aware)
-  popup.js            UI logic + message passing
-  generate_icons.py   Script to regenerate icons (needs Pillow)
-  icons/
-    icon16.png
-    icon48.png
-    icon128.png
+├── docs/               ← Web app (GitHub Pages)
+│   ├── index.html
+│   ├── style.css
+│   ├── app.js
+│   └── privacy.html
+├── background.js       ← Extension service worker
+├── popup.html          ← Extension popup
+├── popup.css
+├── popup.js
+├── manifest.json       ← Manifest V3
+└── icons/
 ```
+
+---
+
+## Contributing
+
+PRs welcome. Useful areas:
+
+- **Virtual scrolling** for large sender lists (10k+ unique senders)
+- **Undo snackbar** — surface a Restore button after trashing, valid for the session
+
+---
+
+## License
+
+MIT

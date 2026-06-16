@@ -189,7 +189,24 @@ async function doScan() {
   broadcast('SCAN_STATE', { ...scanState });
 }
 
-// ── Delete ────────────────────────────────────────────────────────────────────
+// ── Batch trash ───────────────────────────────────────────────────────────────
+
+async function batchTrash(token, ids) {
+  const bnd  = 'ic_t_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6);
+  const body = ids.map(id =>
+    `--${bnd}\r\nContent-Type: application/http\r\n\r\n` +
+    `POST /gmail/v1/users/me/messages/${id}/trash HTTP/1.1\r\n\r\n`
+  ).join('') + `--${bnd}--`;
+  const r = await fetch(BATCH_URL, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': `multipart/mixed; boundary=${bnd}` },
+    body,
+  });
+  if (r.status === 403 || r.status === 429) throw Object.assign(new Error('rate'), { code: 429 });
+  if (!r.ok) throw new Error(`batch:${r.status}`);
+}
+
+// ── Trash ─────────────────────────────────────────────────────────────────────
 
 async function doDelete(emails) {
   const token = await getToken();
@@ -209,12 +226,12 @@ async function doDelete(emails) {
       pageToken = res.nextPageToken;
     } while (pageToken);
 
-    broadcast('DELETE_STATE', { phase: 'deleting', email, si, total: emails.length, count: ids.length });
+    broadcast('DELETE_STATE', { phase: 'trashing', email, si, total: emails.length, count: ids.length });
 
-    // Batch delete (max 1000 per call)
-    for (let i = 0; i < ids.length; i += 1000) {
-      await backoff(() => gPost(token, '/users/me/messages/batchDelete', { ids: ids.slice(i, i + 1000) }));
-      if (i + 1000 < ids.length) await sleep(500);
+    // Batch trash 100 at a time
+    for (let i = 0; i < ids.length; i += 100) {
+      await backoff(() => batchTrash(token, ids.slice(i, i + 100)));
+      if (i + 100 < ids.length) await sleep(400);
     }
 
     // Remove from cache
