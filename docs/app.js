@@ -4,7 +4,7 @@
 // ── Config ────────────────────────────────────────────────────────────────────
 // Replace with your Web Application OAuth 2.0 client_id from Google Cloud Console.
 // (APIs & Services → Credentials → OAuth 2.0 Client IDs → Web application)
-const CLIENT_ID   = 'REPLACE_WITH_YOUR_WEB_APP_CLIENT_ID.apps.googleusercontent.com';
+const CLIENT_ID   = '122732831058-4akm53dm4f32upmuc744cvtk28q80m6r.apps.googleusercontent.com';
 const SCOPES      = 'https://www.googleapis.com/auth/gmail.readonly https://mail.google.com/';
 const GMAIL_BASE  = 'https://gmail.googleapis.com/gmail/v1';
 const BATCH_URL   = 'https://www.googleapis.com/batch/gmail/v1';
