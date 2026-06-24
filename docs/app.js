@@ -55,6 +55,11 @@ function signOut() {
   localStorage.removeItem(STORAGE_KEY);
   allSenders = [];
   selected.clear();
+  activeCategory = '';
+  query = '';
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  const allTab = document.querySelector('.filter-tab[data-category=""]');
+  if (allTab) allTab.classList.add('active');
   show('signin');
 }
 
@@ -62,7 +67,6 @@ function signOut() {
 let allSenders = [];
 let filtered   = [];
 let selected   = new Set();
-let sortBy     = 'count';
 let activeCategory = '';
 let query      = '';
 
@@ -317,12 +321,6 @@ function applyFilter() {
 }
 
 // ── Render ────────────────────────────────────────────────────────────────────
-const AVATAR_COLORS = ['#e53935','#8e24aa','#1e88e5','#00897b','#43a047','#f4511e','#6d4c41','#546e7a','#1565c0','#ad1457'];
-function avatarColor(email) {
-  let h = 0;
-  for (const c of email) h = (h * 31 + c.charCodeAt(0)) | 0;
-  return AVATAR_COLORS[Math.abs(h) % AVATAR_COLORS.length];
-}
 function chipClass(n) { return n >= 100 ? 'chip-hi' : n >= 50 ? 'chip-mid' : 'chip-lo'; }
 function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
@@ -386,7 +384,7 @@ function updateActionBar() {
   const bar = $('action-bar');
   if (!selected.size) { bar.classList.add('hidden'); return; }
   const totalEmails = allSenders.filter(s => selected.has(s.email)).reduce((a, s) => a + s.count, 0);
-  $('action-summary').textContent = `${selected.size} sender${selected.size > 1 ? 's' : ''} · ${n(totalEmails)} emails`;
+  $('action-summary').innerHTML = `<strong>${selected.size}</strong> sender${selected.size > 1 ? 's' : ''} · <strong>${n(totalEmails)}</strong> emails`;
   bar.classList.remove('hidden');
 }
 
