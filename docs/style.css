@@ -70,7 +70,7 @@ body {
 .btn-ghost-sm {
   background: transparent;
   color: var(--gray-400);
-  border: 1.5px solid #444;
+  border: 1.5px solid #444; /* intentionally subtle: 1.5px + dark gray on black nav bg */
   border-radius: 4px;
   font-size: 12px;
   font-weight: 600;
@@ -318,7 +318,6 @@ body {
   gap: 14px;
   box-shadow: var(--shadow-accent);
 }
-.scan-progress.hidden { display: none; }
 .scan-label { font-size: 13px; font-weight: 700; color: var(--accent); white-space: nowrap; }
 
 .progress-track {
@@ -550,6 +549,7 @@ body {
   justify-content: center;
   z-index: 200;
 }
+.delete-overlay.hidden { display: none; }
 
 .delete-box {
   background: var(--white);
