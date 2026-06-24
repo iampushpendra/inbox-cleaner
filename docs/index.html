@@ -3,102 +3,154 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inbox Cleaner — See who's filling your Gmail</title>
+  <title>Inbox Cleaner — Clean your Gmail in 60 seconds</title>
+  <meta name="description" content="See who's flooding your Gmail. Select senders. Move everything to Trash in one click. Free, no install, nothing leaves your browser.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>📥</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ── Sign-in screen ─────────────────────────────────────────────────── -->
-  <div id="screen-signin" class="screen">
-    <div class="signin-box">
-      <div class="brand-icon">📥</div>
-      <h1>Inbox Cleaner</h1>
-      <p class="brand-sub">See who's filling your Gmail across every category.<br>
-         Select senders and delete all their emails in one click.</p>
-      <ul class="feature-list">
-        <li>✓ Scans Primary, Social, Promotions, Updates &amp; Forums</li>
-        <li>✓ Groups by sender — count, category badges, last date</li>
-        <li>✓ Bulk-delete with checkbox + one button</li>
-        <li>✓ Runs entirely in your browser — nothing sent to any server</li>
-      </ul>
-      <button id="btn-signin" class="btn-google">
-        <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 6.29C4.672 4.163 6.656 3.58 9 3.58z"/></svg>
-        Sign in with Google
-      </button>
-      <p class="privacy-note">Reads only From + Date headers. No email content is ever accessed.</p>
+<!-- ── Nav ──────────────────────────────────────────────────────────────── -->
+<nav id="nav">
+  <a class="nav-logo" href="/">📥 Inbox<span>Cleaner</span></a>
+  <div id="nav-cta">
+    <button class="btn-signin nav-signin-btn">Connect Gmail →</button>
+  </div>
+  <div id="nav-user" class="hidden">
+    <button id="btn-refresh" class="btn-ghost-sm">↺ Rescan</button>
+    <button id="btn-signout" class="btn-ghost-sm">Sign out</button>
+  </div>
+</nav>
+
+<!-- ── Hero (hidden when signed in) ─────────────────────────────────────── -->
+<section id="section-hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Free · No install · Works in browser</div>
+    <h1>Stop <em>drowning</em><br>in your inbox.</h1>
+    <p class="hero-sub">See who's flooding your Gmail. Select the worst offenders. Move everything to Trash — in one click.</p>
+    <div class="hero-actions">
+      <button class="btn-signin btn-primary-hero">Connect Gmail — it's free →</button>
+      <a href="#section-tool" class="btn-ghost-hero">See your inbox ↓</a>
+    </div>
+    <div class="hero-trust">
+      <span>No data leaves your browser</span>
+      <span>Only From &amp; Date headers read</span>
+      <span>Open source on GitHub</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Social proof bar ──────────────────────────────────────────────────── -->
+<div class="social-proof">
+  <div class="social-proof-inner">
+    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Gmail categories scanned</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><div class="stat-num">0</div><div class="stat-label">Servers. Zero.</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Metadata only — never body</div></div>
+    <div class="trust-list">
+      <span class="trust-item">No server</span>
+      <span class="trust-item">Open source</span>
+      <span class="trust-item">Trash ≠ Delete (30 days to restore)</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── Tool section ──────────────────────────────────────────────────────── -->
+<section id="section-tool">
+
+  <!-- Signed out state -->
+  <div id="tool-signin-state" class="tool-inner">
+    <div class="tool-signin-card">
+      <div class="tool-signin-icon">📥</div>
+      <h2>See your inbox, ranked</h2>
+      <p>Connect Gmail to scan all 5 categories and see who's taking up the most space.</p>
+      <button class="btn-signin btn-primary-tool">Connect Gmail — it's free →</button>
+      <p class="tool-signin-note">Scan takes ~30 seconds for 5,000 emails</p>
     </div>
   </div>
 
-  <!-- ── Main app screen ────────────────────────────────────────────────── -->
-  <div id="screen-app" class="screen hidden">
+  <!-- Results state (signed in) -->
+  <div id="tool-results-state" class="tool-inner hidden">
 
-    <header class="app-header">
-      <div class="header-left">
-        <span class="header-icon">📥</span>
-        <div>
-          <div class="header-title">Inbox Cleaner</div>
-          <div id="header-stats" class="header-stats">—</div>
-        </div>
+    <!-- Tool header -->
+    <div class="tool-header">
+      <div>
+        <h2 class="tool-title">Your inbox, <span>ranked.</span></h2>
+        <p id="header-stats" class="tool-subtitle">—</p>
       </div>
-      <div class="header-right">
-        <button id="btn-refresh" class="icon-btn" title="Re-scan inbox">↺</button>
-        <button id="btn-signout" class="icon-btn" title="Sign out">⏏</button>
-      </div>
-    </header>
+    </div>
 
+    <!-- Scan progress -->
     <div id="scan-progress" class="scan-progress hidden">
+      <span class="scan-label">Scanning…</span>
       <div class="progress-track">
         <div id="progress-fill" class="progress-fill"></div>
       </div>
       <span id="progress-text" class="progress-text">Starting…</span>
     </div>
 
+    <!-- Category filter tabs -->
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-category="">All</button>
+      <button class="filter-tab" data-category="PRIMARY">Primary</button>
+      <button class="filter-tab" data-category="PROMOTIONS">Promotions</button>
+      <button class="filter-tab" data-category="SOCIAL">Social</button>
+      <button class="filter-tab" data-category="UPDATES">Updates</button>
+      <button class="filter-tab" data-category="FORUMS">Forums</button>
+    </div>
+
+    <!-- Search -->
     <div class="controls">
       <input id="search" type="search" placeholder="Search sender name or email…" autocomplete="off">
-      <div class="sort-btns">
-        <button class="sort-btn active" data-sort="count">Most emails</button>
-        <button class="sort-btn" data-sort="name">A → Z</button>
-        <button class="sort-btn" data-sort="date">Recent</button>
-      </div>
     </div>
 
+    <!-- Sender list -->
     <div id="sender-list" class="sender-list"></div>
 
-    <div id="action-bar" class="action-bar hidden">
-      <span id="action-summary" class="action-summary"></span>
-      <div class="action-btns">
-        <button id="btn-clear" class="btn-secondary">Clear selection</button>
-        <button id="btn-delete" class="btn-danger">🗑 Move to Trash</button>
-      </div>
-    </div>
-
   </div>
+</section>
 
-  <!-- ── Deleting screen ────────────────────────────────────────────────── -->
-  <div id="screen-deleting" class="screen hidden">
-    <div class="deleting-box">
-      <div class="spinner"></div>
-      <p id="delete-text" class="delete-text">Preparing…</p>
-      <div class="progress-track narrow">
-        <div id="delete-fill" class="progress-fill"></div>
-      </div>
+<!-- ── Delete overlay (fixed, shown during trash operation) ─────────────── -->
+<div id="screen-deleting" class="delete-overlay hidden">
+  <div class="delete-box">
+    <div class="spinner"></div>
+    <p id="delete-text" class="delete-text">Preparing…</p>
+    <div class="progress-track delete-progress-track">
+      <div id="delete-fill" class="progress-fill"></div>
     </div>
   </div>
+</div>
 
-  <!-- ── Confirm modal ──────────────────────────────────────────────────── -->
-  <div id="modal" class="modal hidden">
-    <div class="modal-box">
-      <h2>Confirm deletion</h2>
-      <p id="modal-text"></p>
-      <div class="modal-btns">
-        <button id="btn-cancel" class="btn-secondary">Cancel</button>
-        <button id="btn-confirm" class="btn-danger">Delete forever</button>
-      </div>
+<!-- ── Confirmation modal ─────────────────────────────────────────────────── -->
+<div id="modal" class="modal hidden">
+  <div class="modal-box">
+    <h2>Move to Trash?</h2>
+    <p id="modal-text"></p>
+    <div class="modal-btns">
+      <button id="btn-cancel" class="btn-modal-cancel">Cancel</button>
+      <button id="btn-confirm" class="btn-modal-confirm">Move to Trash →</button>
     </div>
   </div>
+</div>
 
-  <script src="https://accounts.google.com/gsi/client"></script>
-  <script src="app.js"></script>
+<!-- ── Action bar (sticky bottom, shown when senders selected) ────────────── -->
+<div id="action-bar" class="action-bar hidden">
+  <span id="action-summary" class="action-summary"></span>
+  <div class="action-btns">
+    <button id="btn-clear" class="btn-action-clear">Clear</button>
+    <button id="btn-delete" class="btn-action-trash">🗑 Move to Trash</button>
+  </div>
+</div>
+
+<!-- ── Footer ─────────────────────────────────────────────────────────────── -->
+<footer>
+  <p>Built by <a href="https://github.com/iampushpendra" target="_blank" rel="noopener">@iampushpendra</a> · <a href="privacy.html">Privacy Policy</a> · <a href="https://github.com/iampushpendra/inbox-cleaner" target="_blank" rel="noopener">GitHub</a> · Emails go to Trash — you have 30 days to restore them.</p>
+</footer>
+
+<script src="https://accounts.google.com/gsi/client"></script>
+<script src="app.js"></script>
 </body>
 </html>
