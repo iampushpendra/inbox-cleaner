@@ -63,14 +63,19 @@ let allSenders = [];
 let filtered   = [];
 let selected   = new Set();
 let sortBy     = 'count';
+let activeCategory = '';
 let query      = '';
 
 const $ = id => document.getElementById(id);
-const screens = { signin: 'screen-signin', app: 'screen-app', deleting: 'screen-deleting' };
 
 function show(name) {
-  Object.values(screens).forEach(id => $( id).classList.add('hidden'));
-  $(screens[name]).classList.remove('hidden');
+  const isSignedIn = name === 'app' || name === 'deleting';
+  $('section-hero').classList.toggle('hidden', isSignedIn);
+  $('tool-signin-state').classList.toggle('hidden', isSignedIn);
+  $('tool-results-state').classList.toggle('hidden', !isSignedIn);
+  $('screen-deleting').classList.toggle('hidden', name !== 'deleting');
+  $('nav-cta').classList.toggle('hidden', isSignedIn);
+  $('nav-user').classList.toggle('hidden', !isSignedIn);
 }
 
 // ── Boot ──────────────────────────────────────────────────────────────────────
@@ -91,7 +96,7 @@ window.addEventListener('load', () => {
   show('signin');
 });
 
-$('btn-signin').addEventListener('click', () => {
+function handleSignIn() {
   if (!tokenClient) { toast('Google auth library still loading — try again in a second', 'error'); return; }
   pendingResolve = token => {
     pendingResolve = null;
@@ -107,7 +112,8 @@ $('btn-signin').addEventListener('click', () => {
     startScan();
   };
   tokenClient.requestAccessToken({ prompt: 'consent' });
-});
+}
+document.querySelectorAll('.btn-signin').forEach(btn => btn.addEventListener('click', handleSignIn));
 
 $('btn-signout').addEventListener('click', signOut);
 $('btn-refresh').addEventListener('click', () => { selected.clear(); updateActionBar(); startScan(); });
@@ -301,15 +307,12 @@ async function startScan() {
 // ── Filter + sort ─────────────────────────────────────────────────────────────
 function applyFilter() {
   const q = query.toLowerCase();
-  filtered = q
-    ? allSenders.filter(s => s.name.toLowerCase().includes(q) || s.email.toLowerCase().includes(q))
-    : [...allSenders];
-  filtered.sort((a, b) => {
-    if (sortBy === 'count') return b.count - a.count;
-    if (sortBy === 'name')  return a.name.localeCompare(b.name);
-    if (sortBy === 'date')  return b.latest - a.latest;
-    return 0;
+  filtered = allSenders.filter(s => {
+    const matchesQuery = !q || s.name.toLowerCase().includes(q) || s.email.toLowerCase().includes(q);
+    const matchesCat   = !activeCategory || s.categories.includes(activeCategory);
+    return matchesQuery && matchesCat;
   });
+  filtered.sort((a, b) => b.count - a.count);
   renderList();
 }
 
@@ -329,7 +332,11 @@ function renderList() {
   if (!filtered.length) {
     const el = document.createElement('div');
     el.className = 'list-empty';
-    el.textContent = query ? 'No senders match your search.' : 'No emails found. Click ↺ to scan your inbox.';
+    el.textContent = query
+      ? 'No senders match your search.'
+      : activeCategory
+        ? `No senders in ${activeCategory.charAt(0) + activeCategory.slice(1).toLowerCase()} category.`
+        : 'No emails found. Click ↺ to rescan.';
     list.appendChild(el);
     return;
   }
@@ -347,7 +354,6 @@ function renderList() {
         <input type="checkbox" ${isSel ? 'checked' : ''}>
         <span class="chk"></span>
       </label>
-      <div class="avatar" style="background:${avatarColor(s.email)}">${esc((s.name[0] || '?').toUpperCase())}</div>
       <div class="row-body">
         <div class="row-name">${esc(s.name)}</div>
         <div class="row-email">${esc(s.email)}</div>
@@ -461,17 +467,16 @@ async function confirmDelete() {
 // ── Events ────────────────────────────────────────────────────────────────────
 $('search').addEventListener('input', e => { query = e.target.value; applyFilter(); });
 
-document.querySelectorAll('.sort-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    sortBy = btn.dataset.sort;
+$('btn-delete').addEventListener('click', promptDelete);
+$('btn-clear').addEventListener('click', clearSelection);
+document.querySelectorAll('.filter-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    activeCategory = tab.dataset.category;
     applyFilter();
   });
 });
-
-$('btn-delete').addEventListener('click', promptDelete);
-$('btn-clear').addEventListener('click', clearSelection);
 $('btn-cancel').addEventListener('click', () => $('modal').classList.add('hidden'));
 $('btn-confirm').addEventListener('click', confirmDelete);
 $('modal').addEventListener('click', e => { if (e.target === $('modal')) $('modal').classList.add('hidden'); });
