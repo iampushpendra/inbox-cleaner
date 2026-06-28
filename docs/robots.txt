@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://inbox-cleaner.vercel.app/sitemap.xml

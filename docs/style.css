@@ -783,6 +783,7 @@ footer a:hover { text-decoration: underline; }
   max-width: 1100px;
   margin: 0 auto;
   padding: 64px 40px;
+  overflow-x: auto;
 }
 
 .compare-heading {
@@ -861,11 +862,11 @@ footer a:hover { text-decoration: underline; }
 }
 
 .compare-table tbody tr:hover td {
-  background: #fafafa;
+  background: var(--gray-100);
 }
 
 .compare-table tbody tr:hover td.col-highlight {
-  background: #fff3e4;
+  background: var(--accent-light);
 }
 
 @media (max-width: 700px) {
