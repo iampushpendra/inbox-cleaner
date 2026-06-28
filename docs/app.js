@@ -10,6 +10,7 @@ const GMAIL_BASE  = 'https://gmail.googleapis.com/gmail/v1';
 const BATCH_URL   = 'https://www.googleapis.com/batch/gmail/v1';
 const STORAGE_KEY = 'inboxCleanerData';
 const sleep = ms => new Promise(r => setTimeout(r, ms));
+const WAITLIST_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzxDyhV2aQmw5E6iWnosliDFdEd6nXU_Knjx-Abkxn6mdhjmmPUq3CH9q4IctCbBDPVSQ/exec';
 
 // ── OAuth state ────────────────────────────────────────────────────────────────
 let tokenClient;
@@ -499,3 +500,51 @@ function toast(text, type = 'info') {
   requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('show')));
   setTimeout(() => { el.classList.remove('show'); setTimeout(() => el.remove(), 300); }, 3500);
 }
+
+// ── Waitlist ───────────────────────────────────────────────────────────────────
+(function () {
+  const form    = document.getElementById('waitlist-form');
+  const input   = document.getElementById('waitlist-email');
+  const btn     = document.getElementById('waitlist-btn');
+  const success = document.getElementById('waitlist-success');
+  const error   = document.getElementById('waitlist-error');
+
+  if (!form) return;
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const email = input.value.trim();
+    if (!email || !email.includes('@')) {
+      error.textContent = 'Please enter a valid email address.';
+      error.classList.remove('hidden');
+      return;
+    }
+    if (!WAITLIST_SCRIPT_URL) {
+      error.textContent = 'Waitlist not configured yet — check back soon.';
+      error.classList.remove('hidden');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Joining…';
+    error.classList.add('hidden');
+    success.classList.add('hidden');
+
+    try {
+      const body = new URLSearchParams({ email });
+      const res  = await fetch(WAITLIST_SCRIPT_URL, { method: 'POST', body });
+      const data = await res.json().catch(() => ({}));
+      if (data.success) {
+        form.classList.add('hidden');
+        success.classList.remove('hidden');
+      } else {
+        throw new Error('server error');
+      }
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'Join Waitlist →';
+      error.textContent = 'Something went wrong — try again.';
+      error.classList.remove('hidden');
+    }
+  });
+}());

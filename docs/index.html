@@ -3,8 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inbox Cleaner — Clean your Gmail in 60 seconds</title>
-  <meta name="description" content="See who's flooding your Gmail. Select senders. Move everything to Trash in one click. Free, no install, nothing leaves your browser.">
+  <title>Bulk Delete Gmail Emails by Sender — Inbox Cleaner (Free)</title>
+  <meta name="description" content="The fastest way to bulk delete Gmail emails. See every sender ranked by count, select the worst offenders, move everything to Trash in one click. Free, no install.">
+  <meta property="og:title" content="Bulk Delete Gmail Emails by Sender — Inbox Cleaner (Free)">
+  <meta property="og:description" content="The fastest way to bulk delete Gmail emails. See every sender ranked by count, select the worst offenders, move everything to Trash in one click. Free, no install.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://inbox-cleaner.vercel.app">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to bulk delete Gmail emails by sender",
+    "step": [
+      { "@type": "HowToStep", "text": "Click 'Connect Gmail' to scan your inbox — no install needed." },
+      { "@type": "HowToStep", "text": "See every sender ranked by email count. Select the worst offenders." },
+      { "@type": "HowToStep", "text": "Click 'Move to Trash' — all selected emails move in one click." }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I bulk delete Gmail emails from one sender?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Connect Gmail on this page, find the sender in the ranked list, check the box, and click 'Move to Trash.' All their emails move in one click." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Gmail have a built-in bulk delete option?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Gmail lets you select up to 50 emails per page and delete them manually. Inbox Cleaner scans your entire inbox and moves thousands of emails in seconds — no paging required." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Inbox Cleaner safe to use?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The tool reads only From and Date headers — never email bodies. All processing happens in your browser; nothing is sent to any server. The source code is open on GitHub." }
+      },
+      {
+        "@type": "Question",
+        "name": "Will deleted emails be gone forever?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Emails move to Trash, where Gmail keeps them for 30 days. You can restore any email from Trash before that window closes." }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to scan my inbox?",
+        "acceptedAnswer": { "@type": "Answer", "text": "About 30 seconds for 5,000 emails. Larger inboxes take proportionally longer; a progress bar shows the current status." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this work on mobile?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The web app works on mobile browsers. For the best experience, use it on desktop where you can see the full sender list." }
+      }
+    ]
+  }
+  </script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>📥</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
@@ -28,7 +82,7 @@
 <section id="section-hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Free · No install · Works in browser</div>
-    <h1>Stop <em>drowning</em><br>in your inbox.</h1>
+    <h1>The fastest way to <em>bulk delete</em><br>Gmail emails.</h1>
     <p class="hero-sub">See who's flooding your Gmail. Select the worst offenders. Move everything to Trash — in one click.</p>
     <div class="hero-actions">
       <button class="btn-signin btn-primary-hero">Connect Gmail — it's free →</button>
@@ -57,6 +111,56 @@
     </div>
   </div>
 </div>
+
+<!-- ── Waitlist strip ─────────────────────────────────────────────────────── -->
+<section id="section-waitlist">
+  <div class="waitlist-inner">
+    <div class="waitlist-text">
+      <strong>Pro features coming soon</strong>
+      <span>Get early access — be first to know.</span>
+    </div>
+    <form id="waitlist-form" class="waitlist-form" novalidate>
+      <input id="waitlist-email" type="email" class="waitlist-input" placeholder="your@email.com" autocomplete="email" required>
+      <button type="submit" id="waitlist-btn" class="waitlist-btn">Join Waitlist →</button>
+    </form>
+    <p class="waitlist-note">Waitlist only — your email won't be used for anything else.</p>
+    <p id="waitlist-success" class="waitlist-success hidden">✓ You're on the list!</p>
+    <p id="waitlist-error" class="waitlist-error hidden">Something went wrong — try again.</p>
+  </div>
+</section>
+
+<!-- ── FAQ ───────────────────────────────────────────────────────────────── -->
+<section id="section-faq">
+  <div class="faq-inner">
+    <h2 class="faq-heading">Common questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <p class="faq-q">How do I bulk delete Gmail emails from one sender?</p>
+        <p class="faq-a">Connect Gmail on this page, find the sender in the ranked list, check the box, and click "Move to Trash." All their emails move in one click.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Does Gmail have a built-in bulk delete option?</p>
+        <p class="faq-a">Gmail lets you select up to 50 emails per page and delete them manually. Inbox Cleaner scans your entire inbox and moves thousands of emails in seconds — no paging required.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Is Inbox Cleaner safe to use?</p>
+        <p class="faq-a">Yes. The tool reads only From and Date headers — never email bodies. All processing happens in your browser; nothing is sent to any server. The source code is open on GitHub.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Will deleted emails be gone forever?</p>
+        <p class="faq-a">No. Emails move to Trash, where Gmail keeps them for 30 days. You can restore any email from Trash before that window closes.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">How long does it take to scan my inbox?</p>
+        <p class="faq-a">About 30 seconds for 5,000 emails. Larger inboxes take proportionally longer; a progress bar shows the current status.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Does this work on mobile?</p>
+        <p class="faq-a">The web app works on mobile browsers. For the best experience, use it on desktop where you can see the full sender list.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ── Tool section ──────────────────────────────────────────────────────── -->
 <section id="section-tool">
