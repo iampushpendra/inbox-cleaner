@@ -131,6 +131,15 @@ body {
   font-weight: 400;
 }
 
+.hero-snippet {
+  font-size: 15px;
+  color: var(--gray-600);
+  margin-bottom: 28px;
+  max-width: 560px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
 .hero-actions {
   display: flex;
   gap: 12px;
