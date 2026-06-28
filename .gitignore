@@ -3,3 +3,4 @@ node_modules/
 *.zip
 generate_icons.py
 __pycache__/
+.vercel
