@@ -957,6 +957,21 @@ footer a:hover { text-decoration: underline; }
   padding-bottom: 32px;
   border-bottom: 2px solid var(--dark);
 }
+.quick-answer {
+  background: var(--accent-light);
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  padding: 18px 20px;
+  margin-bottom: 32px;
+  font-size: 16px;
+  color: var(--gray-600);
+  line-height: 1.7;
+  box-shadow: 3px 3px 0 var(--accent);
+}
+.quick-answer strong {
+  color: var(--dark);
+  font-weight: 700;
+}
 .blog-body h2 {
   font-size: 22px;
   font-weight: 800;
