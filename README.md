@@ -5,6 +5,8 @@
 [![Live App](https://img.shields.io/badge/Live%20App-open-blue?style=flat-square)](https://iampushpendra.github.io/inbox-cleaner/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
+**v2.1.0** — see [CHANGELOG.md](CHANGELOG.md) for what's new.
+
 ---
 
 ## What it does

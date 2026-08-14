@@ -4,3 +4,7 @@ node_modules/
 generate_icons.py
 __pycache__/
 .vercel
+.superpowers/
+scripts/daily_publish.log
+scripts/daily_publish.launchd.log
+.impeccable/hook.cache.json
