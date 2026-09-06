@@ -4,6 +4,15 @@ All notable changes to this project are documented in this file.
 Format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Versioning: see `VERSION` file (semver, no `package.json` — this isn't a Node/build project).
 
+## [Unreleased]
+
+### Fixed
+- `manifest.json` `version` was stuck at `1.0.0` while the app/README/CHANGELOG had moved to `2.1.0` — fixed to keep the extension zip in sync with the rest of the project before Chrome Web Store submission.
+- `scripts/daily_publish.sh` used `set -e` with no failure signal — a failed run (expired `claude` CLI auth on 2026-09-01, dropped SSH connection on 2026-09-02) just stopped silently with nothing but a log line nobody was watching. Now each step is checked explicitly and a macOS notification fires on failure, with a hint to re-run `claude` interactively if the auth session expired.
+
+### Added
+- `docs/CHROME_WEB_STORE.md` — draft Web Store listing copy, permission-justification answers, and pre-submission checklist.
+
 ## [2.1.0] - 2026-08-09
 
 ### Added
