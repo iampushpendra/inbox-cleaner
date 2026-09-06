@@ -1,16 +1,19 @@
 {
   "manifest_version": 3,
   "name": "Inbox Cleaner",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "description": "See who's filling your Gmail. Select and delete in one click.",
-  "permissions": ["identity", "storage"],
+  "permissions": ["storage", "tabs"],
   "host_permissions": [
-    "https://gmail.googleapis.com/*",
-    "https://www.googleapis.com/*"
+    "https://mail.google.com/*"
   ],
-  "background": {
-    "service_worker": "background.js"
-  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["parsing.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -23,12 +26,5 @@
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
-  },
-  "oauth2": {
-    "client_id": "122732831058-ppn14vfei993okt1763la6g3rtffq8s7.apps.googleusercontent.com",
-    "scopes": [
-      "https://www.googleapis.com/auth/gmail.readonly",
-      "https://www.googleapis.com/auth/gmail.modify"
-    ]
   }
 }
