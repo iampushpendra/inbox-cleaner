@@ -74,7 +74,7 @@ async function init() {
   show('loading');
   const cache = await getCache();
   const stateResp = await sendToContent({ type: 'GET_SCAN_STATE' });
-  const noTab = stateResp && stateResp.reason === 'no-tab';
+  const noTab = stateResp && (stateResp.reason === 'no-tab' || stateResp.reason === 'no-content-script');
   const scanState = (stateResp && stateResp.ok !== false) ? stateResp.scanState : { status: 'idle', category: 0, total: 5 };
   const scanning = scanState.status === 'scanning';
 
@@ -250,8 +250,8 @@ function promptDelete() {
   const totalEmails = allSenders.filter(s => selected.has(s.email)).reduce((a, s) => a + s.count, 0);
   const sndr = selected.size;
   modalText.textContent =
-    `Move ${n(totalEmails)} email${totalEmails !== 1 ? 's' : ''} from ${sndr} sender${sndr !== 1 ? 's' : ''} to Trash? ` +
-    `Gmail auto-purges Trash after 30 days.`;
+    `Move all mail from ${sndr} sender${sndr !== 1 ? 's' : ''} to Trash — at least ${n(totalEmails)} email${totalEmails !== 1 ? 's' : ''}, ` +
+    `including any archived mail not shown here. Gmail auto-purges Trash after 30 days.`;
   modal.classList.remove('hidden');
 }
 
@@ -302,7 +302,7 @@ chrome.runtime.onMessage.addListener(({ type, data }) => {
     } else {
       const pct = d.total > 0 ? (d.chunk / d.total * 100).toFixed(0) : 0;
       deleteFill.style.width = `${pct}%`;
-      deleteText.textContent = `Deleting batch ${d.chunk} of ${d.total}…`;
+      deleteText.textContent = `Deleting batch ${Math.max(1, d.chunk)} of ${d.total}…`;
     }
   }
 
@@ -348,7 +348,7 @@ async function startScan() {
   const resp = await sendToContent({ type: 'START_SCAN' });
   if (!resp || resp.ok === false) {
     showProgress(false);
-    if (resp && resp.reason === 'no-tab') {
+    if (resp && (resp.reason === 'no-tab' || resp.reason === 'no-content-script')) {
       show('noTab');
     } else {
       show(allSenders.length ? 'main' : 'empty');
