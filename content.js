@@ -163,3 +163,54 @@ chrome.runtime.onMessage.addListener((msg, _sender, respond) => {
     return true;
   }
 });
+
+async function selectAllMatchingAndTrash(query) {
+  location.hash = `search/${encodeURIComponent(query)}`;
+  await waitForElement(SELECTORS.selectAllCheckbox);
+  await sleep(500); // let the result list settle before selecting
+
+  const checkbox = document.querySelector(SELECTORS.selectAllCheckbox);
+  checkbox.click();
+
+  const matchingLink = await waitForElement(SELECTORS.selectAllMatchingLink, 5000).catch(() => null);
+  if (matchingLink) matchingLink.click();
+
+  const trash = await waitForElement(SELECTORS.trashButton);
+  trash.click();
+  await sleep(1000); // let Gmail's own delete animation/toast finish before navigating again
+}
+
+let deleteState = { status: 'idle', chunk: 0, total: 0, error: null };
+
+async function doDelete(emails) {
+  const queries = InboxCleanerParsing.buildFromQueries(emails);
+  deleteState = { status: 'deleting', chunk: 0, total: queries.length, error: null };
+  broadcast('DELETE_STATE', { ...deleteState });
+
+  for (let i = 0; i < queries.length; i++) {
+    await selectAllMatchingAndTrash(queries[i]);
+    deleteState = { status: 'deleting', chunk: i + 1, total: queries.length, error: null };
+    broadcast('DELETE_STATE', { ...deleteState });
+  }
+
+  const stored = (await chrome.storage.local.get('inboxCleanerData')).inboxCleanerData;
+  if (stored) {
+    const deletedEmails = new Set(emails);
+    stored.senders = stored.senders.filter(s => !deletedEmails.has(s.email));
+    await chrome.storage.local.set({ inboxCleanerData: stored });
+  }
+
+  deleteState = { status: 'done', chunk: queries.length, total: queries.length, error: null };
+  broadcast('DELETE_STATE', { ...deleteState });
+}
+
+chrome.runtime.onMessage.addListener((msg, _sender, respond) => {
+  if (msg.type === 'DELETE') {
+    doDelete(msg.emails).catch(e => {
+      deleteState = { status: 'error', chunk: 0, total: 0, error: e.message };
+      broadcast('DELETE_ERROR', e.message);
+    });
+    respond({ ok: true });
+    return true;
+  }
+});
