@@ -16,6 +16,7 @@ const $ = id => document.getElementById(id);
 const screens = {
   loading:  $('screen-loading'),
   empty:    $('screen-empty'),
+  noTab:    $('screen-no-tab'),
   main:     $('screen-main'),
   deleting: $('screen-deleting'),
 };
@@ -38,13 +39,44 @@ function show(name) {
   Object.entries(screens).forEach(([k, el]) => el.classList.toggle('hidden', k !== name));
 }
 
+// ── Content-script messaging ─────────────────────────────────────────────────────
+
+async function findGmailTabId() {
+  const tabs = await chrome.tabs.query({ url: 'https://mail.google.com/*' });
+  if (tabs.length === 0) return null;
+  const active = tabs.find(t => t.active);
+  return (active || tabs[0]).id;
+}
+
+function sendToContent(payload) {
+  return findGmailTabId().then(tabId => {
+    if (!tabId) return { ok: false, reason: 'no-tab' };
+    return new Promise(resolve => {
+      chrome.tabs.sendMessage(tabId, payload, response => {
+        if (chrome.runtime.lastError) {
+          resolve({ ok: false, reason: 'no-content-script', error: chrome.runtime.lastError.message });
+        } else {
+          resolve(response);
+        }
+      });
+    });
+  });
+}
+
+async function getCache() {
+  const { inboxCleanerData } = await chrome.storage.local.get('inboxCleanerData');
+  return inboxCleanerData || null;
+}
+
 // ── Initialise ─────────────────────────────────────────────────────────────────
 
 async function init() {
   show('loading');
-  const { cache, scanState } = await msg({ type: 'GET_DATA' });
-
-  const scanning = scanState.status === 'scanning' || scanState.status === 'listing';
+  const cache = await getCache();
+  const stateResp = await sendToContent({ type: 'GET_SCAN_STATE' });
+  const noTab = stateResp && stateResp.reason === 'no-tab';
+  const scanState = (stateResp && stateResp.ok !== false) ? stateResp.scanState : { status: 'idle', category: 0, total: 5 };
+  const scanning = scanState.status === 'scanning';
 
   if (cache && cache.senders.length > 0) {
     loadCache(cache);
@@ -57,6 +89,8 @@ async function init() {
     show('main');
     showProgress(true);
     updateProgress(scanState);
+  } else if (noTab) {
+    show('noTab');
   } else {
     show('empty');
   }
@@ -205,14 +239,9 @@ function showProgress(visible) {
 }
 
 function updateProgress(state) {
-  if (state.status === 'listing') {
-    progressFill.style.width = '8%';
-    progressText.textContent = `Listing messages… ${n(state.total)} found so far`;
-  } else if (state.status === 'scanning') {
-    const pct = state.total > 0 ? (state.fetched / state.total * 100) : 0;
-    progressFill.style.width = `${pct}%`;
-    progressText.textContent = `Scanning ${n(state.fetched)} / ${n(state.total)} emails…`;
-  }
+  const pct = state.total > 0 ? (state.category / state.total * 100) : 0;
+  progressFill.style.width = `${pct}%`;
+  progressText.textContent = `Scanning category ${state.category} of ${state.total}…`;
 }
 
 // ── Delete flow ────────────────────────────────────────────────────────────────
@@ -226,26 +255,26 @@ function promptDelete() {
   modal.classList.remove('hidden');
 }
 
-function confirmDelete() {
+async function confirmDelete() {
   modal.classList.add('hidden');
   const emails = [...selected];
   selected.clear();
   show('deleting');
   deleteText.textContent = 'Preparing…';
   deleteFill.style.width = '0%';
-  msg({ type: 'DELETE', emails });
+  const resp = await sendToContent({ type: 'DELETE', emails });
+  if (!resp || resp.ok === false) {
+    show('main');
+    toast('Could not start deletion: ' + (resp && resp.reason ? resp.reason : 'unknown error'), 'error');
+  }
 }
 
-// ── Message passing ────────────────────────────────────────────────────────────
-
-function msg(payload) {
-  return new Promise(resolve => chrome.runtime.sendMessage(payload, resolve));
-}
+// ── Broadcast listener ─────────────────────────────────────────────────────────
 
 chrome.runtime.onMessage.addListener(({ type, data }) => {
   if (type === 'SCAN_STATE') {
     if (data.status === 'done') {
-      msg({ type: 'GET_DATA' }).then(({ cache }) => {
+      getCache().then(cache => {
         if (cache) loadCache(cache);
         show('main');
         showProgress(false);
@@ -264,18 +293,16 @@ chrome.runtime.onMessage.addListener(({ type, data }) => {
 
   if (type === 'DELETE_STATE') {
     const d = data;
-    if (d.phase === 'done') {
-      msg({ type: 'GET_DATA' }).then(({ cache }) => {
+    if (d.status === 'done') {
+      getCache().then(cache => {
         if (cache) loadCache(cache);
         show('main');
         toast('Deletion complete ✓');
       });
     } else {
-      const pct = ((d.si + 1) / d.total * 100).toFixed(0);
+      const pct = d.total > 0 ? (d.chunk / d.total * 100).toFixed(0) : 0;
       deleteFill.style.width = `${pct}%`;
-      deleteText.textContent = d.phase === 'searching'
-        ? `Finding emails from ${d.email}…`
-        : `Deleting ${n(d.count)} emails from ${d.email}… (${d.si + 1}/${d.total})`;
+      deleteText.textContent = `Deleting batch ${d.chunk} of ${d.total}…`;
     }
   }
 
@@ -314,20 +341,31 @@ function toast(text, type = 'info') {
 
 // ── Events ─────────────────────────────────────────────────────────────────────
 
-$('btn-first-scan').addEventListener('click', () => {
+async function startScan() {
   show('main');
   showProgress(true);
-  updateProgress({ status: 'listing', total: 0 });
-  msg({ type: 'START_SCAN' });
-});
+  updateProgress({ category: 0, total: 5 });
+  const resp = await sendToContent({ type: 'START_SCAN' });
+  if (!resp || resp.ok === false) {
+    showProgress(false);
+    if (resp && resp.reason === 'no-tab') {
+      show('noTab');
+    } else {
+      show(allSenders.length ? 'main' : 'empty');
+      toast('Could not start scan: ' + (resp && resp.reason ? resp.reason : 'unknown error'), 'error');
+    }
+  }
+}
+
+$('btn-first-scan').addEventListener('click', startScan);
 
 $('btn-refresh').addEventListener('click', () => {
   selected.clear();
   updateActionBar();
-  showProgress(true);
-  updateProgress({ status: 'listing', total: 0 });
-  msg({ type: 'START_SCAN' });
+  startScan();
 });
+
+$('btn-retry-tab').addEventListener('click', init);
 
 $('search').addEventListener('input', e => { query = e.target.value; applyFilter(); });
 
