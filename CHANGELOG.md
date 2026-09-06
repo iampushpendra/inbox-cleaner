@@ -4,7 +4,11 @@ All notable changes to this project are documented in this file.
 Format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Versioning: see `VERSION` file (semver, no `package.json` — this isn't a Node/build project).
 
-## [Unreleased]
+## [3.0.0] - 2026-09-06
+
+### Changed
+- **Breaking:** replaced the Gmail API + OAuth architecture (`chrome.identity`, `gmail.readonly`/`gmail.modify` scopes, `background.js` service worker) with a content script (`content.js`/`parsing.js`) that automates the live Gmail web UI directly on `mail.google.com`. This eliminates Google's restricted-scope OAuth "unverified app" verification wall, which was blocking every real user except the developer/test accounts from signing in. Scanning is slower (renders and scrolls each category instead of batched API calls) and depends on Gmail's DOM staying stable, but requires no OAuth consent screen at all.
+- Extension now requires a `mail.google.com` tab to already be open — it does not auto-open one.
 
 ### Fixed
 - `manifest.json` `version` was stuck at `1.0.0` while the app/README/CHANGELOG had moved to `2.1.0` — fixed to keep the extension zip in sync with the rest of the project before Chrome Web Store submission.

@@ -60,15 +60,17 @@ This is the part that most commonly blocks approval — be exact.
 - **Single purpose**: "Scans a user's Gmail inbox across all categories and
   lets them bulk-move messages from selected senders to Trash."
 - **Permission justifications**:
-  - `identity` — "Used to obtain an OAuth token via chrome.identity.getAuthToken
-    so the user can sign in with their own Google account. No other identity
-    data is used."
+  - `host_permissions` (`mail.google.com`) — "Used to run a content script inside
+    the user's own already-authenticated Gmail tab, reading the rendered sender
+    name and date off each conversation row and driving Gmail's own bulk
+    'move to Trash' action. No network requests are made by the extension and
+    no other host is contacted."
   - `storage` — "Caches the scan results (sender name, email, count, category,
     last-received date) in chrome.storage.local so the user doesn't have to
-    rescan on every popup open. Cleared on sign-out."
-  - `host_permissions` (gmail.googleapis.com, www.googleapis.com) — "Required
-    to call the Gmail API directly from the browser (list messages, read
-    From/Date headers, move messages to Trash). No other host is contacted."
+    rescan on every popup open."
+  - `tabs` — "Used only to locate an already-open mail.google.com tab to send
+    scan/delete commands to; the extension does not read tab contents from
+    any other site."
 - **Data usage disclosure** — check these boxes honestly:
   - Does NOT collect personally identifiable info, health info, financial
     info, authentication info (beyond the OAuth token itself, which Google
@@ -123,5 +125,5 @@ UI convert better than any stock mockup, so this needs your Chrome, not me)
 
 ```bash
 cd /Users/pushpendrasingh/projects/inbox-cleaner
-zip -r inbox-cleaner-extension.zip manifest.json background.js popup.html popup.js popup.css icons/
+zip -r inbox-cleaner-extension.zip manifest.json content.js parsing.js popup.html popup.js popup.css icons/
 ```

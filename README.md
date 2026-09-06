@@ -5,7 +5,7 @@
 [![Live App](https://img.shields.io/badge/Live%20App-open-blue?style=flat-square)](https://iampushpendra.github.io/inbox-cleaner/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-**v2.1.0** — see [CHANGELOG.md](CHANGELOG.md) for what's new.
+**v3.0.0** — see [CHANGELOG.md](CHANGELOG.md) for what's new.
 
 ---
 
@@ -33,44 +33,36 @@ Or load it as a Chrome extension (see [Extension setup](#chrome-extension-setup)
 
 ## How it works
 
+**Chrome extension** (this repo's `manifest.json`/`content.js`/`popup.js`) — no OAuth, no API, no backend:
+
 ```
-Sign in with Google
+Open Gmail in a tab
        │
        ▼
-Pass 1 — messages.list (500/page)
-  Collects all message IDs across your inbox
+Content script navigates category:primary / social / promotions / updates / forums
+  Scrolls each category's results to completion, reads sender + date off each row
        │
        ▼
-Pass 2 — Gmail Batch API (100 msgs/request)
-  Reads only: From header · Date header · Label IDs
-  Never reads: subject, body, attachments, recipients
-       │
-       ▼
-Group by sender → ranked list
+Group by sender → ranked list (chrome.storage.local)
        │
   [You select senders + click "Move to Trash"]
        │
        ▼
-  from:<email> search → collect IDs
-  → messages.trash in batches of 100
+  from:(a OR b OR ...) search → Gmail's own "select all matching search" + Trash
 ```
 
-**OAuth scopes:**
-| Scope | Purpose |
-|-------|---------|
-| `gmail.readonly` | List messages, read From/Date headers |
-| `gmail.modify` | Move emails to Trash |
-
-No `https://mail.google.com/` (full access) is ever requested.
+**Web app** (`docs/index.html` at [iampushpendra.github.io/inbox-cleaner](https://iampushpendra.github.io/inbox-cleaner/)) is a separate surface that still uses Google Identity Services + the Gmail API directly — see `docs/app.js`.
 
 ---
 
 ## Privacy
 
-- **No server** — all API calls go directly from your browser to `gmail.googleapis.com`
-- **Metadata only** — only `From` and `Date` headers are read, never subject or body
-- **Local cache** — scan results live in `localStorage` on your device, cleared on sign-out
+**Chrome extension:**
+- **No API, no OAuth** — the content script reads sender/date directly off Gmail's own rendered page inside your browser; nothing is sent anywhere
+- **Local cache** — scan results live in `chrome.storage.local` on your device
 - **Trash, not delete** — emails go to Gmail Trash and stay there 30 days before auto-purge; you can restore them any time
+
+**Web app:** all API calls go directly from your browser to `gmail.googleapis.com`; only `From`/`Date` headers are read.
 
 [Full privacy policy →](https://iampushpendra.github.io/inbox-cleaner/privacy.html)
 
@@ -83,7 +75,7 @@ No `https://mail.google.com/` (full access) is ever requested.
 3. **Load unpacked** → select the repo root folder (not `docs/`)
 4. Click the 📥 icon in your Chrome toolbar
 
-Uses `chrome.identity.getAuthToken` — no redirect URI or backend needed.
+No sign-in step — the extension reads whichever Gmail tab you already have open.
 
 ---
 
@@ -92,9 +84,9 @@ Uses `chrome.identity.getAuthToken` — no redirect URI or backend needed.
 | Layer | Detail |
 |-------|--------|
 | Auth (web app) | Google Identity Services `initTokenClient` — token flow, no backend |
-| Auth (extension) | `chrome.identity.getAuthToken` |
-| Scan | Gmail multipart batch API — 100 messages per request |
-| Trash | Gmail multipart batch API — `POST /messages/{id}/trash` × 100 per request |
+| Auth (extension) | None — content script reads the page you're already signed into |
+| Scan (extension) | Content-script DOM automation — Gmail's `category:` search operator + auto-scroll |
+| Trash (extension) | Gmail's native "select all conversations that match this search" bulk action |
 | Storage | `localStorage` (web) · `chrome.storage.local` (extension) |
 | Framework | None — vanilla JS, zero dependencies, zero build step |
 
@@ -109,11 +101,13 @@ inbox-cleaner/
 │   ├── style.css
 │   ├── app.js
 │   └── privacy.html
-├── background.js       ← Extension service worker
+├── content.js          ← Extension content script (Gmail DOM automation)
+├── parsing.js           ← Pure parsing/aggregation logic (shared with test/)
 ├── popup.html          ← Extension popup
 ├── popup.css
 ├── popup.js
 ├── manifest.json       ← Manifest V3
+├── test/               ← Node built-in test runner (`node --test`)
 └── icons/
 ```
 
