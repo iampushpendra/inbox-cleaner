@@ -36,6 +36,8 @@ const SELECTORS = {
   threadIdAttr: 'data-legacy-thread-id',
   selectAllCheckbox: 'div[gh="tm"] div[role="checkbox"]',
   selectAllMatchingLink: 'span.Dj',
+  // aria-label is localized by Gmail's UI language — this only matches an
+  // English-language Gmail UI. Non-English locales will time out here.
   trashButton: 'div[gh="tm"] div[aria-label="Delete"]',
 };
 
@@ -77,9 +79,18 @@ function extractRow(rowEl) {
   return { name, email, dateTs, threadId };
 }
 
+function findScrollableAncestor(el) {
+  let node = el;
+  while (node && node !== document.body) {
+    if (node.scrollHeight > node.clientHeight) return node;
+    node = node.parentElement;
+  }
+  return null;
+}
+
 function findListContainer() {
   const anyRow = document.querySelector(SELECTORS.row);
-  return anyRow ? (anyRow.closest('table') || anyRow.parentElement) : null;
+  return anyRow ? findScrollableAncestor(anyRow) : null;
 }
 
 async function scrollUntilStable() {
@@ -106,7 +117,11 @@ async function scrollUntilStable() {
 
 async function scanCategory(op) {
   location.hash = `search/category:${op}`;
-  await waitForElement(SELECTORS.row);
+  try {
+    await waitForElement(SELECTORS.row);
+  } catch {
+    return []; // empty category — no rows to scroll or extract
+  }
   await scrollUntilStable();
 
   const rows = [...document.querySelectorAll(SELECTORS.row)].map(extractRow);
@@ -164,8 +179,19 @@ chrome.runtime.onMessage.addListener((msg, _sender, respond) => {
   }
 });
 
+async function waitForSearchQuery(query, timeoutMs = RENDER_TIMEOUT_MS) {
+  const start = Date.now();
+  while (Date.now() - start < timeoutMs) {
+    const input = document.querySelector('input[name="q"]');
+    if (input && input.value === query) return;
+    await sleep(200);
+  }
+  throw new Error(`Gmail's layout may have changed — search box never reflected the query "${query}"`);
+}
+
 async function selectAllMatchingAndTrash(query) {
   location.hash = `search/${encodeURIComponent(query)}`;
+  await waitForSearchQuery(query);
   await waitForElement(SELECTORS.selectAllCheckbox);
   await sleep(500); // let the result list settle before selecting
 
@@ -197,6 +223,7 @@ async function doDelete(emails) {
   if (stored) {
     const deletedEmails = new Set(emails);
     stored.senders = stored.senders.filter(s => !deletedEmails.has(s.email));
+    stored.total = stored.senders.reduce((sum, s) => sum + s.count, 0);
     await chrome.storage.local.set({ inboxCleanerData: stored });
   }
 
