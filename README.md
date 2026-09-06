@@ -102,7 +102,7 @@ inbox-cleaner/
 │   ├── app.js
 │   └── privacy.html
 ├── content.js          ← Extension content script (Gmail DOM automation)
-├── parsing.js           ← Pure parsing/aggregation logic (shared with test/)
+├── parsing.js          ← Pure parsing/aggregation logic (shared with test/)
 ├── popup.html          ← Extension popup
 ├── popup.css
 ├── popup.js
@@ -110,6 +110,15 @@ inbox-cleaner/
 ├── test/               ← Node built-in test runner (`node --test`)
 └── icons/
 ```
+
+---
+
+## Known limitations
+
+- **Scan counts are conversation-based and reflect Gmail's category tabs only** — the scan walks Primary/Social/Promotions/Updates/Forums and counts what's shown there.
+- **Delete removes ALL mail from a sender, not just what the scan counted** — the delete step runs a `from:` search across All Mail, which also matches archived mail outside any category tab. Expect the actual number of emails trashed to be at least as large as the scanned count.
+- **The scan/delete flow depends on Gmail's DOM structure** and may need selector updates if Gmail changes its markup — see the `SELECTORS` object in `content.js`.
+- **English Gmail UI only** — selectors may not match other locales.
 
 ---
 

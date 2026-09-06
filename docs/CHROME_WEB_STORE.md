@@ -35,15 +35,14 @@ WHAT IT DOES
 PRIVACY FIRST
 • Runs entirely in your browser — no server, no backend
 • Only reads the From and Date headers — never subject, body, or attachments
-• Nothing is ever sent anywhere except directly to Google's Gmail API
-• Scan results are cached locally in your browser and cleared on sign-out
+• Nothing is ever sent anywhere — no API calls, no network requests at all
+• Scan results are cached locally in your browser
 • Moves mail to Trash (recoverable for 30 days), never permanently deletes
 
 PERMISSIONS
-• identity — sign in with your Google account
 • storage — cache your scan results locally
-• gmail.readonly + gmail.modify — list messages and move them to Trash
-  (we never request full Gmail access)
+• host access to mail.google.com — read your Gmail page and drive its own
+  bulk "move to Trash" action; no API calls, no sign-in step
 
 Full privacy policy: https://iampushpendra.github.io/inbox-cleaner/privacy.html
 Try it with no install first: https://iampushpendra.github.io/inbox-cleaner/
@@ -101,11 +100,12 @@ UI convert better than any stock mockup, so this needs your Chrome, not me)
 - [x] `manifest.json` version bumped to match README/CHANGELOG (`2.1.0`)
 - [x] `manifest_version: 3` (required — already correct)
 - [x] No remote code execution, no `eval`, no CDN-loaded scripts in the
-      extension bundle (popup.js/background.js are self-contained — verify
-      before zip if this changes)
+      extension bundle (popup.js/content.js/parsing.js are self-contained —
+      verify before zip if this changes)
 - [x] Zip the repo root for upload — **exclude** `docs/`, `.git/`, `.vercel/`,
       `.superpowers/`, `.impeccable/`, `scripts/`, `*.py`, `.DS_Store` (the
-      Web Store only needs manifest.json, background.js, popup.*, icons/)
+      Web Store only needs manifest.json, content.js, parsing.js, popup.*,
+      icons/)
 - [x] $5 one-time developer registration fee (per Google account, not per
       extension)
 - [x] Review completed — listing is live ("Published - public" as of
