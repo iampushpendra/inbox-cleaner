@@ -61,6 +61,19 @@ test('buildFromQueries returns an empty array for no emails', () => {
   assert.deepEqual(buildFromQueries([]), []);
 });
 
+test('buildFromQueries filters out falsy/invalid entries before chunking', () => {
+  const queries = buildFromQueries(['a@x.com', '', 'b@x.com'], 2);
+  assert.deepEqual(queries, ['from:(a@x.com OR b@x.com)']);
+});
+
+test('buildFromQueries chunks at the default chunkSize of 20', () => {
+  const emails = Array.from({ length: 25 }, (_, i) => `user${i}@x.com`);
+  const queries = buildFromQueries(emails);
+  assert.equal(queries.length, 2);
+  assert.equal(queries[0], `from:(${emails.slice(0, 20).join(' OR ')})`);
+  assert.equal(queries[1], `from:(${emails.slice(20).join(' OR ')})`);
+});
+
 test('mergeCategoryResults aggregates count/latest/categories for a fresh accumulator', () => {
   const rows = [
     { name: 'A', email: 'a@x.com', dateTs: 100, threadId: 't1' },
@@ -82,6 +95,17 @@ test('mergeCategoryResults merges a second category into an existing accumulator
   ]);
   assert.deepEqual(acc['a@x.com'], { name: 'A', email: 'a@x.com', count: 2, latest: 200, categories: ['PRIMARY', 'SOCIAL'] });
   assert.deepEqual(acc['b@y.com'], { name: 'B', email: 'b@y.com', count: 1, latest: 50, categories: ['SOCIAL'] });
+});
+
+test('mergeCategoryResults skips a row with an empty email', () => {
+  const rows = [
+    { name: 'Unknown', email: '', dateTs: 100, threadId: 't1' },
+    { name: 'A', email: 'a@x.com', dateTs: 200, threadId: 't2' },
+  ];
+  const acc = mergeCategoryResults({}, 'PRIMARY', rows);
+  assert.deepEqual(acc, {
+    'a@x.com': { name: 'A', email: 'a@x.com', count: 1, latest: 200, categories: ['PRIMARY'] },
+  });
 });
 
 test('finalizeSenders sorts descending by count', () => {

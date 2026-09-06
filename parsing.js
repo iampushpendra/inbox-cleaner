@@ -33,9 +33,10 @@
   }
 
   function buildFromQueries(emails, chunkSize = 20) {
+    const valid = emails.filter(e => e && e.includes('@'));
     const queries = [];
-    for (let i = 0; i < emails.length; i += chunkSize) {
-      const chunk = emails.slice(i, i + chunkSize);
+    for (let i = 0; i < valid.length; i += chunkSize) {
+      const chunk = valid.slice(i, i + chunkSize);
       queries.push(`from:(${chunk.join(' OR ')})`);
     }
     return queries;
@@ -43,6 +44,7 @@
 
   function mergeCategoryResults(accumulator, category, rows) {
     for (const row of rows) {
+      if (!row.email) continue;
       const key = row.email;
       if (!accumulator[key]) {
         accumulator[key] = { name: row.name, email: row.email, count: 0, latest: 0, categories: [] };
