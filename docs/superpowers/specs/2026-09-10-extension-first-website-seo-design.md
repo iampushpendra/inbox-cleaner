@@ -182,4 +182,4 @@ Measured through Search Console and the Web Store dashboard:
 3. Homepage carries valid `SoftwareApplication` + `FAQPage` structured data (Rich Results Test passes).
 4. Track-2 pages published and indexed; GSC shows impressions on install-intent and privacy-cluster queries.
 5. Web Store install count trending above the current baseline (1 user).
-6. Landing page ships with zero JavaScript and no third-party requests.
+6. Landing page ships with zero JavaScript and no analytics or tracking requests. (The Google Fonts stylesheet stays — all 16 existing blog pages load it, and self-hosting Inter would mean touching every one of them. Tracked as a possible follow-up, not part of this work.)
