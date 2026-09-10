@@ -8,3 +8,4 @@ __pycache__/
 scripts/daily_publish.log
 scripts/daily_publish.launchd.log
 .impeccable/hook.cache.json
+.screenshot-tmp.html
