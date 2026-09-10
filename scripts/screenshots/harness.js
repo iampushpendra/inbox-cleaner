@@ -60,7 +60,7 @@ const STATES = {
   'ranked-list': () => {},
   'search-sort': () => {
     const search = document.getElementById('search');
-    search.value = 'e';
+    search.value = 'uber';
     search.dispatchEvent(new Event('input', { bubbles: true }));
   },
   'selection': () => clickRows(3),
