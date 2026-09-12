@@ -67,19 +67,25 @@ This is the part that most commonly blocks approval — be exact.
   - `storage` — "Caches the scan results (sender name, email, count, category,
     last-received date) in chrome.storage.local so the user doesn't have to
     rescan on every popup open."
-  - `tabs` — "Used only to locate an already-open mail.google.com tab to send
-    scan/delete commands to; the extension does not read tab contents from
-    any other site."
+  - `tabs` — "The popup needs the tab ID of the user's already-open Gmail tab
+    so it can send scan and move-to-Trash commands to its content script via
+    chrome.tabs.sendMessage. The only query the extension makes is
+    chrome.tabs.query({ url: 'https://mail.google.com/*' }) — restricted to the
+    single host already declared in host_permissions. No other tab is queried;
+    no tab URL, title, or content from any other site is read; and no tab is
+    created, modified, or closed. Without this the popup cannot reach its
+    content script and the extension cannot function."
 - **Data usage disclosure** — check these boxes honestly:
   - Does NOT collect personally identifiable info, health info, financial
-    info, authentication info (beyond the OAuth token itself, which Google
-    manages), personal communications content, location, web history, or
-    user activity — because subject/body/recipients are never read.
+    info, authentication info, personal communications content, location,
+    web history, or user activity — because subject/body/recipients are
+    never read. (3.0.0 note: there is no OAuth token and no sign-in of any
+    kind; the extension never authenticates.)
   - Email addresses of senders ARE read (that's the product), but this is
     the user's own inbox metadata processed locally, not transmitted to the
     developer or any third party. Declare "Personal communications" as
-    accessed-but-not-collected/transmitted, since nothing leaves the browser
-    except calls to Google's own API.
+    accessed-but-not-collected/transmitted: as of 3.0.0 the extension makes
+    no network requests at all, so nothing leaves the browser.
   - Certify: data is not sold to third parties; data is not used for
     purposes unrelated to the extension's single purpose; data is not used
     to determine creditworthiness or for lending.
