@@ -117,3 +117,90 @@ test('finalizeSenders sorts descending by count', () => {
   assert.equal(result[0].email, 'b@y.com');
   assert.equal(result[1].email, 'a@x.com');
 });
+
+// --- pagination + exact-count logic (A+B) ---
+
+const {
+  parseResultRange,
+  hasMorePages,
+  buildSenderQuery,
+  applyExactCounts,
+} = require('../parsing.js');
+
+test('parseResultRange parses Gmail\'s en-dash range with a comma-grouped total', () => {
+  assert.deepEqual(parseResultRange('1–100 of 12,847'), {
+    start: 1, end: 100, total: 12847, estimated: false,
+  });
+});
+
+test('parseResultRange accepts an ASCII hyphen as the range separator', () => {
+  assert.deepEqual(parseResultRange('101-200 of 900'), {
+    start: 101, end: 200, total: 900, estimated: false,
+  });
+});
+
+test('parseResultRange handles Indian digit grouping in the total', () => {
+  assert.equal(parseResultRange('1–100 of 1,00,000').total, 100000);
+});
+
+test('parseResultRange treats "of many" as an estimate with an unknown total', () => {
+  assert.deepEqual(parseResultRange('1–100 of many'), {
+    start: 1, end: 100, total: null, estimated: true,
+  });
+});
+
+test('parseResultRange tolerates non-breaking spaces', () => {
+  assert.equal(parseResultRange('1 – 100 of 250').total, 250);
+});
+
+test('parseResultRange returns null for text that is not a result range', () => {
+  assert.equal(parseResultRange(''), null);
+  assert.equal(parseResultRange('Inbox'), null);
+  assert.equal(parseResultRange(undefined), null);
+});
+
+test('hasMorePages is true when the page end is short of the total', () => {
+  assert.equal(hasMorePages({ start: 1, end: 100, total: 12847, estimated: false }), true);
+});
+
+test('hasMorePages is false on the last page', () => {
+  assert.equal(hasMorePages({ start: 201, end: 250, total: 250, estimated: false }), false);
+});
+
+test('hasMorePages is true when the total is an unknown estimate', () => {
+  assert.equal(hasMorePages({ start: 1, end: 100, total: null, estimated: true }), true);
+});
+
+test('hasMorePages is false when the range could not be parsed', () => {
+  assert.equal(hasMorePages(null), false);
+});
+
+test('buildSenderQuery builds an All Mail from: query for one sender', () => {
+  assert.equal(buildSenderQuery('News@Shop.com'), 'from:(news@shop.com)');
+});
+
+test('applyExactCounts replaces the sampled count and preserves it as sampledCount', () => {
+  const senders = [{ name: 'A', email: 'a@x.com', count: 23, latest: 5, categories: ['PROMOTIONS'] }];
+  const result = applyExactCounts(senders, { 'a@x.com': 812 });
+  assert.deepEqual(result, [{
+    name: 'A', email: 'a@x.com', count: 812, sampledCount: 23,
+    latest: 5, categories: ['PROMOTIONS'], exact: true,
+  }]);
+});
+
+test('applyExactCounts keeps the sampled count when no exact total is available', () => {
+  const senders = [{ name: 'A', email: 'a@x.com', count: 23, latest: 5, categories: [] }];
+  const result = applyExactCounts(senders, { 'a@x.com': null });
+  assert.equal(result[0].count, 23);
+  assert.equal(result[0].sampledCount, 23);
+  assert.equal(result[0].exact, false);
+});
+
+test('applyExactCounts re-sorts by the exact count, not the sampled one', () => {
+  const senders = [
+    { name: 'A', email: 'a@x.com', count: 50, latest: 1, categories: [] },
+    { name: 'B', email: 'b@y.com', count: 10, latest: 1, categories: [] },
+  ];
+  const result = applyExactCounts(senders, { 'a@x.com': 60, 'b@y.com': 4000 });
+  assert.deepEqual(result.map(s => s.email), ['b@y.com', 'a@x.com']);
+});

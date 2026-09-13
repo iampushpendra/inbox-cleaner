@@ -5,7 +5,7 @@
 [![Live App](https://img.shields.io/badge/Live%20App-open-blue?style=flat-square)](https://iampushpendra.github.io/inbox-cleaner/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-**v3.0.0** — see [CHANGELOG.md](CHANGELOG.md) for what's new.
+**v3.1.0** — see [CHANGELOG.md](CHANGELOG.md) for what's new.
 
 ---
 
@@ -115,8 +115,9 @@ inbox-cleaner/
 
 ## Known limitations
 
-- **Scan counts are conversation-based and reflect Gmail's category tabs only** — the scan walks Primary/Social/Promotions/Updates/Forums and counts what's shown there.
-- **Delete removes ALL mail from a sender, not just what the scan counted** — the delete step runs a `from:` search across All Mail, which also matches archived mail outside any category tab. Expect the actual number of emails trashed to be at least as large as the scanned count.
+- **Sender discovery reflects Gmail's category tabs** — the scan walks Primary/Social/Promotions/Updates/Forums, paginating each to the end. A sender who appears in none of those tabs will not be discovered.
+- **Only the 250 heaviest senders get an exact count** (`MAX_SENDERS_TO_COUNT` in `content.js`). Those show the true All Mail total — the same scope delete uses, so the number shown is the number trashed. The remaining long tail keeps its sampled count, renders with a `~`, and can still under-report what delete removes.
+- **A full scan takes minutes, not seconds** — it paginates the whole mailbox and then runs one search per counted sender. This is the cost of the DOM-automation architecture; the old Gmail API path did it in ~20 batched calls but required OAuth verification.
 - **The scan/delete flow depends on Gmail's DOM structure** and may need selector updates if Gmail changes its markup — see the `SELECTORS` object in `content.js`.
 - **English Gmail UI only** — selectors may not match other locales.
 

@@ -4,6 +4,44 @@ All notable changes to this project are documented in this file.
 Format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Versioning: see `VERSION` file (semver, no `package.json` — this isn't a Node/build project).
 
+## [3.1.0] - 2026-09-13
+
+### Fixed
+- **The scan only ever read the first page of each category.** `scrollUntilStable()`
+  assumed Gmail's conversation list infinitely scrolls; it paginates. Scrolling hit
+  the bottom of page 1, the row count stopped changing, and the scan moved on — so
+  every scan returned at most (categories x page size) conversations regardless of
+  mailbox size. On a 10k+ mailbox at Gmail's 100-per-page maximum that was a fixed
+  500-conversation ceiling, about 5% of the inbox. The scan now clicks through
+  Older to the end of each category.
+- **Sender counts understated what delete would actually remove.** Counts came from
+  that page-1 sample while delete runs `from:` across All Mail, so the popup could
+  show a sender at 23 and trash 800. Counts are now read from Gmail's own result
+  counter over the same All Mail scope the delete uses.
+
+### Added
+- Two-phase scan: phase A paginates each category to discover senders, phase B runs
+  one `from:` search per sender and reads the exact total off Gmail's result counter
+  (O(senders) rather than O(emails)).
+- `parseResultRange` / `hasMorePages` / `buildSenderQuery` / `applyExactCounts` in
+  `parsing.js`, with 14 new tests. `parseResultRange` handles en-dash and ASCII
+  separators, Western and Indian digit grouping, non-breaking spaces, and Gmail's
+  estimated "of many" totals.
+- Counts that could not be resolved exactly render with a `~` prefix and an
+  explanatory tooltip; the delete confirmation states an exact number when every
+  selected sender is exact and keeps saying "at least" otherwise.
+- Progress now reports both phases ("Scanning category 2 of 5", "Counting sender
+  37 of 250") with the category page or sender in flight.
+
+### Changed
+- A full scan is now minutes rather than seconds — it is bounded by the mailbox,
+  not by one page. Phase B is capped at the 250 heaviest senders (`MAX_SENDERS_TO_COUNT`);
+  the long tail keeps its sampled count and is flagged inexact.
+- Pagination reads Gmail's result counter by text match rather than class name, so a
+  Gmail CSS reshuffle degrades to "stop early" instead of breaking.
+- Removed `scrollUntilStable` / `SCROLL_STABLE_LIMIT`; a single adaptive scroll now
+  fires only when a page renders fewer rows than its own counter claims.
+
 ## [3.0.0] - 2026-09-06
 
 ### Changed

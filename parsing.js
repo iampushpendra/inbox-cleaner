@@ -61,6 +61,60 @@
     return Object.values(accumulator).sort((a, b) => b.count - a.count);
   }
 
+  // Gmail's result-count indicator, e.g. "1-100 of 12,847". The separator is
+  // normally an en dash but Gmail is inconsistent across locales, and large or
+  // approximate result sets render as "of many" instead of a number.
+  const RESULT_RANGE_RE = /([\d,]+)\s*[-\u2013\u2014]\s*([\d,]+)\s+of\s+(many|[\d,]+)/i;
+
+  // Strips any digit grouping (Western "12,847" and Indian "1,00,000" alike).
+  function toInt(text) {
+    return parseInt(String(text).replace(/[^\d]/g, ''), 10);
+  }
+
+  function parseResultRange(text) {
+    if (!text) return null;
+    const match = String(text).replace(/\u00a0/g, ' ').match(RESULT_RANGE_RE);
+    if (!match) return null;
+    const estimated = /many/i.test(match[3]);
+    return {
+      start: toInt(match[1]),
+      end: toInt(match[2]),
+      total: estimated ? null : toInt(match[3]),
+      estimated,
+    };
+  }
+
+  // An unparseable range means "stop" -- better to under-scan than to loop
+  // forever clicking Older against a page we no longer understand.
+  function hasMorePages(range) {
+    if (!range) return false;
+    if (range.estimated) return true;
+    return range.end < range.total;
+  }
+
+  function buildSenderQuery(email) {
+    return `from:(${String(email || '').trim().toLowerCase()})`;
+  }
+
+  // Phase B: swap each sender's page-sampled count for the exact All Mail total
+  // read off Gmail's own result counter, keeping the sample for diagnostics.
+  // A sender whose count could not be resolved keeps its sample and is flagged
+  // inexact so the UI can say so rather than quietly overstating precision.
+  function applyExactCounts(senders, exactCounts) {
+    return senders
+      .map(sender => {
+        const total = exactCounts ? exactCounts[sender.email] : null;
+        const exact = typeof total === 'number' && Number.isFinite(total);
+        return {
+          ...sender,
+          count: exact ? total : sender.count,
+          sampledCount: sender.count,
+          exact,
+        };
+      })
+      .sort((a, b) => b.count - a.count);
+  }
+
   return {
     parseSenderFromAttrs,
     parseDateFromTitle,
@@ -68,5 +122,9 @@
     buildFromQueries,
     mergeCategoryResults,
     finalizeSenders,
+    parseResultRange,
+    hasMorePages,
+    buildSenderQuery,
+    applyExactCounts,
   };
 });

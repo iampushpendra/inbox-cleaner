@@ -100,7 +100,7 @@ async function init() {
 
 function loadCache(cache) {
   allSenders = cache.senders;
-  cachedMeta = { total: cache.total, scannedAt: cache.scannedAt };
+  cachedMeta = { total: cache.total, scannedAt: cache.scannedAt, exactCount: cache.exactCount };
   updateHeader();
   applyFilter();
 }
@@ -186,7 +186,7 @@ function renderList() {
         <div class="row-email">${esc(s.email)}</div>
         <div class="row-meta">${badges}${dateStr}</div>
       </div>
-      <div class="count-chip ${chipClass(s.count)}">${s.count >= 1000 ? (s.count/1000).toFixed(1)+'k' : s.count}</div>
+      <div class="count-chip ${chipClass(s.count)}" title="${s.exact ? 'Exact total across All Mail' : 'Approximate — counted from scanned pages only'}">${s.exact ? '' : '~'}${s.count >= 1000 ? (s.count/1000).toFixed(1)+'k' : s.count}</div>
     `;
 
     const cb = row.querySelector('input[type=checkbox]');
@@ -239,19 +239,35 @@ function showProgress(visible) {
 }
 
 function updateProgress(state) {
-  const pct = state.total > 0 ? (state.category / state.total * 100) : 0;
+  const pct = state.total > 0 ? (state.done / state.total * 100) : 0;
   progressFill.style.width = `${pct}%`;
-  progressText.textContent = `Scanning category ${state.category} of ${state.total}…`;
+
+  const label = state.phase === 'counts'
+    ? `Counting sender ${state.done} of ${state.total}…`
+    : `Scanning category ${state.done} of ${state.total}…`;
+  const detail = state.detail && state.detail.length > 34
+    ? state.detail.slice(0, 33) + '…'
+    : state.detail;
+
+  progressText.textContent = detail ? `${label} ${detail}` : label;
 }
 
 // ── Delete flow ────────────────────────────────────────────────────────────────
 
 function promptDelete() {
-  const totalEmails = allSenders.filter(s => selected.has(s.email)).reduce((a, s) => a + s.count, 0);
+  const chosen = allSenders.filter(s => selected.has(s.email));
+  const totalEmails = chosen.reduce((a, s) => a + s.count, 0);
   const sndr = selected.size;
-  modalText.textContent =
-    `Move all mail from ${sndr} sender${sndr !== 1 ? 's' : ''} to Trash — at least ${n(totalEmails)} email${totalEmails !== 1 ? 's' : ''}, ` +
-    `including any archived mail not shown here. Gmail auto-purges Trash after 30 days.`;
+  const plural = n => n !== 1 ? 's' : '';
+
+  // An exact count came from the same All Mail `from:` scope the delete uses,
+  // so it is the number that will actually be trashed. A sampled count is only
+  // a floor, and the dialog has to keep saying so.
+  modalText.textContent = chosen.every(s => s.exact)
+    ? `Move all mail from ${sndr} sender${plural(sndr)} to Trash — ${n(totalEmails)} email${plural(totalEmails)}, ` +
+      `counted across All Mail including archived. Gmail auto-purges Trash after 30 days.`
+    : `Move all mail from ${sndr} sender${plural(sndr)} to Trash — at least ${n(totalEmails)} email${plural(totalEmails)}, ` +
+      `including archived mail not counted here. Gmail auto-purges Trash after 30 days.`;
   modal.classList.remove('hidden');
 }
 
@@ -278,7 +294,10 @@ chrome.runtime.onMessage.addListener(({ type, data }) => {
         if (cache) loadCache(cache);
         show('main');
         showProgress(false);
-        toast(`Scan complete — ${n(allSenders.length)} senders found`);
+        const exact = cachedMeta && cachedMeta.exactCount;
+        toast(exact
+          ? `Scan complete — ${n(allSenders.length)} senders, ${n(exact)} counted exactly`
+          : `Scan complete — ${n(allSenders.length)} senders found`);
       });
     } else if (data.status === 'error') {
       showProgress(false);

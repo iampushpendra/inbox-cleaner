@@ -6,6 +6,10 @@ const {
   dedupeRowsByThreadId,
   mergeCategoryResults,
   finalizeSenders,
+  parseResultRange,
+  hasMorePages,
+  buildSenderQuery,
+  applyExactCounts,
 } = self.InboxCleanerParsing;
 
 // Gmail's own `category:` search operator names (lowercase, matches what a
@@ -20,9 +24,18 @@ const CATEGORIES = [
   { op: 'forums', label: 'FORUMS' },
 ];
 
-const SCROLL_STABLE_LIMIT = 3;
 const RENDER_TIMEOUT_MS = 15000;
 const SCROLL_SETTLE_MS = 700;
+const PAGE_SETTLE_MS = 400;
+
+// Gmail caps its own list at 100 conversations per page, so this is a runaway
+// guard, not a product limit: 500 pages is ~50k conversations per category.
+const MAX_PAGES_PER_CATEGORY = 500;
+
+// Phase B costs one Gmail search per sender (~1-2s each). Counting every sender
+// in a long tail would run for an hour, so only the heaviest senders get an
+// exact total; the rest keep their sampled count and are flagged inexact.
+const MAX_SENDERS_TO_COUNT = 250;
 
 // These target Gmail's classic list-view markup. Gmail does not publish a
 // stable API for its own DOM — if a scan/delete step starts throwing
@@ -36,6 +49,14 @@ const SELECTORS = {
   threadIdAttr: 'data-legacy-thread-id',
   selectAllCheckbox: 'div[gh="tm"] div[role="checkbox"]',
   selectAllMatchingLink: 'span.Dj',
+  toolbar: 'div[gh="tm"]',
+  // Tried in order; the first one present and not aria-disabled wins. Like
+  // trashButton, these are English-UI only.
+  olderButton: [
+    'div[gh="tm"] div[role="button"][aria-label="Older"]',
+    'div[gh="tm"] div[aria-label="Older"]',
+    'div[gh="tm"] div[data-tooltip="Older"]',
+  ],
   // aria-label is localized by Gmail's UI language — this only matches an
   // English-language Gmail UI. Non-English locales will time out here.
   trashButton: 'div[gh="tm"] div[aria-label="Delete"]',
@@ -93,70 +114,173 @@ function findListContainer() {
   return anyRow ? findScrollableAncestor(anyRow) : null;
 }
 
-async function scrollUntilStable() {
-  let stableCount = 0;
-  let lastRowCount = -1;
-
-  while (stableCount < SCROLL_STABLE_LIMIT) {
-    const container = findListContainer();
-    if (container) {
-      container.scrollTop = container.scrollHeight;
-      container.dispatchEvent(new Event('scroll', { bubbles: true }));
-    }
-    await sleep(SCROLL_SETTLE_MS);
-
-    const rowCount = document.querySelectorAll(SELECTORS.row).length;
-    if (rowCount === lastRowCount) {
-      stableCount += 1;
-    } else {
-      stableCount = 0;
-      lastRowCount = rowCount;
-    }
-  }
+async function scrollListToBottom() {
+  const container = findListContainer();
+  if (!container) return;
+  container.scrollTop = container.scrollHeight;
+  container.dispatchEvent(new Event('scroll', { bubbles: true }));
 }
 
-async function scanCategory(op) {
+// Gmail's "1-100 of 12,847" counter. Read by text rather than class name so a
+// Gmail CSS reshuffle doesn't silently break pagination; the tightest-matching
+// element wins so an outer container's stray digits can't be misread.
+function readResultRange() {
+  const toolbar = document.querySelector(SELECTORS.toolbar);
+  if (!toolbar) return null;
+
+  let best = null;
+  for (const el of toolbar.querySelectorAll('div, span')) {
+    const text = el.textContent;
+    if (!text || text.length > 60) continue;
+    const range = parseResultRange(text);
+    if (range && (!best || text.length < best.length)) {
+      best = { range, length: text.length };
+    }
+  }
+  return best ? best.range : null;
+}
+
+function findOlderButton() {
+  for (const selector of SELECTORS.olderButton) {
+    const el = document.querySelector(selector);
+    if (el && el.getAttribute('aria-disabled') !== 'true') return el;
+  }
+  return null;
+}
+
+async function waitForRangeChange(previousStart, timeoutMs = RENDER_TIMEOUT_MS) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    const range = readResultRange();
+    if (range && range.start !== previousStart) return true;
+    await sleep(200);
+  }
+  return false;
+}
+
+function extractVisibleRows() {
+  return [...document.querySelectorAll(SELECTORS.row)].map(extractRow);
+}
+
+// Phase A: walk every page of a category, not just the first one. Gmail
+// paginates (Older/Newer) rather than infinite-scrolling, so the previous
+// scroll-until-stable approach always stopped at page 1.
+async function scanCategory(op, onPage) {
   location.hash = `search/category:${op}`;
   try {
     await waitForElement(SELECTORS.row);
   } catch {
-    return []; // empty category — no rows to scroll or extract
+    return []; // empty category — nothing to paginate
   }
-  await scrollUntilStable();
 
-  const rows = [...document.querySelectorAll(SELECTORS.row)].map(extractRow);
+  const rows = [];
+  let pages = 0;
+
+  while (pages < MAX_PAGES_PER_CATEGORY) {
+    await sleep(PAGE_SETTLE_MS);
+
+    let pageRows = extractVisibleRows();
+    const range = readResultRange();
+
+    // If Gmail rendered fewer rows than the page claims to hold, the list is
+    // lazily filling — scroll once and re-read rather than losing the rest.
+    const expected = range ? range.end - range.start + 1 : 0;
+    if (expected && pageRows.length < expected) {
+      await scrollListToBottom();
+      await sleep(SCROLL_SETTLE_MS);
+      pageRows = extractVisibleRows();
+    }
+
+    rows.push(...pageRows);
+    pages += 1;
+    if (onPage) onPage(pages, rows.length);
+
+    if (!hasMorePages(range)) break;
+
+    const older = findOlderButton();
+    if (!older) break;
+
+    older.click();
+    if (!(await waitForRangeChange(range.start))) break;
+  }
+
   return dedupeRowsByThreadId(rows);
 }
 
-let scanState = { status: 'idle', category: 0, total: CATEGORIES.length, error: null };
+// Phase B: ask Gmail how many messages this sender actually has across All
+// Mail, instead of trusting how many happened to land in the scanned pages.
+// This is the same scope the delete step uses, so the number shown is the
+// number that will be trashed. Returns null when Gmail won't give an exact
+// total (an estimated "of many" result, or no counter at all).
+async function countSenderExactly(email) {
+  const query = buildSenderQuery(email);
+  location.hash = `search/${encodeURIComponent(query)}`;
+  await waitForSearchQuery(query).catch(() => {});
+
+  const deadline = Date.now() + RENDER_TIMEOUT_MS;
+  while (Date.now() < deadline) {
+    const range = readResultRange();
+    if (range) return range.estimated ? null : range.total;
+    await sleep(200);
+  }
+  return null;
+}
+
+let scanState = {
+  status: 'idle', phase: 'pages', done: 0, total: CATEGORIES.length, detail: '', error: null,
+};
 
 function broadcast(type, data) {
   chrome.runtime.sendMessage({ type, data }).catch(() => {});
 }
 
-async function doScan() {
-  scanState = { status: 'scanning', category: 0, total: CATEGORIES.length, error: null };
+function setScanState(patch) {
+  scanState = { ...scanState, ...patch };
   broadcast('SCAN_STATE', { ...scanState });
+}
+
+async function doScan() {
+  // ── Phase A: paginate every category and collect the senders ──────────────
+  setScanState({
+    status: 'scanning', phase: 'pages', done: 0, total: CATEGORIES.length, detail: '', error: null,
+  });
 
   let accumulator = {};
   for (let i = 0; i < CATEGORIES.length; i++) {
     const cat = CATEGORIES[i];
-    const rows = await scanCategory(cat.op);
+    const rows = await scanCategory(cat.op, (pages, rowsSoFar) => {
+      setScanState({ detail: `${cat.label} · page ${pages} · ${rowsSoFar} rows` });
+    });
     accumulator = mergeCategoryResults(accumulator, cat.label, rows);
-
-    scanState = { status: 'scanning', category: i + 1, total: CATEGORIES.length, error: null };
-    broadcast('SCAN_STATE', { ...scanState });
+    setScanState({ done: i + 1 });
   }
 
-  const senders = finalizeSenders(accumulator);
+  let senders = finalizeSenders(accumulator);
+
+  // ── Phase B: replace sampled counts with Gmail's own All Mail totals ──────
+  const targets = senders.slice(0, MAX_SENDERS_TO_COUNT);
+  setScanState({ phase: 'counts', done: 0, total: targets.length, detail: '' });
+
+  const exactCounts = {};
+  for (let i = 0; i < targets.length; i++) {
+    const sender = targets[i];
+    try {
+      exactCounts[sender.email] = await countSenderExactly(sender.email);
+    } catch {
+      exactCounts[sender.email] = null; // stays inexact rather than failing the scan
+    }
+    setScanState({ done: i + 1, detail: sender.email });
+  }
+
+  senders = applyExactCounts(senders, exactCounts);
   const total = senders.reduce((sum, s) => sum + s.count, 0);
+  const exactCount = senders.filter(s => s.exact).length;
 
   await chrome.storage.local.set({
-    inboxCleanerData: { senders, scannedAt: Date.now(), total },
+    inboxCleanerData: { senders, scannedAt: Date.now(), total, exactCount },
   });
 
-  scanState = { status: 'done', category: CATEGORIES.length, total: CATEGORIES.length, error: null };
-  broadcast('SCAN_STATE', { ...scanState });
+  setScanState({ status: 'done', detail: '' });
 }
 
 chrome.runtime.onMessage.addListener((msg, _sender, respond) => {
