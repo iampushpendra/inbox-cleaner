@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="canonical" href="https://inbox-cleaner.vercel.app/blog/how-to-delete-emails-older-than-a-year-gmail.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Delete Emails Older Than a Year in Gmail (2026 Guide) | Inbox Cleaner</title>
+  <meta name="description" content="Search older_than:1y in Gmail, select all conversations, and delete. Here's how to do it safely, what to exclude first, and what to do when select-all fails.">
+  <meta property="og:title" content="How to Delete Emails Older Than a Year in Gmail (2026 Guide)">
+  <meta property="og:description" content="Search older_than:1y in Gmail, select all conversations, and delete. Here's how to do it safely, what to exclude first, and what to do when select-all fails.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://inbox-cleaner.vercel.app/blog/how-to-delete-emails-older-than-a-year-gmail.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Delete Emails Older Than a Year in Gmail",
+    "datePublished": "2026-09-22",
+    "dateModified": "2026-09-22",
+    "author": { "@type": "Organization", "name": "Inbox Cleaner" },
+    "publisher": { "@type": "Organization", "name": "Inbox Cleaner", "url": "https://inbox-cleaner.vercel.app" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Delete Emails Older Than a Year in Gmail",
+    "step": [
+      { "@type": "HowToStep", "name": "Search for mail older than a year", "text": "Type older_than:1y into Gmail's search bar and press Enter. Gmail returns every message received more than 12 months ago, across all labels." },
+      { "@type": "HowToStep", "name": "Narrow the search before deleting", "text": "Add exclusions so nothing important is caught. For example: older_than:1y -is:starred -is:important -has:attachment -from:hr@company.com" },
+      { "@type": "HowToStep", "name": "Select every matching conversation", "text": "Click the checkbox above the message list to select the visible 50, then click \"Select all conversations that match this search\" in the banner that appears." },
+      { "@type": "HowToStep", "name": "Move the batch to Trash", "text": "Click the Trash icon and confirm. The messages move to Trash, where you have 30 days to restore anything you didn't mean to delete." },
+      { "@type": "HowToStep", "name": "Use a sender-based pass for large backlogs", "text": "If the select-all banner times out, connect Gmail at inbox-cleaner.vercel.app, review the senders ranked by volume, and move the biggest offenders to Trash in one click." }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the Gmail search for emails older than one year?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Type older_than:1y in the search bar. Gmail also accepts older_than:12m and older_than:365d, which return the same results. The operator counts back from today, so the cutoff moves forward every day you run it." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does older_than:1y include emails I sent?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The operator matches on date, not location, so it covers Sent, Archive, All Mail, Spam, and Trash as well as your inbox. Add in:inbox to restrict it to the inbox only." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I delete emails from before a specific date instead?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Use before:2025/09/22 with the date in YYYY/MM/DD format. Unlike older_than:1y, this is a fixed cutoff that doesn't shift as time passes, which makes it better for a repeatable cleanup." }
+      },
+      {
+        "@type": "Question",
+        "name": "Will deleting a year of old email free up Gmail storage right away?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Deleted mail sits in Trash for 30 days and keeps counting against your 15 GB until then. Open Trash and click \"Empty Trash now\" if you need the space immediately." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I make Gmail delete emails older than a year automatically?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Not with a plain filter — filters only run on incoming mail, and a message isn't a year old when it arrives. Use a Google Apps Script on a daily trigger that searches older_than:1y and trashes the results, or repeat the manual search every few months." }
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>📥</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-logo" href="/">📥 Inbox<span>Cleaner</span></a>
+  <div class="blog-nav-right">
+    <a class="nav-blog-link" href="/blog/">Blog</a>
+    <a class="blog-nav-cta" href="/">Try the free tool →</a>
+  </div>
+</nav>
+
+<main>
+  <div class="blog-wrap">
+    <span class="blog-eyebrow">Gmail Tips</span>
+    <h1 class="blog-h1">How to Delete Emails Older Than a Year in Gmail</h1>
+    <p class="blog-meta">Updated September 2026 · 6 min read</p>
+
+    <div class="blog-body">
+
+      <div class="quick-answer">
+        <strong>Quick answer:</strong> To delete emails older than a year in Gmail, search <code>older_than:1y</code>, click the checkbox above the message list, then click "Select all conversations that match this search" and hit the Trash icon. Add exclusions like <code>-is:starred -has:attachment</code> to the search first so nothing you need gets caught. The deleted mail sits in Trash for 30 days before it's gone for good.
+      </div>
+
+      <p>A year is a sensible cutoff. Almost nothing from twelve months ago still needs to be one search away, and on a typical account that stretch of mail is where the newsletters, receipts, and notification noise have quietly stacked up. The mechanics take about two minutes — the part worth slowing down for is deciding what the search should <em>not</em> match.</p>
+
+      <h2>How do I delete emails older than a year in Gmail?</h2>
+
+      <ol class="blog-steps">
+        <li>Open Gmail and type <code>older_than:1y</code> into the search bar, then press Enter.</li>
+        <li>Scan the first page of results. This is your sanity check — if you see anything you'd miss, go back and refine the search before selecting anything.</li>
+        <li>Click the checkbox at the top-left of the message list. That selects the 50 conversations on the current page.</li>
+        <li>A banner appears above the list: <strong>"Select all conversations that match this search."</strong> Click it. The selection now covers every matching message, not just the visible page.</li>
+        <li>Click the <strong>Trash</strong> icon and confirm when Gmail asks. Everything moves to Trash with a 30-day window to restore it.</li>
+      </ol>
+
+      <p>Gmail also accepts <code>older_than:12m</code> and <code>older_than:365d</code> — all three return identical results, so use whichever you'll remember.</p>
+
+      <h2>What should I exclude before deleting a year of email?</h2>
+
+      <p>A bare <code>older_than:1y</code> is broader than most people expect. It matches on date alone, which means it sweeps in Sent mail, archived threads, and anything sitting in All Mail — not just your inbox. Build the search up in pieces instead:</p>
+
+      <ol class="blog-steps">
+        <li><code>older_than:1y in:inbox</code> — limits the cleanup to the inbox and leaves Sent and archived mail untouched.</li>
+        <li><code>older_than:1y -is:starred -is:important</code> — skips anything you or Gmail flagged as worth keeping.</li>
+        <li><code>older_than:1y -has:attachment</code> — protects old contracts, tax documents, and photos people sent you.</li>
+        <li><code>older_than:1y -from:bank.com -from:irs.gov</code> — excludes specific senders. Repeat the <code>-from:</code> term for each one.</li>
+      </ol>
+
+      <p>These stack, so a cautious full search looks like <code>older_than:1y in:inbox -is:starred -is:important -has:attachment</code>. Run it, check the result count Gmail shows, and only then select all.</p>
+
+      <p>If you want the opposite of caution — clearing out attachments specifically because they're what's eating your quota — handle that as its own pass. <a href="../blog/how-to-find-biggest-emails-gmail.html">How to Find the Biggest Emails in Gmail</a> covers finding the heavy messages so you can review them individually instead of trashing them blind.</p>
+
+      <div class="blog-cta">
+        <h3>Delete Gmail emails in bulk — free</h3>
+        <p>No install. Runs in your browser. Emails go to Trash (30-day recovery window).</p>
+        <a class="blog-cta-btn" href="https://inbox-cleaner.vercel.app">Open Inbox Cleaner →</a>
+      </div>
+
+      <h2>Why does Gmail's select-all fail on a year of old email?</h2>
+
+      <p>Gmail's page checkbox only ever selects 50 conversations. The "select all conversations that match this search" banner is what extends it past that — and on a year's worth of mail, that's often tens of thousands of messages routed through a single browser request. It frequently stalls, times out, or reports success while only part of the batch actually moved.</p>
+
+      <p>The usual workaround is to shrink each batch so the request completes. Instead of one enormous delete, run the search quarter by quarter using fixed dates: <code>before:2025/03/31 after:2024/12/31</code>, then the next window, and so on. Slower, but each pass reliably finishes.</p>
+
+      <p>The other approach is to stop thinking in dates and think in senders. Old mail is rarely spread evenly — it's concentrated in a handful of senders that mailed you weekly for years. Inbox Cleaner scans your whole mailbox through the Gmail API rather than the page you're looking at, ranks every sender by how many messages they've sent you, and moves an entire sender's mail to Trash in one click with no 50-per-page ceiling. Clearing the top ten senders usually removes more old email than a date search does, and you can see exactly what you're deleting before you commit. The same logic applies to any large cleanup — see <a href="../blog/how-to-bulk-delete-gmail-emails.html">How to Bulk Delete Gmail Emails</a> for the general version.</p>
+
+      <h2>How do I delete emails before a specific date instead?</h2>
+
+      <p>Use <code>before:</code> with a date in <code>YYYY/MM/DD</code> format — for example <code>before:2025/09/22</code>. The difference matters more than it looks: <code>older_than:1y</code> is a rolling window that moves forward every day, while <code>before:</code> is a fixed line in the sand.</p>
+
+      <p>That makes <code>before:</code> the better choice when you're working through a big cleanup over several sessions, since the result set doesn't drift between runs. Pair it with <code>after:</code> to carve out a specific window: <code>before:2025/01/01 after:2023/12/31</code> gives you exactly the 2024 calendar year.</p>
+
+      <h2>Can Gmail delete emails older than a year automatically?</h2>
+
+      <p>Not with a standard filter. Filters run once, when a message arrives, and a brand-new email is never a year old — so a filter with <code>older_than:1y</code> as its condition will match nothing, forever. This trips up a lot of people.</p>
+
+      <p>There are two workable options. The first is a Google Apps Script on a daily time-driven trigger that searches <code>older_than:1y</code> and moves the results to Trash; it runs on Google's servers, so nothing has to stay open on your machine. The second is simply calendaring the manual search four times a year, which is enough to keep a normal inbox from rebuilding a decade-deep backlog.</p>
+
+      <p>Filters are still worth setting up — just point them at the incoming mail you already know you don't want, so there's less to clean up a year from now. <a href="../blog/gmail-filters-delete-emails-automatically.html">Gmail Filters to Delete Emails Automatically</a> walks through the conditions and actions in detail.</p>
+
+      <h2>Does this actually free up storage?</h2>
+
+      <p>Eventually. Deleting moves mail to Trash, and messages in Trash keep counting against your 15 GB for the full 30 days before Gmail purges them. If you're deleting because you're near the limit, open Trash and click <strong>Empty Trash now</strong> once you've confirmed nothing important is in there.</p>
+
+      <p>Be aware that a year of text-only email may free up less space than you'd hope — a few thousand plain messages can amount to well under a gigabyte. Attachments are almost always where the storage actually went.</p>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <p class="faq-q">What is the Gmail search for emails older than one year?</p>
+          <p class="faq-a">Type <code>older_than:1y</code> in the search bar. Gmail also accepts <code>older_than:12m</code> and <code>older_than:365d</code>, which return the same results. The operator counts back from today, so the cutoff moves forward every day you run it.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Does older_than:1y include emails I sent?</p>
+          <p class="faq-a">Yes. The operator matches on date, not location, so it covers Sent, Archive, All Mail, Spam, and Trash as well as your inbox. Add <code>in:inbox</code> to restrict it to the inbox only.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">How do I delete emails from before a specific date instead?</p>
+          <p class="faq-a">Use <code>before:2025/09/22</code> with the date in YYYY/MM/DD format. Unlike <code>older_than:1y</code>, this is a fixed cutoff that doesn't shift as time passes, which makes it better for a repeatable cleanup.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Will deleting a year of old email free up Gmail storage right away?</p>
+          <p class="faq-a">No. Deleted mail sits in Trash for 30 days and keeps counting against your 15 GB until then. Open Trash and click "Empty Trash now" if you need the space immediately.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Can I make Gmail delete emails older than a year automatically?</p>
+          <p class="faq-a">Not with a plain filter — filters only run on incoming mail, and a message isn't a year old when it arrives. Use a Google Apps Script on a daily trigger that searches <code>older_than:1y</code> and trashes the results, or repeat the manual search every few months.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>Built by <a href="https://github.com/iampushpendra" target="_blank" rel="noopener">@iampushpendra</a> · <a href="../privacy.html">Privacy Policy</a> · <a href="https://github.com/iampushpendra/inbox-cleaner" target="_blank" rel="noopener">GitHub</a> · Emails go to Trash — you have 30 days to restore them.</p>
+</footer>
+
+</body>
+</html>
