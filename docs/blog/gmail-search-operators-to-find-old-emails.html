@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="canonical" href="https://inbox-cleaner.vercel.app/blog/gmail-search-operators-to-find-old-emails.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gmail Search Operators to Find Old Emails (2026 Cheat Sheet) | Inbox Cleaner</title>
+  <meta name="description" content="Use older_than:, before:, and after: in Gmail search to find old emails, then stack from:, larger:, and has:attachment to narrow them down. Full cheat sheet.">
+  <meta property="og:title" content="Gmail Search Operators to Find Old Emails (2026 Cheat Sheet)">
+  <meta property="og:description" content="Use older_than:, before:, and after: in Gmail search to find old emails, then stack from:, larger:, and has:attachment to narrow them down. Full cheat sheet.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://inbox-cleaner.vercel.app/blog/gmail-search-operators-to-find-old-emails.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Gmail Search Operators to Find Old Emails",
+    "datePublished": "2026-09-29",
+    "dateModified": "2026-09-29",
+    "author": { "@type": "Organization", "name": "Inbox Cleaner" },
+    "publisher": { "@type": "Organization", "name": "Inbox Cleaner", "url": "https://inbox-cleaner.vercel.app" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Gmail Search Operators to Find Old Emails",
+    "step": [
+      { "@type": "HowToStep", "name": "Start with an age operator", "text": "Type older_than:2y (or 6m, 90d) into the Gmail search bar for a rolling cutoff, or before:2024/01/01 for a fixed date." },
+      { "@type": "HowToStep", "name": "Add a sender or category", "text": "Stack from:, category:promotions, or label: onto the search to focus on one source of old mail, for example older_than:1y category:promotions." },
+      { "@type": "HowToStep", "name": "Filter by size or attachments", "text": "Add larger:5M or has:attachment to surface old messages that are actually using storage." },
+      { "@type": "HowToStep", "name": "Exclude what you want to keep", "text": "Put a minus sign in front of any operator to exclude it, such as -is:starred -is:important -from:bank.com." },
+      { "@type": "HowToStep", "name": "Check the count and act", "text": "Press Enter, review the first page and the result count, then archive, label, or move the results to Trash." }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the Gmail search to find my oldest emails?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Search older_than:10y to see anything from over a decade ago, or before:2015/01/01 for a fixed cutoff. Gmail has no sort-by-oldest button, but you can jump to the last page of results by clicking the older arrow repeatedly or narrowing the date range until the oldest messages appear." }
+      },
+      {
+        "@type": "Question",
+        "name": "What date format does Gmail search use?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Gmail's before: and after: operators use YYYY/MM/DD, such as before:2024/06/30. Gmail also accepts MM/DD/YYYY and a Unix timestamp in seconds, which is useful when you need an exact time rather than midnight." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Gmail search include Spam and Trash?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Regular searches skip Spam and Trash. Add in:anywhere to include them, or in:trash or in:spam to search only those folders." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I search Gmail for old unread emails only?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Combine is:unread with an age operator, for example is:unread older_than:6m. That surfaces mail you never opened and probably never will, which is usually safe to archive or delete." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does my older_than search return different results each day?",
+        "acceptedAnswer": { "@type": "Answer", "text": "older_than: counts back from the current date, so the cutoff moves forward every day. Use before: with a fixed date if you need the same result set across several cleanup sessions." }
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>📥</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-logo" href="/">📥 Inbox<span>Cleaner</span></a>
+  <div class="blog-nav-right">
+    <a class="nav-blog-link" href="/blog/">Blog</a>
+    <a class="blog-nav-cta" href="/">Try the free tool →</a>
+  </div>
+</nav>
+
+<main>
+  <div class="blog-wrap">
+    <span class="blog-eyebrow">Gmail Tips</span>
+    <h1 class="blog-h1">Gmail Search Operators to Find Old Emails</h1>
+    <p class="blog-meta">Updated September 2026 · 6 min read</p>
+
+    <div class="blog-body">
+
+      <div class="quick-answer">
+        <strong>Quick answer:</strong> The Gmail search operators to find old emails are <code>older_than:</code> for a rolling cutoff (<code>older_than:1y</code>, <code>older_than:6m</code>, <code>older_than:30d</code>) and <code>before:</code> / <code>after:</code> for fixed dates in YYYY/MM/DD format (<code>before:2024/01/01</code>). Stack them with <code>from:</code>, <code>larger:</code>, <code>has:attachment</code>, or <code>category:promotions</code> to narrow the results, and put a minus sign in front of anything you want to exclude.
+      </div>
+
+      <p>Gmail's search bar is far more capable than it looks. It has no "sort by oldest" button, but a handful of operators let you pull up exactly the slice of old mail you care about — a single sender from 2019, every attachment over 10 MB from before last year, or promotions you never opened. Here's the cheat sheet, and how to combine the pieces.</p>
+
+      <h2>What are the Gmail search operators to find old emails?</h2>
+
+      <p>Four operators handle dates. Everything else in this post is a modifier you stack on top of them.</p>
+
+      <ul>
+        <li><code>older_than:</code> — messages older than a relative period. Units are <code>d</code> (days), <code>m</code> (months), and <code>y</code> (years). <code>older_than:2y</code> means "more than two years ago, counted from today."</li>
+        <li><code>newer_than:</code> — the reverse. <code>newer_than:7d</code> is the last week. Useful for bracketing a range with <code>older_than:</code>.</li>
+        <li><code>before:</code> — messages received before a fixed date. <code>before:2023/01/01</code> returns everything up to the end of 2022.</li>
+        <li><code>after:</code> — messages received on or after a fixed date. Pair it with <code>before:</code> to get an exact window.</li>
+      </ul>
+
+      <p>The key difference: <code>older_than:</code> is a rolling window that shifts forward every day, while <code>before:</code> is a line that never moves. Use the rolling version for quick one-off searches and the fixed version when you're working through a cleanup over several sessions and need the same results each time.</p>
+
+      <h2>How do I combine Gmail search operators to narrow down old emails?</h2>
+
+      <p>Gmail treats a space between operators as AND, so every term you add shrinks the results. Build the search in this order:</p>
+
+      <ol class="blog-steps">
+        <li>Start with an age operator: <code>older_than:2y</code> for a rolling cutoff, or <code>before:2024/01/01</code> for a fixed one.</li>
+        <li>Add a source. <code>from:linkedin.com</code>, <code>category:promotions</code>, <code>category:social</code>, or <code>label:receipts</code> each focus the search on one kind of mail.</li>
+        <li>Add a size or attachment filter if storage is the goal: <code>larger:5M</code> or <code>has:attachment</code>.</li>
+        <li>Exclude what you want to keep with a minus sign: <code>-is:starred -is:important -from:bank.com</code>.</li>
+        <li>Press Enter, check the first page and the result count, then decide whether to archive, label, or trash the results.</li>
+      </ol>
+
+      <p>A finished search might look like <code>older_than:1y category:promotions -is:starred</code> — every promotional email over a year old that you didn't star. If that's what you're after, <a href="../blog/how-to-delete-emails-older-than-a-year-gmail.html">How to Delete Emails Older Than a Year in Gmail</a> covers the select-all and delete steps in detail.</p>
+
+      <h2>Which modifiers work best with date operators?</h2>
+
+      <p>These are the ones that earn their place in a cleanup search:</p>
+
+      <ul>
+        <li><code>is:unread</code> — mail you never opened. <code>is:unread older_than:6m</code> is almost always safe to clear.</li>
+        <li><code>larger:10M</code> / <code>smaller:1M</code> — filter by message size. Accepts <code>K</code> and <code>M</code> suffixes.</li>
+        <li><code>has:attachment</code> and <code>filename:pdf</code> — find old files, or a specific type of file.</li>
+        <li><code>in:inbox</code>, <code>in:sent</code>, <code>in:anywhere</code> — control where Gmail looks. By default, search skips Spam and Trash; <code>in:anywhere</code> includes them.</li>
+        <li><code>{from:a.com from:b.com}</code> — curly braces mean OR. You can also type <code>OR</code> in capitals between terms.</li>
+        <li><code>"exact phrase"</code> — quotes match a phrase exactly, like <code>"order confirmation" before:2022/01/01</code>.</li>
+        <li><code>-</code> — a leading minus negates any operator, including dates: <code>-older_than:30d</code> is the same as <code>newer_than:30d</code>.</li>
+      </ul>
+
+      <p>If your real goal is reclaiming space, size beats age. <a href="../blog/how-to-find-biggest-emails-gmail.html">How to Find the Biggest Emails in Gmail</a> shows how to use <code>larger:</code> to find the handful of messages that account for most of your quota.</p>
+
+      <div class="blog-cta">
+        <h3>Delete Gmail emails in bulk — free</h3>
+        <p>No install. Runs in your browser. Emails go to Trash (30-day recovery window).</p>
+        <a class="blog-cta-btn" href="https://inbox-cleaner.vercel.app">Open Inbox Cleaner →</a>
+      </div>
+
+      <h2>How do I search Gmail for emails between two dates?</h2>
+
+      <p>Combine <code>after:</code> and <code>before:</code>. For the whole of 2023, search <code>after:2022/12/31 before:2024/01/01</code>. Gmail interprets these dates as midnight, so setting the edges one day outside your target range avoids losing messages at the boundaries.</p>
+
+      <p>For a relative range, bracket with <code>older_than:</code> and <code>newer_than:</code>: <code>older_than:1y newer_than:2y</code> returns mail between one and two years old. This is handy for working backward through a backlog one year at a time — each slice is small enough for Gmail's select-all to finish without stalling.</p>
+
+      <p>If you need precision down to the hour, <code>before:</code> and <code>after:</code> also accept a Unix timestamp in seconds, such as <code>after:1704067200</code>. Most people never need this, but it helps when time zones push messages to the wrong side of a date boundary.</p>
+
+      <h2>What if the search finds tens of thousands of old emails?</h2>
+
+      <p>Finding them is the easy part. Acting on them is where Gmail struggles. The page checkbox selects only 50 conversations, and the "Select all conversations that match this search" banner that extends it often stalls or partially completes when the result count runs into five figures.</p>
+
+      <p>Two things help. First, split the search into smaller date windows and work through them one by one. Second, look at who sent the mail. Old email is rarely spread evenly — a handful of retailers, social networks, and newsletters usually account for most of it. Inbox Cleaner scans your entire mailbox through the Gmail API, ranks every sender by message count, and moves all of a sender's mail to Trash in one click, with no 50-per-page limit. Everything stays in Trash for 30 days, so a mistake is easy to undo.</p>
+
+      <h2>Can I save a Gmail search for old emails?</h2>
+
+      <p>Gmail has no saved-search button, but there are two workarounds. Bookmark the results page — the search is encoded in the URL, so the bookmark reruns it. Or open the search options panel (the sliders icon in the search bar) and click <strong>Create filter</strong> to turn the search into a filter. Just remember that filters only act on new incoming mail, so a filter with <code>older_than:</code> in it will never match anything.</p>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <p class="faq-q">What is the Gmail search to find my oldest emails?</p>
+          <p class="faq-a">Search <code>older_than:10y</code> to see anything from over a decade ago, or <code>before:2015/01/01</code> for a fixed cutoff. Gmail has no sort-by-oldest button, but you can jump to the last page of results by clicking the older arrow repeatedly or narrowing the date range until the oldest messages appear.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">What date format does Gmail search use?</p>
+          <p class="faq-a">Gmail's <code>before:</code> and <code>after:</code> operators use YYYY/MM/DD, such as <code>before:2024/06/30</code>. Gmail also accepts MM/DD/YYYY and a Unix timestamp in seconds, which is useful when you need an exact time rather than midnight.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Does Gmail search include Spam and Trash?</p>
+          <p class="faq-a">No. Regular searches skip Spam and Trash. Add <code>in:anywhere</code> to include them, or <code>in:trash</code> or <code>in:spam</code> to search only those folders.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Can I search Gmail for old unread emails only?</p>
+          <p class="faq-a">Yes. Combine <code>is:unread</code> with an age operator, for example <code>is:unread older_than:6m</code>. That surfaces mail you never opened and probably never will, which is usually safe to archive or delete.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Why does my older_than search return different results each day?</p>
+          <p class="faq-a"><code>older_than:</code> counts back from the current date, so the cutoff moves forward every day. Use <code>before:</code> with a fixed date if you need the same result set across several cleanup sessions.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>Built by <a href="https://github.com/iampushpendra" target="_blank" rel="noopener">@iampushpendra</a> · <a href="../privacy.html">Privacy Policy</a> · <a href="https://github.com/iampushpendra/inbox-cleaner" target="_blank" rel="noopener">GitHub</a> · Emails go to Trash — you have 30 days to restore them.</p>
+</footer>
+
+</body>
+</html>
