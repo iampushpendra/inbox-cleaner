@@ -25,6 +25,11 @@ if ! git merge --ff-only origin/main >> scripts/daily_publish.log 2>&1; then
   exit 1
 fi
 
+if [ -n "$(git status --porcelain --untracked-files=no)" ]; then
+  notify_failure "tracked working tree has edits; commit or resolve them before publishing"
+  exit 1
+fi
+
 if ! slug=$(python3 -c 'import json; print(next((t["slug"] for t in json.load(open("scripts/blog-topics.json")) if t["status"] == "pending"), ""))'); then
   notify_failure "could not read topic queue"
   exit 1

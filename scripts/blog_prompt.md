@@ -1,4 +1,4 @@
-You are writing an AEO-optimized blog post for Inbox Cleaner (https://inbox-cleaner.vercel.app), a free browser tool that bulk-deletes Gmail emails by sender in one click — no Gmail app install required.
+You are writing an AEO-optimized blog post for Inbox Cleaner (https://inbox-cleaner.vercel.app), a free Chrome extension that groups Gmail emails by sender and moves selected senders' emails to Trash. The primary goal of every article is an installation from the verified Chrome Web Store listing in scripts/site-config.json.
 
 **Target query:** {target_query}
 **Slug:** {slug}
@@ -72,7 +72,7 @@ FAQPage JSON-LD in `<head>`:
 ```
 
 ### 5. Internal links (at least 2, inside `.blog-body` paragraph text)
-Link contextually to at least 2 posts from the published list above. Use their exact titles as anchor text. Format: `<a href="../blog/[slug].html">[Title]</a>`. Must appear inside `<p>` tags in the body — not in the CTA block or footer.
+Link contextually to at least 3 posts from the published list above. Use their exact titles as anchor text. Format: `<a href="../blog/[slug].html">[Title]</a>`. Must appear inside `<p>` tags in the body — not in the CTA block or footer.
 
 ---
 
@@ -115,7 +115,7 @@ Match this shell exactly. Every class name, element order, and attribute matters
 
 <nav id="nav">
   <a class="nav-logo" href="/">📥 Inbox<span>Cleaner</span></a>
-  <a class="blog-nav-cta" href="/">Try the free tool →</a>
+  <a class="blog-nav-cta" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add to Chrome →</a>
 </nav>
 
 <main>
@@ -135,9 +135,9 @@ Match this shell exactly. Every class name, element order, and attribute matters
 
       <!-- CTA block — place at a natural mid-post break, not at the very end -->
       <div class="blog-cta">
-        <h3>Delete Gmail emails in bulk — free</h3>
-        <p>No install. Runs in your browser. Emails go to Trash (30-day recovery window).</p>
-        <a class="blog-cta-btn" href="https://inbox-cleaner.vercel.app">Open Inbox Cleaner →</a>
+        <h3>Clean up Gmail with the Chrome extension</h3>
+        <p>Install from the Chrome Web Store, then open Gmail and click Inbox Cleaner. Emails go to Trash (30-day recovery window).</p>
+        <a class="blog-cta-btn" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add Inbox Cleaner to Chrome →</a>
       </div>
 
       <!-- More body content after CTA -->
@@ -170,9 +170,11 @@ Match this shell exactly. Every class name, element order, and attribute matters
 
 - **Length:** 900–1300 words in `.blog-body`. Authoritative, not padded.
 - **Tone:** Direct and practical. Write for someone frustrated with Gmail right now, not for an SEO bot. Short sentences. Active voice.
-- **Gmail accuracy:** Gmail's built-in select-all caps at 50 emails per page. The "select all conversations" banner extends it but times out on large batches. Inbox Cleaner scans the entire inbox via Gmail API and ranks by sender count. Emails move to Trash (30-day recovery). Never claim Inbox Cleaner permanently deletes.
+- **Gmail accuracy:** Gmail selects the current page first (page size depends on settings); the select-all-conversations banner extends selection to all matching results. The Chrome extension works inside an open Gmail tab, scans categories and ranks senders. Do not conflate it with the separate browser version's Gmail API authentication. Emails move to Trash (30-day recovery). Never claim Inbox Cleaner permanently deletes.
 - **Steps:** Use `<ol class="blog-steps">` for numbered steps — the CSS already styles these with large counters.
 - **No inline CSS.** Every style comes from `../style.css`.
 - **Inbox Cleaner:** Introduce once as the faster alternative after covering the manual Gmail method. One `blog-cta` block is enough — don't mention the tool in every paragraph.
 - **Internal links:** Weave them into prose naturally — "If your inbox is flooded with newsletters, see [How to Delete All Emails from One Sender in Gmail](../blog/delete-all-emails-from-one-sender-gmail.html) for the fastest approach."
 - **Do not repeat a target query already covered by a published post.** Check `scripts/blog-topics.json` for the full topic list before choosing angles, to keep each post distinct.
+
+- **Conversion:** Use the direct Chrome Web Store URL in `scripts/site-config.json` for installation CTAs. Never label an installation as no-install. Include an All guides link to `/blog/` and the homepage logo link. The site generator supplies related guides and normalizes the install buttons.

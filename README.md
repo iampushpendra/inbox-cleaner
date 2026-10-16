@@ -5,7 +5,7 @@
 [![Live App](https://img.shields.io/badge/Live%20App-open-blue?style=flat-square)](https://iampushpendra.github.io/inbox-cleaner/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-**Current version: 3.1.1** — see [CHANGELOG.md](CHANGELOG.md) for what's new.
+**Current version: 3.2.0** — see [CHANGELOG.md](CHANGELOG.md) for what's new.
 
 ---
 
@@ -27,7 +27,7 @@ Works entirely in your browser. No server. No data ever leaves your device.
 
 **[→ Open the web app](https://iampushpendra.github.io/inbox-cleaner/)** — nothing to install, works on any browser
 
-Or load it as a Chrome extension (see [Extension setup](#chrome-extension-setup) below).
+Install the [Chrome extension](https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep), or see [Extension setup](#chrome-extension-setup) for local development.
 
 ---
 
@@ -60,6 +60,10 @@ Group by sender → ranked list (chrome.storage.local)
 The local LaunchAgent publishes one queued article at **9 AM, 1 PM, 5 PM, and 9 PM IST** (four posts per day). It runs on this Mac while the user is logged in; sleeping or offline time can delay runs. Vercel deploys pushes to `main`.
 
 - Queue: `scripts/blog-topics.json`; each run takes the next pending topic.
+- Discovery: `node scripts/build_site.mjs` regenerates the sitemap from actual article files, the complete blog index, homepage guide links, and five related links per article. Vercel runs it on every deployment; `publish_blog.py` runs it on every publish. No hand-maintained article list and no runtime server are needed.
+- Conversion: install CTAs point directly to the verified Chrome Web Store listing in `scripts/site-config.json`; the browser app remains a secondary option.
+- The publisher requires a clean tracked working tree so it cannot stage unrelated user edits while updating generated links.
+- Sitemap dates come from article metadata; repeated builds do not pretend content was updated. A sitemap aids discovery but cannot guarantee Google crawling or indexing.
 - Logs: `scripts/daily_publish.log`; failures trigger a macOS notification.
 - Git uses HTTPS with the signed-in GitHub CLI credential helper. Claude CLI must also remain signed in.
 - Network stalls are bounded, and success requires the selected post to exist on `origin/main`.

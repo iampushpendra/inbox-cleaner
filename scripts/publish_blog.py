@@ -1,13 +1,11 @@
 import json
 import sys
-from datetime import date
+import subprocess
 from pathlib import Path
 from typing import Optional
 
 BLOG_DIR = Path(__file__).parent.parent / "docs" / "blog"
-SITEMAP_PATH = Path(__file__).parent.parent / "docs" / "sitemap.xml"
 TOPICS_PATH = Path(__file__).parent / "blog-topics.json"
-BASE_URL = "https://inbox-cleaner.vercel.app"
 
 
 def load_queue(topics_path: Path = TOPICS_PATH) -> Optional[dict]:
@@ -30,20 +28,6 @@ def get_published_posts(blog_dir: Path = BLOG_DIR) -> list[dict]:
     return posts
 
 
-def update_sitemap(slug: str, today: str, sitemap_path: Path = SITEMAP_PATH) -> None:
-    content = sitemap_path.read_text()
-    new_url = (
-        f"  <url>\n"
-        f"    <loc>{BASE_URL}/blog/{slug}.html</loc>\n"
-        f"    <lastmod>{today}</lastmod>\n"
-        f"    <changefreq>monthly</changefreq>\n"
-        f"    <priority>0.8</priority>\n"
-        f"  </url>\n"
-    )
-    content = content.replace("</urlset>", new_url + "</urlset>")
-    sitemap_path.write_text(content)
-
-
 def mark_published(slug: str, topics_path: Path = TOPICS_PATH) -> None:
     topics = json.loads(topics_path.read_text())
     for topic in topics:
@@ -56,7 +40,7 @@ def mark_published(slug: str, topics_path: Path = TOPICS_PATH) -> None:
 def main() -> None:
     if len(sys.argv) != 2:
         print("Usage: python3 scripts/publish_blog.py <slug>")
-        print("  Marks <slug> published in blog-topics.json and appends it to sitemap.xml.")
+        print("  Regenerates site discovery/extension links and marks <slug> published.")
         print("  Run this AFTER writing docs/blog/<slug>.html.")
         sys.exit(1)
 
@@ -66,8 +50,9 @@ def main() -> None:
         print(f"Error: {out_path} does not exist. Write the post first.")
         sys.exit(1)
 
-    today = date.today().isoformat()
-    update_sitemap(slug, today)
+    # Derive every discovery surface from the files that actually exist.
+    # Vercel runs this same build even for articles added outside this publisher.
+    subprocess.run(["node", str(Path(__file__).parent / "build_site.mjs")], check=True)
     mark_published(slug)
 
     print(f"Sitemap updated: docs/sitemap.xml ({slug})")

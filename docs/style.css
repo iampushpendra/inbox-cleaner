@@ -1083,7 +1083,7 @@ footer a:hover { text-decoration: underline; }
 
 .blog-nav-cta {
   background: var(--accent);
-  color: var(--white);
+  color: var(--dark);
   border: 2px solid var(--accent);
   border-radius: 5px;
   font-size: 13px;
@@ -1125,6 +1125,38 @@ footer a:hover { text-decoration: underline; }
   color: var(--gray-600);
   line-height: 1.6;
   max-width: 680px;
+}
+
+/* Crawlable guide links and the extension installation path. */
+.btn-primary-hero { text-decoration: none; }
+.blog-cta-btn { color: var(--dark); }
+.site-guides { background: var(--gray-100); border-top: var(--border); }
+.guides-inner { max-width: 1100px; margin: 0 auto; padding: 64px 24px; }
+.guides-inner h2 { font-size: clamp(24px, 4vw, 36px); line-height: 1.2; margin-bottom: 16px; }
+.guides-inner > p { color: var(--gray-600); margin: 16px 0 28px; max-width: 65ch; }
+.guides-inner ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; list-style: none; }
+.guides-inner li { border-bottom: 1px solid #ddd; padding: 18px 0; }
+.guides-inner li a { color: var(--dark); font-size: 17px; font-weight: 700; text-underline-offset: 4px; }
+.guides-inner li a:hover, .related-guides a:hover { color: #9a3412; }
+.related-guides { padding-top: 0; }
+.related-guides h2 { font-size: 24px; margin-bottom: 20px; }
+.related-guides ul { padding-left: 22px; }
+.related-guides li { margin: 12px 0; }
+.related-guides li a { color: var(--dark); font-size: 17px; font-weight: 600; text-underline-offset: 4px; }
+.related-guides > p { margin: 24px 0; }
+.related-guides > p a { color: #9a3412; }
+.blog-index-date { color: var(--gray-600); }
+.blog-body code { white-space: normal; overflow-wrap: anywhere; }
+.blog-steps li { display: block; position: relative; padding-left: 42px; }
+.blog-steps li::before { position: absolute; left: 0; top: 0; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--dark); outline-offset: 4px; }
+@media (max-width: 700px) {
+  .guides-inner { padding: 40px 20px; }
+  .guides-inner ul { grid-template-columns: 1fr; }
+  .blog-nav-right { gap: 12px; }
+  .blog-nav-cta { padding: 8px 10px; white-space: nowrap; }
+  .hero-actions { align-items: stretch; }
+  .hero-actions a, .hero-actions button { text-align: center; }
 }
 
 /* ── Responsive ──────────────────────────────────────────────────────────── */

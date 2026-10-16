@@ -4,6 +4,18 @@ All notable changes to this project are documented in this file.
 Format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Versioning: see `VERSION` file (semver, no `package.json` — this isn't a Node/build project).
 
+## [3.2.0] - 2026-10-16
+
+### Added
+- Automatic site generation on every Vercel build and blog publish: sitemap, complete blog index, homepage guides, and five related links per article. The article files are the source of truth; deleted URLs disappear and duplicate sitemap entries cannot accumulate.
+- Direct Chrome Web Store install buttons on the homepage, blog index, and every existing and future article. The verified listing URL lives in `scripts/site-config.json`.
+- Regression coverage for new/deleted posts, preserved article dates, complete internal linking, installation destinations, repeat builds, and scheduled publishing with user edits.
+
+### Fixed
+- The blog index exposed only 10 of the 46 articles. All articles now have incoming links from the hub and other posts, plus routes to the homepage and the extension listing.
+- Scheduled publishing stops on tracked working-tree edits before generating or staging site updates.
+- Homepage installation copy and primary actions now match the Chrome extension funnel; the browser version remains available as a secondary action.
+
 ## [3.1.1] - 2026-10-16
 
 ### Fixed

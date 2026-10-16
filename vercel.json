@@ -1,5 +1,6 @@
 {
   "outputDirectory": "docs",
+  "buildCommand": "node scripts/build_site.mjs",
   "framework": null,
   "rewrites": [
     { "source": "/(.*)", "destination": "/$1" }

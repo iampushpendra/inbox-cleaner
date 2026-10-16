@@ -6,9 +6,9 @@
   <link rel="canonical" href="https://inbox-cleaner.vercel.app/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bulk Delete Gmail Emails by Sender — Inbox Cleaner (Free)</title>
-  <meta name="description" content="The fastest way to bulk delete Gmail emails. See every sender ranked by count, select the worst offenders, move everything to Trash in one click. Free, no install.">
+  <meta name="description" content="The fastest way to bulk delete Gmail emails. See every sender ranked by count, select the worst offenders, move everything to Trash in one click. Free Chrome extension.">
   <meta property="og:title" content="Bulk Delete Gmail Emails by Sender — Inbox Cleaner (Free)">
-  <meta property="og:description" content="The fastest way to bulk delete Gmail emails. See every sender ranked by count, select the worst offenders, move everything to Trash in one click. Free, no install.">
+  <meta property="og:description" content="The fastest way to bulk delete Gmail emails. See every sender ranked by count, select the worst offenders, move everything to Trash in one click. Free Chrome extension.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://inbox-cleaner.vercel.app">
   <meta property="og:image" content="https://inbox-cleaner.vercel.app/og-image.png">
@@ -18,7 +18,7 @@
     "@type": "HowTo",
     "name": "How to bulk delete Gmail emails by sender",
     "step": [
-      { "@type": "HowToStep", "text": "Click 'Connect Gmail' to scan your inbox — no install needed." },
+      { "@type": "HowToStep", "text": "Install Inbox Cleaner from the Chrome Web Store. Open Gmail, then click the extension to scan your inbox." },
       { "@type": "HowToStep", "text": "See every sender ranked by email count. Select the worst offenders." },
       { "@type": "HowToStep", "text": "Click 'Move to Trash' — all selected emails move in one click." }
     ]
@@ -32,12 +32,12 @@
       {
         "@type": "Question",
         "name": "How do I bulk delete Gmail emails from one sender?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Connect Gmail on this page, find the sender in the ranked list, check the box, and click \"Move to Trash.\" All their emails move in one click." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Install Inbox Cleaner from the Chrome Web Store, open Gmail, and click the extension. Find the sender in the ranked list, select it, and click \"Move to Trash.\"" }
       },
       {
         "@type": "Question",
         "name": "Does Gmail have a built-in bulk delete option?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Gmail lets you select up to 50 emails per page and delete them manually. Inbox Cleaner scans your entire inbox and moves thousands of emails in seconds — no paging required." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Gmail initially selects the current page. Its select-all-conversations link extends that selection to all matching results. Inbox Cleaner groups senders so you can choose whose emails to remove." }
       },
       {
         "@type": "Question",
@@ -52,12 +52,12 @@
       {
         "@type": "Question",
         "name": "How long does it take to scan my inbox?",
-        "acceptedAnswer": { "@type": "Answer", "text": "About 30 seconds for 5,000 emails. Larger inboxes take proportionally longer; a progress bar shows the current status." }
+        "acceptedAnswer": { "@type": "Answer", "text": "A full extension scan can take several minutes, depending on the number of emails and senders. A progress indicator shows the scan status." }
       },
       {
         "@type": "Question",
         "name": "Does this work on mobile?",
-        "acceptedAnswer": { "@type": "Answer", "text": "The web app works on mobile browsers. For the best experience, use it on desktop where you can see the full sender list." }
+        "acceptedAnswer": { "@type": "Answer", "text": "The Chrome extension requires desktop Chrome. The separate browser version is also available on this site." }
       },
       {
         "@type": "Question",
@@ -67,7 +67,7 @@
       {
         "@type": "Question",
         "name": "How do I free up Gmail storage fast?",
-        "acceptedAnswer": { "@type": "Answer", "text": "The fastest way is to find the senders with the most emails and delete them in bulk. Connect Gmail on this page — Inbox Cleaner ranks every sender by count so you can spot the top offenders immediately and move their emails to Trash in one click." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Use Inbox Cleaner for Chrome to find senders with large email counts. Review their messages and move unwanted mail to Trash. Trashed messages still use storage until permanently deleted; review them before emptying Trash." }
       },
       {
         "@type": "Question",
@@ -77,12 +77,12 @@
       {
         "@type": "Question",
         "name": "How do I unsubscribe from emails in Gmail?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Unsubscribing stops future emails but leaves your inbox full of old ones. Inbox Cleaner handles the cleanup: connect Gmail, find the newsletter or brand in the ranked list, and delete all their existing emails in one click. Then unsubscribe to prevent new ones." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Unsubscribing stops future emails but leaves existing messages in Gmail. Install Inbox Cleaner, scan Gmail, find the newsletter sender, and move unwanted messages to Trash. Unsubscribe separately to prevent new mail." }
       },
       {
         "@type": "Question",
         "name": "What's the fastest way to reach Gmail inbox zero?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Connect Gmail on this page, sort by sender count, and delete the top offenders first. Most inboxes reach zero in under five minutes — Inbox Cleaner moves emails to Trash in bulk, so you're not clicking through 50-email pages in Gmail." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Install Inbox Cleaner, open Gmail, and scan your inbox. Review the senders with the most emails and move the ones you no longer need to Trash. The time required depends on your inbox." }
       },
       {
         "@type": "Question",
@@ -104,7 +104,7 @@
   <a class="nav-logo" href="/">📥 Inbox<span>Cleaner</span></a>
   <div id="nav-cta">
     <a class="nav-blog-link" href="/blog/">Blog</a>
-    <button class="btn-signin nav-signin-btn">Connect Gmail →</button>
+    <a class="blog-nav-cta" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add to Chrome →</a>
   </div>
   <div id="nav-user" class="hidden">
     <button id="btn-refresh" class="btn-ghost-sm">↺ Rescan</button>
@@ -115,13 +115,13 @@
 <!-- ── Hero (hidden when signed in) ─────────────────────────────────────── -->
 <section id="section-hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">Free · No install · Works in browser</div>
+    <div class="hero-eyebrow">Free Chrome extension · Works inside Gmail</div>
     <h1>The fastest way to <em>bulk delete</em><br>Gmail emails.</h1>
     <p class="hero-sub">See who's flooding your Gmail. Select the worst offenders. Move everything to Trash — in one click.</p>
-    <p class="hero-snippet">Inbox Cleaner scans your Gmail inbox, ranks every sender by email count, and lets you select multiple senders and move all their emails to Trash in one click — no Gmail app install needed.</p>
+    <p class="hero-snippet">Inbox Cleaner scans your Gmail inbox, ranks every sender by email count, and lets you select multiple senders and move all their emails to Trash in one click with the free Chrome extension.</p>
     <div class="hero-actions">
-      <button class="btn-signin btn-primary-hero">Connect Gmail — it's free →</button>
-      <a href="#section-tool" class="btn-ghost-hero">See your inbox ↓</a>
+      <a class="btn-primary-hero" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add Inbox Cleaner to Chrome →</a>
+      <button class="btn-signin btn-ghost-hero">Try the browser version →</button>
     </div>
     <div class="hero-trust">
       <span>No data leaves your browser</span>
@@ -179,7 +179,7 @@
         <tr>
           <td>Requires install</td>
           <td>No</td>
-          <td class="col-highlight">No — runs in browser</td>
+          <td class="col-highlight">Yes — free Chrome extension</td>
         </tr>
       </tbody>
     </table>
@@ -210,11 +210,11 @@
     <div class="faq-list">
       <div class="faq-item">
         <p class="faq-q">How do I bulk delete Gmail emails from one sender?</p>
-        <p class="faq-a">Connect Gmail on this page, find the sender in the ranked list, check the box, and click "Move to Trash." All their emails move in one click.</p>
+        <p class="faq-a">Install Inbox Cleaner from the Chrome Web Store, open Gmail, and click the extension. Find the sender in the ranked list, select it, and click "Move to Trash."</p>
       </div>
       <div class="faq-item">
         <p class="faq-q">Does Gmail have a built-in bulk delete option?</p>
-        <p class="faq-a">Gmail lets you select up to 50 emails per page and delete them manually. Inbox Cleaner scans your entire inbox and moves thousands of emails in seconds — no paging required.</p>
+        <p class="faq-a">Gmail initially selects the current page. Its select-all-conversations link extends that selection to all matching results. Inbox Cleaner groups senders so you can choose whose emails to remove.</p>
       </div>
       <div class="faq-item">
         <p class="faq-q">Is Inbox Cleaner safe to use?</p>
@@ -226,11 +226,11 @@
       </div>
       <div class="faq-item">
         <p class="faq-q">How long does it take to scan my inbox?</p>
-        <p class="faq-a">About 30 seconds for 5,000 emails. Larger inboxes take proportionally longer; a progress bar shows the current status.</p>
+        <p class="faq-a">A full extension scan can take several minutes, depending on the number of emails and senders. A progress indicator shows the scan status.</p>
       </div>
       <div class="faq-item">
         <p class="faq-q">Does this work on mobile?</p>
-        <p class="faq-a">The web app works on mobile browsers. For the best experience, use it on desktop where you can see the full sender list.</p>
+        <p class="faq-a">The Chrome extension requires desktop Chrome. The separate browser version is also available on this site.</p>
       </div>
       <div class="faq-item">
         <p class="faq-q">How do I delete thousands of Gmail emails at once?</p>
@@ -238,7 +238,7 @@
       </div>
       <div class="faq-item">
         <p class="faq-q">How do I free up Gmail storage fast?</p>
-        <p class="faq-a">The fastest way is to find the senders with the most emails and delete them in bulk. Connect Gmail on this page — Inbox Cleaner ranks every sender by count so you can spot the top offenders immediately and move their emails to Trash in one click.</p>
+        <p class="faq-a">Use Inbox Cleaner for Chrome to find senders with large email counts. Review their messages and move unwanted mail to Trash. Trashed messages still use storage until permanently deleted; review them before emptying Trash.</p>
       </div>
       <div class="faq-item">
         <p class="faq-q">Can I delete all promotional emails in Gmail?</p>
@@ -246,11 +246,11 @@
       </div>
       <div class="faq-item">
         <p class="faq-q">How do I unsubscribe from emails in Gmail?</p>
-        <p class="faq-a">Unsubscribing stops future emails but leaves your inbox full of old ones. Inbox Cleaner handles the cleanup: connect Gmail, find the newsletter or brand in the ranked list, and delete all their existing emails in one click. Then unsubscribe to prevent new ones.</p>
+        <p class="faq-a">Unsubscribing stops future emails but leaves existing messages in Gmail. Install Inbox Cleaner, scan Gmail, find the newsletter sender, and move unwanted messages to Trash. Unsubscribe separately to prevent new mail.</p>
       </div>
       <div class="faq-item">
         <p class="faq-q">What's the fastest way to reach Gmail inbox zero?</p>
-        <p class="faq-a">Connect Gmail on this page, sort by sender count, and delete the top offenders first. Most inboxes reach zero in under five minutes — Inbox Cleaner moves emails to Trash in bulk, so you're not clicking through 50-email pages in Gmail.</p>
+        <p class="faq-a">Install Inbox Cleaner, open Gmail, and scan your inbox. Review the senders with the most emails and move the ones you no longer need to Trash. The time required depends on your inbox.</p>
       </div>
       <div class="faq-item">
         <p class="faq-q">Does Inbox Cleaner work with Google Workspace?</p>
@@ -348,6 +348,22 @@
 </div>
 
 <!-- ── Footer ─────────────────────────────────────────────────────────────── -->
+<!-- AUTO:guides:start -->
+<section class="site-guides" aria-labelledby="guides-heading">
+<div class="guides-inner">
+<h2 id="guides-heading">Practical ways to clear your Gmail inbox</h2>
+<p>Start with a guide, then put it into practice with Inbox Cleaner for Chrome.</p>
+<ul><li><a href="/blog/delete-paypal-emails-gmail.html">How to Delete Old PayPal Emails in Gmail</a></li>
+<li><a href="/blog/delete-job-alert-emails-gmail.html">How to Delete Job Alert Emails in Gmail</a></li>
+<li><a href="/blog/delete-linkedin-connection-request-emails.html">How to Stop and Delete LinkedIn Connection Request Emails</a></li>
+<li><a href="/blog/delete-shipping-confirmation-emails-gmail.html">How to Delete Shipping Confirmation Emails in Gmail</a></li>
+<li><a href="/blog/delete-calendar-invite-emails-gmail.html">How to Delete Calendar Invite Emails in Gmail</a></li>
+<li><a href="/blog/delete-google-alerts-emails-gmail.html">How to Delete Google Alerts Emails in Gmail</a></li></ul>
+<p><a href="/blog/">Browse all 46 Gmail guides →</a></p>
+<a class="blog-nav-cta" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add to Chrome →</a>
+</div>
+</section>
+<!-- AUTO:guides:end -->
 <footer>
   <p>Built by <a href="https://github.com/iampushpendra" target="_blank" rel="noopener">@iampushpendra</a> · <a href="blog/">Blog</a> · <a href="privacy.html">Privacy Policy</a> · <a href="https://github.com/iampushpendra/inbox-cleaner" target="_blank" rel="noopener">GitHub</a> · Emails go to Trash — you have 30 days to restore them.</p>
 </footer>
