@@ -4,6 +4,16 @@ All notable changes to this project are documented in this file.
 Format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Versioning: see `VERSION` file (semver, no `package.json` — this isn't a Node/build project).
 
+## [3.1.1] - 2026-10-16
+
+### Fixed
+- Daily blog publisher now uses repository-local HTTPS authentication through GitHub CLI to avoid repeated SSH disconnects. Git runs without interactive credential prompts and bounds stalled network transfers.
+- Publishing success is verified against `origin/main`, rather than relying only on the Claude CLI exit code.
+
+### Changed
+- Doubled the local blog schedule from two to four posts per day: 09:00, 13:00, 17:00, and 21:00 IST. Added a versioned copy of the LaunchAgent configuration.
+- Documented the schedule, authentication dependencies, finite topic queue, and log location.
+
 ## [3.1.0] - 2026-09-13
 
 ### Fixed

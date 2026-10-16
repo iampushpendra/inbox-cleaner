@@ -5,7 +5,7 @@
 [![Live App](https://img.shields.io/badge/Live%20App-open-blue?style=flat-square)](https://iampushpendra.github.io/inbox-cleaner/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-**v3.1.0** — see [CHANGELOG.md](CHANGELOG.md) for what's new.
+**Current version: 3.1.1** — see [CHANGELOG.md](CHANGELOG.md) for what's new.
 
 ---
 
@@ -54,6 +54,24 @@ Group by sender → ranked list (chrome.storage.local)
 **Web app** (`docs/index.html` at [iampushpendra.github.io/inbox-cleaner](https://iampushpendra.github.io/inbox-cleaner/)) is a separate surface that still uses Google Identity Services + the Gmail API directly — see `docs/app.js`.
 
 ---
+
+## Blog publishing
+
+The local LaunchAgent publishes one queued article at **9 AM, 1 PM, 5 PM, and 9 PM IST** (four posts per day). It runs on this Mac while the user is logged in; sleeping or offline time can delay runs. Vercel deploys pushes to `main`.
+
+- Queue: `scripts/blog-topics.json`; each run takes the next pending topic.
+- Logs: `scripts/daily_publish.log`; failures trigger a macOS notification.
+- Git uses HTTPS with the signed-in GitHub CLI credential helper. Claude CLI must also remain signed in.
+- Network stalls are bounded, and success requires the selected post to exist on `origin/main`.
+- The queue is finite: replenish pending topics before it runs out.
+
+The installed schedule lives at `~/Library/LaunchAgents/com.inboxcleaner.dailyblog.plist`; a copy is versioned at `scripts/com.inboxcleaner.dailyblog.plist`. After editing the copy, install and reload it:
+
+```bash
+cp scripts/com.inboxcleaner.dailyblog.plist ~/Library/LaunchAgents/
+launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/com.inboxcleaner.dailyblog.plist
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.inboxcleaner.dailyblog.plist
+```
 
 ## Privacy
 
