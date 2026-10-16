@@ -4,6 +4,13 @@ All notable changes to this project are documented in this file.
 Format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Versioning: see `VERSION` file (semver, no `package.json` — this isn't a Node/build project).
 
+## [3.2.1] - 2026-10-16
+
+### Fixed
+- Extension scanning no longer stops on page one when Gmail's result counter is missing. It follows the enabled Older control and waits for conversation rows to change, allowing a single scan of 10,000+ conversations.
+- Hidden or disabled pagination controls are ignored. Missing controls, stalled pages, and the page safety limit now report an incomplete scan rather than silently caching a partial success.
+- Added runnable content-script regression checks for 10,000 conversations with and without the counter, plus stalled pagination. No dependencies or new permissions were added.
+
 ## [3.2.0] - 2026-10-16
 
 ### Added

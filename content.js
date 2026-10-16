@@ -53,9 +53,9 @@ const SELECTORS = {
   // Tried in order; the first one present and not aria-disabled wins. Like
   // trashButton, these are English-UI only.
   olderButton: [
-    'div[gh="tm"] div[role="button"][aria-label="Older"]',
-    'div[gh="tm"] div[aria-label="Older"]',
-    'div[gh="tm"] div[data-tooltip="Older"]',
+    'div[gh="tm"] div[role="button"][aria-label^="Older"]',
+    'div[gh="tm"] div[aria-label^="Older"]',
+    'div[gh="tm"] div[data-tooltip^="Older"]',
   ],
   // aria-label is localized by Gmail's UI language — this only matches an
   // English-language Gmail UI. Non-English locales will time out here.
@@ -142,17 +142,20 @@ function readResultRange() {
 
 function findOlderButton() {
   for (const selector of SELECTORS.olderButton) {
-    const el = document.querySelector(selector);
-    if (el && el.getAttribute('aria-disabled') !== 'true') return el;
+    for (const el of document.querySelectorAll(selector)) {
+      if (el.getClientRects().length && el.getAttribute('aria-disabled') !== 'true' &&
+          !el.hasAttribute('disabled') && !el.classList.contains('T-I-Js-Gs')) return el;
+    }
   }
   return null;
 }
 
-async function waitForRangeChange(previousStart, timeoutMs = RENDER_TIMEOUT_MS) {
+async function waitForPageChange(previousRows, timeoutMs = RENDER_TIMEOUT_MS) {
+  const previousIds = previousRows.map(row => row.threadId).join('\n');
   const deadline = Date.now() + timeoutMs;
   while (Date.now() < deadline) {
-    const range = readResultRange();
-    if (range && range.start !== previousStart) return true;
+    const rows = extractVisibleRows();
+    if (rows.length && rows.map(row => row.threadId).join('\n') !== previousIds) return true;
     await sleep(200);
   }
   return false;
@@ -195,13 +198,18 @@ async function scanCategory(op, onPage) {
     pages += 1;
     if (onPage) onPage(pages, rows.length);
 
-    if (!hasMorePages(range)) break;
-
+    // The counter is optional: an enabled Older button is enough to continue.
+    // Never mistake a hidden/unparseable counter for the end of the mailbox.
+    if (range && !hasMorePages(range)) break;
     const older = findOlderButton();
-    if (!older) break;
+    if (!older) {
+      if (range && hasMorePages(range)) throw new Error('Scan incomplete: Gmail has more pages but the Older button is unavailable.');
+      break;
+    }
+    if (pages >= MAX_PAGES_PER_CATEGORY) throw new Error('Scan incomplete: category page safety limit reached.');
 
     older.click();
-    if (!(await waitForRangeChange(range.start))) break;
+    if (!(await waitForPageChange(pageRows))) throw new Error('Scan incomplete: Gmail did not load the next page. Please retry.');
   }
 
   return dedupeRowsByThreadId(rows);

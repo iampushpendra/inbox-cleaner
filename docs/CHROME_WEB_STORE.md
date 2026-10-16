@@ -1,11 +1,12 @@
 # Chrome Web Store submission package
 
-**Status: published.** The Developer Dashboard shows Inbox Cleaner v2.1.0 as
-"Published - public" (submitted 2026-09-04, last updated 2026-09-06). The
-listing copy and checklist below are kept as the source-of-truth draft for
-future updates (version bumps, description edits) — paste changes into
-https://chrome.google.com/webstore/devconsole rather than editing the live
-listing directly by hand, so this file stays in sync.
+**Release prepared: 3.2.1.** The public listing was verified as version 3.0.0 on 2026-10-16; this update is not published until the Developer Dashboard confirms submission/release.
+
+Listing: https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep
+
+Upload `inbox-cleaner-extension-3.2.1.zip` from the repository root through https://chrome.google.com/webstore/devconsole. This update fixes scanning beyond the first 500 conversations and has automated 10,000-conversation pagination coverage. The source supports up to 500 pages per category and fails explicitly on incomplete pagination. No new permissions are requested.
+
+The dashboard requires the publisher's Google account sign-in. The listing copy below is the maintained draft; confirm it alongside the package during submission.
 
 ## Listing copy
 
@@ -45,7 +46,7 @@ PERMISSIONS
   bulk "move to Trash" action; no API calls, no sign-in step
 
 Full privacy policy: https://iampushpendra.github.io/inbox-cleaner/privacy.html
-Try it with no install first: https://iampushpendra.github.io/inbox-cleaner/
+Gmail cleanup guides: https://inbox-cleaner.vercel.app/blog/
 ```
 
 **Category**: Productivity
