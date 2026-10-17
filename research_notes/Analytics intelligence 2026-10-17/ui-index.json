@@ -1,0 +1,227 @@
+[
+  {
+    "label": "gsc-indexing",
+    "url": "https://search.google.com/search-console/index?resource_id=https%3A%2F%2Finbox-cleaner.vercel.app%2F",
+    "evidence": "ui-evidence/gsc-indexing.json"
+  },
+  {
+    "label": "gsc-unindexed-all",
+    "url": "https://search.google.com/search-console/index/drilldown?resource_id=https%3A%2F%2Finbox-cleaner.vercel.app%2F&item_key=CAMYFiAC",
+    "evidence": "ui-evidence/gsc-unindexed-all.json"
+  },
+  {
+    "label": "sitemaps",
+    "url": "https://search.google.com/search-console/sitemaps?resource_id=https%3A%2F%2Finbox-cleaner.vercel.app%2F",
+    "evidence": "ui-evidence/sitemaps.json"
+  },
+  {
+    "label": "core-web-vitals",
+    "url": "https://search.google.com/search-console/core-web-vitals?resource_id=https%3A%2F%2Finbox-cleaner.vercel.app%2F",
+    "evidence": "ui-evidence/core-web-vitals.json"
+  },
+  {
+    "label": "gsc-https",
+    "url": "https://search.google.com/search-console/https?resource_id=https%3A%2F%2Finbox-cleaner.vercel.app%2F",
+    "evidence": "ui-evidence/gsc-https.json"
+  },
+  {
+    "label": "manual-actions",
+    "url": "https://search.google.com/search-console/manual-actions?resource_id=https%3A%2F%2Finbox-cleaner.vercel.app%2F",
+    "evidence": "ui-evidence/manual-actions.json"
+  },
+  {
+    "label": "security-issues",
+    "url": "https://search.google.com/search-console/security-issues?resource_id=https%3A%2F%2Finbox-cleaner.vercel.app%2F",
+    "evidence": "ui-evidence/security-issues.json"
+  },
+  {
+    "label": "links-report",
+    "url": "https://search.google.com/search-console/links?resource_id=https%3A%2F%2Finbox-cleaner.vercel.app%2F",
+    "evidence": "ui-evidence/links-report.json"
+  },
+  {
+    "label": "gsc-crawl-stats",
+    "url": "https://search.google.com/search-console/settings/crawl-stats?resource_id=https%3A%2F%2Finbox-cleaner.vercel.app%2F",
+    "evidence": "ui-evidence/gsc-crawl-stats.json"
+  },
+  {
+    "label": "gsc-crawl-404-all",
+    "url": "https://search.google.com/search-console/settings/crawl-stats/drilldown?resource_id=https%3A%2F%2Finbox-cleaner.vercel.app%2F&response=2",
+    "evidence": "ui-evidence/gsc-crawl-404-all.json"
+  },
+  {
+    "label": "achievements",
+    "url": "https://search.google.com/search-console/achievements?resource_id=https%3A%2F%2Finbox-cleaner.vercel.app%2F",
+    "evidence": "ui-evidence/achievements.json"
+  },
+  {
+    "label": "data-streams",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/admin/streams/table",
+    "evidence": "ui-evidence/data-streams.json"
+  },
+  {
+    "label": "data-filters",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/admin/datapolicies/datafilters",
+    "evidence": "ui-evidence/data-filters.json"
+  },
+  {
+    "label": "property-details",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/admin/property/settings",
+    "evidence": "ui-evidence/property-details.json"
+  },
+  {
+    "label": "ga-account-inventory",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/reportinghub?params=_u..nav%3Dmaui%26_u.dateOption%3DyearToDate%26_u.comparisonOption%3Ddisabled",
+    "evidence": "ui-evidence/ga-account-inventory.json"
+  },
+  {
+    "label": "ga-reports",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/reportinghub?params=_u..nav%3Dmaui",
+    "evidence": "ui-evidence/ga-reports.json"
+  },
+  {
+    "label": "ga-90d",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/reportinghub?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled",
+    "evidence": "ui-evidence/ga-90d.json"
+  },
+  {
+    "label": "install",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/dashboard?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled%26_r..dimension-value%3D%7B%22dimension%22:%22eventName%22,%22value%22:%22install%22%7D&r=events-overview&collectionId=business-objectives",
+    "evidence": "ui-evidence/install.json"
+  },
+  {
+    "label": "view-retention",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/dashboard?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&collectionId=business-objectives&r=lifecycle-retention-overview",
+    "evidence": "ui-evidence/view-retention.json"
+  },
+  {
+    "label": "ga-snapshot-year",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/reportinghub?params=_u..nav%3Dmaui%26_u.dateOption%3DyearToDate%26_u.comparisonOption%3Ddisabled",
+    "evidence": "ui-evidence/ga-snapshot-year.json"
+  },
+  {
+    "label": "realtime-overview",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/realtime/overview?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled",
+    "evidence": "ui-evidence/realtime-overview.json"
+  },
+  {
+    "label": "realtime-pages",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/realtime/pages?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled",
+    "evidence": "ui-evidence/realtime-pages.json"
+  },
+  {
+    "label": "audiences",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/explorer?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&ruid=audiences,business-objectives,generate-leads&collectionId=business-objectives&r=audiences",
+    "evidence": "ui-evidence/audiences.json"
+  },
+  {
+    "label": "lead-acquisition",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/explorer?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&ruid=lead-acquisition,business-objectives,generate-leads&collectionId=business-objectives&r=lead-acquisition",
+    "evidence": "ui-evidence/lead-acquisition.json"
+  },
+  {
+    "label": "user-acquisition-cohorts",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/explorer?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&ruid=user-acquisition-cohorts,business-objectives,generate-leads&collectionId=business-objectives&r=user-acquisition-cohorts",
+    "evidence": "ui-evidence/user-acquisition-cohorts.json"
+  },
+  {
+    "label": "lead-disqualification-and-loss",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/explorer?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&ruid=lead-disqualification-and-loss,business-objectives,generate-leads&collectionId=business-objectives&r=lead-disqualification-and-loss",
+    "evidence": "ui-evidence/lead-disqualification-and-loss.json"
+  },
+  {
+    "label": "ecommerce-purchases",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/explorer?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&ruid=ecomm-product,business-objectives,drive-online-sales&collectionId=business-objectives&r=ecomm-product",
+    "evidence": "ui-evidence/ecommerce-purchases.json"
+  },
+  {
+    "label": "promotions",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/explorer?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&ruid=ecomm-promotion,business-objectives,drive-online-sales&collectionId=business-objectives&r=ecomm-promotion",
+    "evidence": "ui-evidence/promotions.json"
+  },
+  {
+    "label": "purchase-journey",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/explorer?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&ruid=ecomm-shopping-funnel,business-objectives,drive-online-sales&collectionId=business-objectives&r=ecomm-shopping-funnel",
+    "evidence": "ui-evidence/purchase-journey.json"
+  },
+  {
+    "label": "checkout-journey",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/explorer?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&ruid=ecomm-checkout-funnel,business-objectives,drive-online-sales&collectionId=business-objectives&r=ecomm-checkout-funnel",
+    "evidence": "ui-evidence/checkout-journey.json"
+  },
+  {
+    "label": "transactions",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/explorer?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&ruid=transaction-id-report,business-objectives,drive-online-sales&collectionId=business-objectives&r=transaction-id-report",
+    "evidence": "ui-evidence/transactions.json"
+  },
+  {
+    "label": "campaign-data-import-validation",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/explorer?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&ruid=campaign-data-import-validation,data-import,campaign-data-import-validation&collectionId=data-import&r=campaign-data-import-validation",
+    "evidence": "ui-evidence/campaign-data-import-validation.json"
+  },
+  {
+    "label": "ga-generate-leads-overview",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/dashboard?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&ruid=business-objectives-generate-leads-overview,business-objectives,generate-leads&collectionId=business-objectives&r=business-objectives-generate-leads-overview",
+    "evidence": "ui-evidence/ga-generate-leads-overview.json"
+  },
+  {
+    "label": "ga-drive-sales-overview",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/dashboard?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&ruid=business-objectives-drive-online-sales-overview,business-objectives,drive-online-sales&collectionId=business-objectives&r=business-objectives-drive-online-sales-overview",
+    "evidence": "ui-evidence/ga-drive-sales-overview.json"
+  },
+  {
+    "label": "ga-understand-web-and-or-app-traffic-overview",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/dashboard?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&ruid=business-objectives-raise-brand-awareness-overview,business-objectives,raise-brand-awareness&collectionId=business-objectives&r=business-objectives-raise-brand-awareness-overview",
+    "evidence": "ui-evidence/ga-understand-web-and-or-app-traffic-overview.json"
+  },
+  {
+    "label": "ga-view-user-engagement-&-retention-overview",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/dashboard?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&ruid=business-objectives-examine-user-behavior-overview,business-objectives,examine-user-behavior&collectionId=business-objectives&r=business-objectives-examine-user-behavior-overview",
+    "evidence": "ui-evidence/ga-view-user-engagement-&-retention-overview.json"
+  },
+  {
+    "label": "ga-user-attributes-overview",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/dashboard?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&ruid=user-demographics-overview,user,demographics&collectionId=user&r=user-demographics-overview",
+    "evidence": "ui-evidence/ga-user-attributes-overview.json"
+  },
+  {
+    "label": "ga-tech-overview",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/dashboard?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&ruid=user-technology-overview,user,technology&collectionId=user&r=user-technology-overview",
+    "evidence": "ui-evidence/ga-tech-overview.json"
+  },
+  {
+    "label": "ga-90d-traffic-source-medium",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/explorer?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled%26_r.explorerCard..selmet%3D%5B%22sessions%22%5D%26_r.explorerCard..seldim%3D%5B%22sessionSourceMedium%22%5D%26_r.explorerCard..sortKey%3Dd-0&r=lifecycle-traffic-acquisition-v2",
+    "evidence": "ui-evidence/ga-90d-traffic-source-medium.json"
+  },
+  {
+    "label": "ga-90d-countries",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/explorer?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&r=user-demographics-detail&ruid=user-demographics-detail,business-objectives,raise-brand-awareness&collectionId=business-objectives",
+    "evidence": "ui-evidence/ga-90d-countries.json"
+  },
+  {
+    "label": "ga-90d-browsers",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/explorer?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&r=user-technology-detail&collectionId=user&ruid=user-technology-detail,user,technology",
+    "evidence": "ui-evidence/ga-90d-browsers.json"
+  },
+  {
+    "label": "ga-90d-pages",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/explorer?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&r=all-pages-and-screens&ruid=all-pages-and-screens,business-objectives,raise-brand-awareness&collectionId=business-objectives",
+    "evidence": "ui-evidence/ga-90d-pages.json"
+  },
+  {
+    "label": "ga-90d-events",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/explorer?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&r=top-events&ruid=top-events,business-objectives,examine-user-behavior&collectionId=business-objectives",
+    "evidence": "ui-evidence/ga-90d-events.json"
+  },
+  {
+    "label": "ga-90d-user-acquisition",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/explorer?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&r=lifecycle-user-acquisition-v2&ruid=lifecycle-user-acquisition-v2,business-objectives,generate-leads&collectionId=business-objectives",
+    "evidence": "ui-evidence/ga-90d-user-acquisition.json"
+  },
+  {
+    "label": "ga-install-by-source",
+    "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/explorer?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled%26_r.explorerCard..selmet%3D%5B%22sessions%22%5D%26_r.explorerCard..seldim%3D%5B%22sessionSourceMedium%22%5D%26_r.explorerCard..sortKey%3Dd-0%26_r.explorerCard..columnFilters%3D%7B%22event%22:%22install%22%7D&r=lifecycle-traffic-acquisition-v2",
+    "evidence": "ui-evidence/ga-install-by-source.json"
+  }
+]

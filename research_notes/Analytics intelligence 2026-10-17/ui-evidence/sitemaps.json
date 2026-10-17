@@ -1,0 +1,600 @@
+{
+  "url": "https://search.google.com/search-console/sitemaps?resource_id=https%3A%2F%2Finbox-cleaner.vercel.app%2F",
+  "title": "Sitemaps",
+  "tree": [
+    {
+      "role": "banner",
+      "children": [
+        {
+          "role": "button",
+          "name": "Main menu",
+          "children": [
+            {
+              "role": "image"
+            }
+          ]
+        },
+        {
+          "role": "link",
+          "name": "Google Search Console"
+        },
+        {
+          "role": "search",
+          "children": [
+            {
+              "role": "combobox",
+              "name": "Inspect any URL in https://inbox-cleaner.vercel.app/"
+            },
+            {
+              "role": "button",
+              "name": "Search",
+              "children": [
+                {
+                  "role": "image"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Help"
+        },
+        {
+          "role": "button",
+          "name": "User settings"
+        },
+        {
+          "role": "button",
+          "name": "Unread messages: 5"
+        },
+        {
+          "role": "StaticText",
+          "name": "5"
+        },
+        {
+          "role": "button",
+          "name": "Google apps",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "  "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "role": "dialog",
+      "name": "navigational drawer",
+      "children": [
+        {
+          "role": "navigation",
+          "name": "Primary",
+          "children": [
+            {
+              "role": "button",
+              "name": "Search property",
+              "children": [
+                {
+                  "role": "image",
+                  "name": "favicon"
+                },
+                {
+                  "role": "combobox",
+                  "name": "https://inbox-cleaner.vercel.app/",
+                  "value": "https://inbox-cleaner.vercel.app/",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "https://inbox-cleaner.vercel.app/"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "link",
+              "name": "Overview",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Overview"
+                }
+              ]
+            },
+            {
+              "role": "link",
+              "name": "Insights",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Insights"
+                }
+              ]
+            },
+            {
+              "role": "link",
+              "name": "Performance",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Performance"
+                }
+              ]
+            },
+            {
+              "role": "button",
+              "name": "Performance report section"
+            },
+            {
+              "role": "button",
+              "name": "URL inspection",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "URL inspection"
+                }
+              ]
+            },
+            {
+              "role": "StaticText",
+              "name": "Indexing"
+            },
+            {
+              "role": "button",
+              "name": "Indexing report section"
+            },
+            {
+              "role": "link",
+              "name": "Pages",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Pages"
+                }
+              ]
+            },
+            {
+              "role": "link",
+              "name": "Sitemaps",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Sitemaps"
+                }
+              ]
+            },
+            {
+              "role": "link",
+              "name": "Removals",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Removals"
+                }
+              ]
+            },
+            {
+              "role": "StaticText",
+              "name": "Experience"
+            },
+            {
+              "role": "button",
+              "name": "Experience report section"
+            },
+            {
+              "role": "link",
+              "name": "Core Web Vitals",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Core Web Vitals"
+                }
+              ]
+            },
+            {
+              "role": "link",
+              "name": "HTTPS",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "HTTPS"
+                }
+              ]
+            },
+            {
+              "role": "StaticText",
+              "name": "Security & Manual Actions"
+            },
+            {
+              "role": "button",
+              "name": "Security & Manual Actions report section"
+            },
+            {
+              "role": "link",
+              "name": "Links report",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Links"
+                }
+              ]
+            },
+            {
+              "role": "link",
+              "name": "Achievements",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Achievements"
+                }
+              ]
+            },
+            {
+              "role": "link",
+              "name": "Settings",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Settings"
+                }
+              ]
+            },
+            {
+              "role": "button",
+              "name": "Submit feedback",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Submit feedback"
+                }
+              ]
+            },
+            {
+              "role": "button",
+              "name": "About Search Console",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "About Search Console"
+                }
+              ]
+            },
+            {
+              "role": "link",
+              "name": "Privacy",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Privacy"
+                }
+              ]
+            },
+            {
+              "role": "link",
+              "name": "Terms",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Terms"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "role": "navigation",
+      "name": "Breadcrumbs",
+      "children": [
+        {
+          "role": "heading",
+          "name": "Sitemaps",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Sitemaps"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "role": "main",
+      "children": [
+        {
+          "role": "StaticText",
+          "name": "Add a new sitemap"
+        },
+        {
+          "role": "StaticText",
+          "name": "https://inbox-cleaner.vercel.app/"
+        },
+        {
+          "role": "textbox",
+          "name": "Enter sitemap URL"
+        },
+        {
+          "role": "button",
+          "name": "SUBMIT",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "SUBMIT"
+            }
+          ]
+        },
+        {
+          "role": "heading",
+          "name": "Submitted sitemaps",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Submitted sitemaps"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Filter table rows"
+        },
+        {
+          "role": "table",
+          "children": [
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "columnheader",
+                  "name": "Sitemap",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Sitemap"
+                    }
+                  ]
+                },
+                {
+                  "role": "columnheader",
+                  "name": "Type",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Type"
+                    }
+                  ]
+                },
+                {
+                  "role": "columnheader",
+                  "name": "Submitted",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Submitted"
+                    }
+                  ]
+                },
+                {
+                  "role": "columnheader",
+                  "name": "Last read",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Last read"
+                    }
+                  ]
+                },
+                {
+                  "role": "columnheader",
+                  "name": "Status",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Status"
+                    }
+                  ]
+                },
+                {
+                  "role": "columnheader",
+                  "name": "Discovered pages",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Discovered pages"
+                    }
+                  ]
+                },
+                {
+                  "role": "columnheader",
+                  "name": "Discovered videos",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Discovered videos"
+                    }
+                  ]
+                },
+                {
+                  "role": "columnheader"
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "/sitemap.xml",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "/sitemap.xml"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "Sitemap",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Sitemap"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "Sep 2, 2026",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Sep 2, 2026"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "Oct 16, 2026",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Oct 16, 2026"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "Success",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Success"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "47",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "47"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "0",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "0"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "children": [
+                    {
+                      "role": "button"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "Rows per page:"
+        },
+        {
+          "role": "listbox",
+          "name": "Number of rows per page",
+          "children": [
+            {
+              "role": "option",
+              "name": "5",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "5"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "10",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "10"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "25",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "25"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "50",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "50"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "100",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "100"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "250",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "250"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "500",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "1-1 of 1"
+        }
+      ]
+    },
+    {
+      "role": "StaticText",
+      "name": "Sitemaps"
+    }
+  ]
+}

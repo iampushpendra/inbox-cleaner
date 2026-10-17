@@ -1,0 +1,1340 @@
+{
+  "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/explorer?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&r=top-events&ruid=top-events,business-objectives,examine-user-behavior&collectionId=business-objectives",
+  "title": "Analytics",
+  "tree": [
+    {
+      "role": "StaticText",
+      "name": "Notification"
+    },
+    {
+      "role": "StaticText",
+      "name": "Report filtering is turned on in this property. Some reports will be disabled and data may be removed."
+    },
+    {
+      "role": "button",
+      "name": "Dismiss",
+      "children": [
+        {
+          "role": "StaticText",
+          "name": "Dismiss"
+        }
+      ]
+    },
+    {
+      "role": "banner",
+      "children": [
+        {
+          "role": "StaticText",
+          "name": " Analytics"
+        },
+        {
+          "role": "search",
+          "children": [
+            {
+              "role": "textbox",
+              "name": "Search"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Switch products"
+        },
+        {
+          "role": "button",
+          "name": "Ask Advisor"
+        },
+        {
+          "role": "button",
+          "name": "Help entry menu"
+        },
+        {
+          "role": "button",
+          "name": "Open the user account switcher panel.",
+          "description": "Google Account: pushpendra singh ([account email redacted])"
+        }
+      ]
+    },
+    {
+      "role": "main",
+      "children": [
+        {
+          "role": "button",
+          "name": "All Users",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "All Users"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Add comparison",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Add comparison"
+            }
+          ]
+        },
+        {
+          "role": "combobox",
+          "name": "Open date range picker",
+          "value": "Last 90 days Jul 19 - Oct 16, 2026",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Last 90 days"
+            },
+            {
+              "role": "StaticText",
+              "name": "Jul 19 - Oct 16, 2026"
+            }
+          ]
+        },
+        {
+          "role": "separator"
+        },
+        {
+          "role": "heading",
+          "name": "Events: Event name",
+          "children": [
+            {
+              "role": "button",
+              "name": "Events: Event name",
+              "description": "Press space for more information.",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Events: Event name"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "This report uses 100% of available data. Click to view more information.",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "This report uses 100% of available data. Click to view more information."
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Add filter",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Add filter"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "View annotations"
+        },
+        {
+          "role": "button",
+          "name": "Edit comparisons"
+        },
+        {
+          "role": "button",
+          "name": "Open this report as an exploration"
+        },
+        {
+          "role": "button",
+          "name": "Share this report"
+        },
+        {
+          "role": "button",
+          "name": "Insights"
+        },
+        {
+          "role": "button",
+          "name": "Ask Advisor",
+          "description": "Press space for more information."
+        },
+        {
+          "role": "heading",
+          "name": "Event count by Event name over time",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Event count by Event name over time"
+            }
+          ]
+        },
+        {
+          "role": "combobox",
+          "name": "Date granularity selector",
+          "value": "Day",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Day"
+            }
+          ]
+        },
+        {
+          "role": "SvgRoot",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "19 Jul"
+            },
+            {
+              "role": "StaticText",
+              "name": "26 Jul"
+            },
+            {
+              "role": "StaticText",
+              "name": "02 Aug"
+            },
+            {
+              "role": "StaticText",
+              "name": "09 Aug"
+            },
+            {
+              "role": "StaticText",
+              "name": "16 Aug"
+            },
+            {
+              "role": "StaticText",
+              "name": "23 Aug"
+            },
+            {
+              "role": "StaticText",
+              "name": "30 Aug"
+            },
+            {
+              "role": "StaticText",
+              "name": "06 Sep"
+            },
+            {
+              "role": "StaticText",
+              "name": "13 Sep"
+            },
+            {
+              "role": "StaticText",
+              "name": "20 Sep"
+            },
+            {
+              "role": "StaticText",
+              "name": "27 Sep"
+            },
+            {
+              "role": "StaticText",
+              "name": "04 Oct"
+            },
+            {
+              "role": "StaticText",
+              "name": "11 Oct"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "group"
+            },
+            {
+              "role": "graphics-symbol"
+            },
+            {
+              "role": "list",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Highlight Total line"
+                },
+                {
+                  "role": "button",
+                  "name": "Highlight page_view line"
+                },
+                {
+                  "role": "button",
+                  "name": "Highlight session_start line"
+                },
+                {
+                  "role": "button",
+                  "name": "Highlight first_visit line"
+                },
+                {
+                  "role": "button",
+                  "name": "Highlight install line"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Plot rows",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Plot rows"
+            }
+          ]
+        },
+        {
+          "role": "textbox",
+          "name": "Search"
+        },
+        {
+          "role": "StaticText",
+          "name": "Rows per page:"
+        },
+        {
+          "role": "combobox",
+          "name": "Rows per page: 10",
+          "value": "10",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "10"
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "1-4 of 4"
+        },
+        {
+          "role": "grid",
+          "name": "Report data.",
+          "children": [
+            {
+              "role": "rowgroup",
+              "children": [
+                {
+                  "role": "row",
+                  "name": "selection column Checkbox for deselecting all rows Index Event name Event count Total users Event count per active user Total revenue Actions",
+                  "children": [
+                    {
+                      "role": "columnheader",
+                      "name": "selection column Checkbox for deselecting all rows",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "selection column"
+                        },
+                        {
+                          "role": "checkbox",
+                          "name": "Checkbox for deselecting all rows"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Index",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "Index"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Event name",
+                      "children": [
+                        {
+                          "role": "button",
+                          "name": "Event name open dimensions picker",
+                          "description": "Sort",
+                          "children": [
+                            {
+                              "role": "StaticText",
+                              "name": "Event name"
+                            },
+                            {
+                              "role": "button",
+                              "name": "open dimensions picker"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Event count",
+                      "children": [
+                        {
+                          "role": "button",
+                          "name": "Event count",
+                          "description": "Sort",
+                          "children": [
+                            {
+                              "role": "button",
+                              "name": "Event count",
+                              "description": "Press space for more information.",
+                              "children": [
+                                {
+                                  "role": "StaticText",
+                                  "name": "Event count"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Total users",
+                      "children": [
+                        {
+                          "role": "button",
+                          "name": "Total users",
+                          "description": "Sort",
+                          "children": [
+                            {
+                              "role": "button",
+                              "name": "Total users",
+                              "description": "Press space for more information.",
+                              "children": [
+                                {
+                                  "role": "StaticText",
+                                  "name": "Total users"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Event count per active user",
+                      "children": [
+                        {
+                          "role": "button",
+                          "name": "Event count per active user",
+                          "description": "Sort",
+                          "children": [
+                            {
+                              "role": "button",
+                              "name": "Event count per active user",
+                              "description": "Press space for more information.",
+                              "children": [
+                                {
+                                  "role": "StaticText",
+                                  "name": "Event count per active user"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Total revenue",
+                      "children": [
+                        {
+                          "role": "button",
+                          "name": "Total revenue",
+                          "description": "Sort",
+                          "children": [
+                            {
+                              "role": "button",
+                              "name": "Total revenue",
+                              "description": "Press space for more information.",
+                              "children": [
+                                {
+                                  "role": "StaticText",
+                                  "name": "Total revenue"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Actions",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "Actions"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "role": "row",
+                  "name": "Checkbox for total row Empty Summary Totals cell for Empty Summary Totals cell for Index column Total 70 100% of total 13 100% of total 5.38 Avg 0% Empty Summary Totals cell for Total revenue column $0.00 Empty Summary Totals cell for Actions column",
+                  "children": [
+                    {
+                      "role": "columnheader",
+                      "name": "Checkbox for total row Empty Summary Totals cell for",
+                      "children": [
+                        {
+                          "role": "checkbox",
+                          "name": "Checkbox for total row"
+                        },
+                        {
+                          "role": "StaticText",
+                          "name": "Empty Summary Totals cell for"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Empty Summary Totals cell for Index column",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "Empty Summary Totals cell for Index column"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Total",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "Total"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "70 100% of total",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "70"
+                        },
+                        {
+                          "role": "StaticText",
+                          "name": "100% of total"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "13 100% of total",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "13"
+                        },
+                        {
+                          "role": "StaticText",
+                          "name": "100% of total"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "5.38 Avg 0%",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "5.38"
+                        },
+                        {
+                          "role": "StaticText",
+                          "name": "Avg 0%"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Empty Summary Totals cell for Total revenue column $0.00",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "Empty Summary Totals cell for Total revenue column"
+                        },
+                        {
+                          "role": "StaticText",
+                          "name": "$0.00"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Empty Summary Totals cell for Actions column",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "Empty Summary Totals cell for Actions column"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "rowgroup",
+              "children": [
+                {
+                  "role": "row",
+                  "name": "Checkbox for selecting row 1 1 page_view 27 (38.57%) 13 (100%) 2.08 $0.00 (–) Inline action menu",
+                  "children": [
+                    {
+                      "role": "gridcell",
+                      "name": "Checkbox for selecting row 1",
+                      "children": [
+                        {
+                          "role": "checkbox",
+                          "name": "Checkbox for selecting row 1"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "1",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "1"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "page_view",
+                      "children": [
+                        {
+                          "role": "link",
+                          "name": "page_view",
+                          "children": [
+                            {
+                              "role": "StaticText",
+                              "name": "page_view"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "27 (38.57%)",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "27 "
+                        },
+                        {
+                          "role": "StaticText",
+                          "name": "(38.57%)"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "13 (100%)",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "13 "
+                        },
+                        {
+                          "role": "StaticText",
+                          "name": "(100%)"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "2.08",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "2.08"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "$0.00 (–)",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "$0.00 "
+                        },
+                        {
+                          "role": "StaticText",
+                          "name": "(–)"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "Inline action menu",
+                      "children": [
+                        {
+                          "role": "button",
+                          "name": "Inline action menu"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "role": "row",
+                  "name": "Checkbox for selecting row 2 2 session_start 22 (31.43%) 13 (100%) 1.69 $0.00 (–) Inline action menu",
+                  "children": [
+                    {
+                      "role": "gridcell",
+                      "name": "Checkbox for selecting row 2",
+                      "children": [
+                        {
+                          "role": "checkbox",
+                          "name": "Checkbox for selecting row 2"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "2",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "2"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "session_start",
+                      "children": [
+                        {
+                          "role": "link",
+                          "name": "session_start",
+                          "children": [
+                            {
+                              "role": "StaticText",
+                              "name": "session_start"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "22 (31.43%)",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "22 "
+                        },
+                        {
+                          "role": "StaticText",
+                          "name": "(31.43%)"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "13 (100%)",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "13 "
+                        },
+                        {
+                          "role": "StaticText",
+                          "name": "(100%)"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "1.69",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "1.69"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "$0.00 (–)",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "$0.00 "
+                        },
+                        {
+                          "role": "StaticText",
+                          "name": "(–)"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "Inline action menu",
+                      "children": [
+                        {
+                          "role": "button",
+                          "name": "Inline action menu"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "role": "row",
+                  "name": "Checkbox for selecting row 3 3 first_visit 15 (21.43%) 13 (100%) 1.15 $0.00 (–) Inline action menu",
+                  "children": [
+                    {
+                      "role": "gridcell",
+                      "name": "Checkbox for selecting row 3",
+                      "children": [
+                        {
+                          "role": "checkbox",
+                          "name": "Checkbox for selecting row 3"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "3",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "3"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "first_visit",
+                      "children": [
+                        {
+                          "role": "link",
+                          "name": "first_visit",
+                          "children": [
+                            {
+                              "role": "StaticText",
+                              "name": "first_visit"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "15 (21.43%)",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "15 "
+                        },
+                        {
+                          "role": "StaticText",
+                          "name": "(21.43%)"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "13 (100%)",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "13 "
+                        },
+                        {
+                          "role": "StaticText",
+                          "name": "(100%)"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "1.15",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "1.15"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "$0.00 (–)",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "$0.00 "
+                        },
+                        {
+                          "role": "StaticText",
+                          "name": "(–)"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "Inline action menu",
+                      "children": [
+                        {
+                          "role": "button",
+                          "name": "Inline action menu"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "role": "row",
+                  "name": "Checkbox for selecting row 4 4 install 6 (8.57%) 6 (46.15%) 1.00 $0.00 (–) Inline action menu",
+                  "children": [
+                    {
+                      "role": "gridcell",
+                      "name": "Checkbox for selecting row 4",
+                      "children": [
+                        {
+                          "role": "checkbox",
+                          "name": "Checkbox for selecting row 4"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "4",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "4"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "install",
+                      "children": [
+                        {
+                          "role": "link",
+                          "name": "install",
+                          "children": [
+                            {
+                              "role": "StaticText",
+                              "name": "install"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "6 (8.57%)",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "6 "
+                        },
+                        {
+                          "role": "StaticText",
+                          "name": "(8.57%)"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "6 (46.15%)",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "6 "
+                        },
+                        {
+                          "role": "StaticText",
+                          "name": "(46.15%)"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "1.00",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "1.00"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "$0.00 (–)",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "$0.00 "
+                        },
+                        {
+                          "role": "StaticText",
+                          "name": "(–)"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "gridcell",
+                      "name": "Inline action menu",
+                      "children": [
+                        {
+                          "role": "button",
+                          "name": "Inline action menu"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "© "
+        },
+        {
+          "role": "StaticText",
+          "name": "2026 Google"
+        },
+        {
+          "role": "StaticText",
+          "name": " | "
+        },
+        {
+          "role": "link",
+          "name": "Analytics home ",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Analytics home "
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "| "
+        },
+        {
+          "role": "link",
+          "name": "Terms of Service ",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Terms of Service "
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "| "
+        },
+        {
+          "role": "link",
+          "name": "Privacy Policy ",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Privacy Policy "
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "| "
+        },
+        {
+          "role": "button",
+          "name": "Send feedback",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Send feedback"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "role": "complementary"
+    },
+    {
+      "role": "button",
+      "name": "Open context menu"
+    }
+  ]
+}

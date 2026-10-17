@@ -1,0 +1,1380 @@
+{
+  "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/explorer?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled&ruid=campaign-data-import-validation,data-import,campaign-data-import-validation&collectionId=data-import&r=campaign-data-import-validation",
+  "title": "Analytics",
+  "tree": [
+    {
+      "role": "StaticText",
+      "name": "Notification"
+    },
+    {
+      "role": "StaticText",
+      "name": "Report filtering is turned on in this property. Some reports will be disabled and data may be removed."
+    },
+    {
+      "role": "button",
+      "name": "Dismiss",
+      "children": [
+        {
+          "role": "StaticText",
+          "name": "Dismiss"
+        }
+      ]
+    },
+    {
+      "role": "banner",
+      "children": [
+        {
+          "role": "StaticText",
+          "name": " Analytics"
+        },
+        {
+          "role": "search",
+          "children": [
+            {
+              "role": "textbox",
+              "name": "Search"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Switch products"
+        },
+        {
+          "role": "button",
+          "name": "Ask Advisor"
+        },
+        {
+          "role": "button",
+          "name": "Help entry menu"
+        },
+        {
+          "role": "button",
+          "name": "Open the user account switcher panel.",
+          "description": "Google Account: pushpendra singh ([account email redacted])"
+        }
+      ]
+    },
+    {
+      "role": "navigation",
+      "name": "Main pages",
+      "children": [
+        {
+          "role": "link",
+          "name": "Home",
+          "description": "Home",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Home"
+            }
+          ]
+        },
+        {
+          "role": "link",
+          "name": "Reports",
+          "description": "Reports",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Reports"
+            }
+          ]
+        },
+        {
+          "role": "link",
+          "name": "Explore",
+          "description": "Explore",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Explore"
+            }
+          ]
+        },
+        {
+          "role": "link",
+          "name": "Advertising",
+          "description": "Advertising",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Advertising"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "role": "navigation",
+      "name": "Settings pages",
+      "children": [
+        {
+          "role": "link",
+          "name": "Tasks",
+          "description": "Tasks",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Tasks"
+            }
+          ]
+        },
+        {
+          "role": "link",
+          "name": "Admin",
+          "description": "Admin",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Admin"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "role": "navigation",
+      "name": "Secondary navigation",
+      "children": [
+        {
+          "role": "tree",
+          "children": [
+            {
+              "role": "treeitem",
+              "name": "Reports snapshot",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Reports snapshot",
+                  "description": "Reports snapshot",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Reports snapshot"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Realtime overview",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Realtime overview",
+                  "description": "Realtime overview",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Realtime overview"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Realtime pages",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Realtime pages",
+                  "description": "Realtime pages",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Realtime pages"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Business objectives",
+              "children": [
+                {
+                  "role": "separator"
+                },
+                {
+                  "role": "button",
+                  "name": "Business objectives",
+                  "description": "Business objectives",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Business objectives"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Generate leads",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Generate leads",
+                  "description": "Generate leads",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Generate leads"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Overview",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Overview",
+                  "description": "Overview",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Overview"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Audiences",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Audiences",
+                  "description": "Audiences",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Audiences"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "User acquisition",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "User acquisition",
+                  "description": "User acquisition",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "User acquisition"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Traffic acquisition",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Traffic acquisition",
+                  "description": "Traffic acquisition",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Traffic acquisition"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Lead acquisition",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Lead acquisition",
+                  "description": "Lead acquisition",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Lead acquisition"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Landing page",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Landing page",
+                  "description": "Landing page",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Landing page"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "User acquisition cohorts",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "User acquisition cohorts",
+                  "description": "User acquisition cohorts",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "User acquisition cohorts"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Lead disqualification and loss",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Lead disqualification and loss",
+                  "description": "Lead disqualification and loss",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Lead disqualification and loss"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Drive sales",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Drive sales",
+                  "description": "Drive sales",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Drive sales"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Overview",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Overview",
+                  "description": "Overview",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Overview"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Ecommerce purchases",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Ecommerce purchases",
+                  "description": "Ecommerce purchases",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Ecommerce purchases"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Promotions",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Promotions",
+                  "description": "Promotions",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Promotions"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Purchase journey",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Purchase journey",
+                  "description": "Purchase journey",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Purchase journey"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Checkout journey",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Checkout journey",
+                  "description": "Checkout journey",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Checkout journey"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Transactions",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Transactions",
+                  "description": "Transactions",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Transactions"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Understand web and/or app traffic",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Understand web and/or app traffic",
+                  "description": "Understand web and/or app traffic",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Understand web and/or app traffic"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Overview",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Overview",
+                  "description": "Overview",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Overview"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Demographic details",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Demographic details",
+                  "description": "Demographic details",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Demographic details"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Pages and screens",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Pages and screens",
+                  "description": "Pages and screens",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Pages and screens"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "View user engagement & retention",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "View user engagement & retention",
+                  "description": "View user engagement & retention",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "View user engagement & retention"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Overview",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Overview",
+                  "description": "Overview",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Overview"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Events",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Events",
+                  "description": "Events",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Events"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Pages and screens",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Pages and screens",
+                  "description": "Pages and screens",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Pages and screens"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Data import",
+              "children": [
+                {
+                  "role": "separator"
+                },
+                {
+                  "role": "button",
+                  "name": "Data import",
+                  "description": "Data import",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Data import"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Campaign data import validation",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Campaign data import validation",
+                  "description": "Campaign data import validation",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Campaign data import validation"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "User",
+              "children": [
+                {
+                  "role": "separator"
+                },
+                {
+                  "role": "button",
+                  "name": "User",
+                  "description": "User",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "User"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "User attributes",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "User attributes",
+                  "description": "User attributes",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "User attributes"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Tech",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Tech",
+                  "description": "Tech",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Tech"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Overview",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Overview",
+                  "description": "Overview",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Overview"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Tech details",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Tech details",
+                  "description": "Tech details",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Tech details"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "separator"
+        }
+      ]
+    },
+    {
+      "role": "button",
+      "name": "Nav toggle"
+    },
+    {
+      "role": "main",
+      "children": [
+        {
+          "role": "button",
+          "name": "All Users",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "All Users"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Add comparison",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Add comparison"
+            }
+          ]
+        },
+        {
+          "role": "combobox",
+          "name": "Open date range picker",
+          "value": "Last 90 days Jul 19 - Oct 16, 2026",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Last 90 days"
+            },
+            {
+              "role": "StaticText",
+              "name": "Jul 19 - Oct 16, 2026"
+            }
+          ]
+        },
+        {
+          "role": "separator"
+        },
+        {
+          "role": "heading",
+          "name": "Campaign data import validation: Session source / medium",
+          "children": [
+            {
+              "role": "button",
+              "name": "Campaign data import validation: Session source / medium",
+              "description": "Press space for more information.",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Campaign data import validation: Session source / medium"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "This report uses 100% of available data. Click to view more information.",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "This report uses 100% of available data. Click to view more information."
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Session default channel group begins with 'Paid' AND Is manual session campaign exactly matches 'true' AND Session source does not exactly match 'google' AND Session medium does not contain 'search'",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Session default channel group begins with 'Paid'"
+            },
+            {
+              "role": "StaticText",
+              "name": " AND "
+            },
+            {
+              "role": "StaticText",
+              "name": "Is manual session campaign exactly matches 'true'"
+            },
+            {
+              "role": "StaticText",
+              "name": " AND "
+            },
+            {
+              "role": "StaticText",
+              "name": "Session source does not exactly match 'google'"
+            },
+            {
+              "role": "StaticText",
+              "name": " AND "
+            },
+            {
+              "role": "StaticText",
+              "name": "Session medium does not contain 'search'"
+            },
+            {
+              "role": "button",
+              "name": "remove"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "View annotations"
+        },
+        {
+          "role": "button",
+          "name": "Edit comparisons"
+        },
+        {
+          "role": "button",
+          "name": "Open this report as an exploration"
+        },
+        {
+          "role": "button",
+          "name": "Share this report"
+        },
+        {
+          "role": "button",
+          "name": "Insights"
+        },
+        {
+          "role": "button",
+          "name": "Ask Advisor",
+          "description": "Press space for more information."
+        },
+        {
+          "role": "textbox",
+          "name": "Search"
+        },
+        {
+          "role": "grid",
+          "name": "Report data.",
+          "children": [
+            {
+              "role": "rowgroup",
+              "children": [
+                {
+                  "role": "row",
+                  "name": "Index Session source / medium Import join status Event count All events Ads clicks Ads cost Ads impressions Key events All events",
+                  "children": [
+                    {
+                      "role": "columnheader",
+                      "name": "Index",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "Index"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Session source / medium",
+                      "children": [
+                        {
+                          "role": "button",
+                          "name": "Session source / medium open dimensions picker",
+                          "description": "Sort",
+                          "children": [
+                            {
+                              "role": "button",
+                              "name": "Session source / medium",
+                              "children": [
+                                {
+                                  "role": "StaticText",
+                                  "name": "Session source / medium"
+                                }
+                              ]
+                            },
+                            {
+                              "role": "button",
+                              "name": "open dimensions picker"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Import join status",
+                      "children": [
+                        {
+                          "role": "button",
+                          "name": "Import join status",
+                          "description": "Press space for more information.",
+                          "children": [
+                            {
+                              "role": "StaticText",
+                              "name": "Import join status"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Event count All events",
+                      "children": [
+                        {
+                          "role": "button",
+                          "name": "Event count All events",
+                          "description": "Sort",
+                          "children": [
+                            {
+                              "role": "button",
+                              "name": "Event count",
+                              "description": "Press space for more information.",
+                              "children": [
+                                {
+                                  "role": "StaticText",
+                                  "name": "Event count"
+                                }
+                              ]
+                            },
+                            {
+                              "role": "button",
+                              "name": "All events",
+                              "children": [
+                                {
+                                  "role": "StaticText",
+                                  "name": "All events"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Ads clicks",
+                      "children": [
+                        {
+                          "role": "button",
+                          "name": "Ads clicks",
+                          "description": "Sort",
+                          "children": [
+                            {
+                              "role": "button",
+                              "name": "Ads clicks",
+                              "description": "Press space for more information.",
+                              "children": [
+                                {
+                                  "role": "StaticText",
+                                  "name": "Ads clicks"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Ads cost",
+                      "children": [
+                        {
+                          "role": "button",
+                          "name": "Ads cost",
+                          "description": "Sort",
+                          "children": [
+                            {
+                              "role": "button",
+                              "name": "Ads cost",
+                              "description": "Press space for more information.",
+                              "children": [
+                                {
+                                  "role": "StaticText",
+                                  "name": "Ads cost"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Ads impressions",
+                      "children": [
+                        {
+                          "role": "button",
+                          "name": "Ads impressions",
+                          "description": "Sort",
+                          "children": [
+                            {
+                              "role": "button",
+                              "name": "Ads impressions",
+                              "description": "Press space for more information.",
+                              "children": [
+                                {
+                                  "role": "StaticText",
+                                  "name": "Ads impressions"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Key events All events",
+                      "children": [
+                        {
+                          "role": "button",
+                          "name": "Key events All events",
+                          "description": "Sort",
+                          "children": [
+                            {
+                              "role": "button",
+                              "name": "Key events",
+                              "description": "Press space for more information.",
+                              "children": [
+                                {
+                                  "role": "StaticText",
+                                  "name": "Key events"
+                                }
+                              ]
+                            },
+                            {
+                              "role": "button",
+                              "name": "All events",
+                              "children": [
+                                {
+                                  "role": "StaticText",
+                                  "name": "All events"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "role": "row",
+                  "name": "Empty Summary Totals cell for Index column Total Coverage rate: 0 / 0 Empty Summary Totals cell for Event count column 0 Empty Summary Totals cell for Ads clicks column 0 Empty Summary Totals cell for Ads cost column $0.00 Empty Summary Totals cell for Ads impressions column 0 Empty Summary Totals cell for Key events column 0.00",
+                  "children": [
+                    {
+                      "role": "columnheader",
+                      "name": "Empty Summary Totals cell for Index column",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "Empty Summary Totals cell for Index column"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Total",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "Total"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Coverage rate: 0 / 0",
+                      "children": [
+                        {
+                          "role": "button",
+                          "name": "Coverage rate: 0 / 0",
+                          "description": "Press space for more information.",
+                          "children": [
+                            {
+                              "role": "StaticText",
+                              "name": "Coverage rate: 0 / 0"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Empty Summary Totals cell for Event count column 0",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "Empty Summary Totals cell for Event count column"
+                        },
+                        {
+                          "role": "StaticText",
+                          "name": "0"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Empty Summary Totals cell for Ads clicks column 0",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "Empty Summary Totals cell for Ads clicks column"
+                        },
+                        {
+                          "role": "StaticText",
+                          "name": "0"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Empty Summary Totals cell for Ads cost column $0.00",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "Empty Summary Totals cell for Ads cost column"
+                        },
+                        {
+                          "role": "StaticText",
+                          "name": "$0.00"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Empty Summary Totals cell for Ads impressions column 0",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "Empty Summary Totals cell for Ads impressions column"
+                        },
+                        {
+                          "role": "StaticText",
+                          "name": "0"
+                        }
+                      ]
+                    },
+                    {
+                      "role": "columnheader",
+                      "name": "Empty Summary Totals cell for Key events column 0.00",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "Empty Summary Totals cell for Key events column"
+                        },
+                        {
+                          "role": "StaticText",
+                          "name": "0.00"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "rowgroup"
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "No data available"
+        },
+        {
+          "role": "StaticText",
+          "name": "© "
+        },
+        {
+          "role": "StaticText",
+          "name": "2026 Google"
+        },
+        {
+          "role": "StaticText",
+          "name": " | "
+        },
+        {
+          "role": "link",
+          "name": "Analytics home ",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Analytics home "
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "| "
+        },
+        {
+          "role": "link",
+          "name": "Terms of Service ",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Terms of Service "
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "| "
+        },
+        {
+          "role": "link",
+          "name": "Privacy Policy ",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Privacy Policy "
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "| "
+        },
+        {
+          "role": "button",
+          "name": "Send feedback",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Send feedback"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "role": "complementary"
+    },
+    {
+      "role": "button",
+      "name": "Open context menu"
+    },
+    {
+      "role": "StaticText",
+      "name": "Report filtering is turned on in this property. Some reports will be disabled and data may be removed."
+    },
+    {
+      "role": "alertdialog",
+      "children": [
+        {
+          "role": "button",
+          "name": "Close",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "×"
+            }
+          ]
+        },
+        {
+          "role": "heading",
+          "name": "Welcome to Analytics Advisor",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Welcome to Analytics Advisor"
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "You can now ask questions to help with:"
+        },
+        {
+          "role": "list",
+          "children": [
+            {
+              "role": "listitem",
+              "children": [
+                {
+                  "role": "ListMarker",
+                  "name": "• "
+                },
+                {
+                  "role": "StaticText",
+                  "name": "Data analysis: Analytics Advisor can respond to data questions with single-number answers and visualizations."
+                }
+              ]
+            },
+            {
+              "role": "listitem",
+              "children": [
+                {
+                  "role": "ListMarker",
+                  "name": "• "
+                },
+                {
+                  "role": "StaticText",
+                  "name": "Report finding: Analytics Advisor can provide a link to the most appropriate report."
+                }
+              ]
+            },
+            {
+              "role": "listitem",
+              "children": [
+                {
+                  "role": "ListMarker",
+                  "name": "• "
+                },
+                {
+                  "role": "StaticText",
+                  "name": "Education: Analytics Advisor can give assistive answers based on relevant supporting documentation."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "CLICK THE ICON TO CONTINUE"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# ----------------------------------------
+# Tech details: Browser
+# Account: Chrome Web Store developer properties
+# Property: pnlnpdidhjimchppdmojledmfakpepep
+# ----------------------------------------
+# 
+# All Users
+# Start date: 20260719
+# End date: 20261016
+Browser,Active users,New users,Engaged sessions,Engagement rate,Engaged sessions per active user,Average engagement time per active user,Event count,Key events,Total revenue
+Chrome,10,12,8,0.42105263157894735,0.8,5.3,60,0,0
+Safari,2,2,0,0,0,0,6,0,0
+Opera,1,1,1,1,1,3,4,0,0

@@ -65,6 +65,10 @@ Group by sender → ranked list (chrome.storage.local)
 
 [Organic growth audit and roadmap](reports/Inbox%20Cleaner%20organic%20growth.md) — technical and content findings, authenticated Search Console baseline, 15 page/tool briefs, and a low-budget 30/60/90-day plan, researched 17 October 2026. The [47-page content inventory](research_notes/Inbox%20Cleaner%20organic%20growth/content-inventory.csv) is the URL-level backlog. These are recommendations; the live site and publishing schedule are unchanged.
 
+## Analytics intelligence
+
+[Analytics findings and roadmap priorities](reports/2026-10-17-analytics-intelligence.md) — complete available Search Console performance exports, store-linked Google Analytics reports, source-attributed install events, coverage gaps and proposed sequencing, collected 17 October 2026. [Evidence and original exports](research_notes/Analytics%20intelligence%202026-10-17/README.md) remain outside the public site output. The private Chrome Web Store dashboard was blocked in both browser extensions; website conversion and successful Gmail cleanup remain unmeasured.
+
 ## Blog publishing
 
 The local LaunchAgent publishes one queued article at **9 AM, 1 PM, 5 PM, and 9 PM IST** (four posts per day). It runs on this Mac while the user is logged in; sleeping or offline time can delay runs. Vercel deploys pushes to `main`.

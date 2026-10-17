@@ -1,0 +1,2631 @@
+{
+  "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/reports/reportinghub?params=_u..nav%3Dmaui%26_u.dateOption%3Dlast90Days%26_u.comparisonOption%3Ddisabled",
+  "title": "Analytics",
+  "tree": [
+    {
+      "role": "StaticText",
+      "name": "Notification"
+    },
+    {
+      "role": "StaticText",
+      "name": "Report filtering is turned on in this property. Some reports will be disabled and data may be removed."
+    },
+    {
+      "role": "button",
+      "name": "Dismiss",
+      "children": [
+        {
+          "role": "StaticText",
+          "name": "Dismiss"
+        }
+      ]
+    },
+    {
+      "role": "banner",
+      "children": [
+        {
+          "role": "StaticText",
+          "name": " Analytics"
+        },
+        {
+          "role": "search",
+          "children": [
+            {
+              "role": "textbox",
+              "name": "Search"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Switch products"
+        },
+        {
+          "role": "button",
+          "name": "Ask Advisor"
+        },
+        {
+          "role": "button",
+          "name": "Help entry menu"
+        },
+        {
+          "role": "button",
+          "name": "Open the user account switcher panel.",
+          "description": "Google Account: pushpendra singh ([account email redacted])"
+        }
+      ]
+    },
+    {
+      "role": "navigation",
+      "name": "Main pages",
+      "children": [
+        {
+          "role": "link",
+          "name": "Home",
+          "description": "Home",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Home"
+            }
+          ]
+        },
+        {
+          "role": "link",
+          "name": "Reports",
+          "description": "Reports",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Reports"
+            }
+          ]
+        },
+        {
+          "role": "link",
+          "name": "Explore",
+          "description": "Explore",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Explore"
+            }
+          ]
+        },
+        {
+          "role": "link",
+          "name": "Advertising",
+          "description": "Advertising",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Advertising"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "role": "navigation",
+      "name": "Settings pages",
+      "children": [
+        {
+          "role": "link",
+          "name": "Tasks",
+          "description": "Tasks",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Tasks"
+            }
+          ]
+        },
+        {
+          "role": "link",
+          "name": "Admin",
+          "description": "Admin",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Admin"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "role": "navigation",
+      "name": "Secondary navigation",
+      "children": [
+        {
+          "role": "tree",
+          "children": [
+            {
+              "role": "treeitem",
+              "name": "Reports snapshot",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Reports snapshot",
+                  "description": "Reports snapshot",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Reports snapshot"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Realtime overview",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Realtime overview",
+                  "description": "Realtime overview",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Realtime overview"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Realtime pages",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Realtime pages",
+                  "description": "Realtime pages",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Realtime pages"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Business objectives",
+              "children": [
+                {
+                  "role": "separator"
+                },
+                {
+                  "role": "button",
+                  "name": "Business objectives",
+                  "description": "Business objectives",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Business objectives"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Generate leads",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Generate leads",
+                  "description": "Generate leads",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Generate leads"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Drive sales",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Drive sales",
+                  "description": "Drive sales",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Drive sales"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Understand web and/or app traffic",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Understand web and/or app traffic",
+                  "description": "Understand web and/or app traffic",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Understand web and/or app traffic"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Overview",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Overview",
+                  "description": "Overview",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Overview"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Demographic details",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Demographic details",
+                  "description": "Demographic details",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Demographic details"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Pages and screens",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Pages and screens",
+                  "description": "Pages and screens",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Pages and screens"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "View user engagement & retention",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "View user engagement & retention",
+                  "description": "View user engagement & retention",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "View user engagement & retention"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Data import",
+              "children": [
+                {
+                  "role": "separator"
+                },
+                {
+                  "role": "button",
+                  "name": "Data import",
+                  "description": "Data import",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Data import"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Campaign data import validation",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Campaign data import validation",
+                  "description": "Campaign data import validation",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Campaign data import validation"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "User",
+              "children": [
+                {
+                  "role": "separator"
+                },
+                {
+                  "role": "button",
+                  "name": "User",
+                  "description": "User",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "User"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "User attributes",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "User attributes",
+                  "description": "User attributes",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "User attributes"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Tech",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Tech",
+                  "description": "Tech",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Tech"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "separator"
+        }
+      ]
+    },
+    {
+      "role": "button",
+      "name": "Nav toggle"
+    },
+    {
+      "role": "main",
+      "children": [
+        {
+          "role": "button",
+          "name": "All Users",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "All Users"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Add comparison",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Add comparison"
+            }
+          ]
+        },
+        {
+          "role": "combobox",
+          "name": "Open date range picker",
+          "value": "Last 90 days Jul 19 - Oct 16, 2026",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Last 90 days"
+            },
+            {
+              "role": "StaticText",
+              "name": "Jul 19 - Oct 16, 2026"
+            }
+          ]
+        },
+        {
+          "role": "separator"
+        },
+        {
+          "role": "heading",
+          "name": "Reports snapshot",
+          "children": [
+            {
+              "role": "button",
+              "name": "Reports snapshot",
+              "description": "Press space for more information.",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Reports snapshot"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "View annotations"
+        },
+        {
+          "role": "button",
+          "name": "Edit comparisons"
+        },
+        {
+          "role": "button",
+          "name": "Share this report"
+        },
+        {
+          "role": "button",
+          "name": "Insights"
+        },
+        {
+          "role": "button",
+          "name": "Ask Advisor",
+          "description": "Press space for more information."
+        },
+        {
+          "role": "tablist",
+          "children": [
+            {
+              "role": "tab",
+              "name": "Active users 13",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Active users"
+                },
+                {
+                  "role": "button",
+                  "name": "Open metric description tooltip",
+                  "description": "Press space for more information."
+                },
+                {
+                  "role": "StaticText",
+                  "name": "13"
+                }
+              ]
+            },
+            {
+              "role": "tab",
+              "name": "New users 15",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "New users"
+                },
+                {
+                  "role": "button",
+                  "name": "Open metric description tooltip",
+                  "description": "Press space for more information."
+                },
+                {
+                  "role": "StaticText",
+                  "name": "15"
+                }
+              ]
+            },
+            {
+              "role": "tab",
+              "name": "Average engagement time per active user 4s",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Average engagement time per active user"
+                },
+                {
+                  "role": "button",
+                  "name": "Open metric description tooltip",
+                  "description": "Press space for more information."
+                },
+                {
+                  "role": "StaticText",
+                  "name": "4s"
+                }
+              ]
+            },
+            {
+              "role": "tab",
+              "name": "Total revenue $0.00",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Total revenue"
+                },
+                {
+                  "role": "button",
+                  "name": "Open metric description tooltip",
+                  "description": "Press space for more information."
+                },
+                {
+                  "role": "StaticText",
+                  "name": "$0.00"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "tabpanel",
+          "name": "Active users 13"
+        },
+        {
+          "role": "button",
+          "name": "Benchmarking data off",
+          "description": "Press space for more information."
+        },
+        {
+          "role": "button",
+          "name": "This card uses 100% of available data. Click to view more information.",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "This card uses 100% of available data. Click to view more information."
+            }
+          ]
+        },
+        {
+          "role": "SvgRoot",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "19"
+            },
+            {
+              "role": "StaticText",
+              "name": "Jul"
+            },
+            {
+              "role": "StaticText",
+              "name": "26"
+            },
+            {
+              "role": "StaticText",
+              "name": "02"
+            },
+            {
+              "role": "StaticText",
+              "name": "Aug"
+            },
+            {
+              "role": "StaticText",
+              "name": "09"
+            },
+            {
+              "role": "StaticText",
+              "name": "16"
+            },
+            {
+              "role": "StaticText",
+              "name": "23"
+            },
+            {
+              "role": "StaticText",
+              "name": "30"
+            },
+            {
+              "role": "StaticText",
+              "name": "06"
+            },
+            {
+              "role": "StaticText",
+              "name": "Sep"
+            },
+            {
+              "role": "StaticText",
+              "name": "13"
+            },
+            {
+              "role": "StaticText",
+              "name": "20"
+            },
+            {
+              "role": "StaticText",
+              "name": "27"
+            },
+            {
+              "role": "StaticText",
+              "name": "04"
+            },
+            {
+              "role": "StaticText",
+              "name": "Oct"
+            },
+            {
+              "role": "StaticText",
+              "name": "11"
+            },
+            {
+              "role": "StaticText",
+              "name": "0"
+            },
+            {
+              "role": "StaticText",
+              "name": "2"
+            },
+            {
+              "role": "StaticText",
+              "name": "4"
+            },
+            {
+              "role": "StaticText",
+              "name": "6"
+            },
+            {
+              "role": "StaticText",
+              "name": "8"
+            },
+            {
+              "role": "graphics-symbol"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "ACTIVE USERS IN LAST 30 MINUTES",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "ACTIVE USERS IN LAST 30 MINUTES"
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "1"
+        },
+        {
+          "role": "button",
+          "name": "This card uses 100% of available data. Click to view more information.",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "This card uses 100% of available data. Click to view more information."
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "ACTIVE USERS PER MINUTE"
+        },
+        {
+          "role": "SvgRoot",
+          "children": [
+            {
+              "role": "listbox",
+              "name": "Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 1 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users Active users 0 Active users",
+              "children": [
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 1 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                },
+                {
+                  "role": "group",
+                  "name": "Active users 0 Active users"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "table",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "columnheader",
+                  "name": "TOP COUNTRIES",
+                  "children": [
+                    {
+                      "role": "button",
+                      "name": "TOP COUNTRIES",
+                      "description": "Press space for more information.",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "TOP COUNTRIES"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "role": "columnheader",
+                  "name": "ACTIVE USERS",
+                  "children": [
+                    {
+                      "role": "button",
+                      "name": "ACTIVE USERS",
+                      "description": "Press space for more information.",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "ACTIVE USERS"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "India",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "India"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "1",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "View realtime",
+          "description": "View the detailed report associated with this card",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "View realtime"
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "Insights"
+        },
+        {
+          "role": "StaticText",
+          "name": "Your Insights will appear here soon."
+        },
+        {
+          "role": "StaticText",
+          "name": "In the meantime, you can create new custom insights to monitor your most important metrics. "
+        },
+        {
+          "role": "link",
+          "name": "Learn more about Custom Insights",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Learn more"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "View all insights",
+          "description": "View the detailed report associated with this card",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "View all insights"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Ask Advisor",
+          "description": "Press space for more information."
+        },
+        {
+          "role": "button",
+          "name": "New users",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "New users"
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": " by "
+        },
+        {
+          "role": "combobox",
+          "name": "Dimensions",
+          "value": "First user primary channel group (Default Channel Group)",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "First user primary channel group (Default Channel Group)"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "This card uses 100% of available data. Click to view more information.",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "This card uses 100% of available data. Click to view more information."
+            }
+          ]
+        },
+        {
+          "role": "SvgRoot",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Direct"
+            },
+            {
+              "role": "StaticText",
+              "name": "AI Assistant"
+            },
+            {
+              "role": "StaticText",
+              "name": "Unassigned"
+            },
+            {
+              "role": "StaticText",
+              "name": "0"
+            },
+            {
+              "role": "StaticText",
+              "name": "2"
+            },
+            {
+              "role": "StaticText",
+              "name": "4"
+            },
+            {
+              "role": "StaticText",
+              "name": "6"
+            },
+            {
+              "role": "StaticText",
+              "name": "8"
+            },
+            {
+              "role": "listbox",
+              "name": "Direct AI Assistant Unassigned 0 2 4 6 8 AI Assistant 6 New users, top 2 of total 3 items Direct 8 New users, top 1 of total 3 items Unassigned 1 New users, top 3 of total 3 items",
+              "children": [
+                {
+                  "role": "option",
+                  "name": "AI Assistant 6 New users, top 2 of total 3 items"
+                },
+                {
+                  "role": "option",
+                  "name": "Direct 8 New users, top 1 of total 3 items"
+                },
+                {
+                  "role": "option",
+                  "name": "Unassigned 1 New users, top 3 of total 3 items"
+                }
+              ]
+            },
+            {
+              "role": "list"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "View user acquisition",
+          "description": "View the detailed report associated with this card",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "View user acquisition"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Ask Advisor",
+          "description": "Press space for more information."
+        },
+        {
+          "role": "combobox",
+          "name": "Metrics",
+          "value": "Sessions",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Sessions"
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": " by "
+        },
+        {
+          "role": "combobox",
+          "name": "Dimensions",
+          "value": "Session primary channel group (Default Channel Group)",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Session primary channel group (Default Channel Group)"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "This card uses 100% of available data. Click to view more information.",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "This card uses 100% of available data. Click to view more information."
+            }
+          ]
+        },
+        {
+          "role": "table",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "columnheader",
+                  "name": "SESSION PRIMARY CHANNEL GROUP (DEFAULT CHANNEL GROUP)",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "SESSION PRIMARY CHANNEL GROUP (DEFAULT CHANNEL GROUP)"
+                    }
+                  ]
+                },
+                {
+                  "role": "columnheader",
+                  "name": "SESSIONS",
+                  "children": [
+                    {
+                      "role": "button",
+                      "name": "SESSIONS",
+                      "description": "Press space for more information.",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "SESSIONS"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "Direct",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Direct"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "13",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "13"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "AI Assistant",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "AI Assistant"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "6",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "6"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "Unassigned",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Unassigned"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "2",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "2"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "View traffic acquisition",
+          "description": "View the detailed report associated with this card",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "View traffic acquisition"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Ask Advisor",
+          "description": "Press space for more information."
+        },
+        {
+          "role": "combobox",
+          "name": "Metrics",
+          "value": "Active users",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Active users"
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": " by "
+        },
+        {
+          "role": "button",
+          "name": "Country",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Country"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "This card uses 100% of available data. Click to view more information.",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "This card uses 100% of available data. Click to view more information."
+            }
+          ]
+        },
+        {
+          "role": "image"
+        },
+        {
+          "role": "table",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "columnheader",
+                  "name": "COUNTRY",
+                  "children": [
+                    {
+                      "role": "button",
+                      "name": "COUNTRY",
+                      "description": "Press space for more information.",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "COUNTRY"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "role": "columnheader",
+                  "name": "ACTIVE USERS",
+                  "children": [
+                    {
+                      "role": "button",
+                      "name": "ACTIVE USERS",
+                      "description": "Press space for more information.",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "ACTIVE USERS"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "United States",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "United States"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "5",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "5"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "India",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "India"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "3",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "3"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "Australia",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Australia"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "1",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "Finland",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Finland"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "1",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "France",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "France"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "1",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "United Kingdom",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "United Kingdom"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "1",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "Singapore",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Singapore"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "1",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "View countries",
+          "description": "View the detailed report associated with this card",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "View countries"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Ask Advisor",
+          "description": "Press space for more information."
+        },
+        {
+          "role": "button",
+          "name": "User activity over time",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "User activity over time"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "This card uses 100% of available data. Click to view more information.",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "This card uses 100% of available data. Click to view more information."
+            }
+          ]
+        },
+        {
+          "role": "SvgRoot",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "01"
+            },
+            {
+              "role": "StaticText",
+              "name": "Aug"
+            },
+            {
+              "role": "StaticText",
+              "name": "01"
+            },
+            {
+              "role": "StaticText",
+              "name": "Sep"
+            },
+            {
+              "role": "StaticText",
+              "name": "01"
+            },
+            {
+              "role": "StaticText",
+              "name": "Oct"
+            },
+            {
+              "role": "StaticText",
+              "name": "0"
+            },
+            {
+              "role": "StaticText",
+              "name": "5"
+            },
+            {
+              "role": "StaticText",
+              "name": "10"
+            },
+            {
+              "role": "StaticText",
+              "name": "15"
+            },
+            {
+              "role": "graphics-symbol"
+            }
+          ]
+        },
+        {
+          "role": "image"
+        },
+        {
+          "role": "StaticText",
+          "name": "30 DAYS"
+        },
+        {
+          "role": "StaticText",
+          "name": "7"
+        },
+        {
+          "role": "image"
+        },
+        {
+          "role": "StaticText",
+          "name": "7 DAYS"
+        },
+        {
+          "role": "StaticText",
+          "name": "0"
+        },
+        {
+          "role": "image"
+        },
+        {
+          "role": "StaticText",
+          "name": "1 DAY"
+        },
+        {
+          "role": "StaticText",
+          "name": "0"
+        },
+        {
+          "role": "button",
+          "name": "Ask Advisor",
+          "description": "Press space for more information."
+        },
+        {
+          "role": "StaticText",
+          "name": "User activity by cohort"
+        },
+        {
+          "role": "StaticText",
+          "name": "Based on device data only"
+        },
+        {
+          "role": "button",
+          "name": "This card uses 100% of available data. Click to view more information.",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "This card uses 100% of available data. Click to view more information."
+            }
+          ]
+        },
+        {
+          "role": "SvgRoot",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Week 0"
+            },
+            {
+              "role": "StaticText",
+              "name": "Week 1"
+            },
+            {
+              "role": "StaticText",
+              "name": "Week 2"
+            },
+            {
+              "role": "StaticText",
+              "name": "Week 3"
+            },
+            {
+              "role": "StaticText",
+              "name": "Week 4"
+            },
+            {
+              "role": "StaticText",
+              "name": "Week 5"
+            },
+            {
+              "role": "StaticText",
+              "name": "All Users"
+            },
+            {
+              "role": "StaticText",
+              "name": "Aug 30 - Sep 5"
+            },
+            {
+              "role": "StaticText",
+              "name": "Sep 6 - Sep 12"
+            },
+            {
+              "role": "StaticText",
+              "name": "Sep 13 - Sep 19"
+            },
+            {
+              "role": "StaticText",
+              "name": "Sep 20 - Sep 26"
+            },
+            {
+              "role": "StaticText",
+              "name": "Sep 27 - Oct 3"
+            },
+            {
+              "role": "StaticText",
+              "name": "Oct 4 - Oct 10"
+            },
+            {
+              "role": "StaticText",
+              "name": "100.0%"
+            },
+            {
+              "role": "StaticText",
+              "name": "0.0%"
+            },
+            {
+              "role": "StaticText",
+              "name": "16.7%"
+            },
+            {
+              "role": "StaticText",
+              "name": "11.1%"
+            },
+            {
+              "role": "StaticText",
+              "name": "0.0%"
+            },
+            {
+              "role": "StaticText",
+              "name": "0.0%"
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "6 weeks ending Oct 10"
+        },
+        {
+          "role": "button",
+          "name": "View retention",
+          "description": "View the detailed report associated with this card",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "View retention"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Ask Advisor",
+          "description": "Press space for more information."
+        },
+        {
+          "role": "button",
+          "name": "Views",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Views"
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": " by "
+        },
+        {
+          "role": "button",
+          "name": "Page title and screen class",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Page title and screen class"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "This card uses 100% of available data. Click to view more information.",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "This card uses 100% of available data. Click to view more information."
+            }
+          ]
+        },
+        {
+          "role": "table",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "columnheader",
+                  "name": "PAGE TITLE AND SCREEN CLASS",
+                  "children": [
+                    {
+                      "role": "button",
+                      "name": "PAGE TITLE AND SCREEN CLASS",
+                      "description": "Press space for more information.",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "PAGE TITLE AND SCREEN CLASS"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "role": "columnheader",
+                  "name": "VIEWS",
+                  "children": [
+                    {
+                      "role": "button",
+                      "name": "VIEWS",
+                      "description": "Press space for more information.",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "VIEWS"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "Inbox Cleaner - Chrome Web Store",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Inbox Cleaner - Chrome Web Store"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "24",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "24"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "Inbox Cleaner - Chrome Web Store",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Inbox Cleaner - Chrome Web Store"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "1",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "View pages and screens",
+          "description": "View the detailed report associated with this card",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "View pages and screens"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Ask Advisor",
+          "description": "Press space for more information."
+        },
+        {
+          "role": "button",
+          "name": "Event count",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Event count"
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": " by "
+        },
+        {
+          "role": "button",
+          "name": "Event name",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Event name"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "This card uses 100% of available data. Click to view more information.",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "This card uses 100% of available data. Click to view more information."
+            }
+          ]
+        },
+        {
+          "role": "table",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "columnheader",
+                  "name": "EVENT NAME",
+                  "children": [
+                    {
+                      "role": "button",
+                      "name": "EVENT NAME",
+                      "description": "Press space for more information.",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "EVENT NAME"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "role": "columnheader",
+                  "name": "EVENT COUNT",
+                  "children": [
+                    {
+                      "role": "button",
+                      "name": "EVENT COUNT",
+                      "description": "Press space for more information.",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "EVENT COUNT"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "name": "Press enter to drill down",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "page_view",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "page_view"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "25",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "25"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "name": "Press enter to drill down",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "session_start",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "session_start"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "21",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "21"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "name": "Press enter to drill down",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "first_visit",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "first_visit"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "15",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "15"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "name": "Press enter to drill down",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "install",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "install"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "6",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "6"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "View events",
+          "description": "View the detailed report associated with this card",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "View events"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Ask Advisor",
+          "description": "Press space for more information."
+        },
+        {
+          "role": "button",
+          "name": "Key events",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Key events"
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": " by "
+        },
+        {
+          "role": "button",
+          "name": "Event name",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Event name"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Hover to get the complete text of the applied filters",
+          "description": "Press space for more information."
+        },
+        {
+          "role": "button",
+          "name": "This card uses 100% of available data. Click to view more information.",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "This card uses 100% of available data. Click to view more information."
+            }
+          ]
+        },
+        {
+          "role": "table",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "columnheader",
+                  "name": "EVENT NAME",
+                  "children": [
+                    {
+                      "role": "button",
+                      "name": "EVENT NAME",
+                      "description": "Press space for more information.",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "EVENT NAME"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "role": "columnheader",
+                  "name": "KEY EVENTS",
+                  "children": [
+                    {
+                      "role": "button",
+                      "name": "KEY EVENTS",
+                      "description": "Press space for more information.",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "KEY EVENTS"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "No data available"
+        },
+        {
+          "role": "button",
+          "name": "Ask Advisor",
+          "description": "Press space for more information."
+        },
+        {
+          "role": "button",
+          "name": "Average 120d value",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Average 120d value"
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": " by "
+        },
+        {
+          "role": "combobox",
+          "name": "Dimensions",
+          "value": "First user primary channel group (Default Channel Group)",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "First user primary channel group (Default Channel Group)"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "This card uses 100% of available data. Click to view more information.",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "This card uses 100% of available data. Click to view more information."
+            }
+          ]
+        },
+        {
+          "role": "SvgRoot",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "$0.00"
+            },
+            {
+              "role": "StaticText",
+              "name": "$0.20"
+            },
+            {
+              "role": "StaticText",
+              "name": "$0.40"
+            },
+            {
+              "role": "StaticText",
+              "name": "$0.60"
+            },
+            {
+              "role": "StaticText",
+              "name": "$0.80"
+            },
+            {
+              "role": "StaticText",
+              "name": "$1.00"
+            },
+            {
+              "role": "listbox",
+              "name": "$0.00 $0.20 $0.40 $0.60 $0.80 $1.00 No data available"
+            },
+            {
+              "role": "StaticText",
+              "name": "No data available"
+            },
+            {
+              "role": "list"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "View user acquisition cohorts",
+          "description": "View the detailed report associated with this card",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "View user acquisition cohorts"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Ask Advisor",
+          "description": "Press space for more information."
+        },
+        {
+          "role": "button",
+          "name": "Items purchased",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Items purchased"
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": " by "
+        },
+        {
+          "role": "button",
+          "name": "Item name",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Item name"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "This card uses 100% of available data. Click to view more information.",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "This card uses 100% of available data. Click to view more information."
+            }
+          ]
+        },
+        {
+          "role": "table",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "columnheader",
+                  "name": "ITEM NAME",
+                  "children": [
+                    {
+                      "role": "button",
+                      "name": "ITEM NAME",
+                      "description": "Press space for more information.",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "ITEM NAME"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "role": "columnheader",
+                  "name": "ITEMS PURCHASED",
+                  "children": [
+                    {
+                      "role": "button",
+                      "name": "ITEMS PURCHASED",
+                      "description": "Press space for more information.",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "ITEMS PURCHASED"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "No data available"
+        },
+        {
+          "role": "button",
+          "name": "View ecommerce purchases",
+          "description": "View the detailed report associated with this card",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "View ecommerce purchases"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Ask Advisor",
+          "description": "Press space for more information."
+        },
+        {
+          "role": "combobox",
+          "name": "Metrics",
+          "value": "Key events",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Key events"
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": " by "
+        },
+        {
+          "role": "button",
+          "name": "Platform",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Platform"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "This card uses 100% of available data. Click to view more information.",
+          "description": "Press space for more information.",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "This card uses 100% of available data. Click to view more information."
+            }
+          ]
+        },
+        {
+          "role": "SvgRoot",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "No data available"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "View tech details",
+          "description": "View the detailed report associated with this card",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "View tech details"
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "© "
+        },
+        {
+          "role": "StaticText",
+          "name": "2026 Google"
+        },
+        {
+          "role": "StaticText",
+          "name": " | "
+        },
+        {
+          "role": "link",
+          "name": "Analytics home ",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Analytics home "
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "| "
+        },
+        {
+          "role": "link",
+          "name": "Terms of Service ",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Terms of Service "
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "| "
+        },
+        {
+          "role": "link",
+          "name": "Privacy Policy ",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Privacy Policy "
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "| "
+        },
+        {
+          "role": "button",
+          "name": "Send feedback",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Send feedback"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "role": "complementary"
+    },
+    {
+      "role": "button",
+      "name": "Open context menu"
+    },
+    {
+      "role": "StaticText",
+      "name": "Report filtering is turned on in this property. Some reports will be disabled and data may be removed."
+    },
+    {
+      "role": "alertdialog",
+      "children": [
+        {
+          "role": "button",
+          "name": "Close",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "×"
+            }
+          ]
+        },
+        {
+          "role": "heading",
+          "name": "Welcome to Analytics Advisor",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Welcome to Analytics Advisor"
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "You can now ask questions to help with:"
+        },
+        {
+          "role": "list",
+          "children": [
+            {
+              "role": "listitem",
+              "children": [
+                {
+                  "role": "ListMarker",
+                  "name": "• "
+                },
+                {
+                  "role": "StaticText",
+                  "name": "Data analysis: Analytics Advisor can respond to data questions with single-number answers and visualizations."
+                }
+              ]
+            },
+            {
+              "role": "listitem",
+              "children": [
+                {
+                  "role": "ListMarker",
+                  "name": "• "
+                },
+                {
+                  "role": "StaticText",
+                  "name": "Report finding: Analytics Advisor can provide a link to the most appropriate report."
+                }
+              ]
+            },
+            {
+              "role": "listitem",
+              "children": [
+                {
+                  "role": "ListMarker",
+                  "name": "• "
+                },
+                {
+                  "role": "StaticText",
+                  "name": "Education: Analytics Advisor can give assistive answers based on relevant supporting documentation."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "CLICK THE ICON TO CONTINUE"
+        }
+      ]
+    }
+  ]
+}

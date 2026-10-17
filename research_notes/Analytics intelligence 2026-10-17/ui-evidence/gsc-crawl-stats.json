@@ -1,0 +1,1303 @@
+{
+  "url": "https://search.google.com/search-console/settings/crawl-stats?resource_id=https%3A%2F%2Finbox-cleaner.vercel.app%2F",
+  "title": "Crawl stats",
+  "tree": [
+    {
+      "role": "banner",
+      "children": [
+        {
+          "role": "button",
+          "name": "Main menu",
+          "children": [
+            {
+              "role": "image"
+            }
+          ]
+        },
+        {
+          "role": "link",
+          "name": "Google Search Console"
+        },
+        {
+          "role": "search",
+          "children": [
+            {
+              "role": "combobox",
+              "name": "Inspect any URL in https://inbox-cleaner.vercel.app/"
+            },
+            {
+              "role": "button",
+              "name": "Search",
+              "children": [
+                {
+                  "role": "image"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Help"
+        },
+        {
+          "role": "button",
+          "name": "User settings"
+        },
+        {
+          "role": "button",
+          "name": "Unread messages: 5"
+        },
+        {
+          "role": "StaticText",
+          "name": "5"
+        },
+        {
+          "role": "button",
+          "name": "Google apps",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "  "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "role": "dialog",
+      "name": "navigational drawer",
+      "children": [
+        {
+          "role": "navigation",
+          "name": "Primary",
+          "children": [
+            {
+              "role": "button",
+              "name": "Search property",
+              "children": [
+                {
+                  "role": "image",
+                  "name": "favicon"
+                },
+                {
+                  "role": "combobox",
+                  "name": "https://inbox-cleaner.vercel.app/",
+                  "value": "https://inbox-cleaner.vercel.app/",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "https://inbox-cleaner.vercel.app/"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "link",
+              "name": "Overview",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Overview"
+                }
+              ]
+            },
+            {
+              "role": "link",
+              "name": "Insights",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Insights"
+                }
+              ]
+            },
+            {
+              "role": "link",
+              "name": "Performance",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Performance"
+                }
+              ]
+            },
+            {
+              "role": "button",
+              "name": "Performance report section"
+            },
+            {
+              "role": "button",
+              "name": "URL inspection",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "URL inspection"
+                }
+              ]
+            },
+            {
+              "role": "StaticText",
+              "name": "Indexing"
+            },
+            {
+              "role": "button",
+              "name": "Indexing report section"
+            },
+            {
+              "role": "link",
+              "name": "Pages",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Pages"
+                }
+              ]
+            },
+            {
+              "role": "link",
+              "name": "Sitemaps",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Sitemaps"
+                }
+              ]
+            },
+            {
+              "role": "link",
+              "name": "Removals",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Removals"
+                }
+              ]
+            },
+            {
+              "role": "StaticText",
+              "name": "Experience"
+            },
+            {
+              "role": "button",
+              "name": "Experience report section"
+            },
+            {
+              "role": "link",
+              "name": "Core Web Vitals",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Core Web Vitals"
+                }
+              ]
+            },
+            {
+              "role": "link",
+              "name": "HTTPS",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "HTTPS"
+                }
+              ]
+            },
+            {
+              "role": "StaticText",
+              "name": "Security & Manual Actions"
+            },
+            {
+              "role": "button",
+              "name": "Security & Manual Actions report section"
+            },
+            {
+              "role": "link",
+              "name": "Links report",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Links"
+                }
+              ]
+            },
+            {
+              "role": "link",
+              "name": "Achievements",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Achievements"
+                }
+              ]
+            },
+            {
+              "role": "link",
+              "name": "Settings",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Settings"
+                }
+              ]
+            },
+            {
+              "role": "button",
+              "name": "Submit feedback",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Submit feedback"
+                }
+              ]
+            },
+            {
+              "role": "button",
+              "name": "About Search Console",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "About Search Console"
+                }
+              ]
+            },
+            {
+              "role": "link",
+              "name": "Privacy",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Privacy"
+                }
+              ]
+            },
+            {
+              "role": "link",
+              "name": "Terms",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Terms"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "role": "navigation",
+      "name": "Breadcrumbs",
+      "children": [
+        {
+          "role": "link",
+          "name": "Settings",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Settings"
+            }
+          ]
+        },
+        {
+          "role": "heading",
+          "name": "Crawl stats",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Crawl stats"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "role": "button",
+      "name": "EXPORT",
+      "children": [
+        {
+          "role": "StaticText",
+          "name": "EXPORT"
+        }
+      ]
+    },
+    {
+      "role": "StaticText",
+      "name": "Last updated:"
+    },
+    {
+      "role": "StaticText",
+      "name": " 10/15/26"
+    },
+    {
+      "role": "main",
+      "children": [
+        {
+          "role": "button",
+          "name": "Total crawl requests 158",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Total crawl requests"
+            },
+            {
+              "role": "StaticText",
+              "name": "158"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "null"
+        },
+        {
+          "role": "button",
+          "name": "Total download size (Bytes) 827K",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Total download size (Bytes)"
+            },
+            {
+              "role": "StaticText",
+              "name": "827K"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "null"
+        },
+        {
+          "role": "button",
+          "name": "Average response time (ms) 187",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Average response time (ms)"
+            },
+            {
+              "role": "StaticText",
+              "name": "187"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "null"
+        },
+        {
+          "role": "link"
+        },
+        {
+          "role": "link"
+        },
+        {
+          "role": "link"
+        },
+        {
+          "role": "link"
+        },
+        {
+          "role": "link",
+          "name": "Host status",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Host status"
+            }
+          ]
+        },
+        {
+          "role": "link"
+        },
+        {
+          "role": "link"
+        },
+        {
+          "role": "button",
+          "name": "null"
+        },
+        {
+          "role": "StaticText",
+          "name": "Host had no problems in the last 90 days"
+        },
+        {
+          "role": "StaticText",
+          "name": "Crawl requests breakdown"
+        },
+        {
+          "role": "StaticText",
+          "name": "By response"
+        },
+        {
+          "role": "table",
+          "children": [
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "OK (200)",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "OK (200)"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "92%",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "92%"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "children": [
+                    {
+                      "role": "image"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "Not found (404)",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Not found (404)"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "7%",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "7%"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "children": [
+                    {
+                      "role": "image"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "Not modified (304)",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Not modified (304)"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "< 1%",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "< 1%"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "children": [
+                    {
+                      "role": "image"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "Rows per page:"
+        },
+        {
+          "role": "listbox",
+          "name": "Number of rows per page",
+          "children": [
+            {
+              "role": "option",
+              "name": "5",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "5"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "10",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "10"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "25",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "25"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "50",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "50"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "100",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "100"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "250",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "250"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "500",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "1-3 of 3"
+        },
+        {
+          "role": "StaticText",
+          "name": "By purpose"
+        },
+        {
+          "role": "table",
+          "children": [
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "Refresh",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Refresh"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "80%",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "80%"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "children": [
+                    {
+                      "role": "image"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "Discovery",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Discovery"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "20%",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "20%"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "children": [
+                    {
+                      "role": "image"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "Rows per page:"
+        },
+        {
+          "role": "listbox",
+          "name": "Number of rows per page",
+          "children": [
+            {
+              "role": "option",
+              "name": "5",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "5"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "10",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "10"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "25",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "25"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "50",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "50"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "100",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "100"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "250",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "250"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "500",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "1-2 of 2"
+        },
+        {
+          "role": "StaticText",
+          "name": "By file type"
+        },
+        {
+          "role": "table",
+          "children": [
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "HTML",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "HTML"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "63%",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "63%"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "children": [
+                    {
+                      "role": "image"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "CSS",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "CSS"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "20%",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "20%"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "children": [
+                    {
+                      "role": "image"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "JavaScript",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "JavaScript"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "10%",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "10%"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "children": [
+                    {
+                      "role": "image"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "Other file type",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Other file type"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "< 1%",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "< 1%"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "children": [
+                    {
+                      "role": "image"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "Unknown (failed requests)",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Unknown (failed requests)"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "7%",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "7%"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "children": [
+                    {
+                      "role": "image"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "Rows per page:"
+        },
+        {
+          "role": "listbox",
+          "name": "Number of rows per page",
+          "children": [
+            {
+              "role": "option",
+              "name": "5",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "5"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "10",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "10"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "25",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "25"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "50",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "50"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "100",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "100"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "250",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "250"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "500",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "1-5 of 5"
+        },
+        {
+          "role": "StaticText",
+          "name": "By Googlebot type"
+        },
+        {
+          "role": "table",
+          "children": [
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "Smartphone",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Smartphone"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "37%",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "37%"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "children": [
+                    {
+                      "role": "image"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "Page resource load",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Page resource load"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "25%",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "25%"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "children": [
+                    {
+                      "role": "image"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "Other agent type",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Other agent type"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "20%",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "20%"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "children": [
+                    {
+                      "role": "image"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "Desktop",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Desktop"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "11%",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "11%"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "children": [
+                    {
+                      "role": "image"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "Image",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Image"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "7%",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "7%"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "children": [
+                    {
+                      "role": "image"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "Rows per page:"
+        },
+        {
+          "role": "listbox",
+          "name": "Number of rows per page",
+          "children": [
+            {
+              "role": "option",
+              "name": "5",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "5"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "10",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "10"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "25",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "25"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "50",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "50"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "100",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "100"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "250",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "250"
+                }
+              ]
+            },
+            {
+              "role": "option",
+              "name": "500",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "1-5 of 6"
+        }
+      ]
+    },
+    {
+      "role": "StaticText",
+      "name": "Crawl stats"
+    }
+  ]
+}

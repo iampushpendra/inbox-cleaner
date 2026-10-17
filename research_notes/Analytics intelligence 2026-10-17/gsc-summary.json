@@ -1,0 +1,1236 @@
+{
+  "gsc-last-3-months": {
+    "start": "2026-07-15",
+    "end": "2026-10-14",
+    "clicks": 21.0,
+    "impressions": 3301.0,
+    "ctr": 0.006361708573159649,
+    "position": 23.020811875189334,
+    "rows": {
+      "Chart": 92,
+      "Queries": 586,
+      "Pages": 29,
+      "Countries": 120,
+      "Devices": 3,
+      "Search appearance": 1,
+      "Filters": 2
+    },
+    "disclosed_query_clicks": 1.0,
+    "disclosed_query_impressions": 1378.0,
+    "latest28": {
+      "start": "2026-09-17",
+      "end": "2026-10-14",
+      "clicks": 13.0,
+      "impressions": 1847.0,
+      "ctr": 0.007038440714672442,
+      "position": 14.959122902003248
+    },
+    "previous28": {
+      "start": "2026-08-20",
+      "end": "2026-09-16",
+      "clicks": 4.0,
+      "impressions": 1307.0,
+      "ctr": 0.00306044376434583,
+      "position": 33.0044376434583
+    },
+    "pages": [
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/",
+        "Clicks": 14.0,
+        "Impressions": 149.0,
+        "CTR": 0.094,
+        "Position": 26.66
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-select-all-emails-gmail.html",
+        "Clicks": 3.0,
+        "Impressions": 1082.0,
+        "CTR": 0.0028000000000000004,
+        "Position": 12.65
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/gmail-delete-all-unread-emails.html",
+        "Clicks": 1.0,
+        "Impressions": 151.0,
+        "CTR": 0.0066,
+        "Position": 22.2
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-delete-old-emails-gmail.html",
+        "Clicks": 1.0,
+        "Impressions": 122.0,
+        "CTR": 0.008199999999999999,
+        "Position": 31.66
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-find-biggest-emails-gmail.html",
+        "Clicks": 1.0,
+        "Impressions": 116.0,
+        "CTR": 0.0086,
+        "Position": 11.66
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-permanently-delete-gmail-emails.html",
+        "Clicks": 1.0,
+        "Impressions": 64.0,
+        "CTR": 0.015600000000000001,
+        "Position": 16.45
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/gmail-archive-vs-delete.html",
+        "Clicks": 0.0,
+        "Impressions": 372.0,
+        "CTR": 0.0,
+        "Position": 41.24
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/gmail-delete-all-promotional-emails.html",
+        "Clicks": 0.0,
+        "Impressions": 205.0,
+        "CTR": 0.0,
+        "Position": 33.09
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-bulk-delete-gmail-emails.html",
+        "Clicks": 0.0,
+        "Impressions": 192.0,
+        "CTR": 0.0,
+        "Position": 64.18
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-delete-emails-older-than-a-year-gmail.html",
+        "Clicks": 0.0,
+        "Impressions": 148.0,
+        "CTR": 0.0,
+        "Position": 13.78
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/delete-all-emails-from-one-sender-gmail.html",
+        "Clicks": 0.0,
+        "Impressions": 116.0,
+        "CTR": 0.0,
+        "Position": 34.59
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/gmail-delete-emails-by-size.html",
+        "Clicks": 0.0,
+        "Impressions": 112.0,
+        "CTR": 0.0,
+        "Position": 7.59
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/gmail-mailbox-full-cant-receive-emails.html",
+        "Clicks": 0.0,
+        "Impressions": 97.0,
+        "CTR": 0.0,
+        "Position": 7.49
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/gmail-delete-social-media-notifications.html",
+        "Clicks": 0.0,
+        "Impressions": 61.0,
+        "CTR": 0.0,
+        "Position": 8.61
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-unsubscribe-from-emails-gmail.html",
+        "Clicks": 0.0,
+        "Impressions": 61.0,
+        "CTR": 0.0,
+        "Position": 38.72
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/delete-amazon-order-emails-gmail.html",
+        "Clicks": 0.0,
+        "Impressions": 52.0,
+        "CTR": 0.0,
+        "Position": 5.77
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/best-way-to-clean-gmail-2026.html",
+        "Clicks": 0.0,
+        "Impressions": 48.0,
+        "CTR": 0.0,
+        "Position": 17.33
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-delete-spam-emails-gmail.html",
+        "Clicks": 0.0,
+        "Impressions": 30.0,
+        "CTR": 0.0,
+        "Position": 20.43
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/delete-bank-statement-emails-safely-gmail.html",
+        "Clicks": 0.0,
+        "Impressions": 25.0,
+        "CTR": 0.0,
+        "Position": 6.04
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-clean-gmail-inbox-in-5-minutes.html",
+        "Clicks": 0.0,
+        "Impressions": 25.0,
+        "CTR": 0.0,
+        "Position": 18.0
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/gmail-storage-upgrade-vs-cleanup.html",
+        "Clicks": 0.0,
+        "Impressions": 20.0,
+        "CTR": 0.0,
+        "Position": 8.55
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-organize-cluttered-gmail-inbox.html",
+        "Clicks": 0.0,
+        "Impressions": 20.0,
+        "CTR": 0.0,
+        "Position": 16.35
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/gmail-inbox-zero.html",
+        "Clicks": 0.0,
+        "Impressions": 17.0,
+        "CTR": 0.0,
+        "Position": 61.76
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/privacy.html",
+        "Clicks": 0.0,
+        "Impressions": 14.0,
+        "CTR": 0.0,
+        "Position": 20.86
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/delete-uber-eats-doordash-receipts-gmail.html",
+        "Clicks": 0.0,
+        "Impressions": 10.0,
+        "CTR": 0.0,
+        "Position": 4.5
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/gmail-empty-trash-automatically.html",
+        "Clicks": 0.0,
+        "Impressions": 3.0,
+        "CTR": 0.0,
+        "Position": 10.33
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-mass-delete-emails-gmail.html",
+        "Clicks": 0.0,
+        "Impressions": 2.0,
+        "CTR": 0.0,
+        "Position": 7.5
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-delete-newsletter-emails-gmail.html",
+        "Clicks": 0.0,
+        "Impressions": 1.0,
+        "CTR": 0.0,
+        "Position": 1.0
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/",
+        "Clicks": 0.0,
+        "Impressions": 1.0,
+        "CTR": 0.0,
+        "Position": 9.0
+      }
+    ],
+    "devices": [
+      {
+        "Device": "Desktop",
+        "Clicks": 14.0,
+        "Impressions": 2709.0,
+        "CTR": 0.0052,
+        "Position": 25.41
+      },
+      {
+        "Device": "Mobile",
+        "Clicks": 7.0,
+        "Impressions": 576.0,
+        "CTR": 0.012199999999999999,
+        "Position": 12.22
+      },
+      {
+        "Device": "Tablet",
+        "Clicks": 0.0,
+        "Impressions": 16.0,
+        "CTR": 0.0,
+        "Position": 7.5
+      }
+    ],
+    "top_countries": [
+      {
+        "Country": "United States",
+        "Clicks": 11.0,
+        "Impressions": 1633.0,
+        "CTR": 0.0067,
+        "Position": 28.97
+      },
+      {
+        "Country": "India",
+        "Clicks": 2.0,
+        "Impressions": 142.0,
+        "CTR": 0.0141,
+        "Position": 14.8
+      },
+      {
+        "Country": "Philippines",
+        "Clicks": 2.0,
+        "Impressions": 56.0,
+        "CTR": 0.035699999999999996,
+        "Position": 22.39
+      },
+      {
+        "Country": "Australia",
+        "Clicks": 1.0,
+        "Impressions": 155.0,
+        "CTR": 0.006500000000000001,
+        "Position": 31.23
+      },
+      {
+        "Country": "Germany",
+        "Clicks": 1.0,
+        "Impressions": 42.0,
+        "CTR": 0.023799999999999998,
+        "Position": 8.12
+      },
+      {
+        "Country": "Japan",
+        "Clicks": 1.0,
+        "Impressions": 22.0,
+        "CTR": 0.0455,
+        "Position": 12.36
+      },
+      {
+        "Country": "Belgium",
+        "Clicks": 1.0,
+        "Impressions": 12.0,
+        "CTR": 0.0833,
+        "Position": 5.08
+      },
+      {
+        "Country": "Kenya",
+        "Clicks": 1.0,
+        "Impressions": 8.0,
+        "CTR": 0.125,
+        "Position": 18.5
+      },
+      {
+        "Country": "Colombia",
+        "Clicks": 1.0,
+        "Impressions": 6.0,
+        "CTR": 0.16670000000000001,
+        "Position": 6.83
+      },
+      {
+        "Country": "United Kingdom",
+        "Clicks": 0.0,
+        "Impressions": 253.0,
+        "CTR": 0.0,
+        "Position": 19.26
+      },
+      {
+        "Country": "Canada",
+        "Clicks": 0.0,
+        "Impressions": 147.0,
+        "CTR": 0.0,
+        "Position": 18.54
+      },
+      {
+        "Country": "Netherlands",
+        "Clicks": 0.0,
+        "Impressions": 61.0,
+        "CTR": 0.0,
+        "Position": 9.69
+      },
+      {
+        "Country": "Spain",
+        "Clicks": 0.0,
+        "Impressions": 49.0,
+        "CTR": 0.0,
+        "Position": 12.24
+      },
+      {
+        "Country": "Brazil",
+        "Clicks": 0.0,
+        "Impressions": 42.0,
+        "CTR": 0.0,
+        "Position": 13.38
+      },
+      {
+        "Country": "Indonesia",
+        "Clicks": 0.0,
+        "Impressions": 39.0,
+        "CTR": 0.0,
+        "Position": 25.69
+      }
+    ],
+    "top_queries": [
+      {
+        "Top queries": "older_than 2y gmail",
+        "Clicks": 1.0,
+        "Impressions": 2.0,
+        "CTR": 0.5,
+        "Position": 9.0
+      },
+      {
+        "Top queries": "select all conversations that match this search",
+        "Clicks": 0.0,
+        "Impressions": 110.0,
+        "CTR": 0.0,
+        "Position": 10.95
+      },
+      {
+        "Top queries": "select all conversations that match this search not showing",
+        "Clicks": 0.0,
+        "Impressions": 39.0,
+        "CTR": 0.0,
+        "Position": 9.38
+      },
+      {
+        "Top queries": "bulk email cleaner",
+        "Clicks": 0.0,
+        "Impressions": 35.0,
+        "CTR": 0.0,
+        "Position": 38.4
+      },
+      {
+        "Top queries": "delete all promotions in gmail",
+        "Clicks": 0.0,
+        "Impressions": 26.0,
+        "CTR": 0.0,
+        "Position": 41.46
+      },
+      {
+        "Top queries": "how to mass delete emails on gmail",
+        "Clicks": 0.0,
+        "Impressions": 21.0,
+        "CTR": 0.0,
+        "Position": 75.19
+      },
+      {
+        "Top queries": "gmail select all conversations that match this search",
+        "Clicks": 0.0,
+        "Impressions": 15.0,
+        "CTR": 0.0,
+        "Position": 12.07
+      },
+      {
+        "Top queries": "older_than:1y",
+        "Clicks": 0.0,
+        "Impressions": 13.0,
+        "CTR": 0.0,
+        "Position": 6.46
+      },
+      {
+        "Top queries": "how to delete all promotions in gmail",
+        "Clicks": 0.0,
+        "Impressions": 13.0,
+        "CTR": 0.0,
+        "Position": 42.0
+      },
+      {
+        "Top queries": "how to delete all gmail emails at once",
+        "Clicks": 0.0,
+        "Impressions": 12.0,
+        "CTR": 0.0,
+        "Position": 54.17
+      },
+      {
+        "Top queries": "mass delete gmail",
+        "Clicks": 0.0,
+        "Impressions": 12.0,
+        "CTR": 0.0,
+        "Position": 80.33
+      },
+      {
+        "Top queries": "how to select all emails in gmail",
+        "Clicks": 0.0,
+        "Impressions": 11.0,
+        "CTR": 0.0,
+        "Position": 33.36
+      },
+      {
+        "Top queries": "larger:20m",
+        "Clicks": 0.0,
+        "Impressions": 10.0,
+        "CTR": 0.0,
+        "Position": 7.1
+      },
+      {
+        "Top queries": "older_than 1y",
+        "Clicks": 0.0,
+        "Impressions": 10.0,
+        "CTR": 0.0,
+        "Position": 9.4
+      },
+      {
+        "Top queries": "how to delete gmail emails in bulk",
+        "Clicks": 0.0,
+        "Impressions": 10.0,
+        "CTR": 0.0,
+        "Position": 54.8
+      },
+      {
+        "Top queries": "gmail unsubscribe",
+        "Clicks": 0.0,
+        "Impressions": 9.0,
+        "CTR": 0.0,
+        "Position": 44.22
+      },
+      {
+        "Top queries": "how to delete multiple emails in gmail",
+        "Clicks": 0.0,
+        "Impressions": 9.0,
+        "CTR": 0.0,
+        "Position": 63.22
+      },
+      {
+        "Top queries": "how to delete emails in gmail in bulk",
+        "Clicks": 0.0,
+        "Impressions": 9.0,
+        "CTR": 0.0,
+        "Position": 71.56
+      },
+      {
+        "Top queries": "older-than 1y",
+        "Clicks": 0.0,
+        "Impressions": 8.0,
+        "CTR": 0.0,
+        "Position": 10.12
+      },
+      {
+        "Top queries": "archive vs delete gmail",
+        "Clicks": 0.0,
+        "Impressions": 8.0,
+        "CTR": 0.0,
+        "Position": 51.62
+      },
+      {
+        "Top queries": "gmail what does archive do",
+        "Clicks": 0.0,
+        "Impressions": 8.0,
+        "CTR": 0.0,
+        "Position": 59.62
+      },
+      {
+        "Top queries": "category:promotions older_than:30d",
+        "Clicks": 0.0,
+        "Impressions": 7.0,
+        "CTR": 0.0,
+        "Position": 7.29
+      },
+      {
+        "Top queries": "larger:5m",
+        "Clicks": 0.0,
+        "Impressions": 7.0,
+        "CTR": 0.0,
+        "Position": 8.29
+      },
+      {
+        "Top queries": "how to select all emails in gmail not just 50",
+        "Clicks": 0.0,
+        "Impressions": 7.0,
+        "CTR": 0.0,
+        "Position": 8.43
+      },
+      {
+        "Top queries": "does archiving emails save space gmail",
+        "Clicks": 0.0,
+        "Impressions": 7.0,
+        "CTR": 0.0,
+        "Position": 39.71
+      },
+      {
+        "Top queries": "gmail all mail",
+        "Clicks": 0.0,
+        "Impressions": 7.0,
+        "CTR": 0.0,
+        "Position": 45.29
+      },
+      {
+        "Top queries": "gmail archive vs delete",
+        "Clicks": 0.0,
+        "Impressions": 7.0,
+        "CTR": 0.0,
+        "Position": 54.14
+      },
+      {
+        "Top queries": "difference between archive and delete",
+        "Clicks": 0.0,
+        "Impressions": 7.0,
+        "CTR": 0.0,
+        "Position": 56.57
+      },
+      {
+        "Top queries": "select all unread gmail",
+        "Clicks": 0.0,
+        "Impressions": 7.0,
+        "CTR": 0.0,
+        "Position": 56.71
+      },
+      {
+        "Top queries": "bulk delete gmail",
+        "Clicks": 0.0,
+        "Impressions": 7.0,
+        "CTR": 0.0,
+        "Position": 68.0
+      },
+      {
+        "Top queries": "gmail select all",
+        "Clicks": 0.0,
+        "Impressions": 6.0,
+        "CTR": 0.0,
+        "Position": 34.83
+      },
+      {
+        "Top queries": "delete gmail archive",
+        "Clicks": 0.0,
+        "Impressions": 6.0,
+        "CTR": 0.0,
+        "Position": 35.17
+      },
+      {
+        "Top queries": "how to delete all promotion emails in gmail",
+        "Clicks": 0.0,
+        "Impressions": 6.0,
+        "CTR": 0.0,
+        "Position": 38.5
+      },
+      {
+        "Top queries": "how long do archived emails stay in gmail",
+        "Clicks": 0.0,
+        "Impressions": 6.0,
+        "CTR": 0.0,
+        "Position": 45.0
+      },
+      {
+        "Top queries": "what happens to archived gmail",
+        "Clicks": 0.0,
+        "Impressions": 6.0,
+        "CTR": 0.0,
+        "Position": 47.83
+      }
+    ]
+  },
+  "gsc-full-history": {
+    "start": "2026-06-27",
+    "end": "2026-10-14",
+    "clicks": 22.0,
+    "impressions": 3552.0,
+    "ctr": 0.006193693693693694,
+    "position": 24.156925675675673,
+    "rows": {
+      "Chart": 110,
+      "Queries": 628,
+      "Pages": 29,
+      "Countries": 122,
+      "Devices": 3,
+      "Search appearance": 1,
+      "Filters": 2
+    },
+    "disclosed_query_clicks": 1.0,
+    "disclosed_query_impressions": 1529.0,
+    "latest28": {
+      "start": "2026-09-17",
+      "end": "2026-10-14",
+      "clicks": 13.0,
+      "impressions": 1847.0,
+      "ctr": 0.007038440714672442,
+      "position": 14.959122902003248
+    },
+    "previous28": {
+      "start": "2026-08-20",
+      "end": "2026-09-16",
+      "clicks": 4.0,
+      "impressions": 1307.0,
+      "ctr": 0.00306044376434583,
+      "position": 33.0044376434583
+    },
+    "pages": [
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/",
+        "Clicks": 15.0,
+        "Impressions": 172.0,
+        "CTR": 0.0872,
+        "Position": 27.03
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-select-all-emails-gmail.html",
+        "Clicks": 3.0,
+        "Impressions": 1082.0,
+        "CTR": 0.0028000000000000004,
+        "Position": 12.65
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/gmail-delete-all-unread-emails.html",
+        "Clicks": 1.0,
+        "Impressions": 151.0,
+        "CTR": 0.0066,
+        "Position": 22.2
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-delete-old-emails-gmail.html",
+        "Clicks": 1.0,
+        "Impressions": 122.0,
+        "CTR": 0.008199999999999999,
+        "Position": 31.66
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-find-biggest-emails-gmail.html",
+        "Clicks": 1.0,
+        "Impressions": 116.0,
+        "CTR": 0.0086,
+        "Position": 11.66
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-permanently-delete-gmail-emails.html",
+        "Clicks": 1.0,
+        "Impressions": 64.0,
+        "CTR": 0.015600000000000001,
+        "Position": 16.45
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/gmail-archive-vs-delete.html",
+        "Clicks": 0.0,
+        "Impressions": 372.0,
+        "CTR": 0.0,
+        "Position": 41.24
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/delete-all-emails-from-one-sender-gmail.html",
+        "Clicks": 0.0,
+        "Impressions": 344.0,
+        "CTR": 0.0,
+        "Position": 38.22
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/gmail-delete-all-promotional-emails.html",
+        "Clicks": 0.0,
+        "Impressions": 205.0,
+        "CTR": 0.0,
+        "Position": 33.09
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-bulk-delete-gmail-emails.html",
+        "Clicks": 0.0,
+        "Impressions": 192.0,
+        "CTR": 0.0,
+        "Position": 64.18
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-delete-emails-older-than-a-year-gmail.html",
+        "Clicks": 0.0,
+        "Impressions": 148.0,
+        "CTR": 0.0,
+        "Position": 13.78
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/gmail-delete-emails-by-size.html",
+        "Clicks": 0.0,
+        "Impressions": 112.0,
+        "CTR": 0.0,
+        "Position": 7.59
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/gmail-mailbox-full-cant-receive-emails.html",
+        "Clicks": 0.0,
+        "Impressions": 97.0,
+        "CTR": 0.0,
+        "Position": 7.49
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/gmail-delete-social-media-notifications.html",
+        "Clicks": 0.0,
+        "Impressions": 61.0,
+        "CTR": 0.0,
+        "Position": 8.61
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-unsubscribe-from-emails-gmail.html",
+        "Clicks": 0.0,
+        "Impressions": 61.0,
+        "CTR": 0.0,
+        "Position": 38.72
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/delete-amazon-order-emails-gmail.html",
+        "Clicks": 0.0,
+        "Impressions": 52.0,
+        "CTR": 0.0,
+        "Position": 5.77
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/best-way-to-clean-gmail-2026.html",
+        "Clicks": 0.0,
+        "Impressions": 48.0,
+        "CTR": 0.0,
+        "Position": 17.33
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-delete-spam-emails-gmail.html",
+        "Clicks": 0.0,
+        "Impressions": 30.0,
+        "CTR": 0.0,
+        "Position": 20.43
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/delete-bank-statement-emails-safely-gmail.html",
+        "Clicks": 0.0,
+        "Impressions": 25.0,
+        "CTR": 0.0,
+        "Position": 6.04
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-clean-gmail-inbox-in-5-minutes.html",
+        "Clicks": 0.0,
+        "Impressions": 25.0,
+        "CTR": 0.0,
+        "Position": 18.0
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/gmail-storage-upgrade-vs-cleanup.html",
+        "Clicks": 0.0,
+        "Impressions": 20.0,
+        "CTR": 0.0,
+        "Position": 8.55
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-organize-cluttered-gmail-inbox.html",
+        "Clicks": 0.0,
+        "Impressions": 20.0,
+        "CTR": 0.0,
+        "Position": 16.35
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/gmail-inbox-zero.html",
+        "Clicks": 0.0,
+        "Impressions": 17.0,
+        "CTR": 0.0,
+        "Position": 61.76
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/privacy.html",
+        "Clicks": 0.0,
+        "Impressions": 14.0,
+        "CTR": 0.0,
+        "Position": 20.86
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/delete-uber-eats-doordash-receipts-gmail.html",
+        "Clicks": 0.0,
+        "Impressions": 10.0,
+        "CTR": 0.0,
+        "Position": 4.5
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/gmail-empty-trash-automatically.html",
+        "Clicks": 0.0,
+        "Impressions": 3.0,
+        "CTR": 0.0,
+        "Position": 10.33
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-mass-delete-emails-gmail.html",
+        "Clicks": 0.0,
+        "Impressions": 2.0,
+        "CTR": 0.0,
+        "Position": 7.5
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/how-to-delete-newsletter-emails-gmail.html",
+        "Clicks": 0.0,
+        "Impressions": 1.0,
+        "CTR": 0.0,
+        "Position": 1.0
+      },
+      {
+        "Top pages": "https://inbox-cleaner.vercel.app/blog/",
+        "Clicks": 0.0,
+        "Impressions": 1.0,
+        "CTR": 0.0,
+        "Position": 9.0
+      }
+    ],
+    "devices": [
+      {
+        "Device": "Desktop",
+        "Clicks": 14.0,
+        "Impressions": 2953.0,
+        "CTR": 0.004699999999999999,
+        "Position": 26.59
+      },
+      {
+        "Device": "Mobile",
+        "Clicks": 8.0,
+        "Impressions": 583.0,
+        "CTR": 0.0137,
+        "Position": 12.28
+      },
+      {
+        "Device": "Tablet",
+        "Clicks": 0.0,
+        "Impressions": 16.0,
+        "CTR": 0.0,
+        "Position": 7.5
+      }
+    ],
+    "top_countries": [
+      {
+        "Country": "United States",
+        "Clicks": 12.0,
+        "Impressions": 1755.0,
+        "CTR": 0.0068000000000000005,
+        "Position": 29.83
+      },
+      {
+        "Country": "India",
+        "Clicks": 2.0,
+        "Impressions": 148.0,
+        "CTR": 0.013500000000000002,
+        "Position": 15.26
+      },
+      {
+        "Country": "Philippines",
+        "Clicks": 2.0,
+        "Impressions": 60.0,
+        "CTR": 0.0333,
+        "Position": 23.38
+      },
+      {
+        "Country": "Australia",
+        "Clicks": 1.0,
+        "Impressions": 158.0,
+        "CTR": 0.0063,
+        "Position": 31.32
+      },
+      {
+        "Country": "Germany",
+        "Clicks": 1.0,
+        "Impressions": 43.0,
+        "CTR": 0.0233,
+        "Position": 8.91
+      },
+      {
+        "Country": "Japan",
+        "Clicks": 1.0,
+        "Impressions": 22.0,
+        "CTR": 0.0455,
+        "Position": 12.36
+      },
+      {
+        "Country": "Belgium",
+        "Clicks": 1.0,
+        "Impressions": 12.0,
+        "CTR": 0.0833,
+        "Position": 5.08
+      },
+      {
+        "Country": "Colombia",
+        "Clicks": 1.0,
+        "Impressions": 11.0,
+        "CTR": 0.0909,
+        "Position": 20.27
+      },
+      {
+        "Country": "Kenya",
+        "Clicks": 1.0,
+        "Impressions": 8.0,
+        "CTR": 0.125,
+        "Position": 18.5
+      },
+      {
+        "Country": "United Kingdom",
+        "Clicks": 0.0,
+        "Impressions": 258.0,
+        "CTR": 0.0,
+        "Position": 19.73
+      },
+      {
+        "Country": "Canada",
+        "Clicks": 0.0,
+        "Impressions": 157.0,
+        "CTR": 0.0,
+        "Position": 19.89
+      },
+      {
+        "Country": "Netherlands",
+        "Clicks": 0.0,
+        "Impressions": 61.0,
+        "CTR": 0.0,
+        "Position": 9.69
+      },
+      {
+        "Country": "Brazil",
+        "Clicks": 0.0,
+        "Impressions": 51.0,
+        "CTR": 0.0,
+        "Position": 17.29
+      },
+      {
+        "Country": "Spain",
+        "Clicks": 0.0,
+        "Impressions": 50.0,
+        "CTR": 0.0,
+        "Position": 12.78
+      },
+      {
+        "Country": "Indonesia",
+        "Clicks": 0.0,
+        "Impressions": 45.0,
+        "CTR": 0.0,
+        "Position": 26.89
+      }
+    ],
+    "top_queries": [
+      {
+        "Top queries": "older_than 2y gmail",
+        "Clicks": 1.0,
+        "Impressions": 2.0,
+        "CTR": 0.5,
+        "Position": 9.0
+      },
+      {
+        "Top queries": "select all conversations that match this search",
+        "Clicks": 0.0,
+        "Impressions": 110.0,
+        "CTR": 0.0,
+        "Position": 10.95
+      },
+      {
+        "Top queries": "bulk email cleaner",
+        "Clicks": 0.0,
+        "Impressions": 43.0,
+        "CTR": 0.0,
+        "Position": 39.67
+      },
+      {
+        "Top queries": "select all conversations that match this search not showing",
+        "Clicks": 0.0,
+        "Impressions": 39.0,
+        "CTR": 0.0,
+        "Position": 9.38
+      },
+      {
+        "Top queries": "delete all promotions in gmail",
+        "Clicks": 0.0,
+        "Impressions": 26.0,
+        "CTR": 0.0,
+        "Position": 41.46
+      },
+      {
+        "Top queries": "how to mass delete emails on gmail",
+        "Clicks": 0.0,
+        "Impressions": 21.0,
+        "CTR": 0.0,
+        "Position": 75.19
+      },
+      {
+        "Top queries": "gmail delete all emails from sender",
+        "Clicks": 0.0,
+        "Impressions": 17.0,
+        "CTR": 0.0,
+        "Position": 44.06
+      },
+      {
+        "Top queries": "gmail select all conversations that match this search",
+        "Clicks": 0.0,
+        "Impressions": 15.0,
+        "CTR": 0.0,
+        "Position": 12.07
+      },
+      {
+        "Top queries": "older_than:1y",
+        "Clicks": 0.0,
+        "Impressions": 13.0,
+        "CTR": 0.0,
+        "Position": 6.46
+      },
+      {
+        "Top queries": "how to delete all emails from one sender",
+        "Clicks": 0.0,
+        "Impressions": 13.0,
+        "CTR": 0.0,
+        "Position": 34.85
+      },
+      {
+        "Top queries": "how to delete all promotions in gmail",
+        "Clicks": 0.0,
+        "Impressions": 13.0,
+        "CTR": 0.0,
+        "Position": 42.0
+      },
+      {
+        "Top queries": "how to delete all gmail emails at once",
+        "Clicks": 0.0,
+        "Impressions": 12.0,
+        "CTR": 0.0,
+        "Position": 54.17
+      },
+      {
+        "Top queries": "mass delete gmail",
+        "Clicks": 0.0,
+        "Impressions": 12.0,
+        "CTR": 0.0,
+        "Position": 80.33
+      },
+      {
+        "Top queries": "how to select all emails in gmail",
+        "Clicks": 0.0,
+        "Impressions": 11.0,
+        "CTR": 0.0,
+        "Position": 33.36
+      },
+      {
+        "Top queries": "larger:20m",
+        "Clicks": 0.0,
+        "Impressions": 10.0,
+        "CTR": 0.0,
+        "Position": 7.1
+      },
+      {
+        "Top queries": "older_than 1y",
+        "Clicks": 0.0,
+        "Impressions": 10.0,
+        "CTR": 0.0,
+        "Position": 9.4
+      },
+      {
+        "Top queries": "can i delete all emails from one sender gmail",
+        "Clicks": 0.0,
+        "Impressions": 10.0,
+        "CTR": 0.0,
+        "Position": 45.9
+      },
+      {
+        "Top queries": "how to delete gmail emails in bulk",
+        "Clicks": 0.0,
+        "Impressions": 10.0,
+        "CTR": 0.0,
+        "Position": 54.8
+      },
+      {
+        "Top queries": "how to delete all emails from one sender gmail",
+        "Clicks": 0.0,
+        "Impressions": 9.0,
+        "CTR": 0.0,
+        "Position": 37.67
+      },
+      {
+        "Top queries": "gmail unsubscribe",
+        "Clicks": 0.0,
+        "Impressions": 9.0,
+        "CTR": 0.0,
+        "Position": 44.22
+      },
+      {
+        "Top queries": "how to delete multiple emails in gmail",
+        "Clicks": 0.0,
+        "Impressions": 9.0,
+        "CTR": 0.0,
+        "Position": 63.22
+      },
+      {
+        "Top queries": "how to delete emails in gmail in bulk",
+        "Clicks": 0.0,
+        "Impressions": 9.0,
+        "CTR": 0.0,
+        "Position": 71.56
+      },
+      {
+        "Top queries": "older-than 1y",
+        "Clicks": 0.0,
+        "Impressions": 8.0,
+        "CTR": 0.0,
+        "Position": 10.12
+      },
+      {
+        "Top queries": "archive vs delete gmail",
+        "Clicks": 0.0,
+        "Impressions": 8.0,
+        "CTR": 0.0,
+        "Position": 51.62
+      },
+      {
+        "Top queries": "gmail what does archive do",
+        "Clicks": 0.0,
+        "Impressions": 8.0,
+        "CTR": 0.0,
+        "Position": 59.62
+      },
+      {
+        "Top queries": "category:promotions older_than:30d",
+        "Clicks": 0.0,
+        "Impressions": 7.0,
+        "CTR": 0.0,
+        "Position": 7.29
+      },
+      {
+        "Top queries": "larger:5m",
+        "Clicks": 0.0,
+        "Impressions": 7.0,
+        "CTR": 0.0,
+        "Position": 8.29
+      },
+      {
+        "Top queries": "how to select all emails in gmail not just 50",
+        "Clicks": 0.0,
+        "Impressions": 7.0,
+        "CTR": 0.0,
+        "Position": 8.43
+      },
+      {
+        "Top queries": "how to delete all emails from one sender on gmail",
+        "Clicks": 0.0,
+        "Impressions": 7.0,
+        "CTR": 0.0,
+        "Position": 39.0
+      },
+      {
+        "Top queries": "does archiving emails save space gmail",
+        "Clicks": 0.0,
+        "Impressions": 7.0,
+        "CTR": 0.0,
+        "Position": 39.71
+      },
+      {
+        "Top queries": "how to delete all emails on gmail from one sender",
+        "Clicks": 0.0,
+        "Impressions": 7.0,
+        "CTR": 0.0,
+        "Position": 41.43
+      },
+      {
+        "Top queries": "gmail how to delete all emails from one sender",
+        "Clicks": 0.0,
+        "Impressions": 7.0,
+        "CTR": 0.0,
+        "Position": 42.0
+      },
+      {
+        "Top queries": "gmail delete all emails from one sender",
+        "Clicks": 0.0,
+        "Impressions": 7.0,
+        "CTR": 0.0,
+        "Position": 43.57
+      },
+      {
+        "Top queries": "gmail all mail",
+        "Clicks": 0.0,
+        "Impressions": 7.0,
+        "CTR": 0.0,
+        "Position": 45.29
+      },
+      {
+        "Top queries": "gmail archive vs delete",
+        "Clicks": 0.0,
+        "Impressions": 7.0,
+        "CTR": 0.0,
+        "Position": 54.14
+      }
+    ]
+  }
+}

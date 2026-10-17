@@ -1,0 +1,14 @@
+# ----------------------------------------
+# Events: Event name
+# Account: Chrome Web Store developer properties
+# Property: pnlnpdidhjimchppdmojledmfakpepep
+# ----------------------------------------
+# 
+# All Users
+# Start date: 20260719
+# End date: 20261016
+Event name,Event count,Total users,Event count per active user,Total revenue
+page_view,27,13,2.076923076923077,0
+session_start,22,13,1.6923076923076923,0
+first_visit,15,13,1.1538461538461537,0
+install,6,6,1,0

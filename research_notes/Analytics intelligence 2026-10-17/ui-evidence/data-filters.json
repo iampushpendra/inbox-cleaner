@@ -1,0 +1,796 @@
+{
+  "url": "https://analytics.google.com/analytics/web/#/a406773911p552886014/admin/datapolicies/datafilters",
+  "title": "Analytics",
+  "tree": [
+    {
+      "role": "banner",
+      "children": [
+        {
+          "role": "StaticText",
+          "name": " Analytics"
+        },
+        {
+          "role": "search",
+          "children": [
+            {
+              "role": "textbox",
+              "name": "Search"
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Switch products"
+        },
+        {
+          "role": "button",
+          "name": "Ask Advisor"
+        },
+        {
+          "role": "button",
+          "name": "Help entry menu"
+        },
+        {
+          "role": "button",
+          "name": "Open the user account switcher panel.",
+          "description": "Google Account: pushpendra singh ([account email redacted])"
+        }
+      ]
+    },
+    {
+      "role": "navigation",
+      "name": "Main pages",
+      "children": [
+        {
+          "role": "link",
+          "name": "Home",
+          "description": "Home",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Home"
+            }
+          ]
+        },
+        {
+          "role": "link",
+          "name": "Reports",
+          "description": "Reports",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Reports"
+            }
+          ]
+        },
+        {
+          "role": "link",
+          "name": "Explore",
+          "description": "Explore",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Explore"
+            }
+          ]
+        },
+        {
+          "role": "link",
+          "name": "Advertising",
+          "description": "Advertising",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Advertising"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "role": "navigation",
+      "name": "Settings pages",
+      "children": [
+        {
+          "role": "link",
+          "name": "Tasks",
+          "description": "Tasks",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Tasks"
+            }
+          ]
+        },
+        {
+          "role": "link",
+          "name": "Admin",
+          "description": "Admin",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Admin"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "role": "navigation",
+      "name": "Secondary navigation",
+      "children": [
+        {
+          "role": "navigation",
+          "name": "Secondary pages",
+          "children": [
+            {
+              "role": "button",
+              "name": "Create",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Create"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "tree",
+          "children": [
+            {
+              "role": "treeitem",
+              "name": "Admin",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Admin",
+                  "description": "Admin",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Admin"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "My preferences",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "My preferences",
+                  "description": "My preferences",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "My preferences"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Account settings",
+              "children": [
+                {
+                  "role": "separator"
+                },
+                {
+                  "role": "button",
+                  "name": "Account settings",
+                  "description": "Account settings",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Account settings"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Account",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Account",
+                  "description": "Account",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Account"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Property settings",
+              "children": [
+                {
+                  "role": "separator"
+                },
+                {
+                  "role": "button",
+                  "name": "Property settings",
+                  "description": "Property settings",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Property settings"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Property",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Property",
+                  "description": "Property",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Property"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Property details",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Property details",
+                  "description": "Property details",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Property details"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Custom insights",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Custom insights",
+                  "description": "Custom insights",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Custom insights"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Data collection and modification",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Data collection and modification",
+                  "description": "Data collection and modification",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Data collection and modification"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Data streams",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Data streams",
+                  "description": "Data streams",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Data streams"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Data collection",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Data collection",
+                  "description": "Data collection",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Data collection"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Data import",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Data import",
+                  "description": "Data import",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Data import"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Data retention",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Data retention",
+                  "description": "Data retention",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Data retention"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Data filters",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Data filters",
+                  "description": "Data filters",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Data filters"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Data de-identification",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Data de-identification",
+                  "description": "Data de-identification",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Data de-identification"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Consent settings",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Consent settings",
+                  "description": "Consent settings",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Consent settings"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Data display",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Data display",
+                  "description": "Data display",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Data display"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "treeitem",
+              "name": "Product links",
+              "children": [
+                {
+                  "role": "button",
+                  "name": "Product links",
+                  "description": "Product links",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Product links"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "separator"
+        }
+      ]
+    },
+    {
+      "role": "button",
+      "name": "Nav toggle"
+    },
+    {
+      "role": "main",
+      "children": [
+        {
+          "role": "sectionheader",
+          "children": [
+            {
+              "role": "heading",
+              "name": "Data filters",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Data filters"
+                }
+              ]
+            },
+            {
+              "role": "StaticText",
+              "name": "Filter event data in this property. "
+            },
+            {
+              "role": "link",
+              "name": "Learn more about data filters",
+              "children": [
+                {
+                  "role": "StaticText",
+                  "name": "Learn more about data filters"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "table",
+          "children": [
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "columnheader",
+                  "name": "Name",
+                  "children": [
+                    {
+                      "role": "button",
+                      "name": "Name",
+                      "description": "Sort",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "Name"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "role": "columnheader",
+                  "name": "Filter type",
+                  "children": [
+                    {
+                      "role": "button",
+                      "name": "Filter type",
+                      "description": "Sort",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "Filter type"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "role": "columnheader",
+                  "name": "Operation",
+                  "children": [
+                    {
+                      "role": "button",
+                      "name": "Operation",
+                      "description": "Sort",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "Operation"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "role": "columnheader",
+                  "name": "Current state",
+                  "children": [
+                    {
+                      "role": "button",
+                      "name": "Current state",
+                      "description": "Sort",
+                      "children": [
+                        {
+                          "role": "StaticText",
+                          "name": "Current state"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "role": "columnheader",
+                  "name": "Actions",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Actions"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "role": "row",
+              "children": [
+                {
+                  "role": "cell",
+                  "name": "Internal Traffic",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Internal Traffic"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "Internal Traffic",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Internal Traffic"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "Exclude",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Exclude"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "Testing",
+                  "children": [
+                    {
+                      "role": "StaticText",
+                      "name": "Testing"
+                    }
+                  ]
+                },
+                {
+                  "role": "cell",
+                  "name": "View Data filter",
+                  "children": [
+                    {
+                      "role": "button",
+                      "name": "View Data filter"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "role": "contentinfo",
+      "children": [
+        {
+          "role": "StaticText",
+          "name": "© "
+        },
+        {
+          "role": "StaticText",
+          "name": "2026 Google"
+        },
+        {
+          "role": "StaticText",
+          "name": " | "
+        },
+        {
+          "role": "link",
+          "name": "Analytics home ",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Analytics home "
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "| "
+        },
+        {
+          "role": "link",
+          "name": "Terms of Service ",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Terms of Service "
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "| "
+        },
+        {
+          "role": "link",
+          "name": "Privacy Policy ",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Privacy Policy "
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "| "
+        },
+        {
+          "role": "button",
+          "name": "Send feedback",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Send feedback"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "role": "button",
+      "name": "Open context menu"
+    },
+    {
+      "role": "StaticText",
+      "name": "Report filtering is turned on in this property. Some reports will be disabled and data may be removed."
+    },
+    {
+      "role": "alertdialog",
+      "children": [
+        {
+          "role": "button",
+          "name": "Close",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "×"
+            }
+          ]
+        },
+        {
+          "role": "heading",
+          "name": "Welcome to Analytics Advisor",
+          "children": [
+            {
+              "role": "StaticText",
+              "name": "Welcome to Analytics Advisor"
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "You can now ask questions to help with:"
+        },
+        {
+          "role": "list",
+          "children": [
+            {
+              "role": "listitem",
+              "children": [
+                {
+                  "role": "ListMarker",
+                  "name": "• "
+                },
+                {
+                  "role": "StaticText",
+                  "name": "Data analysis: Analytics Advisor can respond to data questions with single-number answers and visualizations."
+                }
+              ]
+            },
+            {
+              "role": "listitem",
+              "children": [
+                {
+                  "role": "ListMarker",
+                  "name": "• "
+                },
+                {
+                  "role": "StaticText",
+                  "name": "Report finding: Analytics Advisor can provide a link to the most appropriate report."
+                }
+              ]
+            },
+            {
+              "role": "listitem",
+              "children": [
+                {
+                  "role": "ListMarker",
+                  "name": "• "
+                },
+                {
+                  "role": "StaticText",
+                  "name": "Education: Analytics Advisor can give assistive answers based on relevant supporting documentation."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "role": "StaticText",
+          "name": "CLICK THE ICON TO CONTINUE"
+        }
+      ]
+    }
+  ]
+}
