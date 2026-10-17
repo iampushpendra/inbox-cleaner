@@ -2,7 +2,7 @@
 
 **See who's filling your Gmail. Select senders and move all their emails to Trash in one click.**
 
-[![Live App](https://img.shields.io/badge/Live%20App-open-blue?style=flat-square)](https://iampushpendra.github.io/inbox-cleaner/)
+[![Live App](https://img.shields.io/badge/Live%20App-open-blue?style=flat-square)](https://inbox-cleaner.vercel.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
 **Current version: 3.2.3** — documentation release; extension runtime remains 3.2.1. See [CHANGELOG.md](CHANGELOG.md) for what's new.
@@ -25,7 +25,7 @@ Works entirely in your browser. No server. No data ever leaves your device.
 
 ## Try it
 
-**[→ Open the web app](https://iampushpendra.github.io/inbox-cleaner/)** — nothing to install, works on any browser
+**[→ Open the web app](https://inbox-cleaner.vercel.app/)** — nothing to install, works on any browser
 
 Install the [Chrome extension](https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep), or see [Extension setup](#chrome-extension-setup) for local development.
 
@@ -51,7 +51,7 @@ Group by sender → ranked list (chrome.storage.local)
   from:(a OR b OR ...) search → Gmail's own "select all matching search" + Trash
 ```
 
-**Web app** (`docs/index.html` at [iampushpendra.github.io/inbox-cleaner](https://iampushpendra.github.io/inbox-cleaner/)) is a separate surface that still uses Google Identity Services + the Gmail API directly — see `docs/app.js`.
+**Web app** (`docs/index.html` at [inbox-cleaner.vercel.app](https://inbox-cleaner.vercel.app/)) is a separate surface that still uses Google Identity Services + the Gmail API directly — see `docs/app.js`.
 
 ---
 
@@ -102,7 +102,7 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.inboxcleaner.dailybl
 
 **Web app:** all API calls go directly from your browser to `gmail.googleapis.com`; only `From`/`Date` headers are read.
 
-[Full privacy policy →](https://iampushpendra.github.io/inbox-cleaner/privacy.html)
+[Full privacy policy →](https://inbox-cleaner.vercel.app/privacy.html)
 
 ---
 

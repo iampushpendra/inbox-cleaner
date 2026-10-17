@@ -45,7 +45,7 @@ PERMISSIONS
 • host access to mail.google.com — read your Gmail page and drive its own
   bulk "move to Trash" action; no API calls, no sign-in step
 
-Full privacy policy: https://iampushpendra.github.io/inbox-cleaner/privacy.html
+Full privacy policy: https://inbox-cleaner.vercel.app/privacy.html
 Gmail cleanup guides: https://inbox-cleaner.vercel.app/blog/
 ```
 
@@ -90,7 +90,7 @@ This is the part that most commonly blocks approval — be exact.
   - Certify: data is not sold to third parties; data is not used for
     purposes unrelated to the extension's single purpose; data is not used
     to determine creditworthiness or for lending.
-- **Privacy policy URL**: https://iampushpendra.github.io/inbox-cleaner/privacy.html
+- **Privacy policy URL**: https://inbox-cleaner.vercel.app/privacy.html
 
 ## Assets checklist (you'll need to produce these — screenshots of the real
 UI convert better than any stock mockup, so this needs your Chrome, not me)

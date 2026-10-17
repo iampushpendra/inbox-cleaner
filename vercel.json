@@ -2,6 +2,11 @@
   "outputDirectory": "docs",
   "buildCommand": "node scripts/build_site.mjs",
   "framework": null,
+  "redirects": [
+    { "source": "/privacy", "destination": "/privacy.html", "permanent": true },
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/blog/index.html", "destination": "/blog/", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/$1" }
   ]
