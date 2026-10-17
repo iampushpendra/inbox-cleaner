@@ -1,6 +1,8 @@
 # Inbox Cleaner SEO and organic growth roadmap
 
 > **For agentic workers:** Use superpowers:executing-plans for implementation, or superpowers:subagent-driven-development only when the user chooses delegation. Checkboxes track proposed work, not completed changes.
+>
+> **Progress 17 October 2026:** four checkboxes below are marked done by committed work (assets, internal-document exclusion, product-fact recording, high-risk claim corrections). They live in `internal/superpowers/`, not `docs/`. Remaining items are still proposed. A checked box records verified repo work, not a publishing or store outcome.
 
 **Goal:** Grow qualified organic discovery and useful installs by correcting product claims, improving existing search opportunities and publishing distinct, tested pages and browser-only tools.
 
@@ -73,9 +75,9 @@ R01/R02 supply truthful claims and action semantics. SEO repairs and native Gmai
 
 **Dependencies:** R01/R02 evidence. **Files:** docs/index.html, docs/privacy.html, docs/blog/*.html, docs/CHROME_WEB_STORE.md, README.md, manifest.json description, scripts/site-config.json; proposed scripts/product-facts.json. **Build/review:** S/S; A reviews query/scope claims, using the product roadmap legend.
 
-- [ ] Record package/version, permissions, supported locale/device, category discovery, top-250 exact-count limit, approximations, archived-mail action scope, scan timing and recovery evidence. Keep unverifiable claims qualified.
+- [x] Record package/version, permissions, supported locale/device, category discovery, top-250 exact-count limit, approximations, archived-mail action scope, scan timing and recovery evidence. Keep unverifiable claims qualified.
 - [ ] Review every inventory URL plus titles/descriptions/schema/CTAs. Classify all 41 API and 33 Connect Gmail matches; describe the separate browser flow only on a deliberately supported route.
-- [ ] Correct the false Gmail 50-email ceiling, claims of bypassing native selection/timeouts, scheduled age-based filter claims and blanket bank-record deletion assurances. Explain native all-matching selection and Gmail incoming-filter behavior.
+- [x] Correct the false Gmail 50-email ceiling, claims of bypassing native selection/timeouts, scheduled age-based filter claims and blanket bank-record deletion assurances. Explain native all-matching selection and Gmail incoming-filter behavior.
 - [ ] Align homepage, privacy, setup/recovery and prepared store copy; explain waitlist/network flows separately. Keep store submission distinct from drafting.
 
 **Done when:** Every public capability is traceable to evidence; known risky instructions are removed or corrected; Gmail native alternatives are accurately explained; manual query exclusions are never silently inherited by extension sender-wide deletion. Financial retention advice is removed or explicitly scoped/sourced. Source matches alone do not certify a completed editorial review.
@@ -85,8 +87,8 @@ R01/R02 supply truthful claims and action semantics. SEO repairs and native Gmai
 **Dependencies:** preferred-host decision retained; coordinate output changes with SEO-04. **Files:** vercel.json, scripts/build_site.mjs, scripts/site-config.json, docs/robots.txt, docs/sitemap.xml, docs/index.html, docs/privacy.html, docs/blog/index.html, docs/favicon.ico, docs/og-image.png; deployment output directory chosen in the implementation slice. **Tests:** test/site.test.js.
 
 - [ ] Keep all existing canonical destinations working; normalize index aliases with permanent redirects, add privacy canonical and migrate owned GitHub Pages links. Use page-for-page redirects where supported; otherwise document canonical/static fallback and usable links.
-- [ ] Supply valid favicon and social image, verify HTTP status/content type, and check referenced dimensions.
-- [ ] Exclude internal plans/specs/store-submission notes and research from deployment with an allowlisted output. Preserve them in the repository. Do not rely on robots disallow to remove already-indexed URLs.
+- [x] Supply valid favicon and social image, verify HTTP status/content type, and check referenced dimensions.
+- [x] Exclude internal plans/specs/store-submission notes and research from deployment with an allowlisted output. Preserve them in the repository. Do not rely on robots disallow to remove already-indexed URLs.
 - [ ] Retain the existing sitemap and internal-link generator. Inspect valuable exclusions individually after crawl; preserve the validation already started October 6.
 
 **Done when:** Canonical sitemap targets return 200, aliases redirect as designed, assets return correct types, internal documents are no longer publicly served, repeated builds are stable and no new orphan/broken links appear. No promised indexed-page count or CWV pass without data.
