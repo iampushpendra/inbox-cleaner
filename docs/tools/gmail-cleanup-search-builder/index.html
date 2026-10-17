@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Build and check a Gmail cleanup search by sender, category, age, date, or size. Copy your query or explicitly open Gmail to review results. No mailbox access.">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
+  <link rel="canonical" href="https://inbox-cleaner.vercel.app/tools/gmail-cleanup-search-builder/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gmail Cleanup Search Builder &amp; Query Checker | Inbox Cleaner">
+  <meta property="og:description" content="Turn cleanup criteria into an editable Gmail search. Check it locally, then review the results in Gmail.">
+  <meta property="og:url" content="https://inbox-cleaner.vercel.app/tools/gmail-cleanup-search-builder/">
+  <title>Gmail Cleanup Search Builder &amp; Query Checker | Inbox Cleaner</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/tools/query-builder.css">
+  <script src="/tools/query-builder.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#builder">Skip to search builder</a>
+  <nav id="nav" aria-label="Main navigation">
+    <a class="nav-logo" href="/">Inbox<span>Cleaner</span></a>
+    <div class="blog-nav-right"><a class="nav-blog-link" href="/blog/">Gmail guides</a><a class="blog-nav-cta" href="/">Get the extension</a></div>
+  </nav>
+  <main class="query-page">
+    <header class="query-intro">
+      <p class="breadcrumb"><a href="/">Home</a> / Tools</p>
+      <h1>Gmail cleanup<br>search builder</h1>
+      <p class="query-lead">Find a manageable set of messages to review. Choose your criteria, check the query, then open the search in Gmail.</p>
+      <p class="privacy-note"><strong>No sign-in or mailbox access.</strong> Inputs stay in this page’s memory. Nothing is saved by this tool, sent to our servers, or added to its URL. Opening Gmail sends your query to Google; copying sends it to your clipboard.</p>
+    </header>
+    <noscript><p class="query-notice">Enable JavaScript to use the local builder and checker. You can also enter the documented operators below directly in Gmail.</p></noscript>
+    <div class="query-workspace" id="builder">
+      <section class="criteria-panel" aria-labelledby="criteria-heading">
+        <h2 id="criteria-heading">Choose your criteria</h2>
+        <p>Filled fields are combined. Start with a small, specific search.</p>
+        <form id="query-form" autocomplete="off">
+          <div class="query-field">
+            <label for="sender">Sender email <span>(optional)</span></label>
+            <input id="sender" name="sender" type="text" inputmode="email" spellcheck="false" maxlength="254" placeholder="newsletter@example.com" aria-describedby="sender-help">
+            <small id="sender-help">One simple email address. The placeholder is synthetic.</small>
+          </div>
+          <div class="query-field">
+            <label for="category">Gmail category</label>
+            <select id="category" name="category">
+              <option value="">Any category</option><option value="promotions">Promotions</option><option value="social">Social</option><option value="updates">Updates</option><option value="forums">Forums</option><option value="primary">Primary</option><option value="reservations">Reservations</option><option value="purchases">Purchases</option>
+            </select>
+          </div>
+          <div class="query-field">
+            <label for="age-mode">Age or date</label>
+            <select id="age-mode" name="ageMode"><option value="none">Any time</option><option value="relative">Older than a relative age</option><option value="fixed">Use fixed dates</option></select>
+          </div>
+          <fieldset id="relative-fields" hidden>
+            <legend>Relative age</legend>
+            <div class="paired-fields">
+              <div class="query-field"><label for="age">Older than</label><input id="age" name="age" type="number" min="1" max="9999" step="1" value="6" inputmode="numeric"></div>
+              <div class="query-field"><label for="age-unit">Time unit</label><select id="age-unit" name="ageUnit"><option value="m">Months</option><option value="y">Years</option><option value="d">Days</option></select></div>
+            </div>
+            <small>A relative search changes as time passes.</small>
+          </fieldset>
+          <fieldset id="fixed-fields" hidden>
+            <legend>Fixed dates</legend>
+            <div class="paired-fields">
+              <div class="query-field"><label for="after">After date</label><input id="after" name="after" type="date" min="1900-01-01" max="9999-12-31"></div>
+              <div class="query-field"><label for="before">Before date</label><input id="before" name="before" type="date" min="1900-01-01" max="9999-12-31"></div>
+            </div>
+            <small>Use either or both. Check boundary-day results in Gmail before acting.</small>
+          </fieldset>
+          <div class="paired-fields">
+            <div class="query-field"><label for="size">Larger than <span>(optional)</span></label><input id="size" name="size" type="number" min="1" max="999999999" step="1" inputmode="numeric" placeholder="10"></div>
+            <div class="query-field"><label for="size-unit">Size notation</label><select id="size-unit" name="sizeUnit"><option value="M">Gmail M notation</option><option value="bytes">Bytes</option></select></div>
+          </div>
+          <small class="field-note">Uses Gmail’s larger: operator, for message size rather than an attachment-only limit.</small>
+          <div class="query-actions"><button class="query-primary" type="submit">Build query</button><button class="query-secondary" type="button" id="clear-tool">Clear all</button></div>
+          <p class="small-note">Building again replaces manual edits in the query box.</p>
+        </form>
+      </section>
+      <section class="output-panel" aria-labelledby="output-heading">
+        <h2 id="output-heading">Review your search</h2>
+        <p>Edit a generated query or paste your own to use the same checker.</p>
+        <label for="query-output">Gmail search query</label>
+        <textarea id="query-output" rows="5" maxlength="2048" spellcheck="false" autocomplete="off" autocapitalize="off" aria-describedby="query-help"></textarea>
+        <p id="query-help" class="small-note">Basic checks cover this builder’s operators. Other Gmail syntax may need manual review. No query can guarantee that mail is safe to delete.</p>
+        <button class="query-secondary" type="button" id="check-query">Check query</button>
+        <div class="query-checks" aria-live="polite" aria-atomic="true">
+          <h3 id="check-summary">Add criteria to begin.</h3>
+          <ul id="query-errors" class="query-errors"></ul>
+          <ul id="query-warnings" class="query-warnings"></ul>
+        </div>
+        <div class="scope-note"><strong>Check the account and scope in Gmail.</strong> This tool cannot choose your account. A standard Gmail search excludes Spam and Trash; <code>in:anywhere</code> includes them. It does not mean “Inbox only.”</div>
+        <label class="review-confirm" for="review-confirm"><input id="review-confirm" type="checkbox"> <span>I’ll verify the active Gmail account and review matching messages and conversations before taking any action.</span></label>
+        <div class="query-actions"><button class="query-secondary" type="button" id="copy-query" disabled>Copy query</button><button class="query-primary" type="button" id="open-gmail" disabled>Open Gmail search</button></div>
+        <p class="small-note">Opens a new tab at mail.google.com. This tool only searches; it never selects, archives, or deletes mail. Google may save searches under your account settings.</p>
+        <p id="action-status" class="action-status" role="status"></p>
+      </section>
+    </div>
+    <section class="query-explainer" aria-labelledby="how-heading">
+      <h2 id="how-heading">From a search to a careful review</h2>
+      <ol><li><strong>Narrow the search.</strong> Choose the sender, category, age, dates, or size that describe the messages you want to inspect.</li><li><strong>Check and read the query.</strong> Resolve errors and read the cautions. The checker does not run a Gmail search or estimate result counts.</li><li><strong>Review in Gmail.</strong> Verify the active account, inspect individual messages and conversation contents, and adjust the search if the results are broader than expected.</li></ol>
+      <h3>Synthetic examples</h3>
+      <p>These examples are illustrative, not recommendations to delete their results.</p>
+      <div class="example"><code>from:newsletter@example.com older_than:6m</code><p>A sender combined with a relative age. The date threshold moves over time.</p></div>
+      <div class="example"><code>category:promotions before:2025/01/01 larger:10M</code><p>A category, fixed before date, and Gmail’s message-size notation combined.</p></div>
+      <h3>Why the checker cannot promise a safe selection</h3>
+      <p>Gmail matches messages first. A conversation can appear even when some messages in it do not meet an exclusion such as <code>-is:starred</code>. Exclusions are not whole-thread protection. The local checker cannot inspect your mailbox, interpret every Gmail operator, or guarantee matches or deletion safety.</p>
+      <h3>Can I share or save my query here?</h3>
+      <p>This tool does not create query links, read criteria from URL parameters, or save inputs. Copy the query if you need to keep it, remembering that sender addresses and search terms can be personal.</p>
+      <h3>Official search references</h3>
+      <p>Operator syntax and the conversation caveat were checked against <a href="https://support.google.com/mail/answer/7190?hl=en" rel="noreferrer">Gmail Help: Refine searches in Gmail</a>. Search scope and saved searches are described in <a href="https://support.google.com/mail/answer/6593?hl=en" rel="noreferrer">Gmail Help: Search in Gmail</a>. Reviewed October 17, 2026. Gmail behavior and availability may vary; confirm the results in your account.</p>
+      <p class="return-link"><a href="/blog/">Read the Gmail cleanup guides</a> or <a href="/">learn about the Inbox Cleaner extension</a>.</p>
+    </section>
+  </main>
+  <footer><p>Inbox Cleaner · Independent tool, not affiliated with Google. <a href="/privacy.html">Privacy policy</a></p></footer>
+</body>
+</html>
