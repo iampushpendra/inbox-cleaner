@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="canonical" href="https://inbox-cleaner.vercel.app/privacy.html">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy — Inbox Cleaner</title>
   <style>
@@ -20,7 +21,14 @@
   <p>Inbox Cleaner is a browser-based tool that helps you analyse and clean up your Gmail inbox.
      This policy explains what data we access and how it's used.</p>
 
-  <h2>What data we access</h2>
+  <h2>Which product this covers</h2>
+  <p>Inbox Cleaner ships as two separate products with different data paths:</p>
+  <ul>
+    <li><strong>The Chrome extension</strong> — the packaged Chrome Web Store extension. It has no OAuth, no Google sign-in and no server. It runs only inside a <code>mail.google.com</code> tab you already have open and reads just the sender name, sender address and displayed date off each rendered conversation row. It makes no network requests at all and caches scan results in <code>chrome.storage.local</code> on your device. Moving mail to Trash is done by clicking Gmail's own Move to Trash control inside your already-signed-in tab, so mail lands in your Gmail Trash, where Gmail keeps it for 30 days before permanently deleting it. Its only permissions are <code>storage</code> and host access to <code>mail.google.com</code>.</li>
+    <li><strong>The web app on this site</strong> — everything below describes it.</li>
+  </ul>
+
+  <h2>What data we access (web app)</h2>
   <p>Inbox Cleaner requests access to your Gmail account via the Google OAuth 2.0 flow.
      Specifically, we request:</p>
   <ul>
@@ -40,7 +48,8 @@
   <p>Scan results are cached in <code>localStorage</code> on your device. You can clear this at any time by signing out or clearing your browser data. We retain no data ourselves.</p>
 
   <h2>Third-party access</h2>
-  <p>We do not sell, share, or transfer your Gmail data to any third party. The only service that receives your data is Google (to fulfil the Gmail API requests you initiate).</p>
+  <p>We do not sell, share, or transfer your Gmail data to any third party. The only service that receives your Gmail data is Google (to fulfil the Gmail API requests you initiate).</p>
+  <p>Separately, the waitlist form on this site's homepage posts the email address you type to a Google Apps Script endpoint that holds the waitlist. That address is not connected to your Gmail data.</p>
 
   <h2>Revoking access</h2>
   <p>You can revoke Inbox Cleaner's access to your Google account at any time at

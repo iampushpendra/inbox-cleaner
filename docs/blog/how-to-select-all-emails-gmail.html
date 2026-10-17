@@ -5,9 +5,9 @@
   <link rel="canonical" href="https://inbox-cleaner.vercel.app/blog/how-to-select-all-emails-gmail.html">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How to Select All Emails in Gmail (2026 Guide) | Inbox Cleaner</title>
-  <meta name="description" content="Gmail only selects 50 emails per page by default. Here's how to select all conversations that match a search, plus what to do when that still isn't enough.">
+  <meta name="description" content="How Gmail's select-all checkbox works, how the 'select all conversations that match this search' banner extends it beyond the page, and what to do when the banner stalls.">
   <meta property="og:title" content="How to Select All Emails in Gmail (2026 Guide)">
-  <meta property="og:description" content="Gmail only selects 50 emails per page by default. Here's how to select all conversations that match a search, plus what to do when that still isn't enough.">
+  <meta property="og:description" content="How Gmail's select-all checkbox works, how the 'select all conversations that match this search' banner extends it beyond the page, and what to do when the banner stalls.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://inbox-cleaner.vercel.app/blog/how-to-select-all-emails-gmail.html">
   <script type="application/ld+json">
@@ -16,7 +16,7 @@
     "@type": "Article",
     "headline": "How to Select All Emails in Gmail",
     "datePublished": "2026-08-16",
-    "dateModified": "2026-08-16",
+    "dateModified": "2026-10-17",
     "author": { "@type": "Organization", "name": "Inbox Cleaner" },
     "publisher": { "@type": "Organization", "name": "Inbox Cleaner", "url": "https://inbox-cleaner.vercel.app" }
   }
@@ -31,7 +31,7 @@
       { "@type": "HowToStep", "name": "Click the top checkbox", "text": "Click the checkbox above the message list to select every email currently visible on the page (up to 50)." },
       { "@type": "HowToStep", "name": "Click the select-all banner", "text": "A banner appears reading \"Select all conversations that match this search.\" Click it to extend the selection beyond the current page to every matching email." },
       { "@type": "HowToStep", "name": "Apply an action", "text": "Click the Trash, Archive, or label icon to apply your action to every selected email at once." },
-      { "@type": "HowToStep", "name": "For very large selections, use Inbox Cleaner", "text": "If the banner times out on tens of thousands of emails, connect Gmail at inbox-cleaner.vercel.app and select senders from the ranked list instead — it scans the full inbox via the Gmail API with no page limit." }
+      { "@type": "HowToStep", "name": "For very large selections, clean up by sender", "text": "If the banner stalls on tens of thousands of emails, install the Inbox Cleaner Chrome extension, open Gmail in desktop Chrome, and scan. It ranks senders by email count so you select senders instead of building one enormous selection." }
     ]
   }
   </script>
@@ -42,8 +42,8 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Why does Gmail only let me select 50 emails at a time?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Gmail only renders 50 conversations per page for performance reasons, and the checkbox at the top of the list only selects what's currently rendered. The \"select all conversations that match this search\" banner is Gmail's workaround — it applies your action to every matching email, not just the visible page." }
+        "name": "Why does Gmail only select 50 emails when I click the checkbox?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Because 50 is Gmail's page size, not a deletion limit. The checkbox selects only what the browser has rendered; the \"select all conversations that match this search\" link then applies your action to every match server-side. Google's help page shows this as \"All 50 conversations on this page are selected. Select all 2,000 conversations in Inbox.\"" }
       },
       {
         "@type": "Question",
@@ -53,7 +53,7 @@
       {
         "@type": "Question",
         "name": "Why did Gmail's select-all banner not appear?",
-        "acceptedAnswer": { "@type": "Answer", "text": "The banner only appears after you've clicked the top checkbox to select the current page first. If you don't see it, scroll up to the top of the message list and click the checkbox again — it should appear directly above your emails." }
+        "acceptedAnswer": { "@type": "Answer", "text": "The banner only appears after you click the top checkbox to select the current page. If it does not show up, scroll back to the top of the message list — Gmail renders it as a notification above the messages, usually worded like \"All 50 conversations on this page are selected. Select all 2,000 conversations in Inbox.\" If the page is already entirely selected, there's nothing to extend and the banner is correctly absent." }
       },
       {
         "@type": "Question",
@@ -87,15 +87,15 @@
   <div class="blog-wrap">
     <span class="blog-eyebrow">Gmail Tips</span>
     <h1 class="blog-h1">How to Select All Emails in Gmail</h1>
-    <p class="blog-meta">Updated August 2026 · 5 min read</p>
+    <p class="blog-meta">Updated 17 October 2026 · 5 min read</p>
 
     <div class="blog-body">
 
       <div class="quick-answer">
-        <strong>Quick answer:</strong> Click the checkbox above your message list to select the 50 emails on the current page, then click the banner that appears — "Select all conversations that match this search" — to extend the selection to everything matching your current tab or search. For selections in the tens of thousands, that banner can time out; <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a> selects by sender instead with no page limit.
+        <strong>Quick answer:</strong> Click the checkbox above your message list to select the conversations on the current page, then click the banner that appears — "Select all conversations that match this search" — to extend the selection to everything matching your current tab or search. On very large matches that banner can stall; <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a> takes a different approach and cleans up by sender instead.
       </div>
 
-      <p>Gmail's checkbox looks like it should select your whole inbox in one click. It doesn't — it only grabs what's rendered on the current page, which caps at 50 conversations. Most people click it, see 50 emails highlighted, and assume that's everything. It usually isn't. Here's how selection actually works in Gmail, and what to do once you hit its limits.</p>
+      <p>Gmail's checkbox looks like it should select your whole inbox in one click. It doesn't — it only grabs what's rendered on the current page, which is 50 conversations at Gmail's default page size. Most people click it, see 50 emails highlighted, and assume that's everything. It usually isn't. Here's how selection actually works in Gmail, and what to do once you hit its limits.</p>
 
       <h2>How do I select all emails in Gmail?</h2>
 
@@ -109,20 +109,24 @@
 
       <p>That banner is the part most people miss. Without clicking it, any bulk action — delete, archive, mark as read — only touches the page you're looking at, and you'll be back on page two doing it again a minute later, the same wall you'd hit trying to <a href="../blog/how-to-bulk-delete-gmail-emails.html">bulk delete Gmail emails</a> any other way.</p>
 
-      <h2>Why does the checkbox only select 50 emails?</h2>
+      <h2>Why does the checkbox only select the current page?</h2>
 
-      <p>Gmail paginates its message list at 50 conversations for load speed — it doesn't render your entire inbox at once, so the checkbox literally can't select what isn't on screen. This is a rendering limit, not a selection-count limit, which is why the follow-up banner exists as a separate step: it runs the action against Gmail's servers directly instead of against what your browser has loaded.</p>
+      <p>Gmail paginates its message list — 50 conversations is the page size Google's own help page uses in its example — so the checkbox can only select what your browser has actually rendered. That is a rendering limit, not a limit on how much you can delete, which is exactly why the follow-up banner exists as a separate step: it runs the action against Gmail's servers rather than against the loaded page.</p>
 
       <h2>What if select-all times out on a huge inbox?</h2>
 
-      <p>On inboxes with tens of thousands of emails built up over years, the "select all conversations that match this search" action can stall or fail partway through — Gmail is applying the action to every match sequentially, and very large batches sometimes exceed what the web interface handles reliably in one pass. If that happens repeatedly, skip Gmail's built-in selection entirely:</p>
+      <p>On inboxes with tens of thousands of emails built up over years, the "select all conversations that match this search" action can stall or fail partway through — Gmail applies the action to every match server-side, and very large batches sometimes exceed what the web interface handles reliably in one pass. If that happens repeatedly, a better approach is to clean up by sender instead of by one enormous selection:</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
-        <li>Inbox Cleaner scans your full inbox via the Gmail API and ranks every sender by email count.</li>
-        <li>Check the boxes next to the senders you want cleared — no 50-per-page limit, no timeout on large batches.</li>
-        <li>Click <strong>Move to Trash</strong> to apply the action to everything from those senders at once.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
+        <li>It scans all five Gmail categories and ranks discovered senders by email count. A full scan takes minutes, not seconds. Counts are exact for the top 250 senders and shown with a "~" for the rest.</li>
+        <li>Check the boxes next to the senders you want cleared, then click <strong>Move to Trash</strong> and confirm.</li>
+        <li>Senders are processed in batches of up to 20, and each batch uses Gmail's own select-all and Trash controls. If a batch can't be verified as emptied, the extension says so and asks you to re-scan — it never reports an unverified batch as finished.</li>
       </ol>
+
+      <div class="quick-answer">
+        <strong>Scope note:</strong> deleting by sender reaches everything Gmail returns for that address, including archived mail and other labels — not just what's in your Primary inbox. If you need a narrower set, filter in Gmail's own search first (for example <code>from:sender@example.com older_than:1y</code>) and use the steps above.
+      </div>
 
       <div class="blog-cta">
 <h3>Clean up Gmail with the Chrome extension</h3>
@@ -134,6 +138,20 @@
 
       <p>Narrow the view before you select. Type <code>from:sender@example.com</code> in Gmail's search bar to filter to one sender, or combine date operators like <code>before:2024/01/01</code> to grab everything older than a cutoff. Once the search results load, the checkbox and "select all conversations that match this search" banner both apply only to that filtered set — so you can safely bulk-delete a single newsletter's backlog without touching anything else in your inbox. This is effectively how you'd <a href="../blog/delete-all-emails-from-one-sender-gmail.html">delete all emails from one sender in Gmail</a> without the tool.</p>
 
+      <h2>Why didn't the "select all conversations that match this search" banner appear?</h2>
+
+      <p>This is the single most common reason people believe Gmail is stuck at one page. The banner does not appear on its own — Gmail shows it only after the page checkbox has been clicked. Work through these in order:</p>
+
+      <ol class="blog-steps">
+        <li><strong>You didn't click the top checkbox first.</strong> The banner is a follow-up to a page selection. Click the checkbox above the first email, then look immediately above the list.</li>
+        <li><strong>You're looking in the wrong place.</strong> Gmail shows it as a notification above your messages, and its wording includes the real totals — something like "All 50 conversations on this page are selected. Select all 2,000 conversations in Inbox." Scroll up so that line is on screen.</li>
+        <li><strong>The page was already fully selected.</strong> If the page count equals the highlighted count, there's nothing to extend and the banner is correctly absent.</li>
+      </ol>
+
+      <p>Google's own documentation describes exactly this two-step flow, including the 50-per-page notification and the link that extends selection to every matching conversation. <a href="https://support.google.com/mail/answer/7401?hl=en">Delete messages in Gmail</a> (verified 17 October 2026)</p>
+
+      <p>Note the search box matters too: the banner extends to everything matching <em>the current search</em>, not your whole mailbox. In the Primary tab with no search it covers Primary. Clear filters, or search <code>in:anywhere</code>, before you rely on it.</p>
+
       <h2>Does select all work the same way in every Gmail tab?</h2>
 
       <p>Yes, but it's scoped to whatever tab or search you're currently viewing. Selecting all in the Promotions tab only selects Promotions emails; switch to Primary or Social first if you want those instead. The same applies to labels — selecting all in a label only grabs conversations with that label, not your whole inbox. If you want a true inbox-wide selection, search <code>in:anywhere</code> or clear all filters before you start.</p>
@@ -141,8 +159,8 @@
       <h2>Frequently asked questions</h2>
       <div class="faq-list">
         <div class="faq-item">
-          <p class="faq-q">Why does Gmail only let me select 50 emails at a time?</p>
-          <p class="faq-a">Gmail only renders 50 conversations per page for performance reasons, and the checkbox at the top of the list only selects what's currently rendered. The "select all conversations that match this search" banner is Gmail's workaround — it applies your action to every matching email, not just the visible page.</p>
+          <p class="faq-q">Why does Gmail only select 50 emails when I click the checkbox?</p>
+          <p class="faq-a">Because 50 is Gmail's page size, not a deletion limit. The checkbox selects only what the browser has rendered; the "select all conversations that match this search" link then applies your action to every match server-side. Google's help page shows this as "All 50 conversations on this page are selected. Select all 2,000 conversations in Inbox."</p>
         </div>
         <div class="faq-item">
           <p class="faq-q">Is there a keyboard shortcut to select all emails in Gmail?</p>
@@ -150,7 +168,7 @@
         </div>
         <div class="faq-item">
           <p class="faq-q">Why did Gmail's select-all banner not appear?</p>
-          <p class="faq-a">The banner only appears after you've clicked the top checkbox to select the current page first. If you don't see it, scroll up to the top of the message list and click the checkbox again — it should appear directly above your emails.</p>
+          <p class="faq-a">The banner only appears after you click the top checkbox to select the current page. If it doesn't show up, scroll back to the top of the message list — Gmail renders it as a notification above the messages, usually worded like "All 50 conversations on this page are selected. Select all 2,000 conversations in Inbox." If the page is already entirely selected, there's nothing to extend and the banner is correctly absent.</p>
         </div>
         <div class="faq-item">
           <p class="faq-q">Can I select all emails from a specific sender or date range?</p>

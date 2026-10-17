@@ -6,9 +6,9 @@
   <link rel="canonical" href="https://inbox-cleaner.vercel.app/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bulk Delete Gmail Emails by Sender — Inbox Cleaner (Free)</title>
-  <meta name="description" content="The fastest way to bulk delete Gmail emails. See every sender ranked by count, select the worst offenders, move everything to Trash in one click. Free Chrome extension.">
+  <meta name="description" content="A free Chrome extension that scans Gmail, ranks every sender by email count, and moves all of a selected sender's mail to Trash. Gmail Trash keeps mail for 30 days.">
   <meta property="og:title" content="Bulk Delete Gmail Emails by Sender — Inbox Cleaner (Free)">
-  <meta property="og:description" content="The fastest way to bulk delete Gmail emails. See every sender ranked by count, select the worst offenders, move everything to Trash in one click. Free Chrome extension.">
+  <meta property="og:description" content="A free Chrome extension that scans Gmail, ranks every sender by email count, and moves all of a selected sender's mail to Trash. Gmail Trash keeps mail for 30 days.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://inbox-cleaner.vercel.app">
   <meta property="og:image" content="https://inbox-cleaner.vercel.app/og-image.png">
@@ -20,7 +20,7 @@
     "step": [
       { "@type": "HowToStep", "text": "Install Inbox Cleaner from the Chrome Web Store. Open Gmail, then click the extension to scan your inbox." },
       { "@type": "HowToStep", "text": "See every sender ranked by email count. Select the worst offenders." },
-      { "@type": "HowToStep", "text": "Click 'Move to Trash' — all selected emails move in one click." }
+      { "@type": "HowToStep", "text": "Click 'Move to Trash' and confirm. Senders are processed in batches of up to 20, so a larger selection takes longer." }
     ]
   }
   </script>
@@ -37,12 +37,12 @@
       {
         "@type": "Question",
         "name": "Does Gmail have a built-in bulk delete option?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Gmail initially selects the current page. Its select-all-conversations link extends that selection to all matching results. Inbox Cleaner groups senders so you can choose whose emails to remove." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Gmail's own search and 'select all conversations that match this search' link can delete everything from a sender. Inbox Cleaner does the same native actions, but ranks discovered senders first so you can pick from a list instead of searching one sender at a time." }
       },
       {
         "@type": "Question",
         "name": "Is Inbox Cleaner safe to use?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The tool reads only From and Date headers — never email bodies. All processing happens in your browser; nothing is sent to any server. The source code is open on GitHub." }
+        "acceptedAnswer": { "@type": "Answer", "text": "The Chrome extension reads only the sender name, sender address and displayed date from each rendered conversation row — never bodies or attachments — and caches results on your device. It makes no network requests. The separate web app on this site uses Google OAuth, described in the privacy policy. The source code is open on GitHub." }
       },
       {
         "@type": "Question",
@@ -117,15 +117,14 @@
   <div class="hero-inner">
     <div class="hero-eyebrow">Free Chrome extension · Works inside Gmail</div>
     <h1>The fastest way to <em>bulk delete</em><br>Gmail emails.</h1>
-    <p class="hero-sub">See who's flooding your Gmail. Select the worst offenders. Move everything to Trash — in one click.</p>
-    <p class="hero-snippet">Inbox Cleaner scans your Gmail inbox, ranks every sender by email count, and lets you select multiple senders and move all their emails to Trash in one click with the free Chrome extension.</p>
+    <p class="hero-sub">See who's flooding your Gmail. Select the worst offenders. Move everything to Trash.</p>
+    <p class="hero-snippet">Inbox Cleaner scans your Gmail inbox, ranks every sender by email count, and lets you select multiple senders and move all their emails to Trash with the free Chrome extension.</p>
     <div class="hero-actions">
       <a class="btn-primary-hero" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add Inbox Cleaner to Chrome →</a>
       <button class="btn-signin btn-ghost-hero">Try the browser version →</button>
     </div>
     <div class="hero-trust">
-      <span>No data leaves your browser</span>
-      <span>Only From &amp; Date headers read</span>
+      <span>Extension reads only From &amp; Date</span>
       <span>Open source on GitHub</span>
     </div>
   </div>
@@ -136,7 +135,7 @@
   <div class="social-proof-inner">
     <div class="stat"><div class="stat-num">5</div><div class="stat-label">Gmail categories scanned</div></div>
     <div class="stat-divider"></div>
-    <div class="stat"><div class="stat-num">0</div><div class="stat-label">Servers. Zero.</div></div>
+    <div class="stat"><div class="stat-num">0</div><div class="stat-label">Extension servers</div></div>
     <div class="stat-divider"></div>
     <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Metadata only — never body</div></div>
     <div class="trust-list">
@@ -151,7 +150,7 @@
 <section id="section-compare">
   <div class="compare-inner">
     <h2 class="compare-heading">Why not just use Gmail?</h2>
-    <p class="compare-sub">Gmail's built-in select-all caps at 50 emails per page. Here's the difference.</p>
+    <p class="compare-sub">Gmail can delete by sender on its own. The difference is finding who to delete, and doing dozens of senders in one pass.</p>
     <table class="compare-table">
       <thead>
         <tr>
@@ -162,19 +161,24 @@
       </thead>
       <tbody>
         <tr>
-          <td>Select all emails</td>
-          <td>Max 50 per page</td>
-          <td class="col-highlight">Entire inbox at once</td>
+          <td>See which senders send the most mail</td>
+          <td>No ranking — search each sender yourself</td>
+          <td class="col-highlight">Ranked list, largest first</td>
         </tr>
         <tr>
-          <td>Filter by sender</td>
-          <td>Manual search per sender</td>
-          <td class="col-highlight">Auto-ranked list, largest first</td>
+          <td>Clean up many senders at once</td>
+          <td>One sender per search</td>
+          <td class="col-highlight">Select dozens of senders in one pass</td>
         </tr>
         <tr>
-          <td>Time to delete 1,000 emails</td>
-          <td>20+ clicks, multiple pages</td>
-          <td class="col-highlight">1 click</td>
+          <td>Delete everything from a sender</td>
+          <td>Yes — search, select all matching, then Trash</td>
+          <td class="col-highlight">Same native Gmail actions, no retyping searches</td>
+        </tr>
+        <tr>
+          <td>Where mail goes</td>
+          <td>Gmail Trash (30 days to restore)</td>
+          <td class="col-highlight">Gmail Trash (30 days to restore)</td>
         </tr>
         <tr>
           <td>Requires install</td>
@@ -214,11 +218,11 @@
       </div>
       <div class="faq-item">
         <p class="faq-q">Does Gmail have a built-in bulk delete option?</p>
-        <p class="faq-a">Gmail initially selects the current page. Its select-all-conversations link extends that selection to all matching results. Inbox Cleaner groups senders so you can choose whose emails to remove.</p>
+        <p class="faq-a">Yes — with a caveat. Gmail's own search plus its "select all conversations that match this search" link can delete everything from a sender without an install. Inbox Cleaner ranks discovered senders by email count so you can choose from a list, then uses those same native Gmail actions. It does not permanently delete anything.</p>
       </div>
       <div class="faq-item">
         <p class="faq-q">Is Inbox Cleaner safe to use?</p>
-        <p class="faq-a">Yes. The tool reads only From and Date headers — never email bodies. All processing happens in your browser; nothing is sent to any server. The source code is open on GitHub.</p>
+        <p class="faq-a">Yes. The Chrome extension reads only the sender name, sender address and displayed date from each rendered conversation row — never bodies or attachments — and caches results on your device. It makes no network requests. The web app on this site does use Google OAuth, which is described separately in the <a href="/privacy.html">privacy policy</a>. The source code is open on GitHub.</p>
       </div>
       <div class="faq-item">
         <p class="faq-q">Will deleted emails be gone forever?</p>
@@ -234,7 +238,7 @@
       </div>
       <div class="faq-item">
         <p class="faq-q">How do I delete thousands of Gmail emails at once?</p>
-        <p class="faq-a">Inbox Cleaner scans your entire inbox and ranks every sender by email count. Select one or more senders and click "Move to Trash" — thousands of emails move in a single click, no paging through Gmail required.</p>
+        <p class="faq-a">Inbox Cleaner scans your inbox and ranks discovered senders by email count. Select one or more senders and click "Move to Trash." Senders are handled in batches of up to 20, so a bigger selection takes proportionally longer. Counts are exact for the top 250 senders and shown with a "~" for the rest.</p>
       </div>
       <div class="faq-item">
         <p class="faq-q">How do I free up Gmail storage fast?</p>
