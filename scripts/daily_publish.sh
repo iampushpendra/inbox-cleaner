@@ -30,20 +30,33 @@ if [ -n "$(git status --porcelain --untracked-files=no)" ]; then
   exit 1
 fi
 
-if ! slug=$(python3 -c 'import json; print(next((t["slug"] for t in json.load(open("scripts/blog-topics.json")) if t["status"] == "pending"), ""))'); then
-  notify_failure "could not read topic queue"
+if ! selection=$(python3 scripts/publish_blog.py --select); then
+  notify_failure "could not read topic queue or evidence records"
   exit 1
 fi
-if [ -z "$slug" ]; then
+if [ "$selection" = "empty" ]; then
   echo "=== $(date -u +%Y-%m-%dT%H:%M:%SZ) Queue empty - no pending topics ===" >> scripts/daily_publish.log
   exit 0
 fi
+export BLOG_JOB_ACTION="${selection%% *}"
+export BLOG_JOB_SLUG="${selection#* }"
+slug="$BLOG_JOB_SLUG"
 
 if ! /Users/pushpendrasingh/.local/bin/claude -p "$(cat scripts/daily_publish_prompt.md)" \
   --allowedTools "Bash Read Write Edit Glob Grep" \
   >> scripts/daily_publish.log 2>&1; then
   notify_failure "claude publish run failed (check auth: run 'claude' interactively to re-login if session expired)"
   exit 1
+fi
+
+# Drafting is useful unattended work, but is never publication approval.
+if [ "$BLOG_JOB_ACTION" = "draft" ]; then
+  if [ ! -f "internal/blog-drafts/$slug.html" ]; then
+    notify_failure "draft was not created: $slug"
+    exit 1
+  fi
+  echo "=== $(date -u +%Y-%m-%dT%H:%M:%SZ) Draft saved: $slug; evidence review required before publication ===" >> scripts/daily_publish.log
+  exit 0
 fi
 
 # A zero CLI exit status can still be a refusal or incomplete generation.

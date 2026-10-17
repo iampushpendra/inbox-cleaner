@@ -71,6 +71,15 @@ test('the publishing command generates discovery links before marking a queued p
   post(root, 'gmail-new', 'A newly queued guide', '2026-10-16');
   post(root, 'gmail-older', 'An older guide', '2026-08-09');
   fs.writeFileSync(path.join(root, 'scripts/blog-topics.json'), JSON.stringify([{ slug: 'gmail-new', status: 'pending' }]));
+  fs.writeFileSync(path.join(root, 'manifest.json'), JSON.stringify({ version: '3.2.1' }));
+  fs.writeFileSync(path.join(root, 'scripts/blog-topics.json'), JSON.stringify([{ slug: 'gmail-new', status: 'pending', intent_owner: 'gmail-new' }, { slug: 'gmail-older', status: 'published' }]));
+  const fingerprint = require('node:crypto').createHash('sha256').update(fs.readFileSync(path.join(root, 'docs/blog/gmail-new.html'))).digest('hex');
+  fs.writeFileSync(path.join(root, 'scripts/content-records.json'), JSON.stringify({ 'gmail-new': {
+    state: 'publish_ready', intent_owner: 'gmail-new', product_manifest_version: '3.2.1', post_sha256: fingerprint,
+    sources: [{ url: 'https://support.google.com/mail/answer/7190', supports: 'Search syntax', review_notes: 'Fixture review of the documented syntax.' }],
+    assets: [], verification_kind: 'source_review', verified_on: '2026-10-16', limitations: ['Synthetic test; no live mailbox.'],
+    information_gain: 'A scope decision table.', related_links: ['/blog/'], reviewer: { identity: 'Automated test fixture', kind: 'agent' }
+  } }));
   const result = spawnSync('python3', [path.join(root, 'scripts/publish_blog.py'), 'gmail-new'], { encoding: 'utf8' });
   assert.equal(result.status, 0, result.stderr);
   assert.match(result.stdout, /Sitemap updated:/);

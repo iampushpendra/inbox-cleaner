@@ -1,16 +1,16 @@
 """Evidence gate for a blog post, enforced by scripts/publish_blog.py.
 
-The scheduler runs unattended, so an unreviewed post must be impossible to
-publish rather than merely discouraged in a prompt. These are the checks this
-repo can actually prove from its own files — they do not certify that a
-procedure is true, only that it contradicts known facts, or that the page is
-broken. A human still reviews usefulness and source accuracy.
+The publisher requires both structural/factual checks and an explicit evidence
+record bound to the reviewed article and current product version. These checks
+validate recorded review metadata; they cannot certify external truth. A real
+agent or human reviewer must inspect usefulness and source accuracy.
 
 Failures are collected, not raised on the first hit, so one run reports every
 problem at once.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 from datetime import date, datetime
@@ -139,7 +139,7 @@ def check_post(path: Path, today: date | None = None, blog_dir: Path = BLOG_DIR)
         target = href.split("#")[0].split("?")[0]
         if not target:
             continue
-        resolved = (DOCS_DIR / target.lstrip("/")) if target.startswith("/") else (path.parent / target)
+        resolved = (DOCS_DIR / target.lstrip("/")) if target.startswith("/") else (blog_dir / target)
         resolved = resolved.resolve()
         if resolved.is_dir():
             resolved = resolved / "index.html"
@@ -149,15 +149,117 @@ def check_post(path: Path, today: date | None = None, blog_dir: Path = BLOG_DIR)
     return problems
 
 
+
+def post_fingerprint(path: Path) -> str:
+    """SHA-256 of authored UTF-8 HTML, excluding complete generated AUTO regions."""
+    html = path.read_text()
+    html = re.sub(r"<!-- AUTO:([a-z-]+):start -->.*?<!-- AUTO:\1:end -->", "", html, flags=re.S)
+    return hashlib.sha256(html.encode("utf-8")).hexdigest()
+
+
+def check_readiness(path: Path, repo_root: Path | None = None,
+                    today: date | None = None) -> list[str]:
+    """Validate recorded evidence, not external truth or a human's approval.
+
+    Documentation-only articles may use substantive source_review. Fixtures and
+    live_mailbox reviews require a saved local evidence asset. No network request
+    here can substitute for source review: URL validity is syntax only.
+    """
+    from urllib.parse import urlparse
+    root = repo_root or Path(__file__).resolve().parent.parent
+    today = today or date.today()
+    problems = []
+    try:
+        records = json.loads((root / "scripts/content-records.json").read_text())
+        topics = json.loads((root / "scripts/blog-topics.json").read_text())
+        version = json.loads((root / "manifest.json").read_text())["version"]
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        return [f"cannot read readiness inputs: {error}"]
+    topic = next((t for t in topics if t.get("slug") == path.stem), None)
+    if not topic or topic.get("status") not in ("pending", "published"):
+        problems.append("slug must be a known pending topic (published refreshes require review too)")
+    record = records.get(path.stem) if isinstance(records, dict) else None
+    if not isinstance(record, dict):
+        return problems + ["missing content evidence record"]
+    if record.get("state") != "publish_ready":
+        problems.append("evidence state must be publish_ready")
+    if not record.get("intent_owner") or (topic and record.get("intent_owner") != topic.get("intent_owner")):
+        problems.append("intent_owner must match the editorial brief")
+    if record.get("product_manifest_version") != version:
+        problems.append("product manifest version changed; review again")
+    if not path.is_file() or record.get("post_sha256") != post_fingerprint(path):
+        problems.append("post fingerprint is missing or stale; review the current article")
+    try:
+        verified = date.fromisoformat(record.get("verified_on", ""))
+        if verified > today:
+            problems.append("verification date is in the future")
+    except (ValueError, TypeError):
+        problems.append("missing or invalid verification date")
+    for field in ("limitations", "related_links"):
+        value = record.get(field)
+        if not isinstance(value, list) or not value or any(not isinstance(v, str) or not v.strip() for v in value):
+            problems.append(f"{field} must be a non-empty list")
+    if not isinstance(record.get("information_gain"), str) or not record["information_gain"].strip():
+        problems.append("missing concrete information_gain")
+    reviewer = record.get("reviewer")
+    if not isinstance(reviewer, dict) or not reviewer.get("identity") or reviewer.get("kind") not in ("agent", "human"):
+        problems.append("reviewer must identify the actual agent or human reviewer")
+    sources = record.get("sources")
+    if not isinstance(sources, list) or not sources:
+        problems.append("at least one substantively reviewed source is required")
+    else:
+        for source in sources:
+            if not isinstance(source, dict):
+                problems.append("invalid citation record")
+                continue
+            raw_url = source.get("url", "")
+            url = urlparse(raw_url if isinstance(raw_url, str) else "")
+            if url.scheme != "https" or not url.netloc or not source.get("supports") or not source.get("review_notes"):
+                problems.append("citation needs HTTPS URL, supports and substantive review_notes")
+    kind = record.get("verification_kind")
+    if kind not in ("source_review", "synthetic_fixture", "live_mailbox"):
+        problems.append("verification_kind must be source_review, synthetic_fixture or live_mailbox")
+    assets = record.get("assets")
+    if not isinstance(assets, list):
+        problems.append("assets must be a list (empty is valid for source_review)")
+    else:
+        if kind in ("synthetic_fixture", "live_mailbox") and not assets:
+            problems.append(f"{kind} requires a saved local evidence asset")
+        for asset in assets:
+            if not isinstance(asset, str) or not asset:
+                problems.append("invalid local evidence asset")
+                continue
+            resolved = (root / asset).resolve()
+            if not resolved.is_relative_to(root.resolve()) or not resolved.is_file():
+                problems.append(f"missing or unsafe local evidence asset: {asset}")
+    links = record.get("related_links")
+    if isinstance(links, list):
+        for link in links:
+            if not isinstance(link, str) or not link.startswith("/") or link.startswith("//"):
+                problems.append(f"related link must be a local absolute URL: {link}")
+                continue
+            target = (root / "docs" / link.split("#")[0].split("?")[0].lstrip("/")).resolve()
+            if target.is_dir():
+                target /= "index.html"
+            if not target.is_relative_to((root / "docs").resolve()) or not target.is_file():
+                problems.append(f"broken evidence related link: {link}")
+    return problems
+
 def main() -> int:
     import sys
 
-    if len(sys.argv) != 2:
-        print("Usage: python3 scripts/content_gate.py <slug>")
+    ready = len(sys.argv) == 3 and sys.argv[1] == "--ready"
+    if len(sys.argv) != 2 and not ready:
+        print("Usage: python3 scripts/content_gate.py [--ready] <slug>")
         return 2
-    slug = sys.argv[1]
+    slug = sys.argv[2] if ready else sys.argv[1]
+    if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug):
+        print("Invalid slug")
+        return 2
     path = BLOG_DIR / f"{slug}.html"
     problems = check_post(path)
+    if ready:
+        problems += check_readiness(path)
     if problems:
         print(f"Not publishable: docs/blog/{slug}.html")
         for problem in problems:

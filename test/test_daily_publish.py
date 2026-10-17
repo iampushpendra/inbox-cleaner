@@ -57,3 +57,29 @@ class DailyPublishTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+class QueueReadinessTest(unittest.TestCase):
+    def test_empty_queue_and_unready_topic_select_drafting_without_publishing(self):
+        import json, sys
+        sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
+        from publish_blog import load_queue
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory); (root/'scripts').mkdir()
+            queue=root/'scripts/blog-topics.json'
+            queue.write_text('[]')
+            self.assertIsNone(load_queue(queue))
+            queue.write_text(json.dumps([{'slug':'first','status':'pending'},{'slug':'later','status':'pending'}]))
+            self.assertEqual(load_queue(queue)['action'],'draft')
+            self.assertEqual(load_queue(queue)['slug'],'first')
+
+    def test_unknown_slug_cannot_publish_an_existing_file(self):
+        source=Path(__file__).resolve().parents[1]
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory); (root/'scripts').mkdir(); (root/'docs/blog').mkdir(parents=True)
+            for name in ('publish_blog.py','content_gate.py'):
+                shutil.copy(source/'scripts'/name,root/'scripts'/name)
+            (root/'scripts/blog-topics.json').write_text('[]')
+            (root/'docs/blog/unknown.html').write_text('<h1>Unknown</h1>')
+            result=subprocess.run(['python3',str(root/'scripts/publish_blog.py'),'unknown'],capture_output=True,text=True)
+            self.assertNotEqual(result.returncode,0)
+            self.assertIn('known pending',result.stdout)

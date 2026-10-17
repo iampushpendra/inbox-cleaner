@@ -123,3 +123,57 @@ class ContentGateTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+class ReadinessTest(unittest.TestCase):
+    def setUp(self):
+        import tempfile, json
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name)
+        (self.root / 'scripts').mkdir()
+        (self.root / 'docs/blog').mkdir(parents=True)
+        (self.root / 'docs/blog/index.html').write_text("hub")
+        self.post = self.root / 'docs/blog/example.html'
+        self.post.write_text(VALID)
+        (self.root / 'manifest.json').write_text('{"version":"3.2.1"}')
+        self.topics = self.root / 'scripts/blog-topics.json'
+        self.topics.write_text(json.dumps([{'slug':'example','status':'pending','intent_owner':'example'}]))
+        self.records = self.root / 'scripts/content-records.json'
+
+    def record(self):
+        from content_gate import post_fingerprint
+        return {'state':'publish_ready','intent_owner':'example','product_manifest_version':'3.2.1',
+                'sources':[{'url':'https://support.google.com/mail/answer/7190?hl=en','supports':'Search syntax', 'review_notes':'Compared each query operator with the documented syntax.'}],
+                'assets':[], 'verification_kind':'source_review','verified_on':'2026-10-17',
+                'limitations':['No live mailbox tested.'],'information_gain':'A decision table distinguishes sender scope from date scope.',
+                'related_links':['/blog/'], 'reviewer':{'identity':'Codex fixture review','kind':'agent'},
+                'post_sha256':post_fingerprint(self.post)}
+
+    def check(self, record):
+        import json
+        from content_gate import check_readiness
+        self.records.write_text(json.dumps({'example':record} if record is not None else {}))
+        return check_readiness(self.post, repo_root=self.root, today=date(2026,10,17))
+
+    def test_ready_source_review_needs_no_fabricated_live_fixture(self):
+        self.assertEqual(self.check(self.record()), [])
+
+    def test_missing_draft_stale_version_future_and_missing_evidence_fail(self):
+        self.assertTrue(self.check(None))
+        for field, value in [('state','draft'),('post_sha256','0'*64),('product_manifest_version','1'),
+                             ('verified_on','2027-01-01'),('sources',[]),('reviewer',None),
+                             ('information_gain',''),('verification_kind','invented')]:
+            record=self.record(); record[field]=value
+            self.assertTrue(self.check(record),field)
+        record=self.record(); record['assets']=['internal/missing.png']
+        self.assertTrue(self.check(record))
+        record=self.record(); record['related_links']=['/blog/missing.html']
+        self.assertTrue(self.check(record))
+        record=self.record(); record['sources'][0]['url']='not a URL'
+        self.assertTrue(self.check(record))
+
+    def test_article_edit_invalidates_review_but_generated_links_do_not(self):
+        record=self.record()
+        self.post.write_text(self.post.read_text()+'<!-- AUTO:related:start -->generated<!-- AUTO:related:end -->')
+        self.assertEqual(self.check(record), [])
+        self.post.write_text(self.post.read_text().replace('Body text','Different claim'))
+        self.assertTrue(self.check(record))

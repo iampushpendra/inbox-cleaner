@@ -31,7 +31,9 @@ Before drafting, inspect current search results and authoritative help pages for
 
 ## Output requirements
 
-Output a single, complete, raw HTML file. No markdown fences. No explanation before or after the HTML. The file must be ready to save directly as `docs/blog/{slug}.html`.
+Save drafts to `internal/blog-drafts/{slug}.html`, outside deployed docs/. Publication requires a separately reviewed `publish_ready` record in `scripts/content-records.json`; citation URLs alone never establish readiness.
+
+Output a single, complete, raw HTML file. No markdown fences. No explanation before or after the HTML. The reviewed publisher copies the draft to `docs/blog/{slug}.html` only after the readiness gate passes.
 
 The post MUST contain all 5 of the following elements. Any missing element is a failure.
 
@@ -201,3 +203,12 @@ Match this shell exactly. Every class name, element order, and attribute matters
 - **Do not repeat a target query already covered by a published post.** Check `scripts/blog-topics.json` for the full topic list before choosing angles, to keep each post distinct.
 
 - **Conversion:** Use the direct Chrome Web Store URL in `scripts/site-config.json` for installation CTAs. Never label an installation as no-install. Include an All guides link to `/blog/` and the homepage logo link. The site generator supplies related guides and normalizes the install buttons.
+
+
+## Evidence record and readiness
+
+Records are keyed by exact slug in scripts/content-records.json. States are draft, evidence_checked, publish_ready. Drafting cannot approve itself for scheduled publication. A substantive later reviewer may be an identified agent or human: record the actual identity and kind, never invent human signoff. A source_review can be sufficient for documentation-only content when review_notes explain the claim-by-claim check and the article contributes a useful decision table or worked example. synthetic_fixture and live_mailbox must include saved local assets; never label a synthetic example as live verification.
+
+For publish_ready, fill intent_owner matching the brief, product_manifest_version matching manifest.json, sources (HTTPS url, supports, substantive review_notes), assets (repo-relative paths, or [] for source review), verified_on (real ISO date), limitations (non-empty list), information_gain, related_links (existing local absolute URLs), reviewer ({identity, kind}), and post_sha256. Calculate the hash after substantive review with `python3 -c 'import sys; from pathlib import Path; sys.path.insert(0,"scripts"); from content_gate import post_fingerprint; print(post_fingerprint(Path("internal/blog-drafts/SLUG.html")))'`. Hash is SHA-256 of UTF-8 HTML excluding complete AUTO:name:start/end generated regions only. Any authored edit, including install CTA normalization by the build, invalidates it; recheck and review the changed article rather than copying its new hash blindly. No record field proves external truth: reviewers must actually inspect the cited substance. The gate checks citation syntax and saved file existence, not HTTP availability.
+
+Run `python3 scripts/content_gate.py --ready SLUG` for deployed HTML readiness; `python3 scripts/content_gate.py SLUG` checks basic structure/facts only and does not authorize publication. The publisher accepts only known pending topics or already-published refreshes, and applies full readiness to both.
