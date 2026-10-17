@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inbox Cleaner Setup, Permissions and Trash Recovery | Inbox Cleaner</title>
+  <meta name="description" content="Understand Inbox Cleaner setup, Chrome permissions, sender-wide Trash scope, local scan data and Gmail recovery before choosing senders to clear.">
+  <link rel="canonical" href="https://inbox-cleaner.vercel.app/blog/inbox-cleaner-setup-permissions-recovery.html">
+  <meta property="og:title" content="Inbox Cleaner Setup, Permissions and Trash Recovery">
+  <meta property="og:description" content="Understand Inbox Cleaner setup, Chrome permissions, sender-wide Trash scope, local scan data and Gmail recovery before choosing senders to clear.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://inbox-cleaner.vercel.app/blog/inbox-cleaner-setup-permissions-recovery.html">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Inbox Cleaner Setup, Permissions and Trash Recovery", "datePublished": "2026-10-17", "dateModified": "2026-10-17", "mainEntityOfPage": "https://inbox-cleaner.vercel.app/blog/inbox-cleaner-setup-permissions-recovery.html", "author": {"@type": "Organization", "name": "Inbox Cleaner"}, "publisher": {"@type": "Organization", "name": "Inbox Cleaner", "url": "https://inbox-cleaner.vercel.app"}}</script>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav id="nav"><a class="nav-logo" href="/">📥 Inbox<span>Cleaner</span></a><div class="blog-nav-right"><a class="nav-blog-link" href="/blog/">Blog</a><a class="blog-nav-cta" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">View Chrome listing →</a></div></nav>
+<main><article class="blog-wrap">
+<span class="blog-eyebrow">Gmail cleanup decisions</span>
+<h1 class="blog-h1">Inbox Cleaner Setup, Permissions and Trash Recovery</h1>
+<p class="blog-meta">Published October 17, 2026 · By Inbox Cleaner · Source review, not a live mailbox test</p>
+<div class="blog-body">
+<div class="quick-answer"><strong>Quick answer:</strong> Inbox Cleaner’s reviewed extension source works through an open Gmail tab in desktop Chrome. It builds a sender list, then uses Gmail controls to move selected senders’ matching mail to Trash after confirmation. A separate Gmail search’s date, size, category or star restrictions do not carry into that action.</div>
+<p>This guide explains the repository’s extension runtime version 3.2.1, reviewed October 17, 2026. We have not verified the installed Chrome Web Store package or performed this workflow in a live mailbox. Check the installed version and permissions before relying on a feature described here.</p>
+<h2>Set up the extension and choose the Gmail account</h2>
+<ol class="blog-steps"><li>Review the <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Chrome listing</a>, its publisher and permission prompt. Install only if those match your expectations.</li><li>Open Gmail in desktop Chrome and sign in to the intended account. Keep only that account’s Gmail tab open during setup: the reviewed code picks an active Gmail tab, or the first available Gmail tab. The popup is not an account picker.</li><li>If Gmail was open before installation, reload it so the content script can attach. Open the extension popup and choose <strong>Scan my inbox</strong>.</li><li>Wait for the scan state to finish. The scan navigates Gmail category pages and sender searches; duration depends on the mailbox and available page controls. A stalled or incomplete scan is not a complete inventory.</li><li>Review sender addresses and count qualifiers. Select only senders whose matching mail you are willing to clear across Gmail, including archived mail. Read the confirmation before choosing <strong>Move to Trash</strong>.</li></ol>
+<p>Do a small review first. If you need to keep recent mail, starred items or particular receipts from a sender, use <a href="/blog/how-to-bulk-delete-gmail-emails.html">Gmail’s native search and selection workflow</a> for that narrower task instead.</p>
+<h2>What do the permissions and data flow mean?</h2>
+<ul><li><strong>Gmail host access:</strong> <code>https://mail.google.com/*</code> lets the content script read rendered Gmail information and operate Gmail controls. This is consequential access to a signed-in page.</li><li><strong>tabs:</strong> the popup locates a Gmail tab and sends it scan/action messages.</li><li><strong>storage:</strong> scan results are cached under <code>inboxCleanerData</code> in Chrome extension local storage. The stored object includes senders, a scan timestamp and count metadata.</li></ul>
+<p>The reviewed flow is: Gmail’s rendered sender/date information → extension parsing → local sender cache → popup selection → new sender queries in Gmail → Gmail’s Trash control. The reviewed extension has no independent network client, OAuth sign-in, Gmail API client or model API. Gmail itself still communicates with Google. This is a source-level description, not a network capture or a guarantee about a different installed package.</p>
+<p>The website is a separate surface: hosting, external resources and explicit waitlist submissions have their own data flow. The optional legacy browser app uses OAuth and the Gmail API. Read the <a href="/privacy.html">privacy policy’s separate product descriptions</a>; do not apply extension statements to the whole website.</p>
+<h2>Why can the action cover more than the scan suggests?</h2>
+<p>The scan discovers senders through five category views. Sender counts come from Gmail conversation/result counters where resolvable, with counting limited to the top 250 senders; other counts may be estimates. These are not byte measurements, a promise of unique messages, or proof that every mailbox item was scanned.</p>
+<p><strong>Synthetic worked example:</strong> a sender has one old promotional conversation in the inbox and one recent archived receipt. You first search Gmail for old promotions. Selecting that sender in the extension still starts a fresh sender-wide search; the archived receipt is in scope. The earlier date/category restriction is not inherited. This example explains query scope, not a recorded Gmail result.</p>
+<p>Selected senders are processed in groups of up to 20. Conversations involving more than one selected sender may overlap, so adding sender counts need not equal unique conversations affected. Review the <a href="/blog/inbox-cleaner-vs-native-gmail.html">native Gmail comparison</a> when the action needs precise search restrictions.</p>
+<h2>How to recover mail moved to Trash</h2>
+<p>In Gmail on a computer, open <strong>More → Trash</strong>, select the mail to restore, choose <strong>Move to</strong> and a destination. Google documents a normal recovery window of up to 30 days; permanent removal sooner ends that option. The extension has no built-in Undo feature. <a href="https://support.google.com/mail/answer/7401?co=GENIE.Platform%3DDesktop&amp;hl=en">Google’s deletion and recovery instructions</a> explain the limits.</p>
+<p>Keep recovery separate from storage cleanup. Moving mail to Trash does not demonstrate freed space; mail in Trash still uses storage. See <a href="/blog/how-to-free-up-gmail-storage.html">the storage cleanup guide</a> before making an irreversible storage decision.</p>
+<h2>If Gmail is not found or a scan fails</h2>
+<p>Confirm Gmail is open in the Chrome profile where the extension is installed, reload Gmail, and reopen the popup. Check the extension’s site access in Chrome’s extension details. If counts remain incomplete or controls fail, stop before confirming a sender-wide action and use Gmail directly. A Gmail layout change, restricted extension access or multiple tabs may need investigation; repeating an uncertain action is not evidence of success.</p>
+<p>You can disable or remove the extension from Chrome’s <strong>Extensions → Manage extensions</strong> page. That does not reverse Gmail actions already performed. <a href="https://support.google.com/chrome_webstore/answer/2664769?hl=en">Chrome’s extension management guide</a> covers site access and removal.</p>
+<h2>Plan a narrower cleanup locally</h2>
+<p>The <a href="/tools/gmail-cleanup-search-builder/">local Gmail cleanup search builder</a> can help draft a query for a native Gmail task. It does not inspect your mailbox or apply those restrictions to the extension. The <a href="/tools/gmail-storage-troubleshooter/">storage troubleshooter</a> helps choose a storage investigation path using your own inputs.</p>
+<h2>Evidence and limits</h2>
+<p>Product statements come from the <a href="https://github.com/iampushpendra/inbox-cleaner">project repository</a>: <code>manifest.json</code>, <code>content.js</code>, <code>parsing.js</code> and <code>popup.js</code>. Google and Chrome procedures above were source-reviewed October 17, 2026. Examples are synthetic. Live UI compatibility, installed-package identity, scan completeness and recovery behavior in your account remain unverified here.</p>
+</div>
+</article></main>
+<footer><p>Built by <a href="https://github.com/iampushpendra">@iampushpendra</a> · <a href="/privacy.html">Privacy Policy</a> · <a href="/blog/">Gmail cleanup guides</a></p></footer>
+</body></html>

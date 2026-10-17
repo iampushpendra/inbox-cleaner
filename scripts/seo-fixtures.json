@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-10-17",
+  "evidence_type": "synthetic",
+  "status": "reproducible_local_model_not_live_gmail_evidence",
+  "purpose": "Explain selection scope, conversation overlap and count-versus-byte arithmetic without connecting an account.",
+  "product_facts_file": "scripts/product-facts.json",
+  "assumptions": [
+    "All addresses use reserved example.com domains. No real mailbox data.",
+    "Date comparisons are ISO calendar dates in this model, with before strictly exclusive; no Gmail timezone equivalence is asserted.",
+    "Queries below are explanatory strings, not parsed by this fixture file. Matching predicates are explicitly stated.",
+    "A conversation is included when any single message satisfies the stated predicate. Displayed conversation IDs do not establish action scope or exact Gmail counters.",
+    "Sender-wide scope is modeled as the union of conversations containing a selected sender, excluding Spam and Trash; actual Gmail aliases, threading and UI behavior require external observation.",
+    "Size examples sum declared decimal KB without MIME, attachment encoding, account quota overhead or deduplication. They are not quota forecasts."
+  ],
+  "sources": [
+    {
+      "url": "https://support.google.com/mail/answer/7190?co=GENIE.Platform%3DDesktop&hl=en",
+      "supports": "Negative operators can return a conversation containing excluded messages; date, size and sender query syntax."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7401?co=GENIE.Platform%3DDesktop&hl=en",
+      "supports": "Selection and Gmail Trash recovery procedures; does not validate this model."
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "mixed-age-starred",
+      "intent": "Keep a recent starred reply while finding old newsletters",
+      "messages": [
+        {
+          "id": "m1",
+          "thread": "A",
+          "from": "news@example.com",
+          "date": "2024-01-05",
+          "starred": false,
+          "folder": "inbox",
+          "category": "promotions",
+          "size_kb": 20
+        },
+        {
+          "id": "m2",
+          "thread": "A",
+          "from": "news@example.com",
+          "date": "2026-10-01",
+          "starred": true,
+          "folder": "inbox",
+          "category": "promotions",
+          "size_kb": 20
+        }
+      ],
+      "query": "from:news@example.com before:2025/01/01 -is:starred",
+      "predicate": "from == news@example.com AND date < 2025-01-01 AND starred == false",
+      "expected": {
+        "matching_message_ids": [
+          "m1"
+        ],
+        "displayed_thread_ids": [
+          "A"
+        ],
+        "thread_contains_nonmatching_message_ids": [
+          "m2"
+        ],
+        "safe_to_assume_starred_reply_protected": false
+      },
+      "teaches": "A result conversation can contain both matching and excluded messages. Inspect a mixed thread and action scope."
+    },
+    {
+      "id": "sender-wide-not-prior-query",
+      "intent": "Show that category/date restrictions are not inherited by the extension",
+      "messages": [
+        {
+          "id": "m3",
+          "thread": "B",
+          "from": "shop@example.com",
+          "date": "2024-02-01",
+          "starred": false,
+          "folder": "inbox",
+          "category": "promotions",
+          "size_kb": 20
+        },
+        {
+          "id": "m4",
+          "thread": "C",
+          "from": "shop@example.com",
+          "date": "2026-10-01",
+          "starred": true,
+          "folder": "archive",
+          "category": "updates",
+          "size_kb": 80
+        }
+      ],
+      "prior_query": "from:shop@example.com category:promotions before:2025/01/01 -is:starred",
+      "prior_predicate": "from == shop@example.com AND category == promotions AND date < 2025-01-01 AND starred == false",
+      "extension_selected_senders": [
+        "shop@example.com"
+      ],
+      "extension_predicate": "from is selected AND folder not in [spam, trash]",
+      "expected": {
+        "prior_matching_message_ids": [
+          "m3"
+        ],
+        "sender_wide_message_ids": [
+          "m3",
+          "m4"
+        ],
+        "sender_wide_thread_ids": [
+          "B",
+          "C"
+        ],
+        "inherited_restrictions": []
+      },
+      "teaches": "An archived recent starred receipt remains in sender-wide scope."
+    },
+    {
+      "id": "overlapping-sender-counts",
+      "intent": "Distinguish summed sender counts from unique conversations",
+      "messages": [
+        {
+          "id": "m5",
+          "thread": "T1",
+          "from": "a@example.com"
+        },
+        {
+          "id": "m6",
+          "thread": "T2",
+          "from": "a@example.com"
+        },
+        {
+          "id": "m7",
+          "thread": "T2",
+          "from": "b@example.com"
+        },
+        {
+          "id": "m8",
+          "thread": "T3",
+          "from": "b@example.com"
+        }
+      ],
+      "selected_senders": [
+        "a@example.com",
+        "b@example.com"
+      ],
+      "expected": {
+        "per_sender_unique_thread_counts": {
+          "a@example.com": 2,
+          "b@example.com": 2
+        },
+        "summed_sender_counts": 4,
+        "union_thread_ids": [
+          "T1",
+          "T2",
+          "T3"
+        ],
+        "unique_thread_count": 3
+      },
+      "teaches": "Summing correct per-sender counts can overstate the union."
+    },
+    {
+      "id": "count-versus-bytes",
+      "intent": "Show why counts cannot estimate storage savings",
+      "groups": [
+        {
+          "id": "newsletters",
+          "conversation_count": 100,
+          "messages_per_conversation": 1,
+          "size_kb_per_message": 20
+        },
+        {
+          "id": "attachment",
+          "conversation_count": 1,
+          "messages_per_conversation": 1,
+          "size_kb_per_message": 12000
+        }
+      ],
+      "expected": {
+        "declared_kb_by_group": {
+          "newsletters": 2000,
+          "attachment": 12000
+        },
+        "larger_group": "attachment",
+        "size_ratio_attachment_to_newsletters": 6
+      },
+      "teaches": "One declared large message can outweigh many small conversations; no real quota savings are inferred."
+    }
+  ],
+  "local_protocol": {
+    "network_required": false,
+    "mailbox_required": false,
+    "steps": [
+      "Load the JSON using a standard JSON parser.",
+      "For mixed-age-starred, apply the stated message predicate, then take unique thread IDs. Compare both lists with expected.",
+      "For sender-wide-not-prior-query, calculate prior and sender-wide matches independently. Do not carry the prior predicate into the sender-wide predicate.",
+      "For overlapping-sender-counts, group unique thread IDs by sender, then compare their summed sizes with the union.",
+      "For count-versus-bytes, multiply the three declared fields for each group and compare sums and ratio.",
+      "Record local assertion results as synthetic arithmetic validation only. Do not label them live Gmail tests."
+    ]
+  },
+  "external_protocol": {
+    "status": "not_run",
+    "requires": "Explicit authorization and a disposable test account; no mailbox setup or mutation is authorized by this file.",
+    "record": [
+      "Installed product name, source, version, manifest/permissions, date, browser version, Gmail language and conversation-view setting.",
+      "Exact seeded synthetic message IDs, dates, stars, categories, folders and sender membership; confirm thread composition in UI.",
+      "Exact query, matching displayed conversations, open-thread contents, selection controls, confirmation wording and final action scope.",
+      "Any Trash test only after separate approval; before/after IDs and restoration verification, never permanent deletion for the protocol.",
+      "Elapsed human task time only with a defined start/end, repeated independent trials and failure accounting.",
+      "Account quota values and observation lag separately, if an authorized storage test is ever needed."
+    ]
+  },
+  "forbidden_inferences": [
+    "No fixture proves Gmail search semantics beyond the linked documentation.",
+    "No fixture certifies installed-package identity, selector compatibility, exact counts, safety, scan speed, storage freed or competitor superiority."
+  ]
+}
