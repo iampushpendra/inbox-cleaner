@@ -27,10 +27,10 @@
     "@type": "HowTo",
     "name": "How to Bulk Delete Gmail Emails by Sender",
     "step": [
-      { "@type": "HowToStep", "name": "Open Inbox Cleaner", "text": "Go to inbox-cleaner.vercel.app and click Connect Gmail." },
+      { "@type": "HowToStep", "name": "Open Inbox Cleaner", "text": "Install the free extension from the Chrome Web Store, open your Gmail tab in desktop Chrome, and click the extension icon." },
       { "@type": "HowToStep", "name": "Review senders ranked by email count", "text": "The tool scans your inbox and lists every sender, ranked from most emails to fewest." },
       { "@type": "HowToStep", "name": "Select multiple senders at once", "text": "Check the box next to each sender you want cleared out — you're not limited to one at a time." },
-      { "@type": "HowToStep", "name": "Move to Trash", "text": "Click Move to Trash. Every email from every selected sender moves at once, regardless of how many senders you picked." }
+      { "@type": "HowToStep", "name": "Move to Trash", "text": "Click Move to Trash and confirm. Senders are cleared in batches of up to 20 senders at a time, so a larger selection takes proportionally longer." }
     ]
   }
   </script>
@@ -47,7 +47,7 @@
       {
         "@type": "Question",
         "name": "Can I bulk delete by sender without installing anything?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Inbox Cleaner runs entirely in your browser tab — there's no extension or app to install. You connect your Gmail account, review the ranked sender list, and delete directly." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes — in Chrome you install the free extension and run it inside a Gmail tab you already have open. It reads only the sender name, address and date from each rendered row, makes no network requests, and moves mail using Gmail's own Trash control. There is also a separate OAuth web app on this site if you prefer it; the privacy policy explains both." }
       },
       {
         "@type": "Question",
@@ -62,7 +62,7 @@
       {
         "@type": "Question",
         "name": "Is there a limit to how many senders I can select at once?",
-        "acceptedAnswer": { "@type": "Answer", "text": "No practical limit. You can check as many senders as you want in the ranked list before clicking Move to Trash — the tool processes them all in one pass through the Gmail API." }
+        "acceptedAnswer": { "@type": "Answer", "text": "You can check as many senders as you want before clicking Move to Trash — the tool works through them in batches of up to 20 senders at a time, so a large selection takes proportionally longer." }
       }
     ]
   }
@@ -91,7 +91,7 @@
     <div class="blog-body">
 
       <div class="quick-answer">
-        <strong>Quick answer:</strong> To bulk delete Gmail emails by sender, connect your account at <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a>, which ranks every sender in your inbox by email count. Check the boxes next to the senders you want gone — you can pick several at once — and click Move to Trash to clear all of their emails in a single action.
+        <strong>Quick answer:</strong> To bulk delete Gmail emails by sender, connect your account at <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a>, which ranks every sender in your inbox by email count. Check the boxes next to the senders you want gone — you can pick several at once — and click Move to Trash to clear their mail in batches of up to 20 senders at a time.
       </div>
 
       <p>Most cluttered inboxes aren't random — they're dominated by a handful of repeat senders: a retailer that emails daily, a social network's notification address, a newsletter you signed up for once. Deleting by sender is the fastest way to make a real dent, but Gmail doesn't make it easy to see who's actually flooding your inbox, let alone clear several senders in one pass.</p>
@@ -101,13 +101,13 @@
       <p>The fastest approach starts by figuring out which senders are worth targeting, then clearing them in bulk:</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
         <li>Inbox Cleaner scans your inbox and lists every sender, ranked from most emails to fewest.</li>
         <li>Check the box next to each sender you want cleared out — you're not limited to picking just one.</li>
-        <li>Click <strong>Move to Trash</strong>. Every email from every selected sender moves at once.</li>
+        <li>Click <strong>Move to Trash</strong> and confirm. Senders are cleared in batches of up to 20 senders at a time, so a larger selection takes proportionally longer.</li>
       </ol>
 
-      <p>This is different from <a href="../blog/delete-all-emails-from-one-sender-gmail.html">deleting all emails from one sender</a> in Gmail's native search bar, which only handles one address at a time and still runs into the 50-emails-per-page selection limit once you hit "select all."</p>
+      <p>This is different from <a href="../blog/delete-all-emails-from-one-sender-gmail.html">deleting all emails from one sender</a> in Gmail's native search bar, which handles one address at a time and, without clicking Gmail's "select all conversations that match this search" link, still stops at the current page.</p>
 
       <h2>How do I find out which senders are flooding my inbox?</h2>
 
@@ -147,7 +147,7 @@
         </div>
         <div class="faq-item">
           <p class="faq-q">Can I bulk delete by sender without installing anything?</p>
-          <p class="faq-a">Yes. Inbox Cleaner runs entirely in your browser tab — there's no extension or app to install. You connect your Gmail account, review the ranked sender list, and delete directly.</p>
+          <p class="faq-a">Yes — in Chrome you install the free extension and run it inside a Gmail tab you already have open. It reads only the sender name, address and date from each rendered row, makes no network requests, and moves mail using Gmail's own Trash control. There is also a separate OAuth web app on this site if you prefer it; the privacy policy explains both.</p>
         </div>
         <div class="faq-item">
           <p class="faq-q">What if I only want to delete some emails from a sender, not all?</p>
@@ -159,7 +159,7 @@
         </div>
         <div class="faq-item">
           <p class="faq-q">Is there a limit to how many senders I can select at once?</p>
-          <p class="faq-a">No practical limit. You can check as many senders as you want in the ranked list before clicking Move to Trash — the tool processes them all in one pass through the Gmail API.</p>
+          <p class="faq-a">You can check as many senders as you want before clicking Move to Trash — the tool works through them in batches of up to 20 senders at a time, so a large selection takes proportionally longer.</p>
         </div>
       </div>
 

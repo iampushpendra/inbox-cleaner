@@ -130,13 +130,14 @@
 
       <p>Gmail also never tells you how much of your inbox X actually takes up. You'd have to search each sender by hand and count.</p>
 
-      <p>Inbox Cleaner handles both. It scans your full mailbox through the Gmail API and ranks every sender by email count, so notify@twitter.com and info@x.com appear with their totals next to them:</p>
+      <p>Inbox Cleaner handles both. It scans your full mailbox from inside Gmail and ranks every sender by email count, so notify@twitter.com and info@x.com appear with their totals next to them:</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
+        <li><strong>Scope:</strong> deleting by sender is sender-wide. It does not carry over the <code>older_than:</code>, <code>category:</code> or <code>-is:starred</code> limits from the Gmail search above — a selected sender goes in full, including archived mail. If you need those exclusions, stay with the Gmail search method above.</li>
         <li>Find the x.com and twitter.com senders in the ranked list. On a long-lived account, the notify and info addresses often rank near the top.</li>
         <li>Tick every X and Twitter address you want gone. Leave the verify address unticked if you want to review recent security mail first.</li>
-        <li>Click <strong>Move to Trash</strong>. Every email from those senders moves at once, with no per-page cap, and stays recoverable for 30 days.</li>
+        <li>Click <strong>Move to Trash</strong>. Their mail is cleared in batches of up to 20 senders at a time, and stays recoverable for 30 days.</li>
       </ol>
 
       <div class="blog-cta">

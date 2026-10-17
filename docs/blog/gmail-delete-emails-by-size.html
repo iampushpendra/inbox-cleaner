@@ -143,13 +143,14 @@
 
       <p>Size searches solve one specific problem: a small number of heavy emails. They do nothing about the other pattern, which is 40,000 tiny newsletters from a few dozen senders. Individually those are a few kilobytes each, but they're the reason your inbox is unusable even when storage is fine — and Gmail has no search that returns "top senders by count."</p>
 
-      <p>Inbox Cleaner covers that gap. It connects through the Gmail API, scans the entire mailbox rather than the 50 rows on screen, and ranks every sender by how many emails they've sent you:</p>
+      <p>Inbox Cleaner covers that gap. It runs inside your Gmail tab and scans all five categories, not just the 50 rows on screen, and ranks every sender by how many emails they've sent you:</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
+        <li><strong>Scope:</strong> deleting by sender is sender-wide. It does not carry over the <code>older_than:</code>, <code>category:</code> or <code>-is:starred</code> limits from the Gmail search above — a selected sender goes in full, including archived mail. If you need those exclusions, stay with the Gmail search method above.</li>
         <li>Wait for the scan to finish. You'll get a ranked sender list with a count beside each name.</li>
         <li>Tick the senders you don't need — retailers, alert bots, newsletters you stopped opening years ago.</li>
-        <li>Click <strong>Move to Trash</strong>. Every email from those senders goes at once, with no 50-per-page ceiling and no select-all timeout.</li>
+        <li>Click <strong>Move to Trash</strong>. Their mail is cleared in batches of up to 20 senders at a time.</li>
       </ol>
 
       <div class="blog-cta">

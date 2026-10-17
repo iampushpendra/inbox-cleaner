@@ -136,10 +136,11 @@
 
       <p>There is also a discovery problem the search bar cannot solve: you can only delete from a sender you already thought of, and the networks emailing you most are rarely the ones you would guess.</p>
 
-      <p>Inbox Cleaner solves both. It scans your whole mailbox through the Gmail API and ranks every sender by email count, so notification senders surface at the top without you naming them:</p>
+      <p>Inbox Cleaner solves both. It scans your whole mailbox from inside Gmail and ranks every sender by email count, so notification senders surface at the top without you naming them:</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
+        <li><strong>Scope:</strong> deleting by sender is sender-wide. It does not carry over the <code>older_than:</code>, <code>category:</code> or <code>-is:starred</code> limits from the Gmail search above — a selected sender goes in full, including archived mail. If you need those exclusions, stay with the Gmail search method above.</li>
         <li>Read down the ranked list — notification senders are almost always in the top ten.</li>
         <li>Tick every sender whose emails you want gone.</li>
         <li>Click <strong>Move to Trash</strong>. All their mail goes at once, with no per-page cap, and stays recoverable for 30 days.</li>

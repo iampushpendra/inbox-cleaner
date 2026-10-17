@@ -31,7 +31,7 @@
       { "@type": "HowToStep", "name": "Narrow the search (optional)", "text": "Add older_than:1y to keep recent orders, or add subject:(shipped OR delivered) to target only shipping notifications." },
       { "@type": "HowToStep", "name": "Select all matching conversations", "text": "Click the checkbox at the top of the list, then click \"Select all conversations that match this search\" to go beyond the first 50." },
       { "@type": "HowToStep", "name": "Delete", "text": "Click the Trash icon. The selected Amazon emails move to Trash, where they stay recoverable for 30 days." },
-      { "@type": "HowToStep", "name": "For large backlogs, use Inbox Cleaner", "text": "Connect Gmail at inbox-cleaner.vercel.app, select the Amazon senders in the ranked sender list, and click Move to Trash to clear them all at once." }
+      { "@type": "HowToStep", "name": "For large backlogs, use Inbox Cleaner", "text": "Install the free Chrome extension, open Gmail in desktop Chrome, select the Amazon senders in the ranked list, and click Move to Trash — senders are cleared in batches of up to 20 senders at a time." }
     ]
   }
   </script>
@@ -92,7 +92,7 @@
     <div class="blog-body">
 
       <div class="quick-answer">
-        <strong>Quick answer:</strong> To delete Amazon order emails in Gmail, search <code>from:amazon.com</code>, click the top checkbox, choose "Select all conversations that match this search," and click Trash. Add <code>older_than:1y</code> to keep recent orders for returns. If you have thousands of Amazon emails and Gmail's select-all times out, <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a> clears every Amazon sender in one click.
+        <strong>Quick answer:</strong> To delete Amazon order emails in Gmail, search <code>from:amazon.com</code>, click the top checkbox, choose "Select all conversations that match this search," and click Trash. Add <code>older_than:1y</code> to keep recent orders for returns. If you have thousands of Amazon emails and Gmail's select-all times out, <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a> clears every Amazon sender, in batches of up to 20 senders at a time.
       </div>
 
       <p>Every Amazon order sends you at least three emails: an order confirmation, a "shipped" notice, and a "delivered" notice. Add returns, refunds, Subscribe &amp; Save reminders, review requests, and deal alerts, and a regular shopper can rack up a few thousand Amazon emails in a couple of years. Almost none of them are worth keeping once the package has arrived.</p>
@@ -130,13 +130,14 @@
 
       <p>On large backlogs, Gmail's "Select all conversations" link can stall, time out, or quietly delete only part of the selection. You end up repeating the search and deleting in chunks. It's the same wall covered in <a href="../blog/delete-all-emails-from-one-sender-gmail.html">How to Delete All Emails from One Sender in Gmail</a>, and it hits any high-volume sender.</p>
 
-      <p>Inbox Cleaner skips Gmail's on-screen selection. It reads your mailbox through the Gmail API and ranks every sender by how many emails they've sent you. Amazon's addresses usually sit near the top of the list.</p>
+      <p>Inbox Cleaner skips Gmail's on-screen selection. It reads your mailbox from inside Gmail and ranks every sender by how many emails they've sent you. Amazon's addresses usually sit near the top of the list.</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
+        <li><strong>Scope:</strong> deleting by sender is sender-wide. It does not carry over the <code>older_than:</code>, <code>category:</code> or <code>-is:starred</code> limits from the Gmail search above — a selected sender goes in full, including archived mail. If you need those exclusions, stay with the Gmail search method above.</li>
         <li>Wait for the scan to finish. Every sender appears with an email count.</li>
         <li>Check the box next to each Amazon address — shipment-tracking, auto-confirm, store-news, and any others in the list.</li>
-        <li>Click <strong>Move to Trash</strong>. All their emails go at once, no 50-per-page limit.</li>
+        <li>Click <strong>Move to Trash</strong>. Their mail is cleared in batches of up to 20 senders at a time, without retyping a search per sender.</li>
       </ol>
 
       <div class="blog-cta">

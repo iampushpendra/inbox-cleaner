@@ -130,13 +130,14 @@
 
       <p>Gmail also won't tell you how much of your inbox Instagram actually fills. You only find out by searching each sender by hand.</p>
 
-      <p>Inbox Cleaner handles both problems. It scans your whole mailbox through the Gmail API and ranks every sender by email count, so each Instagram address shows its total next to it:</p>
+      <p>Inbox Cleaner handles both problems. It scans your whole mailbox from inside Gmail and ranks every sender by email count, so each Instagram address shows its total next to it:</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
+        <li><strong>Scope:</strong> deleting by sender is sender-wide. It does not carry over the <code>older_than:</code>, <code>category:</code> or <code>-is:starred</code> limits from the Gmail search above — a selected sender goes in full, including archived mail. If you need those exclusions, stay with the Gmail search method above.</li>
         <li>Find the mail.instagram.com senders in the ranked list. On an account that's been active for a few years, they usually sit near the top.</li>
         <li>Tick each Instagram address you want gone. Leave security@mail.instagram.com unticked if you want to review it first.</li>
-        <li>Click <strong>Move to Trash</strong>. Every email from those senders moves at once, with no per-page limit, and stays recoverable for 30 days.</li>
+        <li>Click <strong>Move to Trash</strong>. Their mail is cleared in batches of up to 20 senders at a time, and stays recoverable for 30 days.</li>
       </ol>
 
       <div class="blog-cta">

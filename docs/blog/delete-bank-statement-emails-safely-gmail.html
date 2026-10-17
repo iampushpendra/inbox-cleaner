@@ -133,16 +133,18 @@
 
       <p>Gmail's "Select all conversations" link works fine on a few hundred emails. On thousands it can stall or delete only part of the batch, and you end up re-running the same search. It's the same limit covered in <a href="../blog/how-to-delete-thousands-of-emails-gmail.html">How to Delete Thousands of Emails in Gmail</a>.</p>
 
-      <p>Bank emails also tend to come from several addresses per bank: one for statements, one for alerts, one for offers. A single search often misses some. Inbox Cleaner scans your whole mailbox through the Gmail API and ranks every sender by email count, so each bank address shows up on its own row.</p>
+      <p>Bank emails also tend to come from several addresses per bank: one for statements, one for alerts, one for offers. A single search often misses some. Inbox Cleaner scans your whole mailbox from inside Gmail and ranks every sender by email count, so each bank address shows up on its own row.</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
         <li>Wait for the scan to finish, then look for your bank's senders in the list.</li>
         <li>Check the boxes next to the alert and marketing senders you don't need.</li>
-        <li>Click <strong>Move to Trash</strong>. Everything goes at once, and it all stays recoverable for 30 days.</li>
+        <li>Click <strong>Move to Trash</strong>. Senders are cleared in batches of up to 20 at a time, and everything stays recoverable for 30 days.</li>
       </ol>
 
-      <p>Do the careful review in Gmail first for statement senders, then use the bulk tool for the noisy ones like transaction alerts and card offers.</p>
+      <div class="quick-answer">
+        <strong>Read this before using the extension on bank mail:</strong> deleting by sender is sender-wide. The extension has no way to honour the <code>-is:starred</code> exclusion or the <code>older_than:1y</code> cutoff used in the search above — if a statement, 1099 or dispute email came from an address you select, it is included even if you starred it. For statement senders, use the Gmail search method in this guide, which keeps your exclusions. Use the extension only for noisy senders such as transaction alerts and card offers.
+      </div>
 
       <div class="blog-cta">
 <h3>Clean up Gmail with the Chrome extension</h3>

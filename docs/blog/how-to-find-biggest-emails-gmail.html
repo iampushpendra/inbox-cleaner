@@ -138,13 +138,14 @@
 
       <p>This is where Gmail's search runs out. There's no query that returns "top senders by count". You can search <code>from:</code> one sender at a time, but you have to already know who to look for, and the biggest offenders are rarely the names that come to mind.</p>
 
-      <p>Inbox Cleaner fills that gap. It connects through the Gmail API, scans your entire mailbox rather than the 50 emails on screen, and ranks every sender by how many messages they've sent you:</p>
+      <p>Inbox Cleaner fills that gap. It runs inside your Gmail tab and scans all five categories, not just the 50 emails on screen, and ranks every sender by how many messages they've sent you:</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
+        <li><strong>Scope:</strong> deleting by sender is sender-wide. It does not carry over the <code>older_than:</code>, <code>category:</code> or <code>-is:starred</code> limits from the Gmail search above — a selected sender goes in full, including archived mail. If you need those exclusions, stay with the Gmail search method above.</li>
         <li>Let the scan finish. You'll see a ranked list of senders with counts next to each.</li>
         <li>Tick the senders you don't need, usually retailers, notification bots, and newsletters you stopped reading years ago.</li>
-        <li>Click <strong>Move to Trash</strong>. Every email from those senders goes at once, with no per-page limit and no timeouts.</li>
+        <li>Click <strong>Move to Trash</strong>. Their mail is cleared in batches of up to 20 senders at a time.</li>
       </ol>
 
       <div class="blog-cta">

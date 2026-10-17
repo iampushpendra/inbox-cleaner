@@ -5,9 +5,9 @@
   <link rel="canonical" href="https://inbox-cleaner.vercel.app/blog/how-to-delete-old-emails-gmail.html">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How to Delete Old Emails in Gmail (2026 Guide) | Inbox Cleaner</title>
-  <meta name="description" content="Use Gmail's older_than search operator to find and bulk-delete old emails, or clear years of backlog in one click with a sender-ranked tool.">
+  <meta name="description" content="Use Gmail's older_than search operator to find and bulk-delete old emails, or clear years of backlog with a sender-ranked tool.">
   <meta property="og:title" content="How to Delete Old Emails in Gmail (2026 Guide)">
-  <meta property="og:description" content="Use Gmail's older_than search operator to find and bulk-delete old emails, or clear years of backlog in one click with a sender-ranked tool.">
+  <meta property="og:description" content="Use Gmail's older_than search operator to find and bulk-delete old emails, or clear years of backlog with a sender-ranked tool.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://inbox-cleaner.vercel.app/blog/how-to-delete-old-emails-gmail.html">
   <script type="application/ld+json">
@@ -30,7 +30,7 @@
       { "@type": "HowToStep", "name": "Search by age", "text": "In Gmail's search bar, type older_than:1y (or 2y, 6m, 30d) to filter to emails older than that period." },
       { "@type": "HowToStep", "name": "Select all matching emails", "text": "Click the checkbox above the message list, then click \"Select all conversations that match this search\" to extend the selection past the visible page." },
       { "@type": "HowToStep", "name": "Delete", "text": "Click the Trash icon. Every matching email moves to Trash." },
-      { "@type": "HowToStep", "name": "For large backlogs, use Inbox Cleaner", "text": "Connect Gmail at inbox-cleaner.vercel.app to rank senders by email count and clear years of old mail from the worst offenders in one click." }
+      { "@type": "HowToStep", "name": "For large backlogs, use Inbox Cleaner", "text": "Install the free Chrome extension, open Gmail in desktop Chrome, to rank senders by email count and clear years of old mail from the worst offenders in batches of up to 20 senders at a time." }
     ]
   }
   </script>
@@ -91,7 +91,7 @@
     <div class="blog-body">
 
       <div class="quick-answer">
-        <strong>Quick answer:</strong> To delete old emails in Gmail, search <code>older_than:1y</code> (swap in 6m, 2y, or any period you want), click the checkbox above the results, then "Select all conversations that match this search," and hit delete. For inboxes with years of buildup across hundreds of senders, <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a> ranks senders by volume so you can clear the biggest sources of old mail in one click.
+        <strong>Quick answer:</strong> To delete old emails in Gmail, search <code>older_than:1y</code> (swap in 6m, 2y, or any period you want), click the checkbox above the results, then "Select all conversations that match this search," and hit delete. For inboxes with years of buildup across hundreds of senders, <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a> ranks senders by volume so you can clear the biggest sources of old mail in batches of up to 20 senders at a time.
       </div>
 
       <p>Old emails don't just sit there quietly. They eat into your 15 GB storage quota, slow down search, and make it harder to find anything recent. Most of what's sitting in a five-year-old inbox is newsletters, notifications, and receipts nobody's opened in years — safe to clear out with the right search.</p>
@@ -116,10 +116,11 @@
 
       <p>Date alone doesn't tell you which old emails are safe to clear. A sender-first approach is usually faster: find who's actually filled your inbox with years of mail, then clear all of it from that sender at once. See <a href="../blog/delete-all-emails-from-one-sender-gmail.html">How to Delete All Emails from One Sender in Gmail</a> if you already know who the worst offender is.</p>
 
-      <p>If you don't know which senders are worth targeting, Inbox Cleaner scans your whole inbox via the Gmail API and ranks every sender by email count:</p>
+      <p>If you don't know which senders are worth targeting, Inbox Cleaner scans your whole inbox from inside Gmail and ranks every sender by email count:</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
+        <li><strong>Scope:</strong> deleting by sender is sender-wide. It does not carry over the <code>older_than:</code>, <code>category:</code> or <code>-is:starred</code> limits from the Gmail search above — a selected sender goes in full, including archived mail. If you need those exclusions, stay with the Gmail search method above.</li>
         <li>Senders with years of accumulated mail — old newsletters, defunct services, notification bots — typically sit at the top of the ranked list.</li>
         <li>Check the boxes next to the senders you no longer need.</li>
         <li>Click <strong>Move to Trash</strong>. All their emails move at once, regardless of how old or how many.</li>

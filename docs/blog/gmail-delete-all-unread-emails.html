@@ -30,7 +30,7 @@
       { "@type": "HowToStep", "name": "Search is:unread", "text": "Type is:unread into Gmail's search bar and press Enter to filter your inbox to only unread conversations." },
       { "@type": "HowToStep", "name": "Select all conversations", "text": "Click the checkbox above the message list, then click \"Select all conversations that match this search\" to extend the selection past the current page." },
       { "@type": "HowToStep", "name": "Delete", "text": "Click the Trash icon. Every selected unread email moves to Trash." },
-      { "@type": "HowToStep", "name": "For large backlogs, use Inbox Cleaner", "text": "Connect Gmail at inbox-cleaner.vercel.app, find the senders responsible for your unread pile in the ranked list, select them, and click Move to Trash for a single-click bulk delete with no per-page limit." }
+      { "@type": "HowToStep", "name": "For large backlogs, use Inbox Cleaner", "text": "Install the free Chrome extension, open Gmail in desktop Chrome, find the senders responsible for your unread pile in the ranked list, select them, and click Move to Trash — senders are cleared in batches of up to 20 senders at a time." }
     ]
   }
   </script>
@@ -62,7 +62,7 @@
       {
         "@type": "Question",
         "name": "Is there a faster way to bulk delete unread emails than Gmail's search?",
-        "acceptedAnswer": { "@type": "Answer", "text": "For inboxes with tens of thousands of unread emails, Gmail's select-all banner can time out mid-action. Inbox Cleaner scans the full inbox via the Gmail API and lets you delete by sender instead, with no page or timeout limit." }
+        "acceptedAnswer": { "@type": "Answer", "text": "For inboxes with tens of thousands of unread emails, Gmail's select-all banner can time out mid-action. Inbox Cleaner scans the full inbox from inside Gmail and lets you delete by sender instead, in batches of up to 20 senders at a time." }
       }
     ]
   }
@@ -91,7 +91,7 @@
     <div class="blog-body">
 
       <div class="quick-answer">
-        <strong>Quick answer:</strong> Type <code>is:unread</code> into Gmail's search bar, click the checkbox above the results, then click "Select all conversations that match this search" and hit delete. This clears every unread email in one pass; for an unread pile in the tens of thousands, <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a> deletes by sender instead with no timeout.
+        <strong>Quick answer:</strong> Type <code>is:unread</code> into Gmail's search bar, click the checkbox above the results, then click "Select all conversations that match this search" and hit delete. This clears every unread email in one pass; for an unread pile in the tens of thousands, <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a> deletes by sender instead, in batches of up to 20 senders at a time.
       </div>
 
       <p>An unread count in the thousands is usually not thousands of emails you meant to read someday — it's newsletters, notifications, and marketing mail that arrived, got skimmed in a preview pane, and never got opened. Gmail doesn't have a dedicated "delete all unread" button, but its search operators get you there in a few clicks.</p>
@@ -127,8 +127,9 @@
       <p>On inboxes where the unread count runs into the tens of thousands, Gmail's "select all conversations that match this search" banner applies the delete action sequentially behind the scenes — and on very large batches, that action can stall or fail partway through. If that happens, or if you'd rather target specific senders instead of wiping every unread email indiscriminately:</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
-        <li>Inbox Cleaner scans your entire inbox via the Gmail API and ranks every sender by email count, unread mail included.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
+        <li><strong>Scope:</strong> deleting by sender is sender-wide. It does not carry over the <code>older_than:</code>, <code>category:</code> or <code>-is:starred</code> limits from the Gmail search above — a selected sender goes in full, including archived mail. If you need those exclusions, stay with the Gmail search method above.</li>
+        <li>Inbox Cleaner scans your entire inbox from inside Gmail and ranks every sender by email count, unread mail included.</li>
         <li>Check the boxes next to the senders generating most of your unread pile.</li>
         <li>Click <strong>Move to Trash</strong>. Everything from those senders clears at once, with no per-page or timeout limit.</li>
       </ol>
@@ -159,7 +160,7 @@
         </div>
         <div class="faq-item">
           <p class="faq-q">Is there a faster way to bulk delete unread emails than Gmail's search?</p>
-          <p class="faq-a">For inboxes with tens of thousands of unread emails, Gmail's select-all banner can time out mid-action. Inbox Cleaner scans the full inbox via the Gmail API and lets you delete by sender instead, with no page or timeout limit.</p>
+          <p class="faq-a">For inboxes with tens of thousands of unread emails, Gmail's select-all banner can time out mid-action. Inbox Cleaner scans the full inbox from inside Gmail and lets you delete by sender instead, in batches of up to 20 senders at a time.</p>
         </div>
       </div>
 

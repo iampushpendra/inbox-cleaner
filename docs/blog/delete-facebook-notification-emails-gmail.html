@@ -132,13 +132,14 @@
 
       <p>Gmail also never shows how much of your inbox Facebook takes up compared with everyone else. You only find out by searching each sender yourself.</p>
 
-      <p>Inbox Cleaner fixes both. It scans your whole mailbox through the Gmail API and ranks every sender by email count, so each Facebook address shows up with its total beside it:</p>
+      <p>Inbox Cleaner fixes both. It scans your whole mailbox from inside Gmail and ranks every sender by email count, so each Facebook address shows up with its total beside it:</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
+        <li><strong>Scope:</strong> deleting by sender is sender-wide. It does not carry over the <code>older_than:</code>, <code>category:</code> or <code>-is:starred</code> limits from the Gmail search above — a selected sender goes in full, including archived mail. If you need those exclusions, stay with the Gmail search method above.</li>
         <li>Find the facebookmail.com senders in the ranked list. On an older account, notification and group update addresses usually rank near the top.</li>
         <li>Tick each Facebook address you want cleared. Leave security@facebookmail.com unticked if you want to review it first.</li>
-        <li>Click <strong>Move to Trash</strong>. Every email from those senders moves at once, with no per-page cap, and stays recoverable for 30 days.</li>
+        <li>Click <strong>Move to Trash</strong>. Their mail is cleared in batches of up to 20 senders at a time, and stays recoverable for 30 days.</li>
       </ol>
 
       <div class="blog-cta">

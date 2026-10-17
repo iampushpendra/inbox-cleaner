@@ -131,13 +131,14 @@
 
       <p>There's also a visibility problem. Gmail never tells you how much of your inbox LinkedIn takes up compared with every other sender. You only find out by searching for each sender, one at a time.</p>
 
-      <p>Inbox Cleaner handles both. It scans your whole mailbox through the Gmail API and ranks every sender by email count, so each LinkedIn address shows up with its total next to it:</p>
+      <p>Inbox Cleaner handles both. It scans your whole mailbox from inside Gmail and ranks every sender by email count, so each LinkedIn address shows up with its total next to it:</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
+        <li><strong>Scope:</strong> deleting by sender is sender-wide. It does not carry over the <code>older_than:</code>, <code>category:</code> or <code>-is:starred</code> limits from the Gmail search above — a selected sender goes in full, including archived mail. If you need those exclusions, stay with the Gmail search method above.</li>
         <li>Look for the LinkedIn senders in the ranked list. Job alerts and notification digests usually sit near the top.</li>
         <li>Tick each LinkedIn address you want cleared, and leave message notifications unticked if you want to keep them.</li>
-        <li>Click <strong>Move to Trash</strong>. Every email from those senders moves at once, with no per-page cap, and stays recoverable for 30 days.</li>
+        <li>Click <strong>Move to Trash</strong>. Their mail is cleared in batches of up to 20 senders at a time, and stays recoverable for 30 days.</li>
       </ol>
 
       <div class="blog-cta">

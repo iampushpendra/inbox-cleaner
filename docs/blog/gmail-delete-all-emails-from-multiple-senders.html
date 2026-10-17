@@ -31,7 +31,7 @@
       { "@type": "HowToStep", "name": "Search with the OR operator", "text": "In the Gmail search bar, type from:(one@example.com OR two@example.com OR three@example.com) to match every listed sender in a single search." },
       { "@type": "HowToStep", "name": "Select all conversations that match", "text": "Click the checkbox at the top-left of the message list, then click \"Select all conversations that match this search\" to extend past the visible 50." },
       { "@type": "HowToStep", "name": "Move the batch to Trash", "text": "Click the Trash icon and wait for Gmail to confirm the batch finished. Everything selected moves to Trash for 30 days." },
-      { "@type": "HowToStep", "name": "For long sender lists, use Inbox Cleaner", "text": "Connect Gmail at inbox-cleaner.vercel.app, which scans the whole inbox via the Gmail API and ranks every sender by volume, so you can tick dozens of senders and clear them in one action instead of hand-writing an OR search." }
+      { "@type": "HowToStep", "name": "For long sender lists, use Inbox Cleaner", "text": "Install the free Chrome extension, which scans all five Gmail categories from inside your Gmail tab and ranks every discovered sender by volume, so you can tick dozens of senders and clear them in batches of up to 20 senders at a time instead of hand-writing an OR search." }
     ]
   }
   </script>
@@ -139,13 +139,14 @@
 
       <h2>What's the fastest way to clear a long list of senders?</h2>
 
-      <p>Skip the search string. Inbox Cleaner scans your entire inbox through the Gmail API and ranks every sender by how many emails they've sent you, so you select from a list instead of typing addresses:</p>
+      <p>Skip the search string. Inbox Cleaner scans your entire inbox from inside Gmail and ranks every sender by how many emails they've sent you, so you select from a list instead of typing addresses:</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
+        <li><strong>Scope:</strong> deleting by sender is sender-wide. It does not carry over the <code>older_than:</code>, <code>category:</code> or <code>-is:starred</code> limits from the Gmail search above — a selected sender goes in full, including archived mail. If you need those exclusions, stay with the Gmail search method above.</li>
         <li>Wait for the scan. Every sender appears ranked by email count, highest first.</li>
         <li>Tick the checkbox next to each sender you want gone — five, twenty, however many.</li>
-        <li>Click <strong>Move to Trash</strong>. All of them clear at once, in a single action.</li>
+        <li>Click <strong>Move to Trash</strong>. They're cleared in batches of up to 20 senders at a time.</li>
       </ol>
 
       <p>The ranking matters as much as the bulk delete. Most people can't name the senders filling their inbox — the list surfaces them, and the top ten usually account for the majority of the clutter. For the single-sender workflow and how the ranking is built, see <a href="../blog/gmail-bulk-delete-by-sender.html">How to Bulk Delete Gmail Emails by Sender</a>.</p>

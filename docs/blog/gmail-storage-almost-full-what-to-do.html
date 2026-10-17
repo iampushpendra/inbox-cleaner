@@ -121,13 +121,14 @@
 
       <p>Gmail's built-in select-all caps at the 50 conversations rendered on the page. The "select all conversations that match this search" banner extends it to the full result set, but on searches matching tens of thousands of messages it often stalls or finishes only partway, leaving you to run the same delete three or four times.</p>
 
-      <p>Inbox Cleaner scans your whole mailbox through the Gmail API and ranks every sender by how many emails they've sent you, so you can see the actual shape of the problem before deleting anything:</p>
+      <p>Inbox Cleaner scans your whole mailbox from inside Gmail and ranks every sender by how many emails they've sent you, so you can see the actual shape of the problem before deleting anything:</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
+        <li><strong>Scope:</strong> deleting by sender is sender-wide. It does not carry over the <code>older_than:</code>, <code>category:</code> or <code>-is:starred</code> limits from the Gmail search above — a selected sender goes in full, including archived mail. If you need those exclusions, stay with the Gmail search method above.</li>
         <li>Let the scan finish. Senders come back ranked by volume — the top ten are usually most of your storage problem.</li>
         <li>Tick the senders you want gone.</li>
-        <li>Click <strong>Move to Trash</strong>. Everything from those senders goes at once, with no per-page limit.</li>
+        <li>Click <strong>Move to Trash</strong>. Their mail is cleared in batches of up to 20 senders at a time, without retyping a search per sender.</li>
       </ol>
 
       <div class="blog-cta">

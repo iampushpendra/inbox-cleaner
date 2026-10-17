@@ -138,13 +138,14 @@
 
       <p>Gmail's "Select all conversations" link works, but on big backlogs it can stall, time out, or delete only part of the selection. You end up running the same search over and over in chunks.</p>
 
-      <p>Inbox Cleaner takes a different route. It scans your whole mailbox through the Gmail API and ranks every sender by how many emails they've sent you. Shipping senders, such as store order addresses and carrier notification addresses, tend to cluster near the top. You tick the boxes and clear them all at once.</p>
+      <p>Inbox Cleaner takes a different route. It scans your whole mailbox from inside Gmail and ranks every sender by how many emails they've sent you. Shipping senders, such as store order addresses and carrier notification addresses, tend to cluster near the top. You tick the boxes and clear them all at once.</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
+        <li><strong>Scope:</strong> deleting by sender is sender-wide. It does not carry over the <code>older_than:</code>, <code>category:</code> or <code>-is:starred</code> limits from the Gmail search above — a selected sender goes in full, including archived mail. If you need those exclusions, stay with the Gmail search method above.</li>
         <li>Wait for the scan. Every sender appears with an email count.</li>
         <li>Check the shipping senders: carrier alerts, store "shipment-tracking" or "orders" addresses, and anything else you recognize.</li>
-        <li>Click <strong>Move to Trash</strong>. No 50-per-page limit, and everything stays recoverable for 30 days.</li>
+        <li>Click <strong>Move to Trash</strong>. No retyping a search per sender, and everything stays recoverable for 30 days.</li>
       </ol>
 
       <div class="blog-cta">

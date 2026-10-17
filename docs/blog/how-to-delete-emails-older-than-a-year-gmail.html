@@ -31,7 +31,7 @@
       { "@type": "HowToStep", "name": "Narrow the search before deleting", "text": "Add exclusions so nothing important is caught. For example: older_than:1y -is:starred -is:important -has:attachment -from:hr@company.com" },
       { "@type": "HowToStep", "name": "Select every matching conversation", "text": "Click the checkbox above the message list to select the visible 50, then click \"Select all conversations that match this search\" in the banner that appears." },
       { "@type": "HowToStep", "name": "Move the batch to Trash", "text": "Click the Trash icon and confirm. The messages move to Trash, where you have 30 days to restore anything you didn't mean to delete." },
-      { "@type": "HowToStep", "name": "Use a sender-based pass for large backlogs", "text": "If the select-all banner times out, connect Gmail at inbox-cleaner.vercel.app, review the senders ranked by volume, and move the biggest offenders to Trash in one click." }
+      { "@type": "HowToStep", "name": "Use a sender-based pass for large backlogs", "text": "If the select-all banner times out, connect Gmail at inbox-cleaner.vercel.app, review the senders ranked by volume, and move the biggest offenders to Trash in batches of up to 20 senders at a time." }
     ]
   }
   </script>
@@ -136,7 +136,7 @@
 
       <p>The usual workaround is to shrink each batch so the request completes. Instead of one enormous delete, run the search quarter by quarter using fixed dates: <code>before:2025/03/31 after:2024/12/31</code>, then the next window, and so on. Slower, but each pass reliably finishes.</p>
 
-      <p>The other approach is to stop thinking in dates and think in senders. Old mail is rarely spread evenly — it's concentrated in a handful of senders that mailed you weekly for years. Inbox Cleaner scans your whole mailbox through the Gmail API rather than the page you're looking at, ranks every sender by how many messages they've sent you, and moves an entire sender's mail to Trash in one click with no 50-per-page ceiling. Clearing the top ten senders usually removes more old email than a date search does, and you can see exactly what you're deleting before you commit. The same logic applies to any large cleanup — see <a href="../blog/how-to-bulk-delete-gmail-emails.html">How to Bulk Delete Gmail Emails</a> for the general version.</p>
+      <p>The other approach is to stop thinking in dates and think in senders. Old mail is rarely spread evenly — it's concentrated in a handful of senders that mailed you weekly for years. Inbox Cleaner scans your whole mailbox from inside Gmail rather than the page you're looking at, ranks every sender by how many messages they've sent you, and moves an entire sender's mail to Trash in batches of up to 20 senders at a time. Clearing the top ten senders usually removes more old email than a date search does, and you can see exactly what you're deleting before you commit. The same logic applies to any large cleanup — see <a href="../blog/how-to-bulk-delete-gmail-emails.html">How to Bulk Delete Gmail Emails</a> for the general version.</p>
 
       <h2>How do I delete emails before a specific date instead?</h2>
 

@@ -132,13 +132,14 @@
 
       <p>Gmail's "Select all conversations" link works, but large selections can stall or time out partway. With a long job search behind you, you may end up running the same search in chunks.</p>
 
-      <p>Inbox Cleaner skips the search syntax entirely. It scans your whole mailbox through the Gmail API and ranks every sender by how many emails they've sent you. Job boards that email daily usually land near the top of that list. You tick the boxes and clear them in one go.</p>
+      <p>Inbox Cleaner skips the search syntax entirely. It scans your whole mailbox from inside Gmail and ranks every sender by how many emails they've sent you. Job boards that email daily usually land near the top of that list. You tick the boxes and clear them in batches of up to 20 senders at a time.</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
+        <li><strong>Scope:</strong> deleting by sender is sender-wide. It does not carry over the <code>older_than:</code>, <code>category:</code> or <code>-is:starred</code> limits from the Gmail search above — a selected sender goes in full, including archived mail. If you need those exclusions, stay with the Gmail search method above.</li>
         <li>Wait for the scan. Every sender appears with an email count.</li>
         <li>Check the job alert senders: LinkedIn job alerts, Indeed, Glassdoor, ZipRecruiter, and any others you recognize.</li>
-        <li>Click <strong>Move to Trash</strong>. No 50-per-page limit, and everything stays recoverable for 30 days.</li>
+        <li>Click <strong>Move to Trash</strong>. No retyping a search per sender, and everything stays recoverable for 30 days.</li>
       </ol>
 
       <div class="blog-cta">

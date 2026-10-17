@@ -5,9 +5,9 @@
   <link rel="canonical" href="https://inbox-cleaner.vercel.app/blog/gmail-delete-all-promotional-emails.html">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How to Delete All Promotional Emails in Gmail (2026 Guide) | Inbox Cleaner</title>
-  <meta name="description" content="Gmail sorts promotional emails into their own tab, but deleting them all still hits the 50-per-page limit. Here's the fastest way to clear the whole Promotions tab.">
+  <meta name="description" content="Gmail sorts promotional emails into their own tab, but clearing a tab that built up over years takes repeated passes. Here's how to clear the whole Promotions tab.">
   <meta property="og:title" content="How to Delete All Promotional Emails in Gmail (2026 Guide)">
-  <meta property="og:description" content="Gmail sorts promotional emails into their own tab, but deleting them all still hits the 50-per-page limit. Here's the fastest way to clear the whole Promotions tab.">
+  <meta property="og:description" content="Gmail sorts promotional emails into their own tab, but clearing a tab that built up over years takes repeated passes. Here's how to clear the whole Promotions tab.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://inbox-cleaner.vercel.app/blog/gmail-delete-all-promotional-emails.html">
   <script type="application/ld+json">
@@ -30,7 +30,7 @@
       { "@type": "HowToStep", "name": "Open the Promotions tab", "text": "In Gmail, click the Promotions tab above your inbox list." },
       { "@type": "HowToStep", "name": "Select all conversations", "text": "Click the checkbox at the top, then click \"Select all conversations that match this search\" to extend the selection beyond the current page." },
       { "@type": "HowToStep", "name": "Delete", "text": "Click the Trash icon. All selected promotional emails move to Trash." },
-      { "@type": "HowToStep", "name": "For larger backlogs, use Inbox Cleaner", "text": "Connect Gmail at inbox-cleaner.vercel.app, find promotional senders in the ranked list, select them, and click Move to Trash for a single-click bulk delete with no per-page limit." }
+      { "@type": "HowToStep", "name": "For larger backlogs, use Inbox Cleaner", "text": "Install the free Chrome extension, open Gmail in desktop Chrome, find promotional senders in the ranked list, select them, and click Move to Trash — senders are cleared in batches of up to 20 senders at a time." }
     ]
   }
   </script>
@@ -91,7 +91,7 @@
     <div class="blog-body">
 
       <div class="quick-answer">
-        <strong>Quick answer:</strong> Open Gmail's Promotions tab, click the top checkbox, then "Select all conversations that match this search," and hit delete. This handles a page at a time reliably; for a Promotions tab with thousands of emails built up over years, <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a> clears it in one click with no page-by-page limit.
+        <strong>Quick answer:</strong> Open Gmail's Promotions tab, click the top checkbox, then "Select all conversations that match this search," and hit delete. This handles a page at a time reliably; for a Promotions tab with thousands of emails built up over years, <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a> clears it in batches of up to 20 senders at a time.
       </div>
 
       <p>Gmail automatically routes marketing emails, deals, and newsletters into a separate Promotions tab so they don't clutter your primary inbox. That's useful for reading — less useful when you actually want to clear the tab out, because Gmail's bulk-select tools still cap out the same way they do everywhere else.</p>
@@ -109,10 +109,11 @@
 
       <h2>What if the Promotions tab is too large to select all at once?</h2>
 
-      <p>For a backlog that's built up over years, skip Gmail's selection tool entirely. Inbox Cleaner scans your inbox via the Gmail API directly, so it isn't limited by what's rendered on screen:</p>
+      <p>For a backlog that's built up over years, skip Gmail's selection tool entirely. Inbox Cleaner scans all five Gmail categories, not just what's rendered on screen:</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
+        <li><strong>Scope:</strong> deleting by sender is sender-wide. It does not carry over the <code>older_than:</code>, <code>category:</code> or <code>-is:starred</code> limits from the Gmail search above — a selected sender goes in full, including archived mail. If you need those exclusions, stay with the Gmail search method above.</li>
         <li>The tool ranks every sender by email count — promotional senders (retailers, deal sites, marketing lists) are usually near the top.</li>
         <li>Check the box next to each promotional sender you want cleared.</li>
         <li>Click <strong>Move to Trash</strong>. All their emails move at once, regardless of how many there are.</li>

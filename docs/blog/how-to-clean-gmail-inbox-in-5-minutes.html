@@ -121,10 +121,11 @@
 
       <p>This is where five minutes usually becomes twenty. Gmail has no "show me my top senders" view. To delete by sender you have to already know the address, so you sit there typing guesses into the search bar — and the senders genuinely filling your mailbox are rarely the ones you would think of. It is some ticketing platform you used twice in 2021 sending you 4,000 event reminders, not the newsletter you actually remember subscribing to.</p>
 
-      <p>Inbox Cleaner closes that gap. It scans your whole mailbox through the Gmail API and returns every sender ranked by how many emails they have sent you, so minute four becomes reading a list rather than guessing at one:</p>
+      <p>Inbox Cleaner closes that gap. It scans your whole mailbox from inside Gmail and returns every sender ranked by how many emails they have sent you, so minute four becomes reading a list rather than guessing at one:</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
+        <li><strong>Scope:</strong> deleting by sender is sender-wide. It does not carry over the <code>older_than:</code>, <code>category:</code> or <code>-is:starred</code> limits from the Gmail search above — a selected sender goes in full, including archived mail. If you need those exclusions, stay with the Gmail search method above.</li>
         <li>Let the scan finish. Senders come back ordered by volume, highest first.</li>
         <li>Tick the ones you want gone — the top ten are usually enough.</li>
         <li>Click <strong>Move to Trash</strong>. Every email from those senders goes at once, with no per-page cap.</li>

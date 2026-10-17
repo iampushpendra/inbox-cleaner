@@ -142,10 +142,11 @@
 
       <p>Gmail's "select all conversations" banner handles a few hundred emails well. On several thousand it often stalls or trashes only part of the batch, and you end up running the search again and again.</p>
 
-      <p>Calendar mail is also spread across many senders. Invites from colleagues come from their own addresses, while change and reminder emails come from <code>calendar-notification@google.com</code>. Inbox Cleaner scans your whole mailbox through the Gmail API and ranks every sender by how many emails they've sent you. Google Calendar notifications, meeting-booking tools, and your most frequent meeting organizers show up with exact counts, right next to the newsletters and notification senders you've also stopped reading.</p>
+      <p>Calendar mail is also spread across many senders. Invites from colleagues come from their own addresses, while change and reminder emails come from <code>calendar-notification@google.com</code>. Inbox Cleaner scans your whole mailbox from inside Gmail and ranks every sender by how many emails they've sent you. Google Calendar notifications, meeting-booking tools, and your most frequent meeting organizers show up with exact counts, right next to the newsletters and notification senders you've also stopped reading.</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
+        <li><strong>Scope:</strong> deleting by sender is sender-wide. It does not carry over the <code>older_than:</code>, <code>category:</code> or <code>-is:starred</code> limits from the Gmail search above — a selected sender goes in full, including archived mail. If you need those exclusions, stay with the Gmail search method above.</li>
         <li>Wait for the scan to finish, then find calendar-notification@google.com and any booking tools in the sender list.</li>
         <li>Check their boxes, plus any other senders you want gone.</li>
         <li>Click <strong>Move to Trash</strong>. Everything goes in one pass and stays recoverable for 30 days.</li>

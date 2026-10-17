@@ -31,7 +31,7 @@
       { "@type": "HowToStep", "name": "Click Delete all spam messages now", "text": "At the top of the spam list, click the \"Delete all spam messages now\" link. This clears the entire folder at once, not just the current page." },
       { "@type": "HowToStep", "name": "Confirm the deletion", "text": "Click OK in the confirmation dialog. Spam messages are permanently deleted immediately — they do not go to Trash." },
       { "@type": "HowToStep", "name": "Report spam still sitting in your inbox", "text": "Back in the inbox, select any spam that slipped through and click the Report spam button so Gmail routes future messages from that sender to the Spam folder." },
-      { "@type": "HowToStep", "name": "Bulk-remove repeat spam senders", "text": "For senders that keep flooding your inbox, connect Gmail at inbox-cleaner.vercel.app, find them in the ranked sender list, and move all of their emails to Trash in one click." }
+      { "@type": "HowToStep", "name": "Bulk-remove repeat spam senders", "text": "For senders that keep flooding your inbox, connect Gmail at inbox-cleaner.vercel.app, find them in the ranked sender list, and move their mail to Trash in batches of up to 20 senders at a time." }
     ]
   }
   </script>
@@ -122,10 +122,10 @@
 
       <p>For a handful, select the checkboxes and click the <strong>Report spam</strong> button (the octagon with an exclamation mark) in the toolbar. That moves them to Spam and tells Gmail's classifier those messages were unwanted, so the next batch from that campaign is more likely to get caught.</p>
 
-      <p>For a sender that's been hammering you for months, reporting one message at a time doesn't help with the backlog. Search <code>from:sender@example.com</code>, select all, and delete — or use a tool that handles the whole thing at once. Inbox Cleaner scans your entire mailbox through the Gmail API and ranks every sender by how many emails they've sent you, which surfaces the worst offenders immediately:</p>
+      <p>For a sender that's been hammering you for months, reporting one message at a time doesn't help with the backlog. Search <code>from:sender@example.com</code>, select all, and delete — or use a tool that finds the senders for you. Inbox Cleaner scans your entire mailbox from inside Gmail and ranks every sender by how many emails they've sent you, which surfaces the worst offenders immediately:</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
         <li>Review the ranked sender list — persistent spammers and junk mailing lists usually sit near the top by volume.</li>
         <li>Check the senders you want gone.</li>
         <li>Click <strong>Move to Trash</strong>. Every email from those senders goes at once, with a 30-day recovery window in case you check one off by mistake.</li>

@@ -92,7 +92,7 @@
     <div class="blog-body">
 
       <div class="quick-answer">
-        <strong>Quick answer:</strong> To delete Uber Eats and DoorDash receipt emails in Gmail, search <code>from:doordash.com</code> or <code>from:uber.com "Uber Eats"</code>, click the top checkbox, choose "Select all conversations that match this search," and click Trash. Add <code>older_than:3m -is:starred</code> to keep recent orders and any receipts you need for expenses. If you have thousands of them, <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a> clears every delivery sender in one click.
+        <strong>Quick answer:</strong> To delete Uber Eats and DoorDash receipt emails in Gmail, search <code>from:doordash.com</code> or <code>from:uber.com "Uber Eats"</code>, click the top checkbox, choose "Select all conversations that match this search," and click Trash. Add <code>older_than:3m -is:starred</code> to keep recent orders and any receipts you need for expenses. If you have thousands of them, <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a> clears every delivery sender, in batches of up to 20 senders at a time.
       </div>
 
       <p>Food delivery apps are relentless emailers. Every order sends a confirmation, often a "your order is on the way" update, and a receipt. Then come the promos: "$0 delivery fee this weekend," "Your favorites are back," "Rate your order." Order dinner twice a week for three years and you're looking at well over a thousand emails from Uber Eats and DoorDash alone.</p>
@@ -135,13 +135,14 @@
 
       <p>Gmail's "Select all conversations" link works on small batches. On a few thousand emails it can stall, time out, or delete only part of the selection, and you're left running the same search over and over. It's the same limit described in <a href="../blog/delete-all-emails-from-one-sender-gmail.html">How to Delete All Emails from One Sender in Gmail</a>.</p>
 
-      <p>Inbox Cleaner works differently. It scans your whole mailbox through the Gmail API and ranks every sender by email count. DoorDash and Uber usually land near the top, along with their separate marketing addresses that a single search can miss.</p>
+      <p>Inbox Cleaner works differently. It scans your whole mailbox from inside Gmail and ranks every sender by email count. DoorDash and Uber usually land near the top, along with their separate marketing addresses that a single search can miss.</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
+        <li><strong>Scope:</strong> deleting by sender is sender-wide. It does not carry over the <code>older_than:</code>, <code>category:</code> or <code>-is:starred</code> limits from the Gmail search above — a selected sender goes in full, including archived mail. If you need those exclusions, stay with the Gmail search method above.</li>
         <li>Wait for the scan to finish. Every sender shows up with an email count.</li>
         <li>Check the boxes next to the DoorDash and Uber Eats senders.</li>
-        <li>Click <strong>Move to Trash</strong>. Everything from those senders goes at once, with no 50-per-page limit.</li>
+        <li>Click <strong>Move to Trash</strong>. Their mail is cleared in batches of up to 20 senders at a time, without retyping a search per sender.</li>
       </ol>
 
       <div class="blog-cta">

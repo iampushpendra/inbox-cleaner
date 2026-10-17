@@ -28,10 +28,10 @@
     "name": "Gmail Filters to Delete Emails Automatically",
     "step": [
       { "@type": "HowToStep", "name": "Open the search options", "text": "Click the sliders icon inside Gmail's search bar to open the advanced search panel." },
-      { "@type": "HowToStep", "name": "Define what to match", "text": "Enter the sender, subject keyword, or use operators like older_than to describe the emails you want gone." },
+      { "@type": "HowToStep", "name": "Define what to match", "text": "Enter the sender address or subject keyword that identifies the emails you want gone. Filters test each email as it arrives, so age operators such as older_than do not apply here." },
       { "@type": "HowToStep", "name": "Create the filter", "text": "Click 'Create filter' at the bottom of the search options panel." },
       { "@type": "HowToStep", "name": "Choose Delete it", "text": "Check the 'Delete it' box in the filter actions list, then click 'Create filter' to save it." },
-      { "@type": "HowToStep", "name": "Clear the existing backlog with Inbox Cleaner", "text": "Filters only catch new mail. Connect Gmail at inbox-cleaner.vercel.app to bulk-delete everything already sitting in your inbox from the same senders." }
+      { "@type": "HowToStep", "name": "Clear the existing backlog with Inbox Cleaner", "text": "Filters only catch new mail. Install the free Chrome extension to bulk-delete everything already sitting in your inbox from the same senders." }
     ]
   }
   </script>
@@ -58,7 +58,7 @@
       {
         "@type": "Question",
         "name": "Can Gmail filters delete emails older than a certain date automatically?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes, using the older_than operator, for example 'older_than:1y' to target anything past one year old. Combine it with a sender or category, like 'category:promotions older_than:30d', so the filter only auto-deletes aging mail in that specific group rather than everything." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Not as a filter. Filters evaluate each email as it arrives, so an age condition like older_than:30d cannot match newly delivered mail. Use older_than:1y in Gmail's search bar for the existing backlog, and keep the filter itself on sender, subject, category or size." }
       },
       {
         "@type": "Question",
@@ -92,7 +92,7 @@
     <div class="blog-body">
 
       <div class="quick-answer">
-        <strong>Quick answer:</strong> Open Gmail's search bar, click the sliders icon to set your criteria (sender, subject, or an operator like <code>older_than:30d</code>), click "Create filter," then check "Delete it" and save. New matching emails will skip your inbox and go straight to Trash. Filters don't touch mail that already arrived — for that backlog, <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a> bulk-deletes by sender in one click.
+        <strong>Quick answer:</strong> Open Gmail's search bar, click the sliders icon to set your criteria (sender, subject, or an operator like <code>older_than:30d</code>), click "Create filter," then check "Delete it" and save. New matching emails will skip your inbox and go straight to Trash. Filters don't touch mail that already arrived — for that backlog, <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a> bulk-deletes by sender, in batches of up to 20 senders at a time.
       </div>
 
       <p>Manually deleting the same junk mail every week gets old fast. If a sender reliably sends you things you'll never read — daily deal blasts, automated reports, notification digests — Gmail can delete them for you the moment they land, with zero ongoing effort. This is done through filters, one of Gmail's oldest and most underused features.</p>
@@ -101,7 +101,7 @@
 
       <ol class="blog-steps">
         <li>Click the <strong>sliders icon</strong> (search options) at the right edge of Gmail's search bar.</li>
-        <li>Fill in what identifies the emails you want gone — a <strong>From</strong> address, a <strong>Subject</strong> keyword, or a search operator such as <code>older_than:30d</code>.</li>
+        <li>Fill in what identifies the emails you want gone — usually a <strong>From</strong> address or a <strong>Subject</strong> keyword.</li>
         <li>Click <strong>Create filter</strong> at the bottom of the panel.</li>
         <li>Check the box next to <strong>Delete it</strong> in the list of actions.</li>
         <li>Click <strong>Create filter</strong> again to save it.</li>
@@ -116,12 +116,14 @@
       <ul>
         <li><strong>By sender:</strong> <code>from:noreply@example.com</code> — good for automated reports or digests from a single service.</li>
         <li><strong>By multiple senders:</strong> <code>from:(deals@store.com OR offers@store.com)</code> — groups related addresses from the same company into one rule.</li>
-        <li><strong>By category:</strong> <code>category:promotions older_than:30d</code> — auto-clears marketing mail that's sat unread for a month. This is the same approach covered in <a href="../blog/gmail-delete-all-promotional-emails.html">how to delete all promotional emails in Gmail</a>, applied as a standing rule instead of a one-time cleanup.</li>
+        <li><strong>By category:</strong> <code>category:promotions</code> — auto-clears new marketing mail as it lands. See <a href="../blog/gmail-delete-all-promotional-emails.html">how to delete all promotional emails in Gmail</a> for clearing the existing backlog, which a filter will not touch.</li>
         <li><strong>By subject keyword:</strong> <code>subject:("weekly digest")</code> — targets recurring automated emails with a consistent subject line.</li>
         <li><strong>By size:</strong> <code>larger:10M</code> — catches oversized attachments before they eat into your storage quota.</li>
       </ul>
 
-      <p>Test the search first by typing it into Gmail's search bar and pressing Enter before turning it into a filter. If the results look right, you know the filter will match correctly too.</p>
+      <p><p><strong>Important limitation:</strong> a filter tests each email as it arrives, so it cannot act on mail that already exists. An age operator such as <code>older_than:30d</code> will never match a newly delivered message — it is only useful for searching existing mail. If you want aging mail cleared on a schedule, use the search above and delete it once.</p>
+
+      <p>Test the search first by typing it into Gmail's search bar and pressing Enter before turning it into a filter. If the results look right, the filter will match the same incoming mail too.</p></p>
 
       <div class="blog-cta">
 <h3>Clean up Gmail with the Chrome extension</h3>
@@ -133,7 +135,7 @@
 
       <p>Not unless you tell it to. When creating a filter, Gmail shows a checkbox labeled <strong>"Also apply filter to matching conversations."</strong> Checking it applies the delete action retroactively to everything currently in your inbox that matches — but on a backlog of thousands of emails from one sender, this can be slow and sometimes silently stops partway through, the same limitation you'd hit trying to <a href="../blog/how-to-bulk-delete-gmail-emails.html">bulk delete Gmail emails</a> manually.</p>
 
-      <p>For clearing out years of accumulated mail from a sender before the filter takes over going forward, Inbox Cleaner is faster: it scans your entire inbox via the Gmail API, ranks every sender by how many emails they've sent you, and lets you select and Trash all of them in a single action — no per-page limit, no partial runs.</p>
+      <p>For clearing out years of accumulated mail from a sender before the filter takes over going forward, Inbox Cleaner is faster: it scans your entire inbox from inside Gmail, ranks every sender by how many emails they've sent you, and lets you select and Trash them in batches of up to 20 senders at a time, and reports any batch it cannot verify afterwards.</p>
 
       <h2>How do I manage or edit filters I've already created?</h2>
 
@@ -161,7 +163,7 @@
         </div>
         <div class="faq-item">
           <p class="faq-q">Can Gmail filters delete emails older than a certain date automatically?</p>
-          <p class="faq-a">Yes, using the older_than operator, for example "older_than:1y" to target anything past one year old. Combine it with a sender or category, like "category:promotions older_than:30d", so the filter only auto-deletes aging mail in that specific group rather than everything.</p>
+          <p class="faq-a">Not as a filter. Filters evaluate each email as it arrives, so an age condition like older_than:30d cannot match newly delivered mail. Use older_than:1y in Gmail's search bar for the existing backlog, and keep the filter itself on sender, subject, category or size.</p>
         </div>
         <div class="faq-item">
           <p class="faq-q">How many filters can I create in Gmail?</p>

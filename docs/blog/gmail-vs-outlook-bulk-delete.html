@@ -54,7 +54,7 @@
       {
         "@type": "Question",
         "name": "Which is faster for deleting 10,000 emails, Gmail or Outlook?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Outlook desktop is usually faster for one large folder because Ctrl+A selects everything in it. Gmail's 'select all conversations' link can time out at that scale, so a Gmail API tool like Inbox Cleaner is more reliable there." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Outlook desktop is usually faster for one large folder because Ctrl+A selects everything in it. Gmail's 'select all conversations' link can time out at that scale, so cleaning up by sender with the Inbox Cleaner extension is more reliable there — senders are cleared in batches of up to 20 senders at a time." }
       },
       {
         "@type": "Question",
@@ -93,7 +93,7 @@
     <div class="blog-body">
 
       <div class="quick-answer">
-        <strong>Quick answer:</strong> For bulk deleting emails, Outlook is easier out of the box: its Sweep button clears every email from one sender in two clicks, and Ctrl+A in Outlook desktop selects a whole folder. Gmail needs a <code>from:</code> search plus "Select all conversations," and that link can time out on huge batches. To close the gap in Gmail, use a Gmail API tool like <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a>, which ranks senders by volume and trashes them in one click.
+        <strong>Quick answer:</strong> For bulk deleting emails, Outlook is easier out of the box: its Sweep button clears every email from one sender in two clicks, and Ctrl+A in Outlook desktop selects a whole folder. Gmail needs a <code>from:</code> search plus "Select all conversations," and that link can time out on huge batches. To close the gap in Gmail, use the <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner extension</a>, which ranks senders by volume and trashes them in batches of up to 20 senders at a time.
       </div>
 
       <p>Plenty of people run both. There's a Gmail account for personal mail and an Outlook account for work or school. Then both inboxes fill up and you start wondering why one feels so much harder to clean than the other. The answer is simple. The two services were built around different ideas of how you manage mail, and those ideas decide how bulk deletion works.</p>
@@ -150,7 +150,7 @@
 
       <h2>How can I get Outlook-style Sweep in Gmail?</h2>
 
-      <p>Gmail has no native Sweep, but you can get close. Inbox Cleaner uses the Gmail API to scan your whole mailbox instead of the 50 emails on screen. It lists every sender ranked by how many emails they've sent you. Tick the senders you want gone, click <strong>Move to Trash</strong>, and all of their emails go at once, with no page limit and no timeouts. It's a Sweep for Gmail with the missing ranked-sender view added.</p>
+      <p>Gmail has no native Sweep, but you can get close. Inbox Cleaner scans all five Gmail categories in your open Gmail tab instead of just the 50 conversations on screen. It lists every sender ranked by how many emails they've sent you. Tick the senders you want gone, click <strong>Move to Trash</strong>, and they're cleared in batches of up to 20 senders at a time. It's a Sweep for Gmail with the missing ranked-sender view added.</p>
 
       <p>Like Gmail's own delete, everything goes to Trash, not straight to permanent deletion. You have 30 days to change your mind.</p>
 
@@ -179,7 +179,7 @@
         </div>
         <div class="faq-item">
           <p class="faq-q">Which is faster for deleting 10,000 emails, Gmail or Outlook?</p>
-          <p class="faq-a">Outlook desktop is usually faster for one large folder because Ctrl+A selects everything in it. Gmail's 'select all conversations' link can time out at that scale, so a Gmail API tool like Inbox Cleaner is more reliable there.</p>
+          <p class="faq-a">Outlook desktop is usually faster for one large folder because Ctrl+A selects everything in it. Gmail's 'select all conversations' link can time out at that scale, so cleaning up by sender with the Inbox Cleaner extension is more reliable there — senders are cleared in batches of up to 20 senders at a time.</p>
         </div>
         <div class="faq-item">
           <p class="faq-q">How long do deleted emails stay recoverable in Gmail and Outlook?</p>

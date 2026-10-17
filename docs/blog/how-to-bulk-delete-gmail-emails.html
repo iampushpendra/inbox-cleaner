@@ -27,10 +27,10 @@
     "@type": "HowTo",
     "name": "How to Bulk Delete Gmail Emails",
     "step": [
-      { "@type": "HowToStep", "name": "Open Inbox Cleaner", "text": "Go to inbox-cleaner.vercel.app and click Connect Gmail." },
+      { "@type": "HowToStep", "name": "Open Inbox Cleaner", "text": "Install the free extension from the Chrome Web Store, open your Gmail tab in desktop Chrome, and click the extension icon." },
       { "@type": "HowToStep", "name": "Review the ranked sender list", "text": "The tool scans your inbox and ranks every sender by email count, highest first." },
       { "@type": "HowToStep", "name": "Select senders to bulk delete", "text": "Check the box next to any sender you want to clear out. Select as many as you want in one pass." },
-      { "@type": "HowToStep", "name": "Move to Trash", "text": "Click Move to Trash. Every email from every selected sender moves at once, no per-page limit." }
+      { "@type": "HowToStep", "name": "Move to Trash", "text": "Click Move to Trash. Senders are cleared in batches of up to 20 senders at a time." }
     ]
   }
   </script>
@@ -47,7 +47,7 @@
       {
         "@type": "Question",
         "name": "Is there a limit to how many Gmail emails I can bulk delete?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Gmail's own interface effectively caps out around a few thousand emails per bulk action before it errors or times out. Inbox Cleaner uses the Gmail API directly, so there's no practical limit — it can move tens of thousands of emails from a sender to Trash in one action." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Gmail's own interface can stall on very large bulk actions. The Inbox Cleaner extension works sender by sender through Gmail's own selection controls instead, in batches of up to 20 senders at a time — so a huge mailbox is a matter of time rather than a hard limit, and you can watch progress as it goes." }
       },
       {
         "@type": "Question",
@@ -91,7 +91,7 @@
     <div class="blog-body">
 
       <div class="quick-answer">
-        <strong>Quick answer:</strong> To bulk delete Gmail emails, go to <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a>, connect your Gmail account, and select any sender from the ranked list to move all of their emails to Trash in one click. Gmail's own interface caps bulk selection at 50 emails per page, so this is the fastest way past that limit.
+        <strong>Quick answer:</strong> To bulk delete Gmail emails, install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, open Gmail in desktop Chrome, and select senders from the ranked list to move their mail to Trash. You pick from a ranked list instead of running a separate search per sender, and the extension clears them in batches of up to 20 at a time.
       </div>
 
       <p>If you've ever tried to clear out a flooded Gmail inbox, you've hit the same wall: Gmail lets you select 50 emails at a time. Deleting a few thousand emails from one newsletter means clicking "select all," "next page," "select all," "next page" — dozens of times. Here's how to actually bulk delete Gmail emails without that grind.</p>
@@ -105,10 +105,11 @@
       <p>The fastest method skips Gmail's search-and-select loop entirely by ranking senders for you first:</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
+        <li><strong>Scope:</strong> deleting by sender is sender-wide. It does not carry over the <code>older_than:</code>, <code>category:</code> or <code>-is:starred</code> limits from the Gmail search above — a selected sender goes in full, including archived mail. If you need those exclusions, stay with the Gmail search method above.</li>
         <li>Inbox Cleaner scans your inbox and lists every sender ranked by email count, highest first — so the biggest offenders are immediately visible.</li>
         <li>Check the box next to any sender (or several) you want cleared out.</li>
-        <li>Click <strong>Move to Trash</strong>. Every email from every selected sender moves at once — no per-page limit, no repeated clicking.</li>
+        <li>Click <strong>Move to Trash</strong>. Their mail is cleared in batches of up to 20 senders at a time, without retyping a search per sender.</li>
       </ol>
 
       <p>This works well alongside <a href="../blog/delete-all-emails-from-one-sender-gmail.html">deleting all emails from one specific sender</a> if you already know exactly who's flooding your inbox — the ranked list is most useful when you don't.</p>
@@ -121,7 +122,7 @@
 
       <h2>How do I bulk delete Gmail emails using search operators instead?</h2>
 
-      <p>If you'd rather stay inside Gmail, search operators narrow down what you're selecting before you hit the 50-per-page wall repeatedly:</p>
+      <p>If you'd rather stay inside Gmail, search operators narrow down what you're selecting before you repeat the same pass over and over:</p>
 
       <ul>
         <li><code>from:sender@example.com</code> — everything from one address</li>
@@ -144,7 +145,7 @@
         </div>
         <div class="faq-item">
           <p class="faq-q">Is there a limit to how many Gmail emails I can bulk delete?</p>
-          <p class="faq-a">Gmail's own interface effectively caps out around a few thousand emails per bulk action before it errors or times out. Inbox Cleaner uses the Gmail API directly, so there's no practical limit.</p>
+          <p class="faq-a">Gmail's own interface can stall on very large bulk actions. The Inbox Cleaner extension works sender by sender through Gmail's own selection controls instead, in batches of up to 20 senders at a time — so a huge mailbox is a matter of time rather than a hard limit.</p>
         </div>
         <div class="faq-item">
           <p class="faq-q">Does bulk deleting Gmail emails delete them permanently?</p>

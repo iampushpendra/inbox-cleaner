@@ -31,7 +31,7 @@
       { "@type": "HowToStep", "name": "Sort Gmail by size", "text": "Search size:10m (or another threshold) in Gmail to surface the largest emails and attachments first." },
       { "@type": "HowToStep", "name": "Delete the biggest offenders", "text": "Select and trash the largest emails, then clear out Promotions and old newsletters you don't need." },
       { "@type": "HowToStep", "name": "Empty Trash", "text": "Open Trash and click Empty Trash Now so deleted mail actually releases the space immediately instead of waiting 30 days." },
-      { "@type": "HowToStep", "name": "For a faster pass, use Inbox Cleaner", "text": "Connect Gmail at inbox-cleaner.vercel.app to rank senders by email count and clear the worst offenders in one click." }
+      { "@type": "HowToStep", "name": "For a faster pass, use Inbox Cleaner", "text": "Install the free Chrome extension to rank senders by email count and clear the worst offenders in batches of up to 20 senders at a time." }
     ]
   }
   </script>
@@ -92,7 +92,7 @@
     <div class="blog-body">
 
       <div class="quick-answer">
-        <strong>Quick answer:</strong> Gmail storage full is fixed by checking what's using space at one.google.com/storage, searching Gmail for <code>size:10m</code> to find your largest emails, deleting the worst offenders, and then emptying Trash so the space releases immediately instead of after 30 days. If years of buildup across many senders is the real cause, <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a> ranks senders by volume so you can clear the biggest sources in one click.
+        <strong>Quick answer:</strong> Gmail storage full is fixed by checking what's using space at one.google.com/storage, searching Gmail for <code>size:10m</code> to find your largest emails, deleting the worst offenders, and then emptying Trash so the space releases immediately instead of after 30 days. If years of buildup across many senders is the real cause, <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a> ranks senders by volume so you can clear the biggest sources in batches of up to 20 senders at a time.
       </div>
 
       <p>When Gmail's storage fills up, you stop receiving new email and can't send anything until you're back under the limit. It's disruptive precisely because it usually happens without warning — you get a bounce notice or a "storage full" banner, and now it's urgent instead of something you can put off.</p>
@@ -126,10 +126,10 @@
 
       <h2>How does Inbox Cleaner help when Gmail storage is full?</h2>
 
-      <p>Inbox Cleaner scans your whole inbox via the Gmail API and ranks every sender by how many emails they've sent you — which is usually a better signal than size alone, since one sender with 8,000 small notification emails can outweigh a folder of large attachments.</p>
+      <p>Inbox Cleaner scans your whole inbox from inside Gmail and ranks every sender by how many emails they've sent you — which is usually a better signal than size alone, since one sender with 8,000 small notification emails can outweigh a folder of large attachments.</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
         <li>Review the ranked list — the senders at the top are almost always the ones responsible for the bulk of your storage use.</li>
         <li>Check the boxes next to the senders you don't need and click <strong>Move to Trash</strong>.</li>
         <li>Empty Trash afterward from within Gmail to release the space right away.</li>

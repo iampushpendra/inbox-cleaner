@@ -5,9 +5,9 @@
   <link rel="canonical" href="https://inbox-cleaner.vercel.app/blog/how-to-mass-delete-emails-gmail.html">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How to Mass Delete Emails in Gmail (2026 Guide) | Inbox Cleaner</title>
-  <meta name="description" content="Mass deleting Gmail emails works best in targeted passes. Here are the searches to run, the order to run them in, and how to get past the 50-per-page cap.">
+  <meta name="description" content="Mass deleting Gmail emails works best in targeted passes. Here are the searches to run, the order to run them in, and how to avoid repeating the same pass over and over.">
   <meta property="og:title" content="How to Mass Delete Emails in Gmail (2026 Guide)">
-  <meta property="og:description" content="Mass deleting Gmail emails works best in targeted passes. Here are the searches to run, the order to run them in, and how to get past the 50-per-page cap.">
+  <meta property="og:description" content="Mass deleting Gmail emails works best in targeted passes. Here are the searches to run, the order to run them in, and how to avoid repeating the same pass over and over.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://inbox-cleaner.vercel.app/blog/how-to-mass-delete-emails-gmail.html">
   <script type="application/ld+json">
@@ -32,7 +32,7 @@
       { "@type": "HowToStep", "name": "Select every matching conversation", "text": "Click the checkbox at the top-left of the message list, then click the \"Select all conversations that match this search\" banner to extend the selection beyond the 50 shown on the page." },
       { "@type": "HowToStep", "name": "Move the batch to Trash", "text": "Click the Trash icon and wait for Gmail to finish before starting the next search. Deleted mail stays in Trash for 30 days." },
       { "@type": "HowToStep", "name": "Repeat in passes, then empty Trash", "text": "Run the next search — old mail, large attachments, dead senders — and delete each batch in turn. Empty Trash at the end to actually reclaim the storage." },
-      { "@type": "HowToStep", "name": "For inboxes too big for select-all, use Inbox Cleaner", "text": "Connect Gmail at inbox-cleaner.vercel.app, which scans the whole mailbox via the Gmail API and ranks senders by volume, so you can clear tens of thousands of emails without the select-all banner timing out." }
+      { "@type": "HowToStep", "name": "For inboxes too big for select-all, use Inbox Cleaner", "text": "Install the free Chrome extension, open Gmail in desktop Chrome, which scans all five Gmail categories and ranks senders by volume, so you can clear tens of thousands of emails in batches of up to 20 senders at a time rather than relying on the select-all banner." }
     ]
   }
   </script>
@@ -93,7 +93,7 @@
     <div class="blog-body">
 
       <div class="quick-answer">
-        <strong>Quick answer:</strong> To mass delete emails in Gmail, run a search that isolates the batch you want gone — such as <code>category:promotions older_than:1y</code> — click the top checkbox, click "Select all conversations that match this search," and hit Trash. Do it in several targeted passes rather than one giant delete, then empty Trash to reclaim the storage. For inboxes where the select-all banner stalls, <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a> clears entire senders in one click with no per-page limit.
+        <strong>Quick answer:</strong> To mass delete emails in Gmail, run a search that isolates the batch you want gone — such as <code>category:promotions older_than:1y</code> — click the top checkbox, click "Select all conversations that match this search," and hit Trash. Do it in several targeted passes rather than one giant delete, then empty Trash to reclaim the storage. For inboxes where the select-all banner stalls, <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a> clears entire senders in batches of up to 20 senders at a time.
       </div>
 
       <p>Mass deleting in Gmail fails for one of two reasons. Either you try to delete from the open inbox view and Gmail hands you 50 emails at a time, or you throw one enormous search at it and the select-all banner quietly gives up halfway through. Both are avoidable. The trick is deciding what the batch is <em>before</em> you start clicking.</p>
@@ -140,10 +140,11 @@
 
       <h2>What's the fastest way to mass delete a huge Gmail inbox?</h2>
 
-      <p>Skip Gmail's selection layer entirely. Inbox Cleaner reads your mailbox through the Gmail API, so it isn't bound by what's drawn on a page:</p>
+      <p>Skip Gmail's selection layer entirely. Inbox Cleaner scans all five Gmail categories, not just what's drawn on a page:</p>
 
       <ol class="blog-steps">
-        <li>Go to <a href="https://inbox-cleaner.vercel.app">inbox-cleaner.vercel.app</a> and click <strong>Connect Gmail</strong>.</li>
+        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
+        <li><strong>Scope:</strong> deleting by sender is sender-wide. It does not carry over the <code>older_than:</code>, <code>category:</code> or <code>-is:starred</code> limits from the Gmail search above — a selected sender goes in full, including archived mail. If you need those exclusions, stay with the Gmail search method above.</li>
         <li>Let the scan run. Every sender in your inbox comes back ranked by how many emails they've sent you.</li>
         <li>Tick the senders you want cleared — the top ten are usually most of your problem.</li>
         <li>Click <strong>Move to Trash</strong>. Everything from those senders goes at once, however many there are.</li>
