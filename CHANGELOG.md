@@ -4,6 +4,15 @@ All notable changes to this project are documented in this file.
 Format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Versioning: see `VERSION` file (semver, no `package.json` — this isn't a Node/build project).
 
+## [3.2.2] - 2026-10-17
+
+### Added
+- Added an extensive competitor research report covering 26 identified inbox-cleaner extension identities, seven detailed teardowns, adjacent services, onboarding, visual and CTA analysis, source evidence and prioritized recommendations.
+- Retained official screenshot evidence and research notes, with clear distinctions between public screenshots, documented behavior, local source observations and untested authenticated flows.
+
+### Documentation
+- Linked the research report from README. This is a documentation-only release; extension runtime and manifest remain at 3.2.1, with no application code changes.
+
 ## [3.2.1] - 2026-10-16
 
 ### Fixed
