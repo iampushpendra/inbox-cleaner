@@ -59,6 +59,10 @@ Group by sender → ranked list (chrome.storage.local)
 
 [Inbox cleaner extension teardown](reports/Inbox%20cleaner%20extension%20teardown.md) · [HTML reading edition](reports/inbox-cleaner-extension-teardown.html) — an in-depth comparison of Chrome inbox cleaners, onboarding, interaction design, safety language and recommendations for this product, researched 17 October 2026.
 
+## Organic growth audit
+
+[Organic growth audit and roadmap](reports/Inbox%20Cleaner%20organic%20growth.md) — technical and content findings, authenticated Search Console baseline, 15 page/tool briefs, and a low-budget 30/60/90-day plan, researched 17 October 2026. The [47-page content inventory](research_notes/Inbox%20Cleaner%20organic%20growth/content-inventory.csv) is the URL-level backlog. These are recommendations; the live site and publishing schedule are unchanged.
+
 ## Blog publishing
 
 The local LaunchAgent publishes one queued article at **9 AM, 1 PM, 5 PM, and 9 PM IST** (four posts per day). It runs on this Mac while the user is logged in; sleeping or offline time can delay runs. Vercel deploys pushes to `main`.
