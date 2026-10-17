@@ -10,6 +10,15 @@ Versioning: see `VERSION` file (semver, no `package.json` — this isn't a Node/
 - Added an organic-growth audit covering 50 live sitemap URLs, all 47 articles, product-claim consistency, a transcribed authenticated Search Console baseline, and a prioritized low-budget page/tool roadmap.
 - Added a complete URL-level content inventory and reproducible provenance for the installed SEO audit, content strategy and programmatic SEO skills. No application, production or publishing schedule changes.
 
+## [3.2.3] - 2026-10-17
+
+### Added
+- Added a competitor-informed product roadmap with 26 proposed tasks, release gates, dependencies, acceptance criteria, model types, exact Codex model/effort assignments and review ownership.
+- Added an HTML reading edition and explicit coverage of deferred and feasibility-gated features.
+
+### Documentation
+- Linked the roadmap from README. Documentation-only release; extension runtime and manifest remain at 3.2.1.
+
 ## [3.2.2] - 2026-10-17
 
 ### Added

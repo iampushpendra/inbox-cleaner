@@ -5,7 +5,7 @@
 [![Live App](https://img.shields.io/badge/Live%20App-open-blue?style=flat-square)](https://iampushpendra.github.io/inbox-cleaner/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-**Current version: 3.2.2** — documentation release; extension runtime remains 3.2.1. See [CHANGELOG.md](CHANGELOG.md) for what's new.
+**Current version: 3.2.3** — documentation release; extension runtime remains 3.2.1. See [CHANGELOG.md](CHANGELOG.md) for what's new.
 
 ---
 
@@ -56,6 +56,8 @@ Group by sender → ranked list (chrome.storage.local)
 ---
 
 ## Competitive research
+
+[Product roadmap and model assignments](docs/superpowers/plans/2026-10-17-inbox-cleaner-roadmap.md) — phased tasks, dependencies, acceptance criteria and recommended build/review models. [Read the HTML edition](reports/inbox-cleaner-roadmap.html).
 
 [Inbox cleaner extension teardown](reports/Inbox%20cleaner%20extension%20teardown.md) · [HTML reading edition](reports/inbox-cleaner-extension-teardown.html) — an in-depth comparison of Chrome inbox cleaners, onboarding, interaction design, safety language and recommendations for this product, researched 17 October 2026.
 
