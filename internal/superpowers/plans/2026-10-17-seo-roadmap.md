@@ -2,7 +2,7 @@
 
 > **For agentic workers:** Use superpowers:executing-plans for implementation, or superpowers:subagent-driven-development only when the user chooses delegation. Checkboxes track proposed work, not completed changes.
 >
-> **Progress 17 October 2026:** four checkboxes below are marked done by committed work (assets, internal-document exclusion, product-fact recording, high-risk claim corrections). They live in `internal/superpowers/`, not `docs/`. Remaining items are still proposed. A checked box records verified repo work, not a publishing or store outcome.
+> **Progress 17 October 2026:** seven checkboxes below are marked done by committed work: product-fact recording, high-risk claim corrections, favicon/social assets, internal-document exclusion, and the SEO-04 publishing gate (`scripts/content_gate.py`, enforced by `publish_blog.py` for both the manual and scheduled route). They live in `internal/superpowers/`, not `docs/`. Remaining items are still proposed. A checked box records verified repo work, not a publishing or store outcome. The gate detects contradictions and broken pages; it does not certify that a procedure is true, so editorial review is still required.
 
 **Goal:** Grow qualified organic discovery and useful installs by correcting product claims, improving existing search opportunities and publishing distinct, tested pages and browser-only tools.
 
@@ -108,10 +108,10 @@ R01/R02 supply truthful claims and action semantics. SEO repairs and native Gmai
 
 **Dependencies:** SEO-01 product facts; preserve current scheduler until the implementation changes it explicitly. **Files:** scripts/blog-topics.json, scripts/daily_publish_prompt.md, scripts/blog_prompt.md, scripts/publish_blog.py, scripts/build_site.mjs; proposed scripts/content-records.json; test/test_daily_publish.py and test/site.test.js.
 
-- [ ] Define draft → evidence-checked → publish-ready records with intent owner, product version, sources, original asset/fixture, actual verification date, limitations, related links and reviewer state. Specify the record interface before coding.
+- [x] Define draft → evidence-checked → publish-ready records with intent owner, product version, sources, original asset/fixture, actual verification date, limitations, related links and reviewer state. Specify the record interface before coding.
 - [ ] Remove compulsory word-count/FAQ/rich-result quotas and promises of featured-snippet extraction. Require a sentence stating what the page adds beyond existing results.
-- [ ] Fail publishing on missing readiness, impossible/future dates, broken links/assets, known contradictory facts or indexable near-duplicate tool states. Require substantive review for intent collision and source accuracy.
-- [ ] Prove scheduled and manual publication both enforce the same gate, including no-ready-topic behavior and clean-worktree protection. A citation URL is not factual verification.
+- [x] Fail publishing on missing readiness, impossible/future dates, broken links/assets, known contradictory facts or indexable near-duplicate tool states. Require substantive review for intent collision and source accuracy.
+- [x] Prove scheduled and manual publication both enforce the same gate, including no-ready-topic behavior and clean-worktree protection. A citation URL is not factual verification.
 
 **Done when:** Invalid fixtures fail with actionable errors, ready fixtures publish with stable dates/discovery links, and no path publishes an unreviewed record. Cadence follows verified supply; propose two or three complete assets weekly initially, not an SEO quota.
 
