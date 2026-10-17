@@ -7,6 +7,7 @@ Versioning: see `VERSION` file (semver, no `package.json` — this isn't a Node/
 ## [Unreleased]
 
 ### Documentation
+- Added 14 open analytics-backed SEO roadmap subtasks with priorities, evidence, dependencies and completion criteria; linked product-safety work to its existing roadmap and added a bounded ChatGPT-source acquisition experiment.
 - Added authenticated analytics intelligence and an evidence-backed ordering of the existing product/content roadmaps, including complete available Search Console exports, GA source/install reports and explicit collection limits. Private Web Store dashboard access was blocked in both Kimi and the ChatGPT Chrome extension.
 - Added an organic-growth audit covering 50 live sitemap URLs, all 47 articles, product-claim consistency, a transcribed authenticated Search Console baseline, and a prioritized low-budget page/tool roadmap.
 - Added a complete URL-level content inventory and reproducible provenance for the installed SEO audit, content strategy and programmatic SEO skills. No application, production or publishing schedule changes.
