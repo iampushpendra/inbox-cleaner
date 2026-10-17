@@ -1577,7 +1577,7 @@
     "slug": "gmail-select-all-conversations-not-showing",
     "target_query": "why is select all conversations that match this search not showing in gmail",
     "eyebrow": "Gmail Selection",
-    "status": "pending",
+    "status": "published",
     "cluster": "selection",
     "answer_angle": "A screenshot-led decision tree separating page selection, search results, view differences and mobile limitations; do not promise a universal fix.",
     "priority": 1,
