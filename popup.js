@@ -318,6 +318,13 @@ chrome.runtime.onMessage.addListener(({ type, data }) => {
         show('main');
         toast('Deletion complete ✓');
       });
+    } else if (d.status === 'unverified') {
+      getCache().then(cache => {
+        if (cache) loadCache(cache);
+        show('main');
+        showProgress(false);
+        toast(`Deletion finished, but ${d.unverified} of ${d.total} batches could not be verified — re-scan to confirm what is left`, 'error');
+      });
     } else {
       const pct = d.total > 0 ? (d.chunk / d.total * 100).toFixed(0) : 0;
       deleteFill.style.width = `${pct}%`;

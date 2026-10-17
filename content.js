@@ -88,7 +88,12 @@ function waitForElement(selector, timeoutMs = RENDER_TIMEOUT_MS) {
   });
 }
 
-function extractRow(rowEl) {
+// Gmail's rows normally carry `data-legacy-thread-id`; `rowEl.id` is only a
+// fallback and may be positional ("p0", "p1", …), which repeats on every page.
+// A bare fallback would collapse page 2 into page 1's conversations, so
+// qualify it with the page it was seen on. Rows with neither attribute stay
+// id-less and are still dropped by the dedupe.
+function extractRow(rowEl, pageIndex = 0) {
   const senderEl = rowEl.querySelector(SELECTORS.senderSpan);
   const dateEl = rowEl.querySelector(SELECTORS.dateSpan);
   const { name, email } = parseSenderFromAttrs({
@@ -96,7 +101,8 @@ function extractRow(rowEl) {
     nameAttr: senderEl ? senderEl.getAttribute('name') : '',
   });
   const dateTs = parseDateFromTitle(dateEl ? dateEl.getAttribute('title') : '');
-  const threadId = rowEl.getAttribute(SELECTORS.threadIdAttr) || rowEl.id || '';
+  const threadId = rowEl.getAttribute(SELECTORS.threadIdAttr) ||
+    (rowEl.id ? `p${pageIndex}:${rowEl.id}` : '');
   return { name, email, dateTs, threadId };
 }
 
@@ -150,19 +156,31 @@ function findOlderButton() {
   return null;
 }
 
-async function waitForPageChange(previousRows, timeoutMs = RENDER_TIMEOUT_MS) {
-  const previousIds = previousRows.map(row => row.threadId).join('\n');
+// Page-change signal. The dedupe key is page-qualified, so it cannot detect
+// advancement (every page tags its rows identically). Signal on what Gmail
+// actually re-rendered instead: row identity when it is available, plus row
+// CONTENT (sender + date), which differs between real pages even when Gmail
+// offers nothing but positional ids and no counter. A counter that advanced is
+// a third, independent signal.
+function rowSignature(rows) {
+  return rows.map(row => `${row.threadId}|${row.email}|${row.dateTs}`).join('\n');
+}
+
+async function waitForPageChange(previousRows, previousRange, pageIndex = 0, timeoutMs = RENDER_TIMEOUT_MS) {
+  const previousSignature = rowSignature(previousRows);
   const deadline = Date.now() + timeoutMs;
   while (Date.now() < deadline) {
-    const rows = extractVisibleRows();
-    if (rows.length && rows.map(row => row.threadId).join('\n') !== previousIds) return true;
+    const rows = extractVisibleRows(pageIndex);
+    if (rows.length && rowSignature(rows) !== previousSignature) return true;
+    const range = readResultRange();
+    if (previousRange && range && range.start !== previousRange.start) return true;
     await sleep(200);
   }
   return false;
 }
 
-function extractVisibleRows() {
-  return [...document.querySelectorAll(SELECTORS.row)].map(extractRow);
+function extractVisibleRows(pageIndex = 0) {
+  return [...document.querySelectorAll(SELECTORS.row)].map(el => extractRow(el, pageIndex));
 }
 
 // Phase A: walk every page of a category, not just the first one. Gmail
@@ -182,7 +200,13 @@ async function scanCategory(op, onPage) {
   while (pages < MAX_PAGES_PER_CATEGORY) {
     await sleep(PAGE_SETTLE_MS);
 
-    let pageRows = extractVisibleRows();
+    // Capture the page index once: these rows are tagged with it, and
+    // waitForPageChange must compare them against rows tagged with the SAME
+    // index. Passing the already-incremented `pages` would make every id
+    // differ by its prefix and report a page change before Gmail re-rendered.
+    const pageIndex = pages;
+
+    let pageRows = extractVisibleRows(pageIndex);
     const range = readResultRange();
 
     // If Gmail rendered fewer rows than the page claims to hold, the list is
@@ -191,7 +215,7 @@ async function scanCategory(op, onPage) {
     if (expected && pageRows.length < expected) {
       await scrollListToBottom();
       await sleep(SCROLL_SETTLE_MS);
-      pageRows = extractVisibleRows();
+      pageRows = extractVisibleRows(pageIndex);
     }
 
     rows.push(...pageRows);
@@ -209,7 +233,7 @@ async function scanCategory(op, onPage) {
     if (pages >= MAX_PAGES_PER_CATEGORY) throw new Error('Scan incomplete: category page safety limit reached.');
 
     older.click();
-    if (!(await waitForPageChange(pageRows))) throw new Error('Scan incomplete: Gmail did not load the next page. Please retry.');
+    if (!(await waitForPageChange(pageRows, range, pageIndex))) throw new Error('Scan incomplete: Gmail did not load the next page. Please retry.');
   }
 
   return dedupeRowsByThreadId(rows);
@@ -223,7 +247,11 @@ async function scanCategory(op, onPage) {
 async function countSenderExactly(email) {
   const query = buildSenderQuery(email);
   location.hash = `search/${encodeURIComponent(query)}`;
-  await waitForSearchQuery(query).catch(() => {});
+  // A query that never lands leaves the previous sender's counter on screen, so
+  // there is nothing here to trust: report unknown rather than another
+  // sender's number (the caller keeps the sampled count and stays inexact).
+  const landed = await waitForSearchQuery(query).then(() => true, () => false);
+  if (!landed) return null;
 
   const deadline = Date.now() + RENDER_TIMEOUT_MS;
   while (Date.now() < deadline) {
@@ -330,12 +358,33 @@ async function selectAllMatchingAndTrash(query) {
   const checkbox = document.querySelector(SELECTORS.selectAllCheckbox);
   checkbox.click();
 
+  // The banner is what widens the selection from this page's ~100 visible rows to
+  // every matching conversation. Without it Trash would move only the visible
+  // page, so a missing banner must fail the chunk rather than under-delete
+  // silently and report it as the whole set.
   const matchingLink = await waitForElement(SELECTORS.selectAllMatchingLink, 5000).catch(() => null);
-  if (matchingLink) matchingLink.click();
+  if (!matchingLink) {
+    throw new Error('Gmail\'s layout may have changed — the "select all conversations that match" banner is unavailable, so only the visible page would have been deleted. Nothing was deleted; please retry.');
+  }
+  matchingLink.click();
 
   const trash = await waitForElement(SELECTORS.trashButton);
   trash.click();
   await sleep(1000); // let Gmail's own delete animation/toast finish before navigating again
+
+  return await verifyChunkEmpty();
+}
+
+// Post-state evidence for one chunk: after trashing everything matching the
+// chunk's own query, that query should come back with no rows. Rows still there
+// means the outcome is unknown — not success.
+async function verifyChunkEmpty() {
+  const deadline = Date.now() + RENDER_TIMEOUT_MS;
+  while (Date.now() < deadline) {
+    if (!document.querySelector(SELECTORS.row)) return true;
+    await sleep(200);
+  }
+  return false;
 }
 
 let deleteState = { status: 'idle', chunk: 0, total: 0, error: null };
@@ -345,8 +394,9 @@ async function doDelete(emails) {
   deleteState = { status: 'deleting', chunk: 0, total: queries.length, error: null };
   broadcast('DELETE_STATE', { ...deleteState });
 
+  let unverified = 0;
   for (let i = 0; i < queries.length; i++) {
-    await selectAllMatchingAndTrash(queries[i]);
+    if (!(await selectAllMatchingAndTrash(queries[i]))) unverified += 1;
     deleteState = { status: 'deleting', chunk: i + 1, total: queries.length, error: null };
     broadcast('DELETE_STATE', { ...deleteState });
   }
@@ -359,13 +409,43 @@ async function doDelete(emails) {
     await chrome.storage.local.set({ inboxCleanerData: stored });
   }
 
-  deleteState = { status: 'done', chunk: queries.length, total: queries.length, error: null };
+  // Completion is only claimed when every chunk was verified; anything left
+  // unverified is reported as partial rather than as a finished deletion.
+  deleteState = {
+    status: unverified ? 'unverified' : 'done',
+    chunk: queries.length, total: queries.length, unverified, error: null,
+  };
   broadcast('DELETE_STATE', { ...deleteState });
+}
+
+// `msg.emails` crosses a trust boundary (any extension page can send it), and a
+// duplicate or differently-cased address would be actioned twice — so
+// normalize once, here.
+function normalizeAddresses(emails) {
+  const list = Array.isArray(emails) ? emails : [];
+  const seen = new Set();
+  const unique = [];
+  for (const raw of list) {
+    const email = typeof raw === 'string' ? raw.trim().toLowerCase() : '';
+    if (!email.includes('@') || seen.has(email)) continue;
+    seen.add(email);
+    unique.push(email);
+  }
+  return unique;
 }
 
 chrome.runtime.onMessage.addListener((msg, _sender, respond) => {
   if (msg.type === 'DELETE') {
-    doDelete(msg.emails).catch(e => {
+    if (deleteState.status === 'deleting') {
+      respond({ ok: false, reason: 'already running' });
+      return true;
+    }
+    const emails = normalizeAddresses(msg.emails);
+    if (!emails.length) {
+      respond({ ok: false, reason: 'no valid email addresses' });
+      return true;
+    }
+    doDelete(emails).catch(e => {
       deleteState = { status: 'error', chunk: 0, total: 0, error: e.message };
       broadcast('DELETE_ERROR', e.message);
     });

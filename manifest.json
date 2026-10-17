@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Inbox Cleaner",
   "version": "3.2.1",
-  "description": "See who's filling your Gmail. Select and delete in one click.",
+  "description": "See who's filling your Gmail. Select senders, then confirm to move all their mail to Trash.",
   "permissions": ["storage", "tabs"],
   "host_permissions": [
     "https://mail.google.com/*"
