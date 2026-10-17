@@ -24,3 +24,8 @@ Base: `2263d24`. User authorizes continuing all SEO work through subagents. Exis
 External dependencies remain pending explicitly: private Developer Dashboard exports, individual authenticated GSC inspection, live disposable Gmail walkthroughs, firsthand competitor tests and post-release equal-window reviews. Synthetic tests can establish local behavior but cannot be presented as proof of Gmail/competitor behavior. No real-mail mutation, external outreach, account-setting changes or silent telemetry.
 
 - Generator integration: seven site tests passed, including new canonical tool discovery, repeat-build stability and rejection of unlisted tool files. Initial two tests failed before implementation as expected.
+
+- SEO-06 implemented by query agent in d58ea66; 11 targeted tests, full Node 67/67 and Python 15/15 at worker completion. Controller browser verified synthetic sender+size generation, consent enables Gmail action, copy success feedback, invalid manual syntax disables actions and clears consent. No real-mail action performed.
+- SEO-07 implemented by storage agent in d62c6eb; 8 targeted tests. Controller browser verified entered 1/2/13 GB against 15 GB gives Photos-first review and over-quota cautions, then reset clears inputs/results. Narrow 490px pane screenshot inspected without horizontal clipping.
+- Scorecard implemented in 6752fc6 with two meaningful window/unknown tests; exported baseline reproduces 4/1307 vs 13/1847 without joining store attribution.
+- Publishing evidence-record implementation delegated; discovered existing roadmap claimed record/readiness behavior that code did not enforce. Correcting implementation rather than treating checked plan text as proof.

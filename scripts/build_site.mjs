@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync, readdirSync, realpathSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
+import { spawnSync } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 // `docs/` is the Vercel outputDirectory, so anything left in it is served
@@ -108,6 +109,16 @@ export function buildSite(root = projectRoot) {
   const store = config.extensionStoreUrl;
   if (!/^https:\/\/chromewebstore\.google\.com\/detail\/[^/]+\/[a-p]{32}$/.test(store)) throw new Error('A verified Chrome Web Store URL is required');
   const posts = readPosts(root);
+  const queueFile = resolve(root, 'scripts/blog-topics.json');
+  if (existsSync(queueFile)) {
+    const topics = JSON.parse(readFileSync(queueFile, 'utf8'));
+    const published = new Set(topics.filter(topic => topic.status === 'published').map(topic => topic.slug));
+    for (const post of posts) {
+      if (published.has(post.slug)) continue;
+      const check = spawnSync('python3', [resolve(root, 'scripts/content_gate.py'), '--ready', post.slug], { encoding: 'utf8' });
+      if (check.status !== 0) throw new Error(`Unreviewed article cannot enter deployment: ${post.slug}. ${check.stdout || check.stderr || 'Evidence readiness check unavailable.'}`);
+    }
+  }
   const tools = readTools(root);
   const changed = [];
   function write(path, value) {

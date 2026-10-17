@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "gmail-cleanup-search-builder",
+    "title": "Gmail cleanup search builder",
+    "description": "Build and check a search locally before reviewing it in Gmail.",
+    "modified": "2026-10-17",
+    "assets": ["query-builder.js", "query-builder.css"]
+  },
+  {
+    "slug": "gmail-storage-troubleshooter",
+    "title": "Gmail storage troubleshooter",
+    "description": "Find your next step from manually entered storage figures and symptoms.",
+    "modified": "2026-10-17",
+    "assets": ["storage-troubleshooter.js", "storage-troubleshooter.css"]
+  }
+]
