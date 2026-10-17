@@ -127,7 +127,7 @@ export function buildSite(root = projectRoot) {
     if (previous !== value) { writeFileSync(resolve(root, path), value); changed.push(path); }
   }
   const install = `<a class="blog-cta-btn" href="${escape(store)}">Add Inbox Cleaner to Chrome →</a>`;
-  const cta = `<div class="blog-cta">\n<h3>Clean up Gmail with the Chrome extension</h3>\n<p>Rank senders, select the ones you want to clear, and move their emails to Trash. You have 30 days to recover trashed emails.</p>\n${install}\n</div>`;
+  const cta = `<div class="blog-cta">\n<h3>Clean up Gmail with the Chrome extension</h3>\n<p>Rank senders, select the ones you want to clear, and move their emails to Trash. Mail in Trash is normally recoverable for up to 30 days unless permanently removed sooner.</p>\n${install}\n</div>`;
   function navigation(html) {
     html = html.replace(/href="https:\/\/chromewebstore\.google\.com\/detail\/[^"]+"/g, `href="${escape(store)}"`);
     html = html.replace(/<a\b[^>]*class="blog-nav-cta"[^>]*>[\s\S]*?<\/a>/g, `<a class="blog-nav-cta" href="${escape(store)}">Add to Chrome →</a>`);
