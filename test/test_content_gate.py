@@ -133,7 +133,9 @@ class ReadinessTest(unittest.TestCase):
         (self.root / 'docs/blog').mkdir(parents=True)
         (self.root / 'docs/blog/index.html').write_text("hub")
         self.post = self.root / 'docs/blog/example.html'
-        self.post.write_text(VALID)
+        store='https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep'
+        self.post.write_text(VALID + f'<a class="blog-nav-cta" href="{store}">Install</a><a class="blog-cta-btn" href="{store}">Install</a>')
+        (self.root / 'scripts/site-config.json').write_text(json.dumps({'extensionStoreUrl':store}))
         (self.root / 'manifest.json').write_text('{"version":"3.2.1"}')
         self.topics = self.root / 'scripts/blog-topics.json'
         self.topics.write_text(json.dumps([{'slug':'example','status':'pending','intent_owner':'example'}]))

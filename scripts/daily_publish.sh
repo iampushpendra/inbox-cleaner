@@ -41,6 +41,10 @@ fi
 export BLOG_JOB_ACTION="${selection%% *}"
 export BLOG_JOB_SLUG="${selection#* }"
 slug="$BLOG_JOB_SLUG"
+if [ "$BLOG_JOB_ACTION" = "review" ]; then
+  echo "=== $(date -u +%Y-%m-%dT%H:%M:%SZ) Pending drafts await evidence review; nothing ready to publish ===" >> scripts/daily_publish.log
+  exit 0
+fi
 
 if ! /Users/pushpendrasingh/.local/bin/claude -p "$(cat scripts/daily_publish_prompt.md)" \
   --allowedTools "Bash Read Write Edit Glob Grep" \
@@ -51,8 +55,8 @@ fi
 
 # Drafting is useful unattended work, but is never publication approval.
 if [ "$BLOG_JOB_ACTION" = "draft" ]; then
-  if [ ! -f "internal/blog-drafts/$slug.html" ]; then
-    notify_failure "draft was not created: $slug"
+  if [ ! -f "internal/blog-drafts/$slug.html" ] || [ ! -f "internal/blog-drafts/$slug.evidence.json" ]; then
+    notify_failure "draft or evidence sidecar was not created: $slug"
     exit 1
   fi
   echo "=== $(date -u +%Y-%m-%dT%H:%M:%SZ) Draft saved: $slug; evidence review required before publication ===" >> scripts/daily_publish.log

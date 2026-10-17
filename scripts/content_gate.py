@@ -153,7 +153,7 @@ def check_post(path: Path, today: date | None = None, blog_dir: Path = BLOG_DIR)
 def post_fingerprint(path: Path) -> str:
     """SHA-256 of authored UTF-8 HTML, excluding complete generated AUTO regions."""
     html = path.read_text()
-    html = re.sub(r"<!-- AUTO:([a-z-]+):start -->.*?<!-- AUTO:\1:end -->", "", html, flags=re.S)
+    html = re.sub(r"<!-- AUTO:([a-z-]+):start -->.*?<!-- AUTO:\1:end -->(?:\r?\n)?", "", html, flags=re.S)
     return hashlib.sha256(html.encode("utf-8")).hexdigest()
 
 
@@ -216,6 +216,17 @@ def check_readiness(path: Path, repo_root: Path | None = None,
             url = urlparse(raw_url if isinstance(raw_url, str) else "")
             if url.scheme != "https" or not url.netloc or not source.get("supports") or not source.get("review_notes"):
                 problems.append("citation needs HTTPS URL, supports and substantive review_notes")
+    if path.is_file():
+        try:
+            store = json.loads((root / "scripts/site-config.json").read_text())["extensionStoreUrl"]
+        except (OSError, ValueError, KeyError):
+            problems.append("missing canonical extension store configuration")
+        else:
+            html = path.read_text()
+            for css_class in ("blog-nav-cta", "blog-cta-btn"):
+                buttons = re.findall(r'<a\b[^>]*class="' + css_class + r'"[^>]*>', html)
+                if not buttons or any(f'href="{store}"' not in button for button in buttons):
+                    problems.append(f"{css_class} must use the configured Chrome Web Store URL before review")
     kind = record.get("verification_kind")
     if kind not in ("source_review", "synthetic_fixture", "live_mailbox"):
         problems.append("verification_kind must be source_review, synthetic_fixture or live_mailbox")

@@ -110,11 +110,11 @@ export function buildSite(root = projectRoot) {
   if (!/^https:\/\/chromewebstore\.google\.com\/detail\/[^/]+\/[a-p]{32}$/.test(store)) throw new Error('A verified Chrome Web Store URL is required');
   const posts = readPosts(root);
   const queueFile = resolve(root, 'scripts/blog-topics.json');
+  const legacyFile = resolve(root, 'scripts/legacy-published.json');
+  const legacy = new Set(existsSync(legacyFile) ? JSON.parse(readFileSync(legacyFile, 'utf8')) : []);
   if (existsSync(queueFile)) {
-    const topics = JSON.parse(readFileSync(queueFile, 'utf8'));
-    const published = new Set(topics.filter(topic => topic.status === 'published').map(topic => topic.slug));
     for (const post of posts) {
-      if (published.has(post.slug)) continue;
+      if (legacy.has(post.slug)) continue;
       const check = spawnSync('python3', [resolve(root, 'scripts/content_gate.py'), '--ready', post.slug], { encoding: 'utf8' });
       if (check.status !== 0) throw new Error(`Unreviewed article cannot enter deployment: ${post.slug}. ${check.stdout || check.stderr || 'Evidence readiness check unavailable.'}`);
     }
@@ -136,7 +136,11 @@ export function buildSite(root = projectRoot) {
   }
   const link = post => `<a href="/blog/${escape(post.slug)}.html">${escape(post.title)}</a>`;
   for (const [index, post] of posts.entries()) {
-    let html = navigation(post.html).replace(/<div\b[^>]*class="blog-cta"[^>]*>[\s\S]*?<\/div>/g, cta);
+    // Only the fixed historical inventory permits authored CTA migrations.
+    // Reviewed pages receive generated regions only, preserving their approval hash.
+    let html = (!existsSync(queueFile) || legacy.has(post.slug))
+      ? navigation(post.html).replace(/<div\b[^>]*class="blog-cta"[^>]*>[\s\S]*?<\/div>/g, cta)
+      : post.html;
     const related = `<section class="blog-wrap related-guides" aria-labelledby="related-heading">\n<h2 id="related-heading">More Gmail cleanup guides</h2>\n<ul>${relatedPosts(posts, index).map(other => `<li>${link(other)}</li>`).join('\n')}</ul>\n<p><a href="/blog/">Browse all ${posts.length} guides</a> · <a href="/">About Inbox Cleaner</a></p>\n${cta}\n</section>`;
     html = replaceRegion(html, 'related', related, '</main>');
     write(`docs/blog/${post.slug}.html`, html);

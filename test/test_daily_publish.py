@@ -71,6 +71,15 @@ class QueueReadinessTest(unittest.TestCase):
             queue.write_text(json.dumps([{'slug':'first','status':'pending'},{'slug':'later','status':'pending'}]))
             self.assertEqual(load_queue(queue)['action'],'draft')
             self.assertEqual(load_queue(queue)['slug'],'first')
+            drafts = root/'internal/blog-drafts'; drafts.mkdir(parents=True)
+            (drafts/'first.html').write_text('draft')
+            (drafts/'first.evidence.json').write_text('{"state":"draft"}')
+            self.assertEqual(load_queue(queue)['slug'], 'later')
+            (drafts/'later.html').write_text('draft')
+            self.assertEqual(load_queue(queue)['action'], 'review')
+            self.assertEqual(json.loads(queue.read_text())[0]['status'], 'pending')
+            self.assertFalse((root/'scripts/content-records.json').exists(), 'draft selection must not edit tracked evidence')
+
 
     def test_unknown_slug_cannot_publish_an_existing_file(self):
         source=Path(__file__).resolve().parents[1]

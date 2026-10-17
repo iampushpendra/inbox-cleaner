@@ -18,12 +18,15 @@ def load_queue(topics_path: Path = TOPICS_PATH) -> Optional[dict]:
     for topic in pending:
         path = root / "docs/blog" / f'{topic["slug"]}.html'
         draft = root / "internal/blog-drafts" / path.name
-        if not path.exists() and draft.exists():
+        if draft.exists():
             path = draft
         if not check_readiness(path, repo_root=root):
             return dict(topic, action="publish")
+    for topic in pending:
+        if not (root / "internal/blog-drafts" / f'{topic["slug"]}.html').exists():
+            return dict(topic, action="draft")
     if pending:
-        return dict(pending[0], action="draft")
+        return dict(pending[0], action="review")
     return None
 
 

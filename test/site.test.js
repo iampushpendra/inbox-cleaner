@@ -19,7 +19,7 @@ function fixture(t) {
 }
 
 function post(root, slug, title, date) {
-  fs.writeFileSync(path.join(root, `docs/blog/${slug}.html`), `<html><head><link rel="canonical" href="https://inbox-cleaner.vercel.app/blog/${slug}.html"><meta name="description" content="A useful &amp; practical guide."><script type="application/ld+json">${JSON.stringify({ '@type': 'Article', datePublished: date, dateModified: date })}</script></head><body><nav><a class="nav-logo" href="/">Home</a><a class="blog-nav-cta" href="/">Try the free tool</a></nav><main><h1 class="blog-h1">${title}</h1><div class="blog-body"><p>Original article text.</p><div class="blog-cta"><h3>Old call to action</h3><a class="blog-cta-btn" href="/">Open</a></div></div></main><footer></footer></body></html>`);
+  fs.writeFileSync(path.join(root, `docs/blog/${slug}.html`), `<html><head><link rel="canonical" href="https://inbox-cleaner.vercel.app/blog/${slug}.html"><meta name="description" content="A useful &amp; practical guide."><script type="application/ld+json">${JSON.stringify({ '@type': 'Article', datePublished: date, dateModified: date })}</script></head><body><nav><a class="nav-logo" href="/">Home</a><a class="blog-nav-cta" href="${store}">Add to Chrome →</a></nav><main><h1 class="blog-h1">${title}</h1><div class="blog-body"><p>Original article text.</p><div class="blog-cta"><h3>Old call to action</h3><a class="blog-cta-btn" href="${store}">Add Inbox Cleaner to Chrome →</a></div></div></main><footer></footer></body></html>`);
 }
 
 test('rebuild discovers new posts, removes deleted URLs, and preserves truthful dates', async t => {
@@ -72,6 +72,7 @@ test('the publishing command generates discovery links before marking a queued p
   post(root, 'gmail-older', 'An older guide', '2026-08-09');
   fs.writeFileSync(path.join(root, 'scripts/blog-topics.json'), JSON.stringify([{ slug: 'gmail-new', status: 'pending' }]));
   fs.writeFileSync(path.join(root, 'manifest.json'), JSON.stringify({ version: '3.2.1' }));
+  fs.writeFileSync(path.join(root, 'scripts/legacy-published.json'), JSON.stringify(['gmail-older']));
   fs.writeFileSync(path.join(root, 'scripts/blog-topics.json'), JSON.stringify([{ slug: 'gmail-new', status: 'pending', intent_owner: 'gmail-new' }, { slug: 'gmail-older', status: 'published' }]));
   const fingerprint = require('node:crypto').createHash('sha256').update(fs.readFileSync(path.join(root, 'docs/blog/gmail-new.html'))).digest('hex');
   fs.writeFileSync(path.join(root, 'scripts/content-records.json'), JSON.stringify({ 'gmail-new': {
@@ -88,6 +89,14 @@ test('the publishing command generates discovery links before marking a queued p
   assert.match(fs.readFileSync(path.join(root, 'docs/blog/index.html'), 'utf8'), /href="\/blog\/gmail-new.html"/);
   assert.match(fs.readFileSync(path.join(root, 'docs/blog/gmail-older.html'), 'utf8'), /href="\/blog\/gmail-new.html"/);
   assert.match(fs.readFileSync(path.join(root, 'docs/sitemap.xml'), 'utf8'), /gmail-new.html/);
+  const ready = spawnSync('python3', [path.join(root, 'scripts/content_gate.py'), '--ready', 'gmail-new'], { encoding: 'utf8' });
+  assert.equal(ready.status, 0, ready.stdout + ready.stderr);
+  const changedPost = path.join(root, 'docs/blog/gmail-new.html');
+  fs.writeFileSync(changedPost, fs.readFileSync(changedPost, 'utf8').replace('A newly queued guide', 'An unreviewed title change'));
+  const rejected = spawnSync('node', [path.join(root, 'scripts/build_site.mjs')], { encoding: 'utf8' });
+  assert.notEqual(rejected.status, 0, 'a published status must never bypass the fingerprint gate');
+  assert.match(rejected.stderr, /Unreviewed article|fingerprint/);
+
 });
 
 test('the publishing command refuses a post with a disproved claim and leaves the queue untouched', t => {
