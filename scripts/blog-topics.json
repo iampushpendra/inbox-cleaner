@@ -1606,7 +1606,7 @@
     "slug": "gmail-bulk-delete-not-working",
     "target_query": "why is gmail bulk delete not working",
     "eyebrow": "Gmail Selection",
-    "status": "pending",
+    "status": "published",
     "cluster": "selection",
     "answer_angle": "Separate wrong selection scope, stale results and interrupted actions; verify a small disposable batch before retrying.",
     "priority": 1,
