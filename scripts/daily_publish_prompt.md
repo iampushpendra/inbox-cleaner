@@ -4,9 +4,9 @@ Do the following, in order:
 
 Publish exactly one new article per run. There are four scheduled runs per day; an article published earlier today does not replace this run.
 
-1. Read scripts/blog-topics.json. Find the FIRST entry with "status": "pending". If there are none, print 'Queue empty - no pending topics, nothing to publish today.' and stop here (do not commit or push anything).
+1. Read scripts/blog-topics.json. Find the FIRST entry with "status": "pending". The file is already ordered by editorial priority; do not re-sort it. Read the entire entry, including answer_angle, evidence_basis, intent_owner, hub_slug and related_published_slugs. Skip deferred entries. The separate scripts/blog-refreshes.json lists existing-page work and must never be treated as new-post work or marked complete by this job. If there are none, print 'Queue empty - no pending topics, nothing to publish today.' and stop here (do not commit or push anything).
 
-2. Read scripts/blog_prompt.md - it's the exact AEO content spec and HTML shell this project's blog posts must follow (quick-answer box, H2s phrased as search questions, HowTo JSON-LD if the post has numbered steps, a FAQ section of genuine reader questions with matching FAQPage JSON-LD, and at least 2 internal links in body prose to existing published posts). Follow it precisely - every required element is a hard requirement, not a suggestion.
+2. Read scripts/blog_prompt.md - it's the exact AEO content spec and HTML shell this project's blog posts must follow (quick-answer box, H2s phrased as search questions, HowTo JSON-LD if the post has numbered steps, a FAQ section of genuine reader questions with matching FAQPage JSON-LD, and at least 3 internal links in body prose to existing published posts). Follow it precisely - every required element is a hard requirement, not a suggestion.
 
 2a. Before writing, read these facts about the packaged extension. They are enforced: `python3 scripts/publish_blog.py` runs scripts/content_gate.py and refuses the post with a non-zero exit if any of them appear, so a run that writes them wastes the queue entry.
 - It has NO Gmail API, NO OAuth and NO network code. Never say it works "via/through the Gmail API". It reads Gmail's rendered DOM inside a Gmail tab you already have open.
@@ -18,9 +18,9 @@ Publish exactly one new article per run. There are four scheduled runs per day; 
 - Deleting by sender is sender-wide. It cannot honour `older_than:`, `category:` or `-is:starred` from a Gmail search. If your guide tells the reader to exclude or star something, say explicitly that the extension cannot carry that over.
 - Never tell readers to "Connect Gmail" as the route to this product; that is a separate OAuth web app. Point at the Chrome Web Store URL in scripts/site-config.json.
 - A Gmail filter tests each email as it arrives, so an age operator like `older_than:30d` can never match newly delivered mail. Do not recommend it as a standing auto-delete rule.
-- Describe Gmail's own behaviour accurately even where it flatters the product: Gmail's page size is 50, and "select all conversations that match this search" extends selection beyond the page. You may cite https://support.google.com/mail/answer/7401?hl=en.
+- Describe Gmail's own behaviour accurately even where it flatters the product: Gmail selects the current page first (the page size depends on settings), and "select all conversations that match this search" extends selection beyond the page. You may cite https://support.google.com/mail/answer/7401?hl=en.
 
-2b. Write one sentence in the post stating what it adds beyond the existing results for that query, and cite a primary source (Google's help centre) for any Gmail procedure.
+2b. Before writing, compare current results for the exact question and verify current official help sources. In the final publishing summary, record the result URLs reviewed and one concrete information gain. Demonstrate that contribution in the article through an accurate query example, tested troubleshooting path, screenshot or decision table; do not add self-promotional meta-commentary about being better than other results. Cite primary sources beside Gmail procedures. If the proposed angle overlaps an intent owner and adds no useful distinct job, stop and report the overlap instead of publishing filler. Never represent cluster impressions as exact-query demand or claim these GSC queries came from ChatGPT.
 
 3. Look at 2-3 existing files in docs/blog/*.html (e.g. docs/blog/gmail-delete-all-promotional-emails.html is a good recent reference) to match the exact HTML shell, class names, and tone already in use. Do not deviate from the shared docs/style.css class names - no inline styles.
 
@@ -36,6 +36,6 @@ Publish exactly one new article per run. There are four scheduled runs per day; 
 
 9. Confirm that all primary install buttons point directly to the Chrome Web Store URL from scripts/site-config.json. Keep at least three contextual links to relevant published articles in the body; the generator adds five more related links and the blog hub automatically. Never promise that sitemap inclusion guarantees crawling or indexing.
 
-10. Report a short summary: which slug was published, the target query, and how many pending topics remain in the queue after this run.
+10. Report a short summary: which slug was published, the target query, how many pending topics remain in the queue after this run, the evidence basis, sources/results reviewed, and the distinct contribution. No ranking, citation or installation guarantees.
 
 Do not hand-edit README.md, docs/index.html, docs/app.js, or docs/style.css beyond what publish_blog.py already handles - those are outside this job's scope. Do not run `vercel` or any deploy command yourself - the push to main is sufficient, Vercel's GitHub integration handles the deploy.

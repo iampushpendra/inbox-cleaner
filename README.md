@@ -5,7 +5,7 @@
 [![Live App](https://img.shields.io/badge/Live%20App-open-blue?style=flat-square)](https://inbox-cleaner.vercel.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-**Current version: 3.2.3** — documentation release; extension runtime remains 3.2.1. See [CHANGELOG.md](CHANGELOG.md) for what's new.
+**Current version: 3.2.4** — editorial strategy and publishing guidance; extension runtime remains 3.2.1. See [CHANGELOG.md](CHANGELOG.md) for what's new.
 
 ---
 
@@ -83,7 +83,9 @@ The local LaunchAgent publishes one queued article at **9 AM, 1 PM, 5 PM, and 9 
 - Logs: `scripts/daily_publish.log`; failures trigger a macOS notification.
 - Git uses HTTPS with the signed-in GitHub CLI credential helper. Claude CLI must also remain signed in.
 - Network stalls are bounded, and success requires the selected post to exist on `origin/main`.
-- The queue is finite: replenish pending topics before it runs out.
+- Analytics-led backlog: 197 topics at this release (47 published, 134 pending, 16 deferred), including 64 new briefs. The first pending entry is the next scheduled article; deferred entries are skipped. Counts change as articles publish.
+- [Editorial strategy and ChatGPT discovery plan](internal/superpowers/plans/2026-10-17-blog-editorial-strategy.md) explains evidence, ordering, intent owners and the review loop. `scripts/blog-refreshes.json` separately tracks 12 existing-guide refreshes; the new-post job does not execute them.
+- Every future draft must read its complete topic brief and verify current sources and a distinct contribution before publication. The queue is finite: review analytics and replenish selectively.
 
 The installed schedule lives at `~/Library/LaunchAgents/com.inboxcleaner.dailyblog.plist`; a copy is versioned at `scripts/com.inboxcleaner.dailyblog.plist`. After editing the copy, install and reload it:
 

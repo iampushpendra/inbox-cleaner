@@ -13,6 +13,15 @@ Versioning: see `VERSION` file (semver, no `package.json` — this isn't a Node/
 - Added an organic-growth audit covering 50 live sitemap URLs, all 47 articles, product-claim consistency, a transcribed authenticated Search Console baseline, and a prioritized low-budget page/tool roadmap.
 - Added a complete URL-level content inventory and reproducible provenance for the installed SEO audit, content strategy and programmatic SEO skills. No application, production or publishing schedule changes.
 
+## [3.2.4] - 2026-10-17
+
+### Changed
+- Refined the blog backlog around the October 17 analytics: added 64 distinct candidate briefs, reordered the next 20 jobs, attached query/page provenance and linking/intent metadata, and deferred 16 overlapping or unsupported topics. Reconciled the already-published GitHub guide; 134 new-post briefs remain pending.
+- Strengthened future drafting guidance for ChatGPT discovery with self-contained answers, primary-source checks, a distinct-contribution review, truthful extension scope, transparent comparisons and no fixed word/FAQ quotas. No ranking or citation guarantees.
+
+### Added
+- Separate refresh briefs for 12 exposed existing guides and an editorial strategy documenting query clusters, ChatGPT store-attribution limits and the measurement review loop. Existing articles and publishing cadence are unchanged; extension runtime remains 3.2.1.
+
 ## [3.2.3] - 2026-10-17
 
 ### Added

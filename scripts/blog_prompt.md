@@ -1,4 +1,4 @@
-You are writing an AEO-optimized blog post for Inbox Cleaner (https://inbox-cleaner.vercel.app), a free Chrome extension that groups Gmail emails by sender and moves selected senders' emails to Trash. The primary goal of every article is an installation from the verified Chrome Web Store listing in scripts/site-config.json.
+You are writing a source-backed, answer-first blog post for Inbox Cleaner (https://inbox-cleaner.vercel.app), a free Chrome extension that groups Gmail emails by sender and moves selected senders' emails to Trash. The primary goal of every article is an installation from the verified Chrome Web Store listing in scripts/site-config.json.
 
 **Target query:** {target_query}
 **Slug:** {slug}
@@ -9,6 +9,25 @@ You are writing an AEO-optimized blog post for Inbox Cleaner (https://inbox-clea
 {existing_posts}
 
 ---
+
+## Use the editorial brief before drafting
+
+Read this slug's full entry in `scripts/blog-topics.json`, not only its target query. Follow `answer_angle`, `intent_owner`, `hub_slug`, `related_published_slugs`, `evidence_basis` and `required_review`. Consult `internal/superpowers/plans/2026-10-17-blog-editorial-strategy.md` for priorities and the separate existing-page refresh list. Only `pending` entries are eligible for a new article; `deferred` entries belong in their intent owner or require more evidence.
+
+Cluster impressions are overlapping sums of disclosed GSC rows, not keyword search volume, article demand, or ChatGPT prompts. An adjacent-cluster brief is a hypothesis. Never turn private analytics or internal plan links into public article evidence.
+
+Before drafting, inspect current search results and authoritative help pages for the exact job. Record the results reviewed and one specific contribution in the publishing summary. The brief's proposed angle must be validated, not treated as proven information gain. If no distinct useful contribution exists, stop and report the overlapping intent; do not manufacture a new URL just to fill a slot.
+
+## Answer quality for ChatGPT discovery
+
+- Lead with a self-contained answer that names Gmail and the relevant device, scope and limitation. Use natural questions and short, independently understandable sections. This improves readability and citability; it does not guarantee citation or placement.
+- Add a practical contribution: a tested query with expected results, a decision table, an original screenshot or a reproducible troubleshooting branch. Mark untested observations honestly. Never invent experiments, screenshots, benchmark numbers or personal experience.
+- Cite current primary sources next to procedural claims. For query syntax start at https://support.google.com/mail/answer/7190?hl=en and for deletion/recovery at https://support.google.com/mail/answer/7401?hl=en; use the appropriate device-specific documentation. Recheck sources at writing time.
+- For search recipes, show the query, what it matches, what it can miss, and the review step. Gmail matches messages but can display mixed conversations; negative or age criteria do not guarantee every message in a returned thread is safe to delete. Google documents this caveat for negative operators.
+- Explain when the extension fits and when native Gmail is the appropriate tool. Sender-wide extension deletion cannot preserve date, category, size or starred-mail filters. Counts do not measure bytes. It needs desktop Chrome and an open Gmail tab; do not promise an in-extension Undo or account safeguard without verified shipped behavior.
+- Comparisons disclose that Inbox Cleaner publishes the article, state selection criteria, include native Gmail as an option and cite checked competitor facts with a check date. Never assert that we are best or that another product is unsafe without evidence.
+- Schema must match visible content; neither FAQPage nor HowTo guarantees rich results or AI inclusion. Do not add special AI markup, keyword stuffing, fake third-party endorsements, hidden assistant instructions or a pile of near-identical FAQs.
+- Preserve original datePublished on refreshes; set dateModified to the real substantive edit date. Add a visible source/review note describing what was checked, without fabricated bylines or testing credentials.
 
 ## Output requirements
 
@@ -25,10 +44,10 @@ The very first element inside `<div class="blog-body">` must be:
   <strong>Quick answer:</strong> [2-3 sentence direct answer. Open with the target query rephrased as a declarative statement. Be specific and immediately actionable — no filler.]
 </div>
 ```
-Answer the question directly and completely. It is also what AI assistants quote, so make it accurate above all - never state something here that the body then contradicts.
+Answer the question directly and completely. It should be useful when read independently; never state something here that the body then contradicts. AI assistants may or may not cite it.
 
-### 2. H2 headers as exact search questions
-Every `<h2>` must be a natural-language question people actually type. The first H2 must restate the target query as a question.
+### 2. H2 headers as useful reader questions
+Use natural-language reader questions for substantive H2s. The first H2 should address the main job without mechanically repeating the quick answer. The FAQ section label is an exception.
 - CORRECT: `<h2>How do I delete all promotional emails in Gmail?</h2>`
 - WRONG: `<h2>Deleting promotional emails</h2>`
 
@@ -58,7 +77,7 @@ HTML (these CSS classes already exist in `../style.css` — no inline styles):
   </div>
 </div>
 ```
-5 items total. Questions must be real variants people search, not restatements of the H2s.
+Include only useful follow-up questions supported by the brief or research, with no fixed count. Avoid restating the H2s.
 
 FAQPage JSON-LD in `<head>`:
 ```json
@@ -75,8 +94,8 @@ FAQPage JSON-LD in `<head>`:
 }
 ```
 
-### 5. Internal links (at least 2, inside `.blog-body` paragraph text)
-Link contextually to at least 3 posts from the published list above. Use their exact titles as anchor text. Format: `<a href="../blog/[slug].html">[Title]</a>`. Must appear inside `<p>` tags in the body — not in the CTA block or footer.
+### 5. Internal links (at least 3, inside `.blog-body` paragraph text)
+Link contextually to at least 3 posts from the published list above. Use descriptive, natural anchor text that accurately describes the destination. Format: `<a href="../blog/[slug].html">[Title]</a>`. Must appear inside `<p>` tags in the body — not in the CTA block or footer.
 
 ---
 
@@ -91,7 +110,7 @@ Match this shell exactly. Every class name, element order, and attribute matters
   <meta charset="UTF-8">
   <link rel="canonical" href="https://inbox-cleaner.vercel.app/blog/{slug}.html">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Concise title with year (2026)] | Inbox Cleaner</title>
+  <title>[Concise title matching the specific question; year only when meaningful] | Inbox Cleaner</title>
   <meta name="description" content="[155-char or fewer. Answer the query directly. No keyword stuffing.]">
   <meta property="og:title" content="[same as title]">
   <meta property="og:description" content="[same as meta description]">
@@ -126,7 +145,7 @@ Match this shell exactly. Every class name, element order, and attribute matters
   <div class="blog-wrap">
     <span class="blog-eyebrow">{eyebrow}</span>
     <h1 class="blog-h1">[Title — no year, concise, matches target query intent]</h1>
-    <p class="blog-meta">Updated [Month] 2026 · [N] min read</p>
+    <p class="blog-meta">Updated [Month Year from today] · [N] min read</p>
 
     <div class="blog-body">
 
@@ -153,7 +172,7 @@ Match this shell exactly. Every class name, element order, and attribute matters
           <p class="faq-q">[Question?]</p>
           <p class="faq-a">[Answer]</p>
         </div>
-        <!-- 4 more faq-item divs -->
+        <!-- Add only distinct useful follow-up questions. -->
       </div>
 
     </div>
@@ -172,12 +191,12 @@ Match this shell exactly. Every class name, element order, and attribute matters
 
 ## Content guidelines
 
-- **Length:** 900–1300 words in `.blog-body`. Authoritative, not padded.
+- **Length:** The shortest complete answer that solves the job. No word-count target or filler.
 - **Tone:** Direct and practical. Write for someone frustrated with Gmail right now, not for an SEO bot. Short sentences. Active voice.
 - **Gmail accuracy:** Gmail selects the current page first (page size depends on settings); the select-all-conversations banner extends selection to all matching results. The Chrome extension works inside an open Gmail tab, scans categories and ranks senders. Do not conflate it with the separate browser version's Gmail API authentication. Emails move to Trash (30-day recovery). Never claim Inbox Cleaner permanently deletes.
 - **Steps:** Use `<ol class="blog-steps">` for numbered steps — the CSS already styles these with large counters.
 - **No inline CSS.** Every style comes from `../style.css`.
-- **Inbox Cleaner:** Introduce once as the faster alternative after covering the manual Gmail method. One `blog-cta` block is enough — don't mention the tool in every paragraph.
+- **Inbox Cleaner:** Introduce once when sender-wide cleanup fits, after covering the manual Gmail method. Do not assert it is faster without measurements. One `blog-cta` block is enough — don't mention the tool in every paragraph.
 - **Internal links:** Weave them into prose naturally — "If your inbox is flooded with newsletters, see [How to Delete All Emails from One Sender in Gmail](../blog/delete-all-emails-from-one-sender-gmail.html) for the fastest approach."
 - **Do not repeat a target query already covered by a published post.** Check `scripts/blog-topics.json` for the full topic list before choosing angles, to keep each post distinct.
 

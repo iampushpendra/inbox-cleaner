@@ -1,0 +1,319 @@
+[
+  {
+    "slug": "how-to-select-all-emails-gmail",
+    "status": "refresh_pending",
+    "priority": 1,
+    "evidence": {
+      "snapshot": "2026-10-17",
+      "query_file": "research_notes/Analytics intelligence 2026-10-17/gsc-full-history/queries.csv",
+      "cluster_query_rows": 53,
+      "cluster_disclosed_impressions": 279,
+      "query_examples": [
+        "select all conversations that match this search",
+        "select all conversations that match this search not showing",
+        "gmail select all conversations that match this search"
+      ],
+      "page": {
+        "Clicks": 3.0,
+        "Impressions": 1082.0,
+        "CTR": 0.0028000000000000004,
+        "Position": 12.65
+      },
+      "exact_query": {
+        "Clicks": 0.0,
+        "Impressions": 11.0,
+        "CTR": 0.0,
+        "Position": 33.36
+      }
+    },
+    "brief": "Fix current product claims, answer the highest-exposure query directly, add verified native steps and current screenshots, preserve URL/datePublished, change dateModified only after substantive edits. Include a missing all-results-banner diagnostic and link to the focused troubleshooting spoke."
+  },
+  {
+    "slug": "gmail-delete-emails-by-size",
+    "status": "refresh_pending",
+    "priority": 2,
+    "evidence": {
+      "snapshot": "2026-10-17",
+      "query_file": "research_notes/Analytics intelligence 2026-10-17/gsc-full-history/queries.csv",
+      "cluster_query_rows": 21,
+      "cluster_disclosed_impressions": 43,
+      "query_examples": [
+        "larger:20m",
+        "larger:5m",
+        "delete large emails gmail"
+      ],
+      "page": {
+        "Clicks": 0.0,
+        "Impressions": 112.0,
+        "CTR": 0.0,
+        "Position": 7.59
+      }
+    },
+    "brief": "Fix current product claims, answer the highest-exposure query directly, add verified native steps and current screenshots, preserve URL/datePublished, change dateModified only after substantive edits. Link to the hub and distinct relevant spokes; disclose sender-wide extension limits."
+  },
+  {
+    "slug": "gmail-mailbox-full-cant-receive-emails",
+    "status": "refresh_pending",
+    "priority": 3,
+    "evidence": {
+      "snapshot": "2026-10-17",
+      "query_file": "research_notes/Analytics intelligence 2026-10-17/gsc-full-history/queries.csv",
+      "cluster_query_rows": 2,
+      "cluster_disclosed_impressions": 3,
+      "query_examples": [
+        "how to lower gmail storage",
+        "i can't receive emails because my storage is full"
+      ],
+      "page": {
+        "Clicks": 0.0,
+        "Impressions": 97.0,
+        "CTR": 0.0,
+        "Position": 7.49
+      }
+    },
+    "brief": "Fix current product claims, answer the highest-exposure query directly, add verified native steps and current screenshots, preserve URL/datePublished, change dateModified only after substantive edits. Link to the hub and distinct relevant spokes; disclose sender-wide extension limits."
+  },
+  {
+    "slug": "how-to-find-biggest-emails-gmail",
+    "status": "refresh_pending",
+    "priority": 4,
+    "evidence": {
+      "snapshot": "2026-10-17",
+      "query_file": "research_notes/Analytics intelligence 2026-10-17/gsc-full-history/queries.csv",
+      "cluster_query_rows": 21,
+      "cluster_disclosed_impressions": 43,
+      "query_examples": [
+        "larger:20m",
+        "larger:5m",
+        "delete large emails gmail"
+      ],
+      "page": {
+        "Clicks": 1.0,
+        "Impressions": 116.0,
+        "CTR": 0.0086,
+        "Position": 11.66
+      }
+    },
+    "brief": "Fix current product claims, answer the highest-exposure query directly, add verified native steps and current screenshots, preserve URL/datePublished, change dateModified only after substantive edits. Link to the hub and distinct relevant spokes; disclose sender-wide extension limits."
+  },
+  {
+    "slug": "how-to-delete-emails-older-than-a-year-gmail",
+    "status": "refresh_pending",
+    "priority": 5,
+    "evidence": {
+      "snapshot": "2026-10-17",
+      "query_file": "research_notes/Analytics intelligence 2026-10-17/gsc-full-history/queries.csv",
+      "cluster_query_rows": 35,
+      "cluster_disclosed_impressions": 84,
+      "query_examples": [
+        "older_than:1y",
+        "older_than 1y",
+        "older-than 1y"
+      ],
+      "page": {
+        "Clicks": 0.0,
+        "Impressions": 148.0,
+        "CTR": 0.0,
+        "Position": 13.78
+      }
+    },
+    "brief": "Fix current product claims, answer the highest-exposure query directly, add verified native steps and current screenshots, preserve URL/datePublished, change dateModified only after substantive edits. Link to the hub and distinct relevant spokes; disclose sender-wide extension limits."
+  },
+  {
+    "slug": "delete-all-emails-from-one-sender-gmail",
+    "status": "refresh_pending",
+    "priority": 6,
+    "evidence": {
+      "snapshot": "2026-10-17",
+      "query_file": "research_notes/Analytics intelligence 2026-10-17/gsc-full-history/queries.csv",
+      "cluster_query_rows": 41,
+      "cluster_disclosed_impressions": 184,
+      "query_examples": [
+        "bulk email cleaner",
+        "gmail delete all emails from sender",
+        "how to delete all emails from one sender"
+      ],
+      "page": {
+        "Clicks": 0.0,
+        "Impressions": 344.0,
+        "CTR": 0.0,
+        "Position": 38.22
+      },
+      "exact_query": {
+        "Clicks": 0.0,
+        "Impressions": 1.0,
+        "CTR": 0.0,
+        "Position": 39.0
+      }
+    },
+    "brief": "Fix current product claims, answer the highest-exposure query directly, add verified native steps and current screenshots, preserve URL/datePublished, change dateModified only after substantive edits. Link to the hub and distinct relevant spokes; disclose sender-wide extension limits."
+  },
+  {
+    "slug": "gmail-archive-vs-delete",
+    "status": "refresh_pending",
+    "priority": 7,
+    "evidence": {
+      "snapshot": "2026-10-17",
+      "query_file": "research_notes/Analytics intelligence 2026-10-17/gsc-full-history/queries.csv",
+      "cluster_query_rows": 116,
+      "cluster_disclosed_impressions": 287,
+      "query_examples": [
+        "archive vs delete gmail",
+        "gmail what does archive do",
+        "does archiving emails save space gmail"
+      ],
+      "page": {
+        "Clicks": 0.0,
+        "Impressions": 372.0,
+        "CTR": 0.0,
+        "Position": 41.24
+      },
+      "exact_query": {
+        "Clicks": 0.0,
+        "Impressions": 7.0,
+        "CTR": 0.0,
+        "Position": 54.14
+      }
+    },
+    "brief": "Fix current product claims, answer the highest-exposure query directly, add verified native steps and current screenshots, preserve URL/datePublished, change dateModified only after substantive edits. Link to the hub and distinct relevant spokes; disclose sender-wide extension limits."
+  },
+  {
+    "slug": "gmail-delete-all-promotional-emails",
+    "status": "refresh_pending",
+    "priority": 8,
+    "evidence": {
+      "snapshot": "2026-10-17",
+      "query_file": "research_notes/Analytics intelligence 2026-10-17/gsc-full-history/queries.csv",
+      "cluster_query_rows": 81,
+      "cluster_disclosed_impressions": 188,
+      "query_examples": [
+        "delete all promotions in gmail",
+        "how to delete all promotions in gmail",
+        "gmail unsubscribe"
+      ],
+      "page": {
+        "Clicks": 0.0,
+        "Impressions": 205.0,
+        "CTR": 0.0,
+        "Position": 33.09
+      },
+      "exact_query": {
+        "Clicks": 0.0,
+        "Impressions": 3.0,
+        "CTR": 0.0,
+        "Position": 39.67
+      }
+    },
+    "brief": "Fix current product claims, answer the highest-exposure query directly, add verified native steps and current screenshots, preserve URL/datePublished, change dateModified only after substantive edits. Link to the hub and distinct relevant spokes; disclose sender-wide extension limits."
+  },
+  {
+    "slug": "how-to-bulk-delete-gmail-emails",
+    "status": "refresh_pending",
+    "priority": 9,
+    "evidence": {
+      "snapshot": "2026-10-17",
+      "query_file": "research_notes/Analytics intelligence 2026-10-17/gsc-full-history/queries.csv",
+      "cluster_query_rows": 53,
+      "cluster_disclosed_impressions": 279,
+      "query_examples": [
+        "select all conversations that match this search",
+        "select all conversations that match this search not showing",
+        "gmail select all conversations that match this search"
+      ],
+      "page": {
+        "Clicks": 0.0,
+        "Impressions": 192.0,
+        "CTR": 0.0,
+        "Position": 64.18
+      }
+    },
+    "brief": "Fix current product claims, answer the highest-exposure query directly, add verified native steps and current screenshots, preserve URL/datePublished, change dateModified only after substantive edits. Link to the hub and distinct relevant spokes; disclose sender-wide extension limits."
+  },
+  {
+    "slug": "gmail-delete-all-unread-emails",
+    "status": "refresh_pending",
+    "priority": 10,
+    "evidence": {
+      "snapshot": "2026-10-17",
+      "query_file": "research_notes/Analytics intelligence 2026-10-17/gsc-full-history/queries.csv",
+      "cluster_query_rows": 41,
+      "cluster_disclosed_impressions": 184,
+      "query_examples": [
+        "bulk email cleaner",
+        "gmail delete all emails from sender",
+        "how to delete all emails from one sender"
+      ],
+      "page": {
+        "Clicks": 1.0,
+        "Impressions": 151.0,
+        "CTR": 0.0066,
+        "Position": 22.2
+      },
+      "exact_query": {
+        "Clicks": 0.0,
+        "Impressions": 6.0,
+        "CTR": 0.0,
+        "Position": 57.17
+      }
+    },
+    "brief": "Fix current product claims, answer the highest-exposure query directly, add verified native steps and current screenshots, preserve URL/datePublished, change dateModified only after substantive edits. Link to the hub and distinct relevant spokes; disclose sender-wide extension limits."
+  },
+  {
+    "slug": "how-to-delete-old-emails-gmail",
+    "status": "refresh_pending",
+    "priority": 11,
+    "evidence": {
+      "snapshot": "2026-10-17",
+      "query_file": "research_notes/Analytics intelligence 2026-10-17/gsc-full-history/queries.csv",
+      "cluster_query_rows": 35,
+      "cluster_disclosed_impressions": 84,
+      "query_examples": [
+        "older_than:1y",
+        "older_than 1y",
+        "older-than 1y"
+      ],
+      "page": {
+        "Clicks": 1.0,
+        "Impressions": 122.0,
+        "CTR": 0.008199999999999999,
+        "Position": 31.66
+      },
+      "exact_query": {
+        "Clicks": 0.0,
+        "Impressions": 2.0,
+        "CTR": 0.0,
+        "Position": 60.5
+      }
+    },
+    "brief": "Fix current product claims, answer the highest-exposure query directly, add verified native steps and current screenshots, preserve URL/datePublished, change dateModified only after substantive edits. Link to the hub and distinct relevant spokes; disclose sender-wide extension limits."
+  },
+  {
+    "slug": "how-to-unsubscribe-from-emails-gmail",
+    "status": "refresh_pending",
+    "priority": 12,
+    "evidence": {
+      "snapshot": "2026-10-17",
+      "query_file": "research_notes/Analytics intelligence 2026-10-17/gsc-full-history/queries.csv",
+      "cluster_query_rows": 81,
+      "cluster_disclosed_impressions": 188,
+      "query_examples": [
+        "delete all promotions in gmail",
+        "how to delete all promotions in gmail",
+        "gmail unsubscribe"
+      ],
+      "page": {
+        "Clicks": 0.0,
+        "Impressions": 61.0,
+        "CTR": 0.0,
+        "Position": 38.72
+      },
+      "exact_query": {
+        "Clicks": 0.0,
+        "Impressions": 3.0,
+        "CTR": 0.0,
+        "Position": 34.33
+      }
+    },
+    "brief": "Fix current product claims, answer the highest-exposure query directly, add verified native steps and current screenshots, preserve URL/datePublished, change dateModified only after substantive edits. Link to the hub and distinct relevant spokes; disclose sender-wide extension limits."
+  }
+]
