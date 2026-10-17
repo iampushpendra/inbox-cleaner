@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gmail Storage Troubleshooter — Free Manual Check | Inbox Cleaner</title>
+  <meta name="description" content="Gmail storage full or unchanged after deleting mail? Use a private, manual decision tree for Gmail, Drive, Photos, Trash and storage meter delays.">
+  <link rel="canonical" href="https://inbox-cleaner.vercel.app/tools/gmail-storage-troubleshooter/">
+  <meta property="og:title" content="Gmail Storage Troubleshooter | Inbox Cleaner">
+  <meta property="og:description" content="A manual decision tree for Gmail storage problems. No account connection or mailbox scan.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://inbox-cleaner.vercel.app/tools/gmail-storage-troubleshooter/">
+  <meta property="og:image" content="https://inbox-cleaner.vercel.app/og-image.png">
+  <meta name="referrer" content="no-referrer">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/tools/storage-troubleshooter.css">
+  <script src="/tools/storage-troubleshooter.js" defer></script>
+</head>
+<body class="storage-tool">
+  <a class="storage-skip" href="#main">Skip to troubleshooter</a>
+  <nav id="nav" aria-label="Main navigation"><a class="nav-logo" href="/">📥 Inbox<span>Cleaner</span></a><a class="nav-blog-link" href="/blog/">Gmail guides</a></nav>
+  <main id="main" class="storage-main">
+    <header class="storage-header">
+      <p class="storage-eyebrow">Free tool · Manual check</p>
+      <h1>Gmail storage troubleshooter</h1>
+      <p>Full account, crowded inbox, or a meter that hasn’t changed? Choose what happened and get a practical next step.</p>
+      <p class="storage-privacy">No sign-in or scan. Your entries stay in this page’s memory. They are never sent, saved, or added to links. This page does not read your account or delete anything.</p>
+    </header>
+    <div class="storage-layout">
+      <section class="storage-panel" aria-labelledby="form-heading">
+        <h2 id="form-heading">What are you seeing?</h2>
+        <form id="storage-form" autocomplete="off">
+          <label for="symptom">Choose the closest symptom</label>
+          <select id="symptom">
+            <option value="unknown">I’m not sure / checking storage</option>
+            <option value="receive">I can’t receive email</option>
+            <option value="trash">I moved mail to Trash, but storage is full</option>
+            <option value="recent">I emptied Trash recently, but the meter hasn’t changed</option>
+          </select>
+          <fieldset>
+            <legend>Optional: copy your Google storage figures</legend>
+            <p id="usage-help">Use GB from <a href="https://one.google.com/storage">Google’s storage breakdown</a> for the same account. Leave unknown figures blank; enter 0 only if Google shows zero.</p>
+            <div class="storage-inputs">
+              <div><label for="gmail">Gmail (GB)</label><input id="gmail" type="number" min="0" step="any" inputmode="decimal" aria-describedby="usage-help"></div>
+              <div><label for="drive">Drive (GB)</label><input id="drive" type="number" min="0" step="any" inputmode="decimal" aria-describedby="usage-help"></div>
+              <div><label for="photos">Photos (GB)</label><input id="photos" type="number" min="0" step="any" inputmode="decimal" aria-describedby="usage-help"></div>
+            </div>
+            <label for="quota">Actual storage limit (GB)</label>
+            <input id="quota" type="number" min="0.001" step="any" inputmode="decimal" value="15" aria-describedby="quota-help">
+            <p id="quota-help">15 GB is a personal-account starting assumption. Replace it with your actual limit, or clear it if unknown. Paid, family, promotional and Workspace quotas can differ.</p>
+          </fieldset>
+          <div class="storage-actions"><button type="submit">Show my next steps →</button><button type="reset" class="storage-reset">Reset entries</button></div>
+        </form>
+        <noscript><p>JavaScript is needed for the manual decision tree. You can still follow the storage and Trash guidance below.</p></noscript>
+      </section>
+      <aside class="storage-note" aria-labelledby="start-heading">
+        <h2 id="start-heading">Start with the right number</h2>
+        <p>Inbox message count is not storage usage. Archiving clears the inbox view but keeps mail in your account. A few large attachments can matter more than many small messages.</p>
+        <p>Gmail shares Google storage with Drive, Photos and other counted data. Check the total and the account before deciding what to remove.</p>
+        <p><a href="https://one.google.com/storage">Check Google’s live storage breakdown →</a></p>
+      </aside>
+    </div>
+    <section id="storage-result" class="storage-result" tabindex="-1" aria-live="polite" aria-atomic="true" hidden></section>
+    <section class="storage-explainer" aria-labelledby="review-heading">
+      <h2 id="review-heading">Review before you remove</h2>
+      <div class="storage-cards">
+        <article><h3>Gmail Trash is a recovery window</h3><p>Normal Gmail deletion moves messages to Trash for up to 30 days. Trash and Spam still use storage. Review and restore needed messages before permanent deletion; Delete forever removes the recovery option.</p><a href="/blog/how-to-permanently-delete-gmail-emails.html">Understand permanent deletion →</a></article>
+        <article><h3>Google One uses a different flow</h3><p>The storage manager offers cleanup across services. Its Gmail and Drive deletion flow can permanently delete selected items; Photos uses Move to trash. Read the exact confirmation and keep needed copies first.</p><a href="https://one.google.com/storage/management">Review Google One cleanup options →</a></article>
+        <article><h3>Choose cleanup that fits</h3><p>For space, start by <a href="/blog/gmail-delete-emails-by-size.html">reviewing large Gmail messages</a>. If your goal is removing unwanted senders, <a href="/blog/gmail-bulk-delete-by-sender.html">sender-wide cleanup</a> may help. <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner for Chrome</a> ranks senders by count and moves selected senders’ mail to Trash; it does not measure bytes or free quota immediately.</p></article>
+      </div>
+      <p>Still blocked? See <a href="/blog/gmail-mailbox-full-cant-receive-emails.html">Gmail can’t receive mail</a>, <a href="/blog/gmail-storage-full-how-to-fix.html">the storage-full guide</a>, or <a href="/blog/gmail-storage-upgrade-vs-cleanup.html">cleanup versus more storage</a>. If Google’s meter shows space, follow <a href="https://support.google.com/mail/answer/7015314?hl=en">Google’s missing-mail troubleshooting</a> instead of assuming more deletion will fix delivery.</p>
+    </section>
+    <section class="storage-sources" aria-labelledby="sources-heading">
+      <h2 id="sources-heading">Official guidance behind this tool</h2>
+      <p>Checked October 17, 2026. This is guidance from your entries, not an account diagnosis or a promise of reclaimed space.</p>
+      <ul>
+        <li><a href="https://support.google.com/mail/answer/9312312?hl=en">How Google storage works</a> — quota, counted data and the 48–72 hour update window after large deletions.</li>
+        <li><a href="https://support.google.com/mail/answer/6374270/manage-files-in-your-google-drive-storage?hl=en">Manage storage in Gmail, Drive and Photos</a> — full-account effects and targeted review.</li>
+        <li><a href="https://support.google.com/mail/answer/7401?hl=en">Delete and recover Gmail messages</a> — Trash and Delete forever.</li>
+        <li><a href="https://support.google.com/googleone/answer/9776477?hl=en">Google One cleanup and storage issues</a> — service-specific confirmation flows and Workspace quota.</li>
+      </ul>
+    </section>
+  </main>
+  <footer class="storage-footer"><a href="/">Inbox Cleaner</a><a href="/blog/">All guides</a><a href="/privacy.html">Privacy</a></footer>
+</body>
+</html>
