@@ -63,6 +63,8 @@ Group by sender → ranked list (chrome.storage.local)
 
 ## Organic growth audit
 
+[SEO roadmap and delivery backlog](docs/superpowers/plans/2026-10-17-seo-roadmap.md) — SEO-01–SEO-09 tasks, all 15 audit briefs, product R27–R34 ownership and 30/60/90-day review gates.
+
 [Organic growth audit and roadmap](reports/Inbox%20Cleaner%20organic%20growth.md) — technical and content findings, authenticated Search Console baseline, 15 page/tool briefs, and a low-budget 30/60/90-day plan, researched 17 October 2026. The [47-page content inventory](research_notes/Inbox%20Cleaner%20organic%20growth/content-inventory.csv) is the URL-level backlog. These are recommendations; the live site and publishing schedule are unchanged.
 
 ## Analytics intelligence

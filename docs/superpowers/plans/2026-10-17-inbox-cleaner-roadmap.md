@@ -8,7 +8,7 @@
 
 **Tech stack:** `popup.html`, `popup.css`, `popup.js`, `content.js`, `parsing.js`, Chrome extension APIs and Node's built-in test runner.
 
-**Source:** [Competitive teardown](../../../reports/Inbox%20cleaner%20extension%20teardown.md), researched 17 October 2026. Model assignments are engineering recommendations, not benchmarks or promises of correctness.
+**Source:** [SEO roadmap](2026-10-17-seo-roadmap.md), [organic growth audit](../../../reports/Inbox%20Cleaner%20organic%20growth.md), [analytics intelligence](../../../reports/2026-10-17-analytics-intelligence.md), and [Competitive teardown](../../../reports/Inbox%20cleaner%20extension%20teardown.md), researched 17 October 2026. Model assignments are engineering recommendations, not benchmarks or promises of correctness.
 
 **Status:** Proposed roadmap, prepared 17 October 2026. This change creates planning documents only. Implementation, store submission, pushes and rollout are separate actions.
 
@@ -24,6 +24,8 @@ Ship trust before breadth. The initial deliverable should help a person answer f
 | 3. Safer choices | R15–R19 | Protection filters, archive, age rules and gated recovery | Preview and action use identical policies; restoration is demonstrated or withheld | 3.5.0 |
 | 4. Maintain selectively | R20–R23 | Guided unsubscribe, local maintenance rules, optional storage insight | Feasibility and privacy gates pass before each capability ships | 3.6+; separate releases |
 | 5. Broaden on evidence | R24–R26 | Optional wider workspace, locales and transparent commercial model | Demand and maintenance capacity justify each addition | Unscheduled |
+
+Acquisition delivery is a coordinated track: **R27–R34**, detailed in the [SEO roadmap](2026-10-17-seo-roadmap.md). Start factual repairs and the observed-page refreshes alongside R01/R02; tools and growth claims must respect the relevant safety contracts. Growth work does not make the remaining runtime milestones prerequisites for correcting native Gmail instructions.
 
 Versions are proposed grouping, not delivery dates. Use a major version only for an actual breaking contract or architecture change. A small team can ship each milestone independently; conditional tasks may be declined without blocking the reliable cleanup core.
 
@@ -387,6 +389,128 @@ For each task, **Build** gives model type and therefore exact model/effort from 
 **Touchpoints:** public docs/site/listing; new billing code only under an approved separate plan.
 
 **Done when:** The owner has a documented commercial decision, public terms agree across surfaces and entitlement failures cannot block a safety/recovery path.
+
+## Organic growth delivery: R27–R34
+
+These tasks integrate every audit finding and all 15 page/tool briefs into product delivery. The [SEO roadmap](2026-10-17-seo-roadmap.md) owns detailed SEO-01–SEO-09 checklists, B01–B15 briefs, evidence windows, proposed files and the 30/60/90-day review plan. Existing R01–R26 identifiers, dependencies and feature gates remain unchanged. All new tasks are proposed.
+
+### Evidence and sequence
+
+The September 17–October 14 cohort has 13 search clicks / 1,847 impressions. Refresh select-all (534 impressions, position 11.0), size-deletion (112, 7.6), urgent mailbox-full (97, 7.5), biggest-mail (116, 11.7) and older-than-year (148, 13.8), alongside the homepage. Full-history metrics use a different window; do not substitute them silently.
+
+Indexing updated October 12 has 29 indexed / 16 discovered-not-indexed, not a current 29/50 rate. The 50 live sitemap destinations returned 200; keep the generator. Six store-linked GA install events are listing observations, not website conversion or successful cleanup. Four attributed ChatGPT events need source/owner-test review. No usage data proves every proposed product feature is needed.
+
+| Product task | SEO owner | Growth-audit ticket coverage | Portfolio briefs |
+|---|---|---|---|
+| R01/R02 + R27 | SEO-01 | GROW-01–03 | B01, B14 |
+| R28 | SEO-02 | GROW-04 | Shared infrastructure |
+| R29 | SEO-03, SEO-09 | GROW-05 | Measurement across all briefs |
+| R30 | SEO-04 | GROW-06 | Quality gate across B01–B15 |
+| R31 | SEO-05 | GROW-07 | B02, B03, B07–B12 |
+| R32 | SEO-06 | GROW-08 | B04, B05, B09 |
+| R23 + R33 | SEO-07 | Diagnostic expansion | B06, B07, B11 |
+| R34 | SEO-08 | Evidence/distribution expansion | B13–B15 |
+
+### R27 — Repair the acquisition story and risky instructions
+
+**Build:** S; L only for verified copy. **Review:** S; A for scope/thread safety. **Depends on:** R01/R02 evidence. **Priority:** P0. **SEO owner:** SEO-01.
+
+- [ ] Review all 47 guides and metadata against installed behavior; classify the 41 API and 33 Connect Gmail body matches by actual product surface.
+- [ ] Correct native Gmail bulk-selection limits, scheduled age-filter claims, blanket record-retention advice and extension-vs-manual protection assumptions.
+- [ ] Align homepage, privacy, setup/recovery and prepared store descriptions; make extension installation primary while explicitly deciding the supported browser-app route.
+
+**Touchpoints:** docs/index.html, docs/privacy.html, docs/blog/*.html, README.md, docs/CHROME_WEB_STORE.md, manifest description, scripts/site-config.json and proposed scripts/product-facts.json.
+
+**Done when:** Each claim has evidence and product scope; no known dangerous instruction remains; current package/version and recovery language agree across surfaces. Store submission is distinct from drafting. Do not overwrite concurrent fact-audit work or mark it complete from its presence alone.
+
+### R28 — Consolidate public delivery and fix finite SEO hygiene
+
+**Build:** S. **Review:** S. **Depends on:** preferred-host decision; coordinate with R30. **Priority:** P1. **SEO owner:** SEO-02.
+
+- [ ] Normalize index aliases, add privacy canonical and migrate old-host links with appropriate redirects/static fallback.
+- [ ] Restore valid favicon/share image and exclude internal strategy/spec/store notes from deployment using an allowlisted output.
+- [ ] Keep existing sitemap/discovery generation; inspect important exclusions and recheck after crawl without ritual mass resubmission.
+
+**Touchpoints:** vercel.json, scripts/build_site.mjs, scripts/site-config.json, docs assets/canonicals/robots/sitemap and test/site.test.js.
+
+**Done when:** Canonical destinations/assets respond correctly, internal documents are not public, builds remain repeatable and no useful URL silently disappears. No invented crawl/indexing/CWV guarantee.
+
+### R29 — Maintain separate search, listing and product scorecards
+
+**Build:** S. **Review:** S; A reviews any privacy-sensitive event design. **Depends on:** none for existing data, R01 before new collection. **Priority:** P1. **SEO owner:** SEO-03/09.
+
+- [ ] Preserve source/date/filter/time-zone metadata, adjacent 28-day search windows and a fixed refreshed-page cohort; annotate releases.
+- [ ] Separate listing GA installs from website CTA clicks and successful cleanup. Record unknown Dashboard metrics and owner/test attribution limits.
+- [ ] Use voluntary feedback before extension telemetry; specify any minimal website events independently, excluding personal mailbox/query data.
+
+**Touchpoints:** versioned research exports, proposed reports/organic-growth-scorecard.md; site/privacy only under a separate measurement slice.
+
+**Done when:** Every metric has a reproducible source and scope; missing activation stays unknown; six listing install events are never divided by search clicks as a website conversion rate. No paid backend is required.
+
+### R30 — Replace publication quotas with evidence readiness
+
+**Build:** S. **Review:** S. **Depends on:** R27 facts. **Priority:** P1. **SEO owner:** SEO-04.
+
+- [ ] Add intent-owner, product-release, sources, original evidence, actual verification date and reviewed/publish-ready states to content records.
+- [ ] Revise prompts and both scheduled/manual publishers to enforce readiness, date/link/asset/claim checks and an explicit no-ready-topic result.
+- [ ] Retain substantive review of distinct usefulness and factual support; word count, five FAQs or schema cannot satisfy the gate.
+
+**Touchpoints:** scripts/blog-topics.json, scripts/daily_publish_prompt.md, scripts/blog_prompt.md, scripts/publish_blog.py, scripts/build_site.mjs, proposed scripts/content-records.json; site/publisher tests.
+
+**Done when:** Invalid records fail, valid records preserve discovery/dates, and the scheduler cannot bypass the same gate. Planning does not pause/change the current schedule; implementation must make any cadence change explicit.
+
+### R31 — Refresh visible guides and curate five user journeys
+
+**Build:** S; V for screenshot/layout work. **Review:** S. **Depends on:** R27, R29; R30 for new publication. **Priority:** P1. **SEO owner:** SEO-05.
+
+- [ ] Refresh the five observed opportunities first, plus homepage and sender-conversion guidance, with tested native instructions and current scope.
+- [ ] Organize sender cleanup, safe search recipes, storage diagnosis, subscriptions/backlog and trust/setup; retain complete index discovery and add useful contextual links.
+- [ ] Give every inventory URL a reviewed disposition. Preserve age/size owners while full query overlap is evaluated; redirects require retained unique value, link updates and sitemap cleanup.
+
+**Touchpoints:** docs/blog/*.html, docs/index.html, scripts/build_site.mjs, content records and the 47-page inventory.
+
+**Done when:** Each retained page has a distinct job/evidence/CTA, mobile visitors receive useful native help and desktop handoff, and no merge is justified solely by similar titles. B02/B03/B07–B12 are explicitly accounted for.
+
+### R32 — Ship a read-only local query builder and bounded checker
+
+**Build:** S. **Review:** A for Gmail semantics; V for accessibility. **Depends on:** R02, R27, R30. **Priority:** P2. **SEO owner:** SEO-06.
+
+- [ ] Build sender/category/date/size query composition with editable output, copy/open controls and dated boundary/thread explanations.
+- [ ] Check only supported syntax/contradictions and broad criteria; explain that static checks cannot guarantee mailbox matches or protect whole threads.
+- [ ] Keep inputs local, no OAuth/deletion/indexed parameter states; publish fixtures. Separate checker page only if a distinct maintained job warrants it.
+
+**Touchpoints:** proposed docs/tools/gmail-cleanup-search-builder/index.html, docs/tools/query-builder.js/css, test/query-builder.test.js and generator integration.
+
+**Done when:** Syntax/date/hostile-input fixtures and keyboard/mobile checks pass; the tool adds value beyond a generic builder. Website query settings do not imply the current extension enforces R15 protections.
+
+### R33 — Provide useful storage diagnosis without a fake scan
+
+**Build:** S. **Review:** A for scope claims; V for clarity. **Depends on:** R27, R30; R23 only for actual extension insights. **Priority:** P2. **SEO owner:** SEO-07.
+
+- [ ] Build a manual-input local diagnostic for Gmail/Drive/Photos, Trash and delayed meter updates with official native next steps.
+- [ ] Keep urgent receive failure distinct from clutter; clearly distinguish Trash movement and permanent removal.
+- [ ] Link evidenced storage guides; never infer exact GB from sender counts or require new permissions/backend.
+
+**Touchpoints:** proposed docs/tools/gmail-storage-troubleshooter/index.html, local JS/CSS, test/storage-troubleshooter.test.js, existing storage guides and generator.
+
+**Done when:** Unknown/invalid totals and shared-storage/Trash scenarios yield useful honest advice; no inputs leave the device and no UI pretends the account was scanned.
+
+### R34 — Publish firsthand evidence and distribute useful assets
+
+**Build:** S; V for demonstrations, L for verified editorial edits. **Review:** S/A for method/safety; H validates observed behavior. **Depends on:** R27, R31/R32 useful assets; R14 for usability claims. **Priority:** conditional. **SEO owner:** SEO-08.
+
+- [ ] Publish setup/data-flow/recovery, a current native Gmail comparison and one sourced/tested competitor comparison including alternatives' advantages.
+- [ ] Run seeded native/extension cleanup tasks and publish methods/fixtures, actual timings/errors and limits; no invented benchmark claims.
+- [ ] Prepare reusable demos, GitHub links and relevant community/tutorial answers. Sending outreach/posting requires its own user authorization.
+- [ ] Expand only with actual query gaps and distinct information; no paid links/writers/ads dependency or mass synonym/brand/locale pages.
+
+**Touchpoints:** portfolio B13–B15, how-it-works/help, proposed compare/research pages and synthetic fixtures.
+
+**Done when:** Every result is traceable to an actual run or labeled documentation observation. Comparisons/research remain deferred until evidence exists; ongoing SEO-09 reviews govern expansion.
+
+### Growth review gates
+
+Days 1–30 prioritize R27–R31 and query-tool preparation; days 31–60 complete the helper/diagnostic and high-fit rewrites/tests; days 61–90 expand evidenced research/comparisons and actual query gaps. These are review windows, not ranking or revenue deadlines. No new cloud AI, mobile app, provider, locale or monetization commitment is justified by this small baseline. R03–R09 safety work remains ahead of promoting an expanded cleanup runtime.
 
 ## Suggestion coverage and deliberate deferrals
 

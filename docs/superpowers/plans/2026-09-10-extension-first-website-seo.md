@@ -1,5 +1,7 @@
 # Extension-First Website & SEO Implementation Plan
 
+> **Historical plan:** The [17 October 2026 SEO roadmap](2026-10-17-seo-roadmap.md) now owns prioritization and current scope. Do not execute conflicting legacy assumptions (article counts, retired rich-result tactics, product claims, app deletion or deployment steps) without reconciling them against that roadmap and current evidence.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Turn the Inbox Cleaner web property into a marketing landing page that drives Chrome Web Store installs, and retarget the SEO/content pipeline from "sign in to the web app" to "install the extension."
