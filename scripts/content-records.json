@@ -1,983 +1,1816 @@
 {
   "delete-all-emails-from-one-sender-gmail": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "delete-all-emails-from-one-sender-gmail",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "651467c427d4346a41dd7db3a3c062f6afa0c6f5b2d9254b784da782a97f6292",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/gmail-archive-vs-delete.html",
       "/blog/how-to-free-up-gmail-storage.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "gmail-inbox-zero": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "gmail-inbox-zero",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "dc2bbc278b21d30b375559cb5c72114e07aa9d8c68ed32e4ea040fd9ac52948e",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/gmail-archive-vs-delete.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "how-to-free-up-gmail-storage": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "how-to-free-up-gmail-storage",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "b757a90600ad0ce0de01d41a08f19d2be89aa900cf7c6b3417599c82046500dd",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/gmail-mailbox-full-cant-receive-emails.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "how-to-bulk-delete-gmail-emails": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "how-to-bulk-delete-gmail-emails",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "4e318808b5f10d0e321d152948de7bd8983ea05e1e5773afcb0e9de59bfccbaa",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "gmail-delete-all-promotional-emails": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "gmail-delete-all-promotional-emails",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "43e890b7ca07d744d8bca85f82c92eb46cf5586bac304fe7f073088a46747adf",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-free-up-gmail-storage.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "how-to-unsubscribe-from-emails-gmail": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "how-to-unsubscribe-from-emails-gmail",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "f0daf14559ba90bc23538225ffa48024319073c915bfd146bcc1127330a0dca7",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/gmail-delete-all-promotional-emails.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "how-to-select-all-emails-gmail": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "how-to-select-all-emails-gmail",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "d76794fa7cb7aa702e371a5fd08cbd62cd3ad8a327da28a8ba1b2bbb804b036f",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/gmail-archive-vs-delete.html",
       "/blog/how-to-free-up-gmail-storage.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "gmail-delete-all-unread-emails": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "gmail-delete-all-unread-emails",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "3329554b1c2f04fab4606cf09d2bdb035e6879a61e0a928d5ae7aa158c0d1876",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "gmail-archive-vs-delete": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "gmail-archive-vs-delete",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "eaa93e01a2dbff340e4297417e1117610b89ea7f581c83e777f3200e31985111",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-free-up-gmail-storage.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "gmail-filters-delete-emails-automatically": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "gmail-filters-delete-emails-automatically",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "4976fe9e03cf63adfc2c4cfaacfcce53f9c0f0b1f1954eb4581dda7e3819ab54",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/gmail-delete-all-promotional-emails.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "how-to-delete-old-emails-gmail": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "how-to-delete-old-emails-gmail",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "cfaa6fdab82f7e5eaa755242f7586ad04878607423e0f2a8de44d527b2bd6d9a",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/how-to-delete-emails-older-than-a-year-gmail.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "gmail-storage-full-how-to-fix": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "gmail-storage-full-how-to-fix",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "f684fe6e64f1ba37e118e92d4a65552f3e8c5a0f7fd542c55992478485833632",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/gmail-mailbox-full-cant-receive-emails.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "clean-up-gmail-inbox": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "clean-up-gmail-inbox",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "095cc6174f35d500fade1586eb26e9a209af03a45663107a132773ec854ef45f",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "gmail-bulk-delete-by-sender": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "gmail-bulk-delete-by-sender",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "cc6a276cb1e2f5d45d09e5c577808eac7907db5dbac5d8d48345881beba8e6c2",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "how-to-delete-thousands-of-emails-gmail": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "how-to-delete-thousands-of-emails-gmail",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "0676226288cb43cd983f71c21a3886a915db04b8e6140d799ba830e3798457bd",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "gmail-delete-all-emails-from-multiple-senders": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "gmail-delete-all-emails-from-multiple-senders",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "204cadd86b0719625c928d9ddcaa52b9cd491f136e9c27b81e2696ce43e3221c",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "how-to-mass-delete-emails-gmail": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "how-to-mass-delete-emails-gmail",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "2a1f04082e4c7cab8e07049aceed0ab888b98da96bd065c172bc68353c0db4c1",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "gmail-storage-almost-full-what-to-do": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "gmail-storage-almost-full-what-to-do",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "9563ba2978d6b251f7edbadd358907e49ce13746e864ce6e014d66d209a360ec",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/gmail-mailbox-full-cant-receive-emails.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "how-to-clean-gmail-inbox-in-5-minutes": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "how-to-clean-gmail-inbox-in-5-minutes",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "ca25e323a675784c371680dc1ff35b7b3a2c7be75fc92b17a780474cabf6bda3",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "gmail-delete-social-media-notifications": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "gmail-delete-social-media-notifications",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "5cd9b51c7c745f55a2ad765b49ba1b128c5fa330bc3a20c6c7de655d5de6b771",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "how-to-find-biggest-emails-gmail": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "how-to-find-biggest-emails-gmail",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "fdae2d514dfc06502b66f5f1f8720e5b14ab4c25e8a1a23a63d125141481e88b",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/gmail-delete-emails-by-size.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "gmail-delete-emails-by-size": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "gmail-delete-emails-by-size",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "d4249f6a4212b377d0418b95025b7f9a2b31b79751f19e4bd3923c7b44ff63b7",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-free-up-gmail-storage.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "how-to-delete-spam-emails-gmail": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "how-to-delete-spam-emails-gmail",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "cf49fb0b6cd1e9da492a124ff9e0f8b874eac12090cd8b918ccb743d1768c911",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "gmail-empty-trash-automatically": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "gmail-empty-trash-automatically",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "42b4ee921cf5890f226e3609441b8c95350f11443eeb288bf2700f9b0c47e01e",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/how-to-permanently-delete-gmail-emails.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "how-to-delete-emails-older-than-a-year-gmail": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "how-to-delete-emails-older-than-a-year-gmail",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "3748a7b14feeb9a9b1a0da5beb53aeb5c97c1b9e3f89990b8ebbacc0e7749b88",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-free-up-gmail-storage.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "gmail-vs-outlook-bulk-delete": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "gmail-vs-outlook-bulk-delete",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "7c888619a97a509be536461ba27ec2411c103f996c1b0f26a1ad0338cd9ad44f",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "how-to-organize-cluttered-gmail-inbox": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "how-to-organize-cluttered-gmail-inbox",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "edafeccc9bc6b7d035492ca3838cea6a2efcfdfa284e36270a499b6ae4adc7d8",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/gmail-archive-vs-delete.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "gmail-storage-upgrade-vs-cleanup": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "gmail-storage-upgrade-vs-cleanup",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "b62290a1485d49ebf0fc79d91e7746f13a6a3681831f57100298b041fcc5c7e7",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/gmail-mailbox-full-cant-receive-emails.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "how-to-delete-newsletter-emails-gmail": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "how-to-delete-newsletter-emails-gmail",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "efaf3f1a68640f5adf23dc232015a3794a7a87c9598bbecb6455a80c8370dbf3",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/gmail-delete-all-promotional-emails.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "gmail-search-operators-to-find-old-emails": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "gmail-search-operators-to-find-old-emails",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "c8d96341edc8c39fa3b42dbff07572252a171d68d289ad063dbe36cd1a0f809e",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/how-to-delete-emails-older-than-a-year-gmail.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "how-to-permanently-delete-gmail-emails": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "how-to-permanently-delete-gmail-emails",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "bf5ef930bd342041fb4e080b20c5813a93d264af4504af006c1af36673a3d61a",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-free-up-gmail-storage.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "gmail-mailbox-full-cant-receive-emails": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "gmail-mailbox-full-cant-receive-emails",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "ec72fa94b2461cf4d931f7425399a9d2d4e7567c553820f6beb18d68eafccf5d",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-free-up-gmail-storage.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "best-way-to-clean-gmail-2026": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "best-way-to-clean-gmail-2026",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "ea8139254b0ec3673c01aed2645ae9b166e3d1608de1c0b5a8d1d36359282cf3",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "delete-amazon-order-emails-gmail": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "delete-amazon-order-emails-gmail",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "047d173f2889312aed75a88caa5a71576bb4bc09cbfb03d7b6677b63f1879172",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "delete-linkedin-notification-emails-gmail": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "delete-linkedin-notification-emails-gmail",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "79496b90937024bb754084290c18e9c57e17a542e61f8d20af5e26a503ef48e3",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "delete-facebook-notification-emails-gmail": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "delete-facebook-notification-emails-gmail",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "9865ae904659c0b6402c31a92e536deca1da904924da0913a03bf4271e7841f7",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "delete-twitter-x-notification-emails-gmail": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "delete-twitter-x-notification-emails-gmail",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "49d6ef13f7c17a25ecf804cd287ef82ada522bf122c72362da78ffb8010bbc2e",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "delete-instagram-emails-gmail": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "delete-instagram-emails-gmail",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "36aaa8641bb44064232e0431b9ae5f098522a108cf290f7020b95390cbb200dd",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "delete-uber-eats-doordash-receipts-gmail": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "delete-uber-eats-doordash-receipts-gmail",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "69975ed1d3e4a872329503435b082ede6431f6ce5bbdee9c066d1f0b99fc9b49",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "delete-bank-statement-emails-safely-gmail": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "delete-bank-statement-emails-safely-gmail",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "7421ff4d9644c949f52984e6010f15d871222a1e5d25ddf5c54ebedf57a06b0a",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "delete-google-alerts-emails-gmail": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "delete-google-alerts-emails-gmail",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "5de193964b205058c5c69ee12615fa04ce6d21ff5767adbc8c45f0a466f5b320",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "delete-calendar-invite-emails-gmail": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "delete-calendar-invite-emails-gmail",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "f117aff5bf0224b8c51c8c499545d35503ec08887d7a1ffbf1870aeea6d674be",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "delete-shipping-confirmation-emails-gmail": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "delete-shipping-confirmation-emails-gmail",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "caf2421f7f10cb2a7ec386dee6b2f9a77c0c948727b24d7f1305fe65272c81bc",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "delete-job-alert-emails-gmail": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "delete-job-alert-emails-gmail",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "22d0a9dbec81838f0ee448f4e3f472731263f3a928fedf12e2a696cb1ec9b5a6",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "delete-linkedin-connection-request-emails": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "delete-linkedin-connection-request-emails",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "8cb669111db1804ef35dad44e76fd6ba7ba9fe85ed9c253c0c3839abe9a9d299",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "delete-paypal-emails-gmail": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "delete-paypal-emails-gmail",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "9a4bd70d5bc1f5cf9509513f3fc01c1d8f7ffda99dab96ea2f49e7cc4fe80b25",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "delete-zoom-meeting-emails-gmail": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "delete-zoom-meeting-emails-gmail",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "a17c1b75610b1aba4a2e8f472ad80a517b253f028d7bc475907d3261d015a491",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "gmail-select-all-conversations-not-showing": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "gmail-select-all-conversations-not-showing",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "6c55b866362f869d8ca94c8521cc752518f16f153fd6ea5b315a0a9929d3735d",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "A screenshot-led decision tree separating page selection, search results, view differences and mobile limitations; do not promise a universal fix.",
     "related_links": [
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "gmail-bulk-delete-not-working": {
-    "state": "draft",
+    "state": "evidence_checked",
     "intent_owner": "gmail-bulk-delete-not-working",
     "product_manifest_version": "3.2.1",
-    "sources": [],
-    "assets": [],
+    "verified_on": "2026-10-17",
     "verification_kind": "source_review",
-    "verified_on": null,
-    "limitations": [
-      "Legacy publication or editorial brief does not establish an evidence review. No live mailbox verification recorded."
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "kind": "agent"
+    },
+    "post_sha256": "9b40492d1930a6369d17173378cf6ee387393367b1fc5a8100c14db7f96a79e2",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
     ],
-    "information_gain": null,
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+    ],
+    "information_gain": "Separate wrong selection scope, stale results and interrupted actions; verify a small disposable batch before retrying.",
     "related_links": [
       "/blog/how-to-select-all-emails-gmail.html",
       "/blog/delete-all-emails-from-one-sender-gmail.html",
       "/blog/gmail-archive-vs-delete.html"
-    ],
-    "reviewer": null,
-    "post_sha256": null
+    ]
   },
   "gmail-older-than-not-working": {
     "state": "draft",
@@ -3938,5 +4771,89 @@
     ],
     "reviewer": null,
     "post_sha256": null
+  },
+  "inbox-cleaner-setup-permissions-recovery": {
+    "state": "publish_ready",
+    "intent_owner": "inbox-cleaner-setup-permissions-recovery",
+    "product_manifest_version": "3.2.1",
+    "verified_on": "2026-10-17",
+    "verification_kind": "source_review",
+    "reviewer": {
+      "identity": "Codex /root source review after /root/evidence_assets authorship and second text review",
+      "kind": "agent"
+    },
+    "post_sha256": "800db74826080f4dbe250708dfe4e327fcd8b8d090a570d6da4d9b3ed5b86eaa",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Search syntax and mixed-conversation caveat.",
+        "review_notes": "Read official operator table and negative-operator warning; prose clearly treats examples as synthetic, not witnessed Gmail outcomes."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Native all-matching selection and ordinary Gmail Trash recovery.",
+        "review_notes": "Reviewed desktop steps and permanent-deletion distinction; no recovery or selection guarantee beyond documented scope."
+      },
+      {
+        "url": "https://github.com/iampushpendra/inbox-cleaner",
+        "supports": "Local extension architecture, permissions, sender batch construction and cache.",
+        "review_notes": "Compared current manifest, content/parsing/popup source and conservative product-facts record; installed store package not verified."
+      }
+    ],
+    "assets": [
+      "scripts/seo-fixtures.json"
+    ],
+    "limitations": [
+      "Source review and illustrative synthetic examples only; no live-mailbox run, installed-package certification, quota measurement or firsthand competitor benchmark.",
+      "Gmail layouts, threading and package identity require external verification; no ranking, citation or task-success guarantee."
+    ],
+    "information_gain": "Connects source-observed account/tab selection and extension permissions to actual sender-wide scope and Gmail recovery, explicitly distinguishing website/legacy data flows and unverified installed behavior.",
+    "related_links": [
+      "/blog/how-to-bulk-delete-gmail-emails.html",
+      "/blog/gmail-delete-emails-by-size.html",
+      "/blog/how-to-select-all-emails-gmail.html"
+    ]
+  },
+  "inbox-cleaner-vs-native-gmail": {
+    "state": "publish_ready",
+    "intent_owner": "inbox-cleaner-vs-native-gmail",
+    "product_manifest_version": "3.2.1",
+    "verified_on": "2026-10-17",
+    "verification_kind": "source_review",
+    "reviewer": {
+      "identity": "Codex /root source review after /root/evidence_assets authorship and second text review",
+      "kind": "agent"
+    },
+    "post_sha256": "c456fa5575f62ad7d4634f74140ec9a4ac9e2eefbe64b08d4813f8dde9316a8f",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Search syntax and mixed-conversation caveat.",
+        "review_notes": "Read official operator table and negative-operator warning; prose clearly treats examples as synthetic, not witnessed Gmail outcomes."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Native all-matching selection and ordinary Gmail Trash recovery.",
+        "review_notes": "Reviewed desktop steps and permanent-deletion distinction; no recovery or selection guarantee beyond documented scope."
+      },
+      {
+        "url": "https://github.com/iampushpendra/inbox-cleaner",
+        "supports": "Local extension architecture, permissions, sender batch construction and cache.",
+        "review_notes": "Compared current manifest, content/parsing/popup source and conservative product-facts record; installed store package not verified."
+      }
+    ],
+    "assets": [
+      "scripts/seo-fixtures.json"
+    ],
+    "limitations": [
+      "Source review and illustrative synthetic examples only; no live-mailbox run, installed-package certification, quota measurement or firsthand competitor benchmark.",
+      "Gmail layouts, threading and package identity require external verification; no ranking, citation or task-success guarantee."
+    ],
+    "information_gain": "A balanced task-based native Gmail comparison with clearly labeled mixed-thread, overlapping-sender and count-versus-bytes examples; makes source-observed scope limits explicit instead of asserting performance superiority.",
+    "related_links": [
+      "/blog/how-to-bulk-delete-gmail-emails.html",
+      "/blog/gmail-delete-emails-by-size.html",
+      "/blog/how-to-select-all-emails-gmail.html"
+    ]
   }
 }

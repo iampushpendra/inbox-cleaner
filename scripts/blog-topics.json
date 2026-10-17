@@ -1893,7 +1893,7 @@
     "slug": "gmail-cleaner-manual-search-vs-extension",
     "target_query": "when should i use gmail search instead of a cleanup extension",
     "eyebrow": "Cleanup Tools & Privacy",
-    "status": "pending",
+    "status": "deferred",
     "cluster": "trust",
     "answer_angle": "A decision table for sender-wide work versus date, size, category and protected-mail constraints.",
     "priority": 2,
@@ -1909,14 +1909,16 @@
         "inbox cleaner"
       ]
     },
-    "intent_owner": "gmail-cleaner-manual-search-vs-extension",
+    "intent_owner": "inbox-cleaner-vs-native-gmail",
     "hub_slug": "delete-all-emails-from-one-sender-gmail",
     "required_review": "Compare current top results; record one specific information gain, verify current official sources and test procedural claims before publication.",
     "related_published_slugs": [
       "delete-all-emails-from-one-sender-gmail",
       "how-to-select-all-emails-gmail",
       "gmail-archive-vs-delete"
-    ]
+    ],
+    "consolidate_into": "inbox-cleaner-vs-native-gmail",
+    "defer_reason": "The reviewed new owner already covers this planned workflow/permission job; expand that owner before proposing another article."
   },
   {
     "slug": "is-it-safe-to-use-gmail-cleanup-extensions",
@@ -1951,7 +1953,7 @@
     "slug": "gmail-cleanup-extension-permissions-explained",
     "target_query": "why do gmail cleanup extensions need account access",
     "eyebrow": "Gmail Tips",
-    "status": "pending",
+    "status": "deferred",
     "cluster": "trust",
     "priority": 2,
     "evidence_basis": "adjacent_cluster",
@@ -1966,7 +1968,7 @@
         "inbox cleaner"
       ]
     },
-    "intent_owner": "gmail-cleanup-extension-permissions-explained",
+    "intent_owner": "inbox-cleaner-setup-permissions-recovery",
     "hub_slug": "delete-all-emails-from-one-sender-gmail",
     "answer_angle": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "required_review": "Compare current top results; record one specific information gain, verify current official sources and test procedural claims before publication.",
@@ -1974,7 +1976,9 @@
       "delete-all-emails-from-one-sender-gmail",
       "how-to-select-all-emails-gmail",
       "gmail-archive-vs-delete"
-    ]
+    ],
+    "consolidate_into": "inbox-cleaner-setup-permissions-recovery",
+    "defer_reason": "The reviewed new owner already covers this planned workflow/permission job; expand that owner before proposing another article."
   },
   {
     "slug": "gmail-cleaner-without-oauth",
@@ -5931,6 +5935,40 @@
       "delete-all-emails-from-one-sender-gmail",
       "how-to-select-all-emails-gmail",
       "gmail-archive-vs-delete"
+    ]
+  },
+  {
+    "slug": "inbox-cleaner-setup-permissions-recovery",
+    "target_query": "how to set up inbox cleaner permissions and recover trashed gmail mail",
+    "eyebrow": "Gmail cleanup decisions",
+    "status": "published",
+    "cluster": "trust",
+    "priority": 2,
+    "evidence_basis": "source_review_and_synthetic_model",
+    "intent_owner": "inbox-cleaner-setup-permissions-recovery",
+    "hub_slug": "delete-all-emails-from-one-sender-gmail",
+    "answer_angle": "Explain current source-observed tab/account choice, permissions, local data flow, sender-wide scope and Gmail recovery with disclosed installed-package gaps.",
+    "related_published_slugs": [
+      "how-to-bulk-delete-gmail-emails",
+      "gmail-archive-vs-delete",
+      "gmail-delete-emails-by-size"
+    ]
+  },
+  {
+    "slug": "inbox-cleaner-vs-native-gmail",
+    "target_query": "inbox cleaner vs native gmail search cleanup",
+    "eyebrow": "Gmail cleanup decisions",
+    "status": "published",
+    "cluster": "trust",
+    "priority": 2,
+    "evidence_basis": "source_review_and_synthetic_model",
+    "intent_owner": "inbox-cleaner-vs-native-gmail",
+    "hub_slug": "delete-all-emails-from-one-sender-gmail",
+    "answer_angle": "Balanced task comparison with synthetic mixed-thread, overlapping-sender and count-versus-byte examples; no live speed benchmark or competitor ranking.",
+    "related_published_slugs": [
+      "how-to-bulk-delete-gmail-emails",
+      "gmail-archive-vs-delete",
+      "gmail-delete-emails-by-size"
     ]
   }
 ]

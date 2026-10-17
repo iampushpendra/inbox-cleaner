@@ -13,6 +13,23 @@ Versioning: see `VERSION` file (semver, no `package.json` — this isn't a Node/
 - Added an organic-growth audit covering 50 live sitemap URLs, all 47 articles, product-claim consistency, a transcribed authenticated Search Console baseline, and a prioritized low-budget page/tool roadmap.
 - Added a complete URL-level content inventory and reproducible provenance for the installed SEO audit, content strategy and programmatic SEO skills. No application, production or publishing schedule changes.
 
+## [3.3.0] - 2026-10-17
+
+### Added
+- Two local tools: a Gmail sender/category/age/date/size search builder with editable checking, Copy and explicit Gmail handoff; and a manual storage troubleshooter with unknown/zero/partial/over-quota and service-specific decisions. No mailbox access, deletion, input storage or telemetry.
+- Canonical tool discovery from an exact asset manifest, with sitemap/homepage/hub links and deployment rejection of unlisted files.
+- Source-reviewed setup/permissions/recovery and native Gmail comparison guides, four labeled synthetic evidence models, unsent distribution drafts and a reproducible acquisition scorecard. Added a16-second silent tool showcase with real local screenshots and explicit synthetic-input disclosures.
+- Content evidence records tied to manifest version, substantive source-review notes, actual agent/human reviewer identity and the reviewed HTML fingerprint. New articles remain gated after publication; the original 49-URL inventory is an explicit historical exemption.
+
+### Changed
+- Completed the remaining seven priority refreshes and source-reviewed all 49 original guide URLs; corrected 44 existing articles, homepage/privacy/prepared store copy, scope/count/recovery claims and five cleanup journeys. Preserved original URLs/publication dates and left unsupported merges deferred.
+- Editorial jobs publish only reviewed ready articles. Otherwise they draft HTML and evidence sidecars outside deployed output, move to the next undrafted topic, and wait quietly when review is needed. The four-run schedule is unchanged; four runs do not imply four publications.
+- Static deployment also rejects unreviewed new articles. Generated discovery does not mutate reviewed authored content or invalidate its fingerprint. Exact-slug canonicals are enforced.
+- Clarified source/static review versus synthetic models, real installed/Gmail/competitor tests and future analytics outcomes. External gates remain explicitly open; no ranking, citation or reclaimed-storage guarantees. Extension runtime remains 3.2.1.
+
+### Verification
+- Independent code and content review; 68 Node tests and 21 Python tests passed. Both tools exercised in the local browser using synthetic inputs; no real-mail action. Rebuild is stable and local links resolve. Live deployment checks are recorded in the delivery ledger.
+
 ## [3.2.5] - 2026-10-17
 
 ### Changed

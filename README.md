@@ -1,31 +1,31 @@
 # 📥 Inbox Cleaner
 
-**See who's filling your Gmail. Select senders and move all their emails to Trash in one click.**
+**See which senders fill your Gmail. Select senders, review the sender-wide scope, then confirm a move to Trash.**
 
 [![Live App](https://img.shields.io/badge/Live%20App-open-blue?style=flat-square)](https://inbox-cleaner.vercel.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-**Current version: 3.2.5** — refreshed five analytics-priority guides; extension runtime remains 3.2.1. See [CHANGELOG.md](CHANGELOG.md) for what's new.
+**Current version: 3.3.0** — local cleanup tools, reviewed guides and publishing evidence gates; extension runtime remains 3.2.1. See [CHANGELOG.md](CHANGELOG.md) for what's new.
 
 ---
 
 ## What it does
 
-Most Gmail cleaners only show your Primary inbox. Inbox Cleaner scans **all 5 categories** — Primary, Social, Promotions, Updates, Forums — and shows a ranked list of who's occupying the most space:
+Inbox Cleaner discovers senders by paginating **five Gmail categories** — Primary, Social, Promotions, Updates and Forums — and ranks discovered senders by conversation/result counts. Those counts do not measure storage:
 
-- **Email count** per sender (color-coded: red ≥100, orange ≥50)
+- **Conversation/result count** per sender (color-coded: red ≥100, orange ≥50)
 - **Category badges** showing which Gmail tab their mail lands in
 - **Last received** — relative timestamp of most recent email
 - **Checkbox selection** — pick one sender or dozens at once
-- **One-click Trash** — one click starts a batched pass through Gmail that moves everything from the selected senders to Trash (it navigates Gmail once per batch of up to 20 senders, so larger selections take proportionally longer)
+- **Confirmed sender-wide Trash** — select senders, review the scope, then confirm. The extension navigates Gmail once per batch of up to 20 senders. Separate search exclusions are not inherited.
 
-Works entirely in your browser. No server. No data ever leaves your device.
+The extension has no independent network client or backend; Gmail itself remains an online service. Scan results are cached locally. Website hosting, optional browser-app authentication and any waitlist submission are separate surfaces.
 
 ---
 
 ## Try it
 
-**[→ Open the web app](https://inbox-cleaner.vercel.app/)** — nothing to install, works on any browser
+**[→ Visit Inbox Cleaner](https://inbox-cleaner.vercel.app/)** — extension setup, guides and local tools. The legacy OAuth browser flow is an optional separate route, with its own access limitations.
 
 Install the [Chrome extension](https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep), or see [Extension setup](#chrome-extension-setup) for local development.
 
@@ -40,7 +40,7 @@ Open Gmail in a tab
        │
        ▼
 Content script navigates category:primary / social / promotions / updates / forums
-  Scrolls each category's results to completion, reads sender + date off each row
+  Paginates category results with page guards, reading sender + date off each row
        │
        ▼
 Group by sender → ranked list (chrome.storage.local)
@@ -65,7 +65,7 @@ Group by sender → ranked list (chrome.storage.local)
 
 [SEO roadmap and delivery backlog](internal/superpowers/plans/2026-10-17-seo-roadmap.md) — SEO-01–SEO-09 tasks, all 15 audit briefs, product R27–R34 ownership and 30/60/90-day review gates.
 
-[Organic growth audit and roadmap](reports/Inbox%20Cleaner%20organic%20growth.md) — technical and content findings, authenticated Search Console baseline, 15 page/tool briefs, and a low-budget 30/60/90-day plan, researched 17 October 2026. The [47-page content inventory](research_notes/Inbox%20Cleaner%20organic%20growth/content-inventory.csv) is the URL-level backlog. These are recommendations; the live site and publishing schedule are unchanged.
+[Organic growth audit and roadmap](reports/Inbox%20Cleaner%20organic%20growth.md) — technical and content findings, authenticated Search Console baseline, 15 page/tool briefs, and a low-budget 30/60/90-day plan, researched 17 October 2026. The [47-page content inventory](research_notes/Inbox%20Cleaner%20organic%20growth/content-inventory.csv) is the URL-level backlog. The audit is the historical baseline; use the delivery status and current roadmap for implemented work and remaining evidence dependencies.
 
 ## Analytics intelligence
 
@@ -73,9 +73,9 @@ Group by sender → ranked list (chrome.storage.local)
 
 ## Blog publishing
 
-The local LaunchAgent publishes one queued article at **9 AM, 1 PM, 5 PM, and 9 PM IST** (four posts per day). It runs on this Mac while the user is logged in; sleeping or offline time can delay runs. Vercel deploys pushes to `main`.
+The local LaunchAgent runs editorial jobs at **9 AM, 1 PM, 5 PM, and 9 PM IST**. A run publishes a reviewed ready topic, or prepares an unreviewed draft outside the deployed site; four runs do not guarantee four publications. It runs on this Mac while the user is logged in; sleeping or offline time can delay runs. Vercel deploys pushes to `main`.
 
-- Queue: `scripts/blog-topics.json`; each run takes the next pending topic.
+- Queue: `scripts/blog-topics.json`; selection prefers the next pending topic with valid reviewed readiness. Otherwise it drafts an unprepared topic; existing drafts wait for a separate substantive readiness review.
 - Discovery: `node scripts/build_site.mjs` regenerates the sitemap from actual article files, the complete blog index, homepage guide links, and five related links per article. Vercel runs it on every deployment; `publish_blog.py` runs it on every publish. No hand-maintained article list and no runtime server are needed.
 - Conversion: install CTAs point directly to the verified Chrome Web Store listing in `scripts/site-config.json`; the browser app remains a secondary option.
 - The publisher requires a clean tracked working tree so it cannot stage unrelated user edits while updating generated links.
@@ -83,9 +83,11 @@ The local LaunchAgent publishes one queued article at **9 AM, 1 PM, 5 PM, and 9 
 - Logs: `scripts/daily_publish.log`; failures trigger a macOS notification.
 - Git uses HTTPS with the signed-in GitHub CLI credential helper. Claude CLI must also remain signed in.
 - Network stalls are bounded, and success requires the selected post to exist on `origin/main`.
-- Analytics-led backlog: 197 topics at this release (47 published, 134 pending, 16 deferred), including 64 new briefs. The first pending entry is the next scheduled article; deferred entries are skipped. Counts change as articles publish.
+- The analytics-led backlog includes 64 new briefs. Deferred overlaps are skipped; queue counts change as articles publish. `scripts/content-records.json` stores evidence, reviewer identity, scope, limitations and the exact reviewed authored-post fingerprint.
 - [Editorial strategy and ChatGPT discovery plan](internal/superpowers/plans/2026-10-17-blog-editorial-strategy.md) explains evidence, ordering, intent owners and the review loop. `scripts/blog-refreshes.json` separately tracks 12 existing-guide refreshes; the new-post job does not execute them.
-- Every future draft must read its complete topic brief and verify current sources and a distinct contribution before publication. The queue is finite: review analytics and replenish selectively.
+- Every future draft must read its complete topic brief and verify current sources and a distinct contribution. Readiness is a separate review; drafting cannot grant itself publication approval. The deployment build also rejects unreviewed new articles.
+- [Growth scorecard](reports/organic-growth-scorecard.md) is reproducible with `python3 scripts/growth_scorecard.py`. Website clicks, store installs and activation remain separate; missing inputs remain unknown.
+- [Delivery ledger](internal/superpowers/plans/2026-10-17-seo-delivery-progress.md) records implementation, checks and unresolved external evidence.
 
 The installed schedule lives at `~/Library/LaunchAgents/com.inboxcleaner.dailyblog.plist`; a copy is versioned at `scripts/com.inboxcleaner.dailyblog.plist`. After editing the copy, install and reload it:
 
@@ -95,12 +97,19 @@ launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/com.inboxcleaner.dailyblog
 launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.inboxcleaner.dailyblog.plist
 ```
 
+## Local cleanup tools
+
+- [Gmail search builder and checker](https://inbox-cleaner.vercel.app/tools/gmail-cleanup-search-builder/) — manual sender/category/date/size criteria, editable query, static checks and an explicit Gmail search handoff. It never selects or deletes mail.
+- [Storage troubleshooter](https://inbox-cleaner.vercel.app/tools/gmail-storage-troubleshooter/) — enter optional quota figures and a symptom for scoped next steps. No account scan or reclaimed-space estimate.
+
+Inputs stay in page memory and are not saved to the tool URL, local storage or analytics. Opening a chosen query in Gmail sends it to Google; Copy puts it on the clipboard.
+
 ## Privacy
 
 **Chrome extension:**
-- **No API, no OAuth** — the content script reads sender/date directly off Gmail's own rendered page inside your browser; nothing is sent anywhere
+- **No extension API or OAuth client** — the content script reads rendered sender/date information and operates Gmail’s interface; it makes no independent network requests
 - **Local cache** — scan results live in `chrome.storage.local` on your device
-- **Trash, not delete** — emails go to Gmail Trash and stay there 30 days before auto-purge; you can restore them any time
+- **Trash recovery** — ordinary mail can normally be restored for up to 30 days unless permanently removed sooner. The extension has no separate one-click Undo.
 
 **Web app:** all API calls go directly from your browser to `gmail.googleapis.com`; only `From`/`Date` headers are read.
 
@@ -125,10 +134,10 @@ No sign-in step — the extension reads whichever Gmail tab you already have ope
 |-------|--------|
 | Auth (web app) | Google Identity Services `initTokenClient` — token flow, no backend |
 | Auth (extension) | None — content script reads the page you're already signed into |
-| Scan (extension) | Content-script DOM automation — Gmail's `category:` search operator + auto-scroll |
+| Scan (extension) | Content-script DOM automation — category searches and Gmail pagination |
 | Trash (extension) | Gmail's native "select all conversations that match this search" bulk action |
 | Storage | `localStorage` (web) · `chrome.storage.local` (extension) |
-| Framework | None — vanilla JS, zero dependencies, zero build step |
+| Framework | None — vanilla JS; static discovery build with Node, Python publishing gate |
 
 ---
 
@@ -136,7 +145,7 @@ No sign-in step — the extension reads whichever Gmail tab you already have ope
 
 ```
 inbox-cleaner/
-├── docs/               ← Web app (GitHub Pages)
+├── docs/               ← Static website (Vercel), guides and local tools
 │   ├── index.html
 │   ├── style.css
 │   ├── app.js
@@ -156,9 +165,9 @@ inbox-cleaner/
 ## Known limitations
 
 - **Sender discovery reflects Gmail's category tabs** — the scan walks Primary/Social/Promotions/Updates/Forums, paginating each to the end. A sender who appears in none of those tabs will not be discovered.
-- **Only the 250 heaviest senders get an exact count** (`MAX_SENDERS_TO_COUNT` in `content.js`). Those show the true All Mail total — the same scope delete uses, so the number shown is the number trashed. The remaining long tail keeps its sampled count, renders with a `~`, and can still under-report what delete removes.
+- **Result counts are bounded and may overlap.** Up to the top 250 discovered senders are counted from Gmail search results when resolvable. Other or unresolved counts are estimates. Conversations can contain several senders, so summing sender counts is not a unique-message, deletion-outcome or storage guarantee.
 - **One scan supports 10,000+ conversations** — the extension follows Gmail's Older control until the final page, even when the result counter is unavailable. An unresponsive page produces an incomplete-scan error rather than silently reporting success. The safety guard is 500 pages per category (up to 50,000 conversations per category at Gmail's 100-per-page setting).
-- **A full scan takes minutes, not seconds** — it paginates the whole mailbox and then runs one search per counted sender. This is the cost of the DOM-automation architecture; the old Gmail API path did it in ~20 batched calls but required OAuth verification.
+- **Scan duration varies** — it paginates category views and then runs searches per counted sender. Fixture tests do not establish live performance or installed-package reliability.
 - **The scan/delete flow depends on Gmail's DOM structure** and may need selector updates if Gmail changes its markup — see the `SELECTORS` object in `content.js`.
 - **English Gmail UI only** — selectors may not match other locales.
 

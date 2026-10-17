@@ -2,7 +2,8 @@
 
 > **For agentic workers:** Use superpowers:executing-plans for implementation, or superpowers:subagent-driven-development only when the user chooses delegation. Checkboxes track proposed work, not completed changes.
 >
-> **Progress 17 October 2026:** seven checkboxes below are marked done by committed work: product-fact recording, high-risk claim corrections, favicon/social assets, internal-document exclusion, and the SEO-04 publishing gate (`scripts/content_gate.py`, enforced by `publish_blog.py` for both the manual and scheduled route). They live in `internal/superpowers/`, not `docs/`. Remaining items are still proposed. A checked box records verified repo work, not a publishing or store outcome. The gate detects contradictions and broken pages; it does not certify that a procedure is true, so editorial review is still required.
+> **Delivery update, 17 October 2026 — release 3.3.0:** source-reviewed content now covers all 49 original guides, all 12 priority refresh briefs, homepage/privacy/store-copy alignment, two new setup/workflow guides, two working local tools, executable publishing evidence records and a reproducible scorecard. Implementation and independent-review evidence are in the [delivery ledger](2026-10-17-seo-delivery-progress.md). A check means the stated repository work was verified; it does not imply live Gmail/installed-package certification, indexing, competitor performance or later analytics results. Those external gates remain open below.
+
 
 **Goal:** Grow qualified organic discovery and useful installs by correcting product claims, improving existing search opportunities and publishing distinct, tested pages and browser-only tools.
 
@@ -12,7 +13,7 @@
 
 **Spec and evidence:** [Organic growth audit](../../../reports/Inbox%20Cleaner%20organic%20growth.md), [47-URL inventory](../../../research_notes/Inbox%20Cleaner%20organic%20growth/content-inventory.csv), [authenticated analytics intelligence](../../../reports/2026-10-17-analytics-intelligence.md), and [product roadmap](2026-10-17-inbox-cleaner-roadmap.md). Prepared 17 October 2026 IST.
 
-**Status:** Proposed work. This roadmap update does not publish pages, submit store changes, pause the scheduler, change analytics settings or mutate Gmail. It supersedes the June and September SEO plans where those plans conflict with the current product, generator, evidence or scope; historical unchecked items are not proof of unfinished work.
+**Status:** Implemented repository slices with explicit external/ongoing evidence gates. Store submission, analytics settings and real Gmail mutation are outside this content release. The four-run editorial schedule remains, but only reviewed ready articles can publish; other runs draft privately for separate review. It supersedes the June and September SEO plans where those plans conflict with the current product, generator, evidence or scope; historical unchecked items are not proof of unfinished work.
 
 ## Global constraints
 
@@ -76,9 +77,9 @@ R01/R02 supply truthful claims and action semantics. SEO repairs and native Gmai
 **Dependencies:** R01/R02 evidence. **Files:** docs/index.html, docs/privacy.html, docs/blog/*.html, docs/CHROME_WEB_STORE.md, README.md, manifest.json description, scripts/site-config.json; proposed scripts/product-facts.json. **Build/review:** S/S; A reviews query/scope claims, using the product roadmap legend.
 
 - [x] Record package/version, permissions, supported locale/device, category discovery, top-250 exact-count limit, approximations, archived-mail action scope, scan timing and recovery evidence. Keep unverifiable claims qualified.
-- [ ] Review every inventory URL plus titles/descriptions/schema/CTAs. Classify all 41 API and 33 Connect Gmail matches; describe the separate browser flow only on a deliberately supported route.
+- [x] Source-review every original inventory URL, titles/descriptions/schema/CTAs and remaining API/Connect Gmail copy. All 49 original URLs have retained dispositions in `seo-content-review-report.md`; the optional legacy browser flow is described separately. The original 41/33 match counts are historical audit observations, not a fresh unresolved count.
 - [x] Correct the false Gmail 50-email ceiling, claims of bypassing native selection/timeouts, scheduled age-based filter claims and blanket bank-record deletion assurances. Explain native all-matching selection and Gmail incoming-filter behavior.
-- [ ] Align homepage, privacy, setup/recovery and prepared store copy; explain waitlist/network flows separately. Keep store submission distinct from drafting.
+- [x] Align homepage, privacy, setup/recovery and prepared store copy at source level; explain waitlist/network flows separately. Store-console submission and installed-package verification remain external gates.
 
 **Done when:** Every public capability is traceable to evidence; known risky instructions are removed or corrected; Gmail native alternatives are accurately explained; manual query exclusions are never silently inherited by extension sender-wide deletion. Financial retention advice is removed or explicitly scoped/sourced. Source matches alone do not certify a completed editorial review.
 
@@ -86,10 +87,10 @@ R01/R02 supply truthful claims and action semantics. SEO repairs and native Gmai
 
 **Dependencies:** preferred-host decision retained; coordinate output changes with SEO-04. **Files:** vercel.json, scripts/build_site.mjs, scripts/site-config.json, docs/robots.txt, docs/sitemap.xml, docs/index.html, docs/privacy.html, docs/blog/index.html, docs/favicon.ico, docs/og-image.png; deployment output directory chosen in the implementation slice. **Tests:** test/site.test.js.
 
-- [ ] Keep all existing canonical destinations working; normalize index aliases with permanent redirects, add privacy canonical and migrate owned GitHub Pages links. Use page-for-page redirects where supported; otherwise document canonical/static fallback and usable links.
+- [x] Preserve canonical destinations, configure permanent index/privacy aliases, supply privacy canonical and migrate owned links to the preferred host. External old-host redirect configuration is not changed; canonical/usable-link fallback is the documented limit. Recheck real HTTP behavior at deployment.
 - [x] Supply valid favicon and social image, verify HTTP status/content type, and check referenced dimensions.
 - [x] Exclude internal plans/specs/store-submission notes and research from deployment with an allowlisted output. Preserve them in the repository. Do not rely on robots disallow to remove already-indexed URLs.
-- [ ] Retain the existing sitemap and internal-link generator. Inspect valuable exclusions individually after crawl; preserve the validation already started October 6.
+- [ ] The sitemap/internal-link generator is retained and tested, now including two manifest-controlled tool URLs. Individual authenticated GSC exclusion inspection after recrawl remains pending; preserve the validation already started October 6.
 
 **Done when:** Canonical sitemap targets return 200, aliases redirect as designed, assets return correct types, internal documents are no longer publicly served, repeated builds are stable and no new orphan/broken links appear. No promised indexed-page count or CWV pass without data.
 
@@ -98,9 +99,9 @@ R01/R02 supply truthful claims and action semantics. SEO repairs and native Gmai
 **Dependencies:** none for baseline; R01 and privacy decision before adding events. **Files:** versioned research exports, proposed reports/organic-growth-scorecard.md; site code/privacy only if a separately specified event design is implemented. **Product:** R29.
 
 - [ ] Record weekly GSC page/query/device/country exports, report dates, filters, time zones, release annotations and the fixed refresh cohort. Use adjacent equal 28-day windows.
-- [ ] Keep store-linked GA visits/install events separate from website landings/CTA clicks and extension activation/cleanup. Record owner/test filtering limits; investigate the existing ChatGPT-attributed links without claiming independent acquisition.
+- [x] Keep store GA sessions/install events separate from website/activation metrics in the reproducible scorecard. Document owner/test limits and a fixed ChatGPT citation/source-link review protocol. Actual source-link provenance and owner filtering remain unresolved, not presumed independent acquisition.
 - [ ] Obtain owner-accessible Developer Dashboard exports when possible; retain blocked reports as unknown, not zero. Do not bypass browser access refusals.
-- [ ] Define minimal privacy-consistent website measurement only if needed. Start product usefulness measurement with voluntary feedback; do not add extension telemetry as part of a content task.
+- [x] Document a minimal privacy-consistent future measurement contract in the scorecard: sanitized article/acquisition/store-click data only, with separate denominators. No tracking or extension telemetry was added; voluntary task feedback remains the initial product-usefulness route.
 
 **Done when:** Each metric has a source, denominator/window and known gaps. Six store install events divided by search clicks is never reported as website conversion. No new paid analytics service or mail-content collection.
 
@@ -109,7 +110,7 @@ R01/R02 supply truthful claims and action semantics. SEO repairs and native Gmai
 **Dependencies:** SEO-01 product facts; preserve current scheduler until the implementation changes it explicitly. **Files:** scripts/blog-topics.json, scripts/daily_publish_prompt.md, scripts/blog_prompt.md, scripts/publish_blog.py, scripts/build_site.mjs; proposed scripts/content-records.json; test/test_daily_publish.py and test/site.test.js.
 
 - [x] Define draft → evidence-checked → publish-ready records with intent owner, product version, sources, original asset/fixture, actual verification date, limitations, related links and reviewer state. Specify the record interface before coding.
-- [ ] Remove compulsory word-count/FAQ/rich-result quotas and promises of featured-snippet extraction. Require a sentence stating what the page adds beyond existing results.
+- [x] Remove compulsory word/FAQ quotas and extraction promises. Require a concrete distinct contribution and substantive source-review notes before publication.
 - [x] Fail publishing on missing readiness, impossible/future dates, broken links/assets, known contradictory facts or indexable near-duplicate tool states. Require substantive review for intent collision and source accuracy.
 - [x] Prove scheduled and manual publication both enforce the same gate, including no-ready-topic behavior and clean-worktree protection. A citation URL is not factual verification.
 
@@ -119,9 +120,9 @@ R01/R02 supply truthful claims and action semantics. SEO repairs and native Gmai
 
 **Dependencies:** SEO-01 wording/evidence and SEO-03 baseline; SEO-04 gates for new publication. **Files:** docs/blog/*.html, docs/index.html, scripts/build_site.mjs, scripts/content-records.json; existing inventory remains the starting backlog.
 
-- [ ] Refresh select-all including the observed missing-link query, then size-deletion, urgent mailbox-full, biggest-mail and older-than-year; fix the homepage conversion path alongside them.
+- [x] Refresh the five exposed guides, the remaining seven priority guides and the homepage conversion path. All are source-reviewed; original URLs/publication dates are preserved.
 - [ ] Add original dated screenshots or synthetic fixtures, tested native steps, recovery/scope limits, clear desktop-extension fit and mobile-native guidance/handoff.
-- [ ] Curate sender cleanup, safe search recipes, storage diagnosis, subscription/backlog and product trust/setup clusters. Preserve complete hub discovery and add contextual links, author and meaningful verification dates.
+- [x] Add five concrete homepage journeys, complete hub discovery, contextual links, source/review dates and setup/workflow evidence pages. Two tools have canonical sitemap URLs and incoming homepage/hub links.
 - [ ] Review the nine provisional merge candidates with full query/page and backlink evidence. Preserve distinct jobs and stronger owners; redirects require a URL-level decision, retained unique material, updated links and sitemap removal.
 
 **Done when:** All 47 URLs have a reviewed disposition, the fixed cohort has evidence-backed improvements, every retained page is reachable, and no URL is removed solely because its title overlaps. Locale expansion waits for product support and demand.
@@ -130,10 +131,10 @@ R01/R02 supply truthful claims and action semantics. SEO repairs and native Gmai
 
 **Dependencies:** R02 semantics, SEO-01 facts, SEO-04 records; independent of runtime mutation features. **Files proposed:** docs/tools/gmail-cleanup-search-builder/index.html, docs/tools/query-builder.js, docs/tools/query-builder.css, scripts/build_site.mjs, test/query-builder.test.js. Add a checker route only after a distinct-task decision.
 
-- [ ] Define supported sender/category/date/size syntax and readable editable output. Include copy/open-in-Gmail controls, date boundaries and clear preview instructions; use synthetic fixture data.
-- [ ] Add static checks for contradictory/broad/empty criteria and mixed-thread/starred assumptions. State that a parser cannot predict actual mailbox matches or guarantee protected mail.
-- [ ] Keep personal inputs local, no OAuth or deletion and one canonical indexable tool URL. Do not put personal queries into analytics or public share URLs.
-- [ ] Test supported syntax, exact/relative date boundaries, encoded/hostile input, accessibility, keyboard/mobile use and links. Publish limitations and fixtures; no untested Gmail-semantic guarantee.
+- [x] Build sender/category/relative-age/fixed-date/size criteria, editable output, copy and explicit Gmail search handoff with account/review consent; include declared synthetic examples.
+- [x] Add conservative empty/broad/contradictory/date/size/syntax checks and explicit unchecked-syntax and mixed-conversation warnings. No mailbox-match or protected-mail guarantee.
+- [x] Keep tool inputs in page memory, no OAuth, deletion, storage or analytics. Public tool URLs carry no inputs; only an explicit Gmail action sends the selected search to Google.
+- [x] Verify supported syntax, date/numeric boundaries, hostile input and destination encoding with 11 unit tests; browser-check synthetic query generation, consent, copy and invalid-input blocking in a narrow pane. Labels/focus/keyboard controls and limitations are present. This is not physical-mobile or live-Gmail validation.
 
 **Done when:** A working tool contributes more than generic prose or an existing bare builder. Checker is an integrated feature unless its distinct job warrants its own maintained page. It never advertises extension protection features before R15 gates pass.
 
@@ -141,10 +142,10 @@ R01/R02 supply truthful claims and action semantics. SEO repairs and native Gmai
 
 **Dependencies:** SEO-01 facts, SEO-04 publishing gate; R23 only if actual extension storage insight is claimed. **Files proposed:** docs/tools/gmail-storage-troubleshooter/index.html, docs/tools/storage-troubleshooter.js, docs/tools/storage-troubleshooter.css, test/storage-troubleshooter.test.js, scripts/build_site.mjs.
 
-- [ ] Accept manually entered Gmail/Drive/Photos totals or symptoms and show a local decision tree for quota, Trash, shared storage and post-deletion meter updates.
-- [ ] Give official native next steps, distinguish urgent receive failure from inbox clutter, and explain permanent deletion separately from recoverable Trash.
-- [ ] Link current storage guides and relevant extension actions without claiming a mailbox scan, exact bytes from sender counts or guaranteed recovered GB.
-- [ ] Verify invalid/unknown/zero totals, shared-storage dominance, Trash-only movement and delayed-update cases; keyboard/mobile access and no input transmission.
+- [x] Build optional manual Gmail/Drive/Photos/actual-quota inputs and symptom-driven decisions, treating blanks as unknown rather than zero.
+- [x] Provide official storage/receiving next steps, shared-storage diagnosis, quota-delay cautions and service-specific permanent-removal distinctions.
+- [x] Link existing storage/cleanup guides and disclose the sender-wide extension fit without fake scans, byte estimates or reclaimed-GB promises.
+- [x] Verify invalid/unknown/zero/overflow/partial/over-quota/dominance/Trash/delay cases with eight unit tests and browser-check a Photos-heavy example plus Reset. Inputs are unnamed and local; narrow-pane layout and focus behavior checked. No live quota/access claim.
 
 **Done when:** Users receive useful scoped steps without authorizing a scan or sending personal inputs. The tool can ship without adding extension permissions or a backend.
 
@@ -154,8 +155,8 @@ R01/R02 supply truthful claims and action semantics. SEO repairs and native Gmai
 
 - [ ] Publish setup/data-flow/recovery evidence, a native Gmail comparison and one firsthand competitor comparison with current source dates and where alternatives win.
 - [ ] Run synthetic native-vs-extension cleanup tasks, documenting account/thread setup, counts, browser/device, timings, failures and limitations. Never invent benchmark results or use synthetic screenshots as proof of live performance.
-- [ ] Create reusable demo clips, GitHub tool links and a maintained source/fixture library. Prepare relevant community/tutorial responses; sending outreach or posting remains a separately authorized action.
-- [ ] Add no paid backlink program, paid writer dependency or automated unsolicited promotion.
+- [x] Create a reusable 16-second local-tool demo, GitHub/README tool links, synthetic fixture library and source/provenance reports. Prepare community/tutorial responses without sending them. The clip demonstrates synthetic local tool inputs, not live Gmail or competitor performance.
+- [x] No paid backlinks, paid writer dependency or unsolicited distribution added; prepared community/tutorial copy remains unsent.
 
 **Done when:** Every comparison/result has reproducible provenance, meaningful scope and disclosed authorship. Evidence assets can be updated economically; unsupported comparison/research stays deferred.
 
@@ -196,7 +197,17 @@ Brand-specific recipes require tested sender identity, transactional/promotional
 - [ ] Review the fixed refreshed-page cohort every 28 days using comparable windows, crawl dates and annotated changes. Track impressions/clicks/CTR/position together; small samples stay qualified.
 - [ ] Track editorial contradictions, verified coverage, index exclusions and useful actions separately from raw article count.
 - [ ] Keep website CTA clicks, store installs/uninstalls and activation distinct; collect missing data only through approved owner access and privacy-consistent designs.
-- [ ] Add the next page/tool only with a defined user job and original contribution. Pause or revise weak assets; retire URLs only after evidence review.
+- [x] The two tools and two evidence pages have defined distinct jobs, reviewed scope and original synthetic examples. Two redundant pending briefs now point to the maintained evidence owners. No published URLs were retired.
 - [ ] At each actual implementation release, run relevant Node site/tool tests and Python publisher tests, inspect mobile/keyboard behavior and real HTTP/canonical/output checks, and commit verified changes. This planning edit itself requires document/link/coverage verification, not runtime changes.
 
-No task is marked complete by this document. Product R01–R26 remain authoritative for extension safety and feature behavior; R27–R34 below integrate growth delivery, and this roadmap owns the detailed SEO backlog.
+This delivery records verified implementation, not completion of the external or ongoing gates. Product R01–R26 remain authoritative for extension safety and feature behavior; R27–R34 below integrate growth delivery, and this roadmap owns the detailed SEO backlog.
+
+## External and ongoing gates — still open
+
+1. Verify the installed Chrome Web Store package and current Gmail selectors with an authorized disposable mailbox; capture actual native/extension walkthroughs and recovery observations. The local fixture library and tool screenshots are labeled synthetic and do not close this gate.
+2. Obtain owner-accessible Developer Dashboard exports and individual authenticated GSC URL inspections. Previously refused surfaces stay unknown; no access controls are bypassed.
+3. Collect complete page-by-query and backlink evidence before any merge/redirect decision. All original URLs remain.
+4. Run a firsthand third-party competitor trial before publishing a competitor ranking or measured comparison. Current native-Gmail comparison is source-based and explicitly says so.
+5. Produce comparable post-recrawl 28-day outcomes, weekly source exports and source-link/owner-test provenance. Future observations cannot be completed on release day. No separate website analytics or extension telemetry has been silently installed.
+
+Prepared distribution snippets and test protocols live in `reports/seo-evidence-and-distribution.md`; the scorecard is `reports/organic-growth-scorecard.md`. The release ledger records actual test counts, review findings/fixes and deployment checks. The roadmap is not labeled fully complete while these gates remain.

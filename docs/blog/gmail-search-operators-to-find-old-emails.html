@@ -35,7 +35,7 @@
 </script>
 </head>
 <body>
-<nav id="nav"><a class="nav-logo" href="/">📥 Inbox<span>Cleaner</span></a><div class="blog-nav-right"><a class="nav-blog-link" href="/blog/">Guides</a><a class="blog-nav-cta" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">View Chrome extension →</a></div></nav>
+<nav id="nav"><a class="nav-logo" href="/">📥 Inbox<span>Cleaner</span></a><div class="blog-nav-right"><a class="nav-blog-link" href="/blog/">Guides</a><a class="blog-nav-cta" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add to Chrome →</a></div></nav>
 <main><article class="blog-wrap"><span class="blog-eyebrow">Gmail cleanup guide</span><h1 class="blog-h1">Gmail Search Operators for Reviewing Old Emails</h1><p class="blog-meta">Updated October 17, 2026 · Source-reviewed guide</p><div class="blog-body">
 <p class="quick-answer">Use <code>older_than:</code> for a moving age boundary and <code>before:</code> for a fixed cutoff. Combine them with a sender, category or size condition to make the results easier to review. Search operators find candidates; they do not decide what records you should keep.</p><h2>Recipes and what they mean</h2>
 <ul><li><strong>Relative age.</strong> <code>older_than:1y</code> searches by age. Gmail supports d, m and y units.</li><li><strong>Fixed boundary.</strong> <code>before:2025/01/01</code> makes the cutoff explicit. Check boundary results when exact dates matter.</li><li><strong>Known sender.</strong> <code>from:newsletter@example.com older_than:6m</code> narrows the backlog to one address.</li><li><strong>Large old mail.</strong> <code>older_than:1y larger:10M</code> can help with storage review. It does not sort results by size or measure what deleting them will recover.</li></ul><h2>Apply the reviewed search in Gmail</h2>
@@ -44,22 +44,26 @@
 <p>Inbox Cleaner needs an open Gmail tab in desktop Chrome. Its sender-wide action can include archived mail and does not inherit date, category, size, unread or starred restrictions. For those limits, use native Gmail. Counts may be approximate and are not storage measurements. <a href="/blog/inbox-cleaner-setup-permissions-recovery.html">Read setup, permissions and recovery limits</a>.</p><h2>Review Trash separately</h2>
 <p>Gmail normally allows Trash recovery for up to 30 days unless permanently removed sooner. Archive and Trash still use storage. Review before Empty Trash or Delete forever; those actions end ordinary recovery.</p><h2>Choose the next step</h2>
 <ul><li><a href="/blog/how-to-bulk-delete-gmail-emails.html">Review native Gmail bulk deletion</a></li><li><a href="/blog/gmail-archive-vs-delete.html">Compare Archive and Trash</a></li><li><a href="/blog/how-to-free-up-gmail-storage.html">Investigate storage separately</a></li></ul>
-<div class="blog-cta"><h3>Review senders inside Gmail</h3><p>Open Gmail in desktop Chrome, scan discovered senders, then review the sender-wide scope before confirming a move to Trash.</p><a class="blog-cta-btn" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">View Inbox Cleaner on the Chrome Web Store →</a></div>
+<div class="blog-cta">
+<h3>Clean up Gmail with the Chrome extension</h3>
+<p>Rank senders, select the ones you want to clear, and move their emails to Trash. Mail in Trash is normally recoverable for up to 30 days unless permanently removed sooner.</p>
+<a class="blog-cta-btn" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add Inbox Cleaner to Chrome →</a>
+</div>
 <h2>Sources and review</h2>
 <p>Procedures checked against <a href="https://support.google.com/mail/answer/7190?hl=en">Gmail search operators</a>, <a href="https://support.google.com/mail/answer/7401?hl=en">Gmail deletion and recovery</a>. Reviewed October 17, 2026. This is a documentation and source review; no live mailbox walkthrough, speed benchmark or original screenshots were produced.</p>
 </div></article>
 <!-- AUTO:related:start -->
 <section class="blog-wrap related-guides" aria-labelledby="related-heading">
 <h2 id="related-heading">More Gmail cleanup guides</h2>
-<ul><li><a href="/blog/how-to-permanently-delete-gmail-emails.html">How to Permanently Delete Gmail Emails</a></li>
+<ul><li><a href="/blog/how-to-permanently-delete-gmail-emails.html">How to Permanently Delete Gmail Emails After Review</a></li>
 <li><a href="/blog/gmail-mailbox-full-cant-receive-emails.html">Gmail Mailbox Full and Cannot Receive Emails? What to Check</a></li>
 <li><a href="/blog/how-to-find-biggest-emails-gmail.html">How to Find the Biggest Emails in Gmail</a></li>
-<li><a href="/blog/how-to-delete-old-emails-gmail.html">How to Delete Old Emails in Gmail</a></li>
+<li><a href="/blog/how-to-delete-old-emails-gmail.html">How to Delete Old Emails in Gmail by Date or Age</a></li>
 <li><a href="/blog/delete-zoom-meeting-emails-gmail.html">How to Delete Zoom Meeting Invite Emails in Gmail</a></li></ul>
-<p><a href="/blog/">Browse all 49 guides</a> · <a href="/">About Inbox Cleaner</a></p>
+<p><a href="/blog/">Browse all 51 guides</a> · <a href="/">About Inbox Cleaner</a></p>
 <div class="blog-cta">
 <h3>Clean up Gmail with the Chrome extension</h3>
-<p>Rank senders, select the ones you want to clear, and move their emails to Trash. You have 30 days to recover trashed emails.</p>
+<p>Rank senders, select the ones you want to clear, and move their emails to Trash. Mail in Trash is normally recoverable for up to 30 days unless permanently removed sooner.</p>
 <a class="blog-cta-btn" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add Inbox Cleaner to Chrome →</a>
 </div>
 </section>
