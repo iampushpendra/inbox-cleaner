@@ -80,3 +80,17 @@ test('the publishing command generates discovery links before marking a queued p
   assert.match(fs.readFileSync(path.join(root, 'docs/blog/gmail-older.html'), 'utf8'), /href="\/blog\/gmail-new.html"/);
   assert.match(fs.readFileSync(path.join(root, 'docs/sitemap.xml'), 'utf8'), /gmail-new.html/);
 });
+
+test('the build refuses to publish internal documents left in docs/', async t => {
+  const { buildSite } = await import('../scripts/build_site.mjs');
+  const root = fixture(t);
+  post(root, 'gmail-clean', 'A clean guide', '2026-10-16');
+  fs.writeFileSync(path.join(root, 'docs/robots.txt'), 'User-agent: *\n');
+  assert.doesNotThrow(() => buildSite(root), 'a clean output directory builds');
+
+  // docs/ is the Vercel outputDirectory: a stray internal doc would be served
+  // publicly, and robots disallow would not unpublish it.
+  fs.mkdirSync(path.join(root, 'docs/superpowers/plans'), { recursive: true });
+  fs.writeFileSync(path.join(root, 'docs/superpowers/plans/internal.md'), 'private roadmap');
+  assert.throws(() => buildSite(root), /internal\.md|docs\/superpowers|published docs/);
+});

@@ -2,6 +2,23 @@ import { readFileSync, writeFileSync, readdirSync, realpathSync } from 'node:fs'
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
+// `docs/` is the Vercel outputDirectory, so anything left in it is served
+// publicly. robots.txt disallow does not unpublish an already-served URL, so
+// internal documents are kept out of the directory entirely and this check
+// fails the build if one reappears. Deny by default: name every publishable
+// top-level file, and allow only .html under blog/.
+const PUBLISHABLE = new Set([
+  'app.js', 'blog', 'favicon.ico', 'google846fa3a21a23b5fc.html', 'index.html',
+  'og-image.png', 'privacy.html', 'robots.txt', 'sitemap.xml', 'style.css',
+]);
+
+export function assertPublishableOutput(root = projectRoot) {
+  const leaked = readdirSync(resolve(root, 'docs'), { withFileTypes: true })
+    .filter(entry => !PUBLISHABLE.has(entry.name))
+    .map(entry => `${entry.name}${entry.isDirectory() ? '/' : ''}`);
+  if (leaked.length) throw new Error(`These files are inside the published docs/ directory and would be served publicly: ${leaked.join(', ')}. Move them out of docs/ or add them to PUBLISHABLE deliberately.`);
+}
+
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const escape = value => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
 const text = value => value.replace(/<[^>]*>/g, '').replace(/&(#x[0-9a-f]+|#\d+|amp|lt|gt|quot|apos|nbsp|mdash|ndash);/gi, (_, entity) => {
@@ -53,6 +70,7 @@ function relatedPosts(posts, index) {
 }
 
 export function buildSite(root = projectRoot) {
+  assertPublishableOutput(root);
   const config = JSON.parse(readFileSync(resolve(root, 'scripts/site-config.json'), 'utf8'));
   const base = new URL(config.baseUrl).origin;
   const store = config.extensionStoreUrl;

@@ -17,7 +17,7 @@ Most Gmail cleaners only show your Primary inbox. Inbox Cleaner scans **all 5 ca
 - **Category badges** showing which Gmail tab their mail lands in
 - **Last received** — relative timestamp of most recent email
 - **Checkbox selection** — pick one sender or dozens at once
-- **One-click Trash** — moves everything from selected senders to Trash in seconds
+- **One-click Trash** — one click starts a batched pass through Gmail that moves everything from the selected senders to Trash (it navigates Gmail once per batch of up to 20 senders, so larger selections take proportionally longer)
 
 Works entirely in your browser. No server. No data ever leaves your device.
 
@@ -57,13 +57,13 @@ Group by sender → ranked list (chrome.storage.local)
 
 ## Competitive research
 
-[Product roadmap and model assignments](docs/superpowers/plans/2026-10-17-inbox-cleaner-roadmap.md) — phased tasks, dependencies, acceptance criteria and recommended build/review models. [Read the HTML edition](reports/inbox-cleaner-roadmap.html).
+[Product roadmap and model assignments](internal/superpowers/plans/2026-10-17-inbox-cleaner-roadmap.md) — phased tasks, dependencies, acceptance criteria and recommended build/review models. [Read the HTML edition](reports/inbox-cleaner-roadmap.html).
 
 [Inbox cleaner extension teardown](reports/Inbox%20cleaner%20extension%20teardown.md) · [HTML reading edition](reports/inbox-cleaner-extension-teardown.html) — an in-depth comparison of Chrome inbox cleaners, onboarding, interaction design, safety language and recommendations for this product, researched 17 October 2026.
 
 ## Organic growth audit
 
-[SEO roadmap and delivery backlog](docs/superpowers/plans/2026-10-17-seo-roadmap.md) — SEO-01–SEO-09 tasks, all 15 audit briefs, product R27–R34 ownership and 30/60/90-day review gates.
+[SEO roadmap and delivery backlog](internal/superpowers/plans/2026-10-17-seo-roadmap.md) — SEO-01–SEO-09 tasks, all 15 audit briefs, product R27–R34 ownership and 30/60/90-day review gates.
 
 [Organic growth audit and roadmap](reports/Inbox%20Cleaner%20organic%20growth.md) — technical and content findings, authenticated Search Console baseline, 15 page/tool briefs, and a low-budget 30/60/90-day plan, researched 17 October 2026. The [47-page content inventory](research_notes/Inbox%20Cleaner%20organic%20growth/content-inventory.csv) is the URL-level backlog. These are recommendations; the live site and publishing schedule are unchanged.
 

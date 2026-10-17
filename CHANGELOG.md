@@ -109,7 +109,7 @@ Versioning: see `VERSION` file (semver, no `package.json` — this isn't a Node/
 - `scripts/daily_publish.sh` used `set -e` with no failure signal — a failed run (expired `claude` CLI auth on 2026-09-01, dropped SSH connection on 2026-09-02) just stopped silently with nothing but a log line nobody was watching. Now each step is checked explicitly and a macOS notification fires on failure, with a hint to re-run `claude` interactively if the auth session expired.
 
 ### Added
-- `docs/CHROME_WEB_STORE.md` — draft Web Store listing copy, permission-justification answers, and pre-submission checklist.
+- `internal/CHROME_WEB_STORE.md` — draft Web Store listing copy, permission-justification answers, and pre-submission checklist.
 
 ## [2.1.0] - 2026-08-09
 
