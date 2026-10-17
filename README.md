@@ -5,7 +5,7 @@
 [![Live App](https://img.shields.io/badge/Live%20App-open-blue?style=flat-square)](https://inbox-cleaner.vercel.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-**Current version: 3.2.4** — editorial strategy and publishing guidance; extension runtime remains 3.2.1. See [CHANGELOG.md](CHANGELOG.md) for what's new.
+**Current version: 3.2.5** — refreshed five analytics-priority guides; extension runtime remains 3.2.1. See [CHANGELOG.md](CHANGELOG.md) for what's new.
 
 ---
 

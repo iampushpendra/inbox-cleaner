@@ -13,6 +13,13 @@ Versioning: see `VERSION` file (semver, no `package.json` — this isn't a Node/
 - Added an organic-growth audit covering 50 live sitemap URLs, all 47 articles, product-claim consistency, a transcribed authenticated Search Console baseline, and a prioritized low-budget page/tool roadmap.
 - Added a complete URL-level content inventory and reproducible provenance for the installed SEO audit, content strategy and programmatic SEO skills. No application, production or publishing schedule changes.
 
+## [3.2.5] - 2026-10-17
+
+### Changed
+- Rewrote the five highest-priority guide refreshes: selecting all mail, deleting by size, mailbox full/cannot receive, finding biggest messages, and deleting mail older than a year. Added direct answers, scoped decision tables, primary-source references, matching HowTo/FAQ schema, contextual links and accurate sender-wide extension limitations.
+- Removed unsupported speed/storage promises, universal 50-message desktop limits, guaranteed starred-mail protection and instant quota/upgrade claims. Clarified Google One permanent deletion versus ordinary Gmail Trash, native Android multi-selection and mixed-conversation search behavior.
+- Marked five briefs as content-refreshed while retaining live-mailbox/screenshots and post-recrawl performance checks as unperformed. Preserved original publication dates and all article URLs. Added keyboard-accessible horizontal scrolling for article tables. Extension runtime and publishing cadence are unchanged.
+
 ## [3.2.4] - 2026-10-17
 
 ### Changed

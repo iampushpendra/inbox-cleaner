@@ -4,74 +4,96 @@
   <meta charset="UTF-8">
   <link rel="canonical" href="https://inbox-cleaner.vercel.app/blog/how-to-find-biggest-emails-gmail.html">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How to Find the Biggest Emails in Gmail (2026 Guide) | Inbox Cleaner</title>
-  <meta name="description" content="Gmail can't sort by size, but the search larger:10M finds your biggest emails in seconds. Here's how to work down from the heaviest attachments and reclaim space.">
-  <meta property="og:title" content="How to Find the Biggest Emails in Gmail (2026 Guide)">
-  <meta property="og:description" content="Gmail can't sort by size, but the search larger:10M finds your biggest emails in seconds. Here's how to work down from the heaviest attachments and reclaim space.">
+  <title>How to Find the Biggest Emails in Gmail | Inbox Cleaner</title>
+  <meta name="description" content="Find large Gmail messages with size thresholds, narrow the search by folder or attachments, and separate message size from sender counts and shared quota.">
+  <meta property="og:title" content="How to Find the Biggest Emails in Gmail">
+  <meta property="og:description" content="Find large Gmail messages with size thresholds, narrow the search by folder or attachments, and separate message size from sender counts and shared quota.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://inbox-cleaner.vercel.app/blog/how-to-find-biggest-emails-gmail.html">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "How to Find the Biggest Emails in Gmail",
-    "datePublished": "2026-09-19",
-    "dateModified": "2026-10-17",
-    "author": { "@type": "Organization", "name": "Inbox Cleaner" },
-    "publisher": { "@type": "Organization", "name": "Inbox Cleaner", "url": "https://inbox-cleaner.vercel.app" }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    "name": "How to Find the Biggest Emails in Gmail",
-    "step": [
-      { "@type": "HowToStep", "name": "Search larger:10M", "text": "In the Gmail search bar, type larger:10M and press Enter. Gmail returns every email over 10 MB across all folders, including Sent and Archive." },
-      { "@type": "HowToStep", "name": "Step the threshold down", "text": "If the results are thin, lower the threshold to larger:5M, then larger:2M, until you have a batch big enough to be worth deleting." },
-      { "@type": "HowToStep", "name": "Add filters to narrow the list", "text": "Combine size with age or type, for example larger:5M older_than:1y or larger:5M has:attachment, to target old attachment-heavy mail without touching recent files." },
-      { "@type": "HowToStep", "name": "Review and delete", "text": "Skim the results for anything you need, download attachments you want to keep, then select all and move the rest to Trash." },
-      { "@type": "HowToStep", "name": "Empty Trash", "text": "Open Trash and click Empty Trash now. Deleted emails count against your quota until Trash is emptied." }
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Can you sort Gmail by size?",
-        "acceptedAnswer": { "@type": "Answer", "text": "No. Gmail has no sort-by-size option in the web or mobile apps. The workaround is the search operator larger:, which filters to emails above a size you choose. Run it with a high threshold first and step down." }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the largest email size Gmail allows?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Gmail caps attachments at 25 MB per email sent, and accepts incoming emails up to 50 MB. Anything larger arrives as a Google Drive link instead, which counts against Drive storage rather than Gmail." }
-      },
-      {
-        "@type": "Question",
-        "name": "Does larger: search include emails in Sent and Archive?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Searches run across All Mail by default, so larger:10M returns big emails you sent as well as ones you received or archived. Add in:inbox to limit results to the inbox only." }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I see the size of an individual email in Gmail?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Not directly. Gmail shows attachment sizes when you hover over or open an attachment, but there is no per-email size column. Use narrowing searches like larger:20M to bracket how big a specific email is." }
-      },
-      {
-        "@type": "Question",
-        "name": "Why does the Google storage page still show the same number after I delete large emails?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Deleted emails sit in Trash for 30 days and still count against your quota. Empty Trash, then allow up to 24 hours for the figure at one.google.com/storage to update." }
-      }
-    ]
-  }
-  </script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>📥</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
   <link rel="stylesheet" href="../style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Find the Biggest Emails in Gmail",
+  "datePublished": "2026-09-19",
+  "dateModified": "2026-10-17",
+  "author": {
+    "@type": "Organization",
+    "name": "Inbox Cleaner"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Inbox Cleaner",
+    "url": "https://inbox-cleaner.vercel.app"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Find the Biggest Emails in Gmail",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Step 1",
+      "text": "Start with a high Gmail threshold such as larger:20M. Read the results without selecting a deletion action."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Step 2",
+      "text": "If there are few or no useful results, try larger:10M, then larger:5M."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Step 3",
+      "text": "Narrow the job if needed: for example, use in:sent larger:5M to inspect sent mail."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Step 4",
+      "text": "Decide which messages to keep or save before using the separate deletion workflow."
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does the sender with the most messages use the most storage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not necessarily. Sender counts do not measure bytes. Use size searches and the account storage breakdown for storage decisions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does finding a large email delete it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A search only returns results. Selection, moving to Trash and permanent removal are separate choices."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I keep lowering the threshold until everything is deleted?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Stop when you have answered the storage question and reviewed useful candidates. Keep messages you still need."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -87,112 +109,15 @@
   <div class="blog-wrap">
     <span class="blog-eyebrow">Gmail Tips</span>
     <h1 class="blog-h1">How to Find the Biggest Emails in Gmail</h1>
-    <p class="blog-meta">Updated 17 October 2026 · 5 min read</p>
+    <p class="blog-meta">Updated 17 October 2026 · 3 min read</p>
 
     <div class="blog-body">
-
-      <div class="quick-answer">
-        <strong>Quick answer:</strong> To find the biggest emails in Gmail, type <code>larger:10M</code> into the search bar and press Enter. Gmail has no sort-by-size button, but this operator returns every email over 10 MB across your whole account, sent mail included. Lower the number to <code>larger:5M</code> or <code>larger:2M</code> to widen the net, then delete what you don't need and empty Trash.
-      </div>
-
-      <p>Gmail will happily tell you that you're at 14.7 of 15 GB. What it won't do is show you which emails are responsible. There's no size column, no sort menu, and the mobile app is even less helpful. The good news is that a couple of search operators do the job well, and the whole hunt takes about five minutes once you know the order to run them in.</p>
-
-      <h2>How do I find the biggest emails in Gmail?</h2>
-
-      <p>Work from the top of the size range down. Start high so the first result set is small and obviously junk, then loosen the threshold until the batches stop being worth the review time.</p>
-
-      <ol class="blog-steps">
-        <li>Click into the Gmail search bar and type <code>larger:10M</code>, then press Enter. You'll get every email over 10 MB in the account, not just the inbox.</li>
-        <li>If only a handful come back, step down: <code>larger:5M</code>, then <code>larger:2M</code>. Each pass roughly doubles or triples the count.</li>
-        <li>Narrow by age or type when a batch gets too broad to skim. <code>larger:5M older_than:1y</code> targets old heavy mail. <code>larger:5M has:attachment</code> skips long text threads and shows only files.</li>
-        <li>Skim the list. Download anything you actually want, then tick the top checkbox, click "Select all conversations that match this search", and hit the Trash icon.</li>
-        <li>Open <strong>Trash</strong> in the left sidebar and click <strong>Empty Trash now</strong>. Until you do, the space isn't back.</li>
-      </ol>
-
-      <p>The operator accepts <code>M</code> for megabytes and <code>K</code> for kilobytes, and a bare number means bytes. <code>size:10M</code> behaves the same as <code>larger:10M</code>. There's also <code>smaller:</code>, which is handy for the opposite job: <code>larger:1M smaller:5M</code> brackets the mid-range files that are individually small but collectively add up.</p>
-
-      <h2>Why can't I just sort Gmail by size?</h2>
-
-      <p>Because the feature doesn't exist. Gmail has never offered sort-by-size, sort-by-sender, or sort-by-anything other than date. Google's position is that search replaces sorting, and for size it mostly works, with one gap: you can't see how big an individual email is without opening it and hovering over each attachment.</p>
-
-      <p>You can bracket a specific message instead. If <code>larger:20M</code> returns it but <code>larger:25M</code> doesn't, it's between the two. That's usually enough precision when the goal is deciding what to delete.</p>
-
-      <p>One more thing to know: results include Sent mail. If you emailed a 20 MB video to a client three years ago, your copy is still sitting in Sent and counting against your quota. Add <code>in:inbox</code> if you only want received mail, or <code>in:sent</code> if you want to clear out your own outgoing attachments first, which tend to be the easiest calls.</p>
-
-      <h2>Which search finds the emails using the most storage?</h2>
-
-      <p>The single largest emails aren't always the biggest storage problem. An account with three 24 MB attachments and 40,000 newsletters has two very different cleanups available, and it's worth knowing which one you're facing before deleting anything.</p>
-
-      <p>Run these in order and note the counts:</p>
-
-      <ol class="blog-steps">
-        <li><code>larger:10M</code>. Anything here is worth a look individually. A dozen of these can be a full gigabyte.</li>
-        <li><code>larger:1M has:attachment older_than:2y</code>. Old attachments you've almost certainly already downloaded or no longer need. This is usually the biggest single win.</li>
-        <li><code>has:attachment filename:pdf older_than:1y</code>, then <code>filename:mp4</code>, <code>filename:zip</code>, <code>filename:pptx</code>. File-type searches surface the heavy categories that a plain size search mixes together.</li>
-        <li><code>category:promotions older_than:6m</code>. Individually tiny, but if the count is in the tens of thousands, this is the volume problem rather than the size problem.</li>
-      </ol>
-
-      <p>If step four returns a bigger number than the first three combined, your storage isn't being eaten by big emails at all. It's being eaten by a few senders who've mailed you every day for years, and that's a different tool. <a href="../blog/how-to-free-up-gmail-storage.html">How to Free Up Gmail Storage Fast</a> goes through which of these searches typically return the most gigabytes per pass.</p>
-
-      <h2>How do I find who is sending me the most email?</h2>
-
-      <p>This is where Gmail's search runs out. There's no query that returns "top senders by count". You can search <code>from:</code> one sender at a time, but you have to already know who to look for, and the biggest offenders are rarely the names that come to mind.</p>
-
-      <p>Inbox Cleaner fills that gap. It runs inside your Gmail tab and scans all five categories, not just the 50 emails on screen, and ranks every sender by how many messages they've sent you:</p>
-
-      <ol class="blog-steps">
-        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
-        <li><strong>Scope:</strong> deleting by sender is sender-wide. It does not carry over the <code>older_than:</code>, <code>category:</code> or <code>-is:starred</code> limits from the Gmail search above — a selected sender goes in full, including archived mail. If you need those exclusions, stay with the Gmail search method above.</li>
-        <li>Let the scan finish. You'll see a ranked list of senders with counts next to each.</li>
-        <li>Tick the senders you don't need, usually retailers, notification bots, and newsletters you stopped reading years ago.</li>
-        <li>Click <strong>Move to Trash</strong>. Their mail is cleared in batches of up to 20 senders at a time.</li>
-      </ol>
-
-      <div class="blog-cta">
+<div class="quick-answer"><strong>Quick answer:</strong> Use Gmail’s <code>larger:</code> search operator to find messages above a chosen threshold, starting with <code>larger:20M</code> or <code>larger:10M</code>. Lower the threshold if needed. This finds candidates for review; it is not a largest-first storage report or a command to delete them.</div>
+<h2>How can I find large messages before deleting anything?</h2><ol class="blog-steps"><li>Start with a high Gmail threshold such as <code>larger:20M</code>. Read the results without selecting a deletion action.</li><li>If there are few or no useful results, try <code>larger:10M</code>, then <code>larger:5M</code>.</li><li>Narrow the job if needed: for example, use <code>in:sent larger:5M</code> to inspect sent mail.</li><li>Decide which messages to keep or save before using the separate deletion workflow.</li></ol><p>The <a href="https://support.google.com/mail/answer/7190?hl=en">official search-operator reference</a> documents size and scope filters. Match the search to the question you are investigating. Use <a href="gmail-delete-emails-by-size.html">the size-deletion guide</a> only after deciding what is safe to remove.</p><h2>What should I look at in the results?</h2><div class="blog-table-scroll" role="region" aria-label="Gmail workflow comparison" tabindex="0"><table class="compare-table"><thead><tr><th scope="col">Question</th><th scope="col">Useful starting query</th><th scope="col">Interpretation</th></tr></thead><tbody><tr><td>Are there very large messages?</td><td><code>larger:20M</code></td><td>A high-threshold subset, not a ranked list of the whole account.</td></tr><tr><td>Which sent messages are large?</td><td><code>in:sent larger:5M</code></td><td>A focused view of outgoing correspondence.</td></tr><tr><td>Which large messages have attachments?</td><td><code>has:attachment larger:5M</code></td><td>Review the message and files together.</td></tr><tr><td>What falls in a smaller band?</td><td><code>larger:5M smaller:10M</code></td><td>A narrower review set; do not add conversation counts as if they were bytes.</td></tr></tbody></table></div><h2>Does Gmail size search explain my whole storage problem?</h2><p>Not by itself. Check <a href="https://one.google.com/storage">the storage breakdown</a> to see whether Gmail is the main contributor. Mail volume, individual message size and shared quota answer different questions. A sender with many small messages can outrank a sender with a few large attachments by count while using less storage.</p><p>For account-wide diagnosis use <a href="how-to-free-up-gmail-storage.html">the storage cleanup guide</a>. If delivery has stopped, use <a href="gmail-mailbox-full-cant-receive-emails.html">the mailbox-full diagnostic</a> rather than deleting based on a result count alone.</p><p>Review conversations before deleting. Gmail can show a conversation when only some messages match your search. Google specifically cautions that a negative search such as <code>-is:starred</code> can return a thread containing both starred and unstarred messages. An exclusion is not a guarantee that every message in a displayed conversation is safe to remove. <a href="https://support.google.com/mail/answer/7190?hl=en">Read Google’s search-operator caveat</a>.</p><h2>What if I want to keep a large message?</h2><p>Keep it. Age or size alone does not make mail disposable. Save required files, verify that the copies open, and consider your record-keeping needs before removing correspondence. Do not assume a Drive link is a Gmail attachment or that deleting an email also deletes a separately stored Drive file.</p><h2>When does sender cleanup make sense instead?</h2><p>Inbox Cleaner is an option when you want to clear mail from selected senders. It runs inside an already-open Gmail tab in desktop Chrome and groups discovered senders by email count. Counts are exact for the top 250 senders when resolved, and approximate counts use a tilde (~); counts are not storage measurements.</p><p>The extension moves selected senders’ mail to Trash. It does not carry over your date, size, category or starred-mail exclusions. Stay with native Gmail when those limits matter, and check which account is open before starting. Sender selection and the Move to Trash confirmation are separate actions.</p><div class="blog-cta">
 <h3>Clean up Gmail with the Chrome extension</h3>
 <p>Rank senders, select the ones you want to clear, and move their emails to Trash. You have 30 days to recover trashed emails.</p>
 <a class="blog-cta-btn" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add Inbox Cleaner to Chrome →</a>
-</div>
-
-      <p>Everything lands in Trash exactly as a manual delete would, so you keep the 30-day undo window. Pair the size searches above with a sender sweep and you've covered both halves of the storage problem in one sitting. For the sender-side workflow in detail, see <a href="../blog/gmail-bulk-delete-by-sender.html">How to Bulk Delete Gmail Emails by Sender</a>.</p>
-
-      <h2>Should I delete big emails or just the attachments?</h2>
-
-      <p>Gmail doesn't let you strip an attachment and keep the message. It's all or nothing per email. If you need the text but not the file, the workaround is to download the attachment, then forward the email to yourself without it, and delete the original. Save that for the few threads that genuinely matter.</p>
-
-      <p>For most large emails, the honest question is whether you've opened the attachment in the last year. If not, and it came from someone you could ask again, delete it.</p>
-
-      <p>If you're staring at a full-storage warning rather than doing routine maintenance, <a href="../blog/gmail-storage-almost-full-what-to-do.html">Gmail Storage Almost Full? What to Do</a> covers the full triage order, including checking whether Drive or Photos is the real culprit before you delete a single email.</p>
-
-      <h2>Can you do this on your phone?</h2>
-
-      <p>Partly. Gmail's mobile apps support the same search operators, so you can run <code>larger:10M</code> and read the results on a phone. What you cannot do is bulk-act on them: the mobile apps have no "select all conversations that match this search" banner, so you are long-pressing one message at a time.</p>
-
-      <p>For anything beyond a couple of dozen messages, open Gmail in a desktop browser. If you only have a phone, your mobile browser's desktop-site mode gets you the full web interface and the select-all banner, though it is awkward on a small screen. The Chrome extension this article recommends is desktop-only for the same reason — it needs a real Chrome tab.</p>
-
-      <h2>Frequently asked questions</h2>
-      <div class="faq-list">
-        <div class="faq-item">
-          <p class="faq-q">Can you sort Gmail by size?</p>
-          <p class="faq-a">No. Gmail has no sort-by-size option in the web or mobile apps. The workaround is the search operator <code>larger:</code>, which filters to emails above a size you choose. Run it with a high threshold first and step down.</p>
-        </div>
-        <div class="faq-item">
-          <p class="faq-q">What is the largest email size Gmail allows?</p>
-          <p class="faq-a">Gmail caps attachments at 25 MB per email sent, and accepts incoming emails up to 50 MB. Anything larger arrives as a Google Drive link instead, which counts against Drive storage rather than Gmail.</p>
-        </div>
-        <div class="faq-item">
-          <p class="faq-q">Does larger: search include emails in Sent and Archive?</p>
-          <p class="faq-a">Yes. Searches run across All Mail by default, so <code>larger:10M</code> returns big emails you sent as well as ones you received or archived. Add <code>in:inbox</code> to limit results to the inbox only.</p>
-        </div>
-        <div class="faq-item">
-          <p class="faq-q">Can I see the size of an individual email in Gmail?</p>
-          <p class="faq-a">Not directly. Gmail shows attachment sizes when you hover over or open an attachment, but there is no per-email size column. Use narrowing searches like <code>larger:20M</code> to bracket how big a specific email is.</p>
-        </div>
-        <div class="faq-item">
-          <p class="faq-q">Why does the Google storage page still show the same number after I delete large emails?</p>
-          <p class="faq-a">Deleted emails sit in Trash for 30 days and still count against your quota. Empty Trash, then allow up to 24 hours for the figure at one.google.com/storage to update.</p>
-        </div>
-      </div>
+</div><h2>Frequently asked questions</h2><div class="faq-list"><div class="faq-item"><p class="faq-q">Does the sender with the most messages use the most storage?</p><p class="faq-a">Not necessarily. Sender counts do not measure bytes. Use size searches and the account storage breakdown for storage decisions.</p></div><div class="faq-item"><p class="faq-q">Does finding a large email delete it?</p><p class="faq-a">No. A search only returns results. Selection, moving to Trash and permanent removal are separate choices.</p></div><div class="faq-item"><p class="faq-q">Should I keep lowering the threshold until everything is deleted?</p><p class="faq-a">No. Stop when you have answered the storage question and reviewed useful candidates. Keep messages you still need.</p></div></div><p>Source review: 17 October 2026. Instructions checked against the linked Google help pages and the extension’s documented scope. No live-mailbox test or original screenshot is claimed.</p>
 
     </div>
   </div>
@@ -200,7 +125,7 @@
 <section class="blog-wrap related-guides" aria-labelledby="related-heading">
 <h2 id="related-heading">More Gmail cleanup guides</h2>
 <ul><li><a href="/blog/gmail-delete-social-media-notifications.html">How to Delete Social Media Notification Emails in Gmail</a></li>
-<li><a href="/blog/gmail-delete-emails-by-size.html">How to Delete Gmail Emails by Size</a></li>
+<li><a href="/blog/gmail-delete-emails-by-size.html">How to Delete Gmail Emails by Size Safely</a></li>
 <li><a href="/blog/gmail-search-operators-to-find-old-emails.html">Gmail Search Operators to Find Old Emails</a></li>
 <li><a href="/blog/delete-zoom-meeting-emails-gmail.html">How to Delete Zoom Meeting Invite Emails in Gmail</a></li>
 <li><a href="/blog/gmail-bulk-delete-not-working.html">Why Is Gmail Bulk Delete Not Working?</a></li></ul>
