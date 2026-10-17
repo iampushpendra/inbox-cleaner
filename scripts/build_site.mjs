@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, readdirSync, realpathSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, realpathSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -12,11 +12,43 @@ const PUBLISHABLE = new Set([
   'og-image.png', 'privacy.html', 'robots.txt', 'sitemap.xml', 'style.css',
 ]);
 
+function readTools(root) {
+  const file = resolve(root, 'scripts/tool-pages.json');
+  if (!existsSync(file)) return [];
+  const tools = JSON.parse(readFileSync(file, 'utf8'));
+  const seen = new Set();
+  if (!Array.isArray(tools)) throw new Error('Invalid tool manifest');
+  for (const tool of tools) {
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(tool.slug || '') || seen.has(tool.slug) ||
+        typeof tool.title !== 'string' || !tool.title.trim() || typeof tool.description !== 'string' ||
+        !/^\d{4}-\d{2}-\d{2}$/.test(tool.modified || '') || !Array.isArray(tool.assets) ||
+        tool.assets.some(asset => !/^[a-z0-9-]+\.(js|css)$/.test(asset))) throw new Error('Invalid tool manifest entry');
+    seen.add(tool.slug);
+    const html = readFileSync(resolve(root, `docs/tools/${tool.slug}/index.html`), 'utf8');
+    const base = new URL(JSON.parse(readFileSync(resolve(root, 'scripts/site-config.json'), 'utf8')).baseUrl).origin;
+    if (!html.includes(`rel="canonical" href="${base}/tools/${tool.slug}/"`)) throw new Error(`Invalid tool canonical: ${tool.slug}`);
+    for (const asset of tool.assets) readFileSync(resolve(root, `docs/tools/${asset}`));
+  }
+  return tools;
+}
+
 export function assertPublishableOutput(root = projectRoot) {
-  const leaked = readdirSync(resolve(root, 'docs'), { withFileTypes: true })
-    .filter(entry => !PUBLISHABLE.has(entry.name))
-    .map(entry => `${entry.name}${entry.isDirectory() ? '/' : ''}`);
-  if (leaked.length) throw new Error(`These files are inside the published docs/ directory and would be served publicly: ${leaked.join(', ')}. Move them out of docs/ or add them to PUBLISHABLE deliberately.`);
+  const tools = readTools(root);
+  const permitted = new Set(PUBLISHABLE);
+  if (tools.length) permitted.add('tools');
+  const leaked = [];
+  function inspect(directory, allowed, prefix = '') {
+    for (const entry of readdirSync(directory, { withFileTypes: true })) {
+      if (entry.isSymbolicLink() || !allowed.has(entry.name)) leaked.push(prefix + entry.name);
+    }
+  }
+  inspect(resolve(root, 'docs'), permitted);
+  // Tools are an exact manifest, never a broad directory publishing exemption.
+  if (tools.length) {
+    inspect(resolve(root, 'docs/tools'), new Set([...tools.map(tool => tool.slug), ...tools.flatMap(tool => tool.assets)]), 'tools/');
+    for (const tool of tools) inspect(resolve(root, `docs/tools/${tool.slug}`), new Set(['index.html']), `tools/${tool.slug}/`);
+  }
+  if (leaked.length) throw new Error(`These files are inside the published docs/ directory and would be served publicly: ${leaked.join(', ')}. Move them out of docs/ or add them to the manifest deliberately.`);
 }
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -76,6 +108,7 @@ export function buildSite(root = projectRoot) {
   const store = config.extensionStoreUrl;
   if (!/^https:\/\/chromewebstore\.google\.com\/detail\/[^/]+\/[a-p]{32}$/.test(store)) throw new Error('A verified Chrome Web Store URL is required');
   const posts = readPosts(root);
+  const tools = readTools(root);
   const changed = [];
   function write(path, value) {
     let previous;
@@ -97,14 +130,15 @@ export function buildSite(root = projectRoot) {
     html = replaceRegion(html, 'related', related, '</main>');
     write(`docs/blog/${post.slug}.html`, html);
   }
+  const toolLinks = tools.length ? `<section aria-labelledby="tools-heading"><h2 id="tools-heading">Plan your Gmail cleanup</h2><p>Local tools to help you review a search or diagnose storage. No mailbox access or automatic deletion.</p><ul>${tools.map(tool => `<li><a href="/tools/${escape(tool.slug)}/">${escape(tool.title)}</a> — ${escape(tool.description)}</li>`).join('')}</ul></section>` : '';
   const list = `<div class="blog-index-list">\n${posts.map(post => `<article class="blog-index-item">\n<time class="blog-index-date" datetime="${post.published}">${post.published}</time>\n<a class="blog-index-title" href="/blog/${escape(post.slug)}.html">${escape(post.title)}</a>\n<p class="blog-index-desc">${escape(post.description)}</p>\n</article>`).join('\n')}\n</div>`;
   let hub = navigation(readFileSync(resolve(root, 'docs/blog/index.html'), 'utf8'));
-  hub = replaceRegion(hub, 'blog-index', `${cta}\n<p>${posts.length} practical guides. Start with a topic below, then use the extension when you are ready to clean up.</p>\n${list}`, '</main>');
+  hub = replaceRegion(hub, 'blog-index', `${cta}\n${toolLinks}\n<p>${posts.length} practical guides. Start with a topic below, then use the extension when you are ready to clean up.</p>\n${list}`, '</main>');
   write('docs/blog/index.html', hub);
-  const guides = `<section class="site-guides" aria-labelledby="guides-heading">\n<div class="guides-inner">\n<h2 id="guides-heading">Practical ways to clear your Gmail inbox</h2>\n<p>Start with a guide, then put it into practice with Inbox Cleaner for Chrome.</p>\n<ul>${posts.slice(0, 6).map(post => `<li>${link(post)}</li>`).join('\n')}</ul>\n<p><a href="/blog/">Browse all ${posts.length} Gmail guides →</a></p>\n<a class="blog-nav-cta" href="${escape(store)}">Add Inbox Cleaner to Chrome →</a>\n</div>\n</section>`;
+  const guides = `<section class="site-guides" aria-labelledby="guides-heading">\n<div class="guides-inner">\n<h2 id="guides-heading">Practical ways to clear your Gmail inbox</h2>\n<p>Start with a guide, then put it into practice with Inbox Cleaner for Chrome.</p>\n<ul>${posts.slice(0, 6).map(post => `<li>${link(post)}</li>`).join('\n')}</ul>\n${toolLinks}\n<p><a href="/blog/">Browse all ${posts.length} Gmail guides →</a></p>\n<a class="blog-nav-cta" href="${escape(store)}">Add Inbox Cleaner to Chrome →</a>\n</div>\n</section>`;
   const home = navigation(replaceRegion(readFileSync(resolve(root, 'docs/index.html'), 'utf8'), 'guides', guides, '<footer>'));
   write('docs/index.html', home);
-  const urls = [{ url: '/' }, { url: '/blog/', date: posts[0]?.published }, { url: '/privacy.html' }, ...posts.map(post => ({ url: `/blog/${post.slug}.html`, date: post.modified }))];
+  const urls = [{ url: '/' }, { url: '/blog/', date: posts[0]?.published }, { url: '/privacy.html' }, ...tools.map(tool => ({ url: `/tools/${tool.slug}/`, date: tool.modified })), ...posts.map(post => ({ url: `/blog/${post.slug}.html`, date: post.modified }))];
   write('docs/sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(entry => `  <url><loc>${escape(base + entry.url)}</loc>${entry.date ? `<lastmod>${entry.date}</lastmod>` : ''}</url>`).join('\n')}\n</urlset>\n`);
   return changed;
 }

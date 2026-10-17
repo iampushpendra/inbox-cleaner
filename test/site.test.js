@@ -117,3 +117,32 @@ test('the build refuses to publish internal documents left in docs/', async t =>
   fs.writeFileSync(path.join(root, 'docs/superpowers/plans/internal.md'), 'private roadmap');
   assert.throws(() => buildSite(root), /internal\.md|docs\/superpowers|published docs/);
 });
+
+test('tool discovery is canonical, linked, deterministic and rejects unlisted output', async t => {
+  const { buildSite } = await import('../scripts/build_site.mjs');
+  const root = fixture(t);
+  post(root, 'gmail-old', 'Existing Gmail guide', '2026-08-09');
+  fs.mkdirSync(path.join(root, 'docs/tools/gmail-cleanup-search-builder'), { recursive: true });
+  fs.writeFileSync(path.join(root, 'docs/tools/gmail-cleanup-search-builder/index.html'), '<html><head><link rel="canonical" href="https://inbox-cleaner.vercel.app/tools/gmail-cleanup-search-builder/"></head><body>Local tool</body></html>');
+  fs.writeFileSync(path.join(root, 'docs/tools/query-builder.js'), '// local tool');
+  fs.writeFileSync(path.join(root, 'scripts/tool-pages.json'), JSON.stringify([{ slug: 'gmail-cleanup-search-builder', title: 'Gmail query builder', description: 'Preview a safe search.', modified: '2026-10-17', assets: ['query-builder.js'] }]));
+  buildSite(root);
+  const sitemap = fs.readFileSync(path.join(root, 'docs/sitemap.xml'), 'utf8');
+  assert.equal((sitemap.match(/<loc>https:\/\/inbox-cleaner.vercel.app\/tools\/gmail-cleanup-search-builder\/<\/loc>/g) || []).length, 1);
+  assert.doesNotMatch(sitemap, /query-builder\.js|\?q=/);
+  for (const file of ['docs/index.html', 'docs/blog/index.html']) assert.match(fs.readFileSync(path.join(root, file), 'utf8'), /href="\/tools\/gmail-cleanup-search-builder\/"/);
+  assert.deepEqual(buildSite(root), []);
+  fs.writeFileSync(path.join(root, 'docs/tools/private-notes.txt'), 'not public');
+  assert.throws(() => buildSite(root), /private-notes|publish/);
+});
+
+test('tool manifest rejects path traversal, duplicate routes and absent pages', async t => {
+  const { buildSite } = await import('../scripts/build_site.mjs');
+  const root = fixture(t);
+  post(root, 'gmail-old', 'Existing Gmail guide', '2026-08-09');
+  const manifest = path.join(root, 'scripts/tool-pages.json');
+  fs.writeFileSync(manifest, JSON.stringify([{ slug: '../private', title: 'Bad', modified: '2026-10-17', assets: [] }]));
+  assert.throws(() => buildSite(root), /Invalid tool/);
+  fs.writeFileSync(manifest, JSON.stringify([{ slug: 'missing-tool', title: 'Missing', description: 'Missing', modified: '2026-10-17', assets: [] }]));
+  assert.throws(() => buildSite(root), /missing|ENOENT/);
+});
