@@ -50,6 +50,20 @@ def main() -> None:
         print(f"Error: {out_path} does not exist. Write the post first.")
         sys.exit(1)
 
+    # One gate for both the scheduled and the manual route. Checks what this
+    # repo can prove (dates, canonical, links, disproved claims); a human still
+    # reviews usefulness and source accuracy.
+    sys.path.insert(0, str(Path(__file__).parent))
+    from content_gate import check_post
+
+    problems = check_post(out_path)
+    if problems:
+        print(f"Not publishable: docs/blog/{slug}.html")
+        for problem in problems:
+            print(f"  - {problem}")
+        sys.exit(1)
+    print(f"Gate passed: docs/blog/{slug}.html")
+
     # Derive every discovery surface from the files that actually exist.
     # Vercel runs this same build even for articles added outside this publisher.
     subprocess.run(["node", str(Path(__file__).parent / "build_site.mjs")], check=True)

@@ -19,7 +19,7 @@ function fixture(t) {
 }
 
 function post(root, slug, title, date) {
-  fs.writeFileSync(path.join(root, `docs/blog/${slug}.html`), `<html><head><meta name="description" content="A useful &amp; practical guide."><script type="application/ld+json">${JSON.stringify({ '@type': 'Article', datePublished: date, dateModified: date })}</script></head><body><nav><a class="nav-logo" href="/">Home</a><a class="blog-nav-cta" href="/">Try the free tool</a></nav><main><h1 class="blog-h1">${title}</h1><div class="blog-body"><p>Original article text.</p><div class="blog-cta"><h3>Old call to action</h3><a class="blog-cta-btn" href="/">Open</a></div></div></main><footer></footer></body></html>`);
+  fs.writeFileSync(path.join(root, `docs/blog/${slug}.html`), `<html><head><link rel="canonical" href="https://inbox-cleaner.vercel.app/blog/${slug}.html"><meta name="description" content="A useful &amp; practical guide."><script type="application/ld+json">${JSON.stringify({ '@type': 'Article', datePublished: date, dateModified: date })}</script></head><body><nav><a class="nav-logo" href="/">Home</a><a class="blog-nav-cta" href="/">Try the free tool</a></nav><main><h1 class="blog-h1">${title}</h1><div class="blog-body"><p>Original article text.</p><div class="blog-cta"><h3>Old call to action</h3><a class="blog-cta-btn" href="/">Open</a></div></div></main><footer></footer></body></html>`);
 }
 
 test('rebuild discovers new posts, removes deleted URLs, and preserves truthful dates', async t => {
@@ -65,7 +65,7 @@ test('every post is linked from the hub and other articles, with a direct extens
 
 test('the publishing command generates discovery links before marking a queued post published', t => {
   const root = fixture(t);
-  for (const script of ['build_site.mjs', 'publish_blog.py']) {
+  for (const script of ['build_site.mjs', 'publish_blog.py', 'content_gate.py']) {
     fs.copyFileSync(path.resolve(__dirname, '../scripts', script), path.join(root, 'scripts', script));
   }
   post(root, 'gmail-new', 'A newly queued guide', '2026-10-16');
@@ -79,6 +79,29 @@ test('the publishing command generates discovery links before marking a queued p
   assert.match(fs.readFileSync(path.join(root, 'docs/blog/index.html'), 'utf8'), /href="\/blog\/gmail-new.html"/);
   assert.match(fs.readFileSync(path.join(root, 'docs/blog/gmail-older.html'), 'utf8'), /href="\/blog\/gmail-new.html"/);
   assert.match(fs.readFileSync(path.join(root, 'docs/sitemap.xml'), 'utf8'), /gmail-new.html/);
+});
+
+test('the publishing command refuses a post with a disproved claim and leaves the queue untouched', t => {
+  // The scheduler publishes unattended, so the gate has to fail closed for the
+  // same reason on the scheduled route as on the manual one.
+  const root = fixture(t);
+  for (const script of ['build_site.mjs', 'publish_blog.py', 'content_gate.py']) {
+    fs.copyFileSync(path.resolve(__dirname, '../scripts', script), path.join(root, 'scripts', script));
+  }
+  post(root, 'gmail-bad', 'A guide repeating a disproved claim', '2026-10-16');
+  const bad = path.join(root, 'docs/blog/gmail-bad.html');
+  fs.writeFileSync(bad, fs.readFileSync(bad, 'utf8').replace(
+    '<p>Original article text.</p>',
+    '<p>Inbox Cleaner scans your whole mailbox through the Gmail API and clears it all in one click.</p>'));
+  fs.writeFileSync(path.join(root, 'scripts/blog-topics.json'), JSON.stringify([{ slug: 'gmail-bad', status: 'pending' }]));
+  fs.writeFileSync(path.join(root, 'docs/sitemap.xml'), '<?xml version="1.0" encoding="UTF-8"?>\n<urlset/>\n');
+
+  const result = spawnSync('python3', [path.join(root, 'scripts/publish_blog.py'), 'gmail-bad'], { encoding: 'utf8' });
+  assert.equal(result.status, 1, result.stdout + result.stderr);
+  assert.match(result.stdout, /Not publishable/);
+  assert.match(result.stdout, /Gmail API/);
+  assert.equal(JSON.parse(fs.readFileSync(path.join(root, 'scripts/blog-topics.json')))[0].status, 'pending', 'a rejected post must not be marked published');
+  assert.doesNotMatch(fs.readFileSync(path.join(root, 'docs/sitemap.xml'), 'utf8'), /gmail-bad/, 'a rejected post must not enter the sitemap');
 });
 
 test('the build refuses to publish internal documents left in docs/', async t => {

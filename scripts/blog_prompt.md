@@ -14,7 +14,9 @@ You are writing an AEO-optimized blog post for Inbox Cleaner (https://inbox-clea
 
 Output a single, complete, raw HTML file. No markdown fences. No explanation before or after the HTML. The file must be ready to save directly as `docs/blog/{slug}.html`.
 
-The post MUST contain all 5 of the following elements. Any missing element is a failure:
+The post MUST contain all 5 of the following elements. Any missing element is a failure.
+
+These elements are for the reader, not for a machine. Word count, FAQ count and schema markup are NOT quality signals and none of them earn a ranking on their own; write the shortest honest answer to the query. `scripts/content_gate.py` enforces factual and structural correctness, not usefulness - usefulness is still your responsibility.
 
 ### 1. Quick-answer box (featured snippet target)
 The very first element inside `<div class="blog-body">` must be:
@@ -23,7 +25,7 @@ The very first element inside `<div class="blog-body">` must be:
   <strong>Quick answer:</strong> [2-3 sentence direct answer. Open with the target query rephrased as a declarative statement. Be specific and immediately actionable — no filler.]
 </div>
 ```
-Google extracts this verbatim for featured snippets and AI overviews. Make it count.
+Answer the question directly and completely. It is also what AI assistants quote, so make it accurate above all - never state something here that the body then contradicts.
 
 ### 2. H2 headers as exact search questions
 Every `<h2>` must be a natural-language question people actually type. The first H2 must restate the target query as a question.
@@ -42,7 +44,9 @@ Every `<h2>` must be a natural-language question people actually type. The first
 }
 ```
 
-### 4. FAQPage — 5 Q&As at the bottom of `.blog-body`, plus JSON-LD in `<head>`
+### 4. FAQPage — genuine Q&As at the bottom of `.blog-body`, plus JSON-LD in `<head>`
+
+Add a question only if a reader would actually ask it and you can answer it honestly. Do not pad to a fixed number.
 
 HTML (these CSS classes already exist in `../style.css` — no inline styles):
 ```html
