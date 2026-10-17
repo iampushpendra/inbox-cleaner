@@ -1,61 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link rel="canonical" href="https://inbox-cleaner.vercel.app/privacy.html">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy — Inbox Cleaner</title>
-  <style>
-    body { font-family: -apple-system, sans-serif; max-width: 720px; margin: 60px auto; padding: 0 24px; color: #202124; line-height: 1.7; }
-    h1 { font-size: 28px; margin-bottom: 6px; }
-    h2 { font-size: 18px; margin: 28px 0 8px; }
-    p, li { color: #3c4043; }
-    a { color: #1a73e8; }
-    .updated { color: #80868b; font-size: 14px; margin-bottom: 32px; }
-  </style>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://inbox-cleaner.vercel.app/privacy.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Inbox Cleaner</title>
+<meta name="description" content="How Inbox Cleaner’s Chrome extension, separate legacy OAuth browser app, local tools and website waitlist handle information.">
+<style>body{font-family:-apple-system,sans-serif;max-width:760px;margin:60px auto;padding:0 24px;color:#202124;line-height:1.7}h1{font-size:28px}h2{font-size:20px;margin-top:32px}a{color:#1a73e8}.updated{color:#646970}</style>
 </head>
 <body>
-  <h1>📥 Inbox Cleaner — Privacy Policy</h1>
-  <p class="updated">Last updated: June 25, 2026</p>
-
-  <p>Inbox Cleaner is a browser-based tool that helps you analyse and clean up your Gmail inbox.
-     This policy explains what data we access and how it's used.</p>
-
-  <h2>Which product this covers</h2>
-  <p>Inbox Cleaner ships as two separate products with different data paths:</p>
-  <ul>
-    <li><strong>The Chrome extension</strong> — the packaged Chrome Web Store extension. It has no OAuth, no Google sign-in and no server. It runs only inside a <code>mail.google.com</code> tab you already have open and reads just the sender name, sender address and displayed date off each rendered conversation row. It makes no network requests at all and caches scan results in <code>chrome.storage.local</code> on your device. Moving mail to Trash is done by clicking Gmail's own Move to Trash control inside your already-signed-in tab, so mail lands in your Gmail Trash, where Gmail keeps it for 30 days before permanently deleting it. Its only permissions are <code>storage</code> and host access to <code>mail.google.com</code>.</li>
-    <li><strong>The web app on this site</strong> — everything below describes it.</li>
-  </ul>
-
-  <h2>What data we access (web app)</h2>
-  <p>Inbox Cleaner requests access to your Gmail account via the Google OAuth 2.0 flow.
-     Specifically, we request:</p>
-  <ul>
-    <li><strong>From header</strong> and <strong>Date header</strong> of each email — used to build the sender list and count emails.</li>
-    <li><strong>Label IDs</strong> — used to identify which Gmail category (Primary, Social, Promotions, Updates, Forums) each email belongs to.</li>
-  </ul>
-  <p>We do <strong>not</strong> read email subject lines, email body content, attachments, recipients, or any other metadata.</p>
-
-  <h2>How data is used</h2>
-  <ul>
-    <li>Sender data is stored only in your browser's <code>localStorage</code> on your device.</li>
-    <li>Nothing is sent to any external server. The only network calls made are directly from your browser to Google's Gmail API (gmail.googleapis.com).</li>
-    <li>Moving emails to Trash is performed via Google's <code>messages.trash</code> API — triggered manually by you. Emails go to your Gmail Trash and can be recovered within 30 days before Google permanently deletes them.</li>
-  </ul>
-
-  <h2>Data retention</h2>
-  <p>Scan results are cached in <code>localStorage</code> on your device. You can clear this at any time by signing out or clearing your browser data. We retain no data ourselves.</p>
-
-  <h2>Third-party access</h2>
-  <p>We do not sell, share, or transfer your Gmail data to any third party. The only service that receives your Gmail data is Google (to fulfil the Gmail API requests you initiate).</p>
-  <p>Separately, the waitlist form on this site's homepage posts the email address you type to a Google Apps Script endpoint that holds the waitlist. That address is not connected to your Gmail data.</p>
-
-  <h2>Revoking access</h2>
-  <p>You can revoke Inbox Cleaner's access to your Google account at any time at
-     <a href="https://myaccount.google.com/permissions" target="_blank">myaccount.google.com/permissions</a>.</p>
-
-  <h2>Contact</h2>
-  <p>Questions? Email <a href="mailto:pushpendra.singh@freed.care">pushpendra.singh@freed.care</a>.</p>
-</body>
-</html>
+<h1>Inbox Cleaner — Privacy Policy</h1>
+<p class="updated">Last updated: October 17, 2026</p>
+<p>Inbox Cleaner has several separate surfaces. The Chrome extension works inside an already-open Gmail tab. The optional legacy browser app on this website uses Google OAuth and Gmail API. The local planning tools and waitlist have the distinct behavior described below. A statement about the extension’s data path does not mean this website makes no network requests.</p>
+<h2>Chrome extension</h2>
+<p>The packaged extension reads sender names, sender email addresses and displayed dates from Gmail’s rendered conversation rows. It also reads category and result-count information to build the sender view. It does not request message bodies, subject lines or attachments. Gmail’s own interface can contain other information; the extension’s current source is designed to use the rendered metadata needed for its cleanup purpose.</p>
+<p>The extension has no OAuth sign-in, Gmail API client, model API or independent network client. You must already be signed into Gmail in an open tab. It navigates Gmail and uses Gmail’s own controls, so Gmail itself continues communicating with Google. The developer does not receive your mailbox data through the extension.</p>
+<p>Scan results are cached on your device in <code>chrome.storage.local</code> under <code>inboxCleanerData</code>, including sender information, counts, categories and scan timing. Clear the extension’s local storage or remove the extension to remove its local cache. Removing the extension does not reverse changes already made in Gmail.</p>
+<p>Declared permissions are <code>storage</code> for the local cache, <code>tabs</code> to locate and communicate with your Gmail tab, and host access to <code>https://mail.google.com/*</code> for the content script. These permissions do not make the legacy website OAuth flow part of the extension.</p>
+<p>You choose senders and confirm before the extension drives Gmail’s move-to-Trash action. Sender-wide cleanup can include archived mail and does not inherit age, size, category or starred exclusions from a separate search. The extension does not unsubscribe you or permanently empty Trash. Gmail normally allows recovery for up to 30 days unless mail is permanently removed sooner.</p>
+<h2>Optional legacy browser app</h2>
+<p>The website’s separate Connect Gmail flow uses Google OAuth and requests the Gmail read-only and modify scopes. Its browser code lists messages and requests From and Date headers plus label IDs. It uses those results to build sender counts and category information, and sends user-confirmed move-to-Trash requests to Google’s Gmail API. The requests cross the network to Google; this is different from the extension’s DOM automation.</p>
+<p>The browser app caches sender results locally in <code>localStorage</code> under <code>inboxCleanerData</code>. Its OAuth access token is held in running-page memory in the current source. Signing out clears the local result cache and requests token revocation. You can also clear this website’s browser data or revoke the app’s Google-account access through <a href="https://myaccount.google.com/permissions">Google account permissions</a>. Revocation does not undo completed Gmail actions.</p>
+<p>The application code does not upload mailbox results to a developer server, and the current metadata requests do not request bodies, subjects, recipients or attachment contents. The declared OAuth scopes grant broader access than those metadata fields, so review Google’s consent screen before connecting. This policy describes the code path; it does not certify a live OAuth deployment or every installed package version.</p>
+<h2>Local planning tools</h2>
+<p>The Gmail search builder and storage troubleshooter use information you enter into their pages. They do not authenticate to Google, inspect your mailbox or delete email. When you choose an Open Gmail link, your browser sends the resulting search query to Gmail. Avoid entering sensitive content in a search you do not want sent to Google.</p>
+<h2>Website resources and hosting</h2>
+<p>Loading this website contacts its hosting provider. Pages may load fonts from Google Fonts and the homepage loads Google’s sign-in library for the optional browser app. Those services receive normal web requests, which can include network and browser information. No claim that the whole website is offline or free of third-party requests is made.</p>
+<h2>Waitlist</h2>
+<p>If you submit the waitlist form, the homepage sends the email address you enter to a Google Apps Script endpoint for the waitlist. This is an explicit network submission and is separate from mailbox metadata. The repository does not establish the endpoint’s server-side retention schedule; no automatic deletion period is promised here. Contact us to ask about removal of a waitlist entry.</p>
+<h2>Sharing and retention</h2>
+<p>The extension and browser app are designed to process mailbox results locally and do not include a mailbox-data sale or sharing workflow. Google receives the Gmail actions or API requests described above. The waitlist address is submitted separately to its Google-hosted endpoint. Local caches remain until cleared through the applicable surface or browser controls. Organization retention policies can apply to work accounts independently of these controls.</p>
+<h2>Contact</h2>
+<p>For privacy questions or a waitlist-removal request, email <a href="mailto:pushpendra.singh@freed.care">pushpendra.singh@freed.care</a>.</p>
+<p><a href="/">Inbox Cleaner</a> · <a href="/blog/">Gmail guides</a> · <a href="https://github.com/iampushpendra/inbox-cleaner">Source code</a></p>
+</body></html>

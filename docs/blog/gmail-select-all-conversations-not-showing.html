@@ -4,160 +4,51 @@
   <meta charset="UTF-8">
   <link rel="canonical" href="https://inbox-cleaner.vercel.app/blog/gmail-select-all-conversations-not-showing.html">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Why "Select All Conversations That Match This Search" Is Not Showing in Gmail | Inbox Cleaner</title>
-  <meta name="description" content="Gmail only shows the select-all link on a computer, after you tick the top Select box, when more matches exist than fit on one page. Check each cause in order.">
-  <meta property="og:title" content="Why &quot;Select All Conversations That Match This Search&quot; Is Not Showing in Gmail">
-  <meta property="og:description" content="Gmail only shows the select-all link on a computer, after you tick the top Select box, when more matches exist than fit on one page. Check each cause in order.">
+  <title>Why Gmail’s Select All Conversations Link Is Missing</title>
+  <meta name="description" content="Check why Gmail does not show its all-matching-conversations link: page selection, result count, current view and desktop versus app behavior.">
+  <meta property="og:title" content="Why Gmail’s Select All Conversations Link Is Missing">
+  <meta property="og:description" content="Check why Gmail does not show its all-matching-conversations link: page selection, result count, current view and desktop versus app behavior.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://inbox-cleaner.vercel.app/blog/gmail-select-all-conversations-not-showing.html">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Why \"Select All Conversations That Match This Search\" Is Not Showing in Gmail",
-    "datePublished": "2026-10-17",
-    "dateModified": "2026-10-17",
-    "author": { "@type": "Organization", "name": "Inbox Cleaner" },
-    "publisher": { "@type": "Organization", "name": "Inbox Cleaner", "url": "https://inbox-cleaner.vercel.app" }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    "name": "Why \"Select All Conversations That Match This Search\" Is Not Showing in Gmail",
-    "step": [
-      { "@type": "HowToStep", "name": "Check you are on a computer", "text": "The link only exists in Gmail on a computer. In the Gmail app for Android, iPhone or iPad, Select all selects up to 50 messages at a time, and you repeat it for the next batch." },
-      { "@type": "HowToStep", "name": "Use the top Select box", "text": "Tick the Select box above the message list, not individual message checkboxes. The notification with the link appears after the whole page is selected." },
-      { "@type": "HowToStep", "name": "Check whether more results exist", "text": "If every match already fits on one page, there is nothing beyond the page to select, so Gmail has no reason to offer the link. Check whether a next-page arrow is available." },
-      { "@type": "HowToStep", "name": "Check the view or search you are in", "text": "The link covers only the current category, label or search. If the count looks too small, switch to All mail or adjust the search before selecting." },
-      { "@type": "HowToStep", "name": "Look above the list before acting", "text": "The notification sits above the messages. Click its link before clicking Delete or Archive, otherwise the action applies to the current page only." },
-      { "@type": "HowToStep", "name": "Rule out the browser, then report it", "text": "Reload Gmail, then try a different browser or a window without extensions. If the link is still missing, send feedback to Google from Gmail's Help menu." }
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Can I select all conversations in the Gmail app on my phone?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Not in one pass. Google's Android and iPhone instructions say Select all in the Gmail app selects up to 50 messages; you delete them, scroll to the top and select all again. For a larger search, use Gmail on a computer." }
-      },
-      {
-        "@type": "Question",
-        "name": "Has Google ever removed the select all conversations link?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes, briefly. In early October 2020 the link disappeared for many users, and Google said the removal was unintentional and that it was working to restore it. If it is missing for you today, check the ordinary causes in this guide before assuming another bug." }
-      },
-      {
-        "@type": "Question",
-        "name": "Does changing the maximum page size make the link appear?",
-        "acceptedAnswer": { "@type": "Answer", "text": "It can make the link disappear, not appear. If your page size is large enough to show every match, the whole result set is already on the page and there is nothing extra to select. A smaller page size does not change what the link selects." }
-      },
-      {
-        "@type": "Question",
-        "name": "Will selecting all conversations also delete starred or important emails?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes, if they match the search. Add -is:starred or -is:important to the Gmail search before selecting, and remember that Gmail acts on conversations, so a thread can be returned because one of its messages matched." }
-      }
-    ]
-  }
-  </script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>📥</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
   <link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Why Gmail’s Select All Conversations Link Is Missing",
+  "description": "Check why Gmail does not show its all-matching-conversations link: page selection, result count, current view and desktop versus app behavior.",
+  "datePublished": "2026-10-17",
+  "dateModified": "2026-10-17",
+  "author": {
+    "@type": "Organization",
+    "name": "Inbox Cleaner"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Inbox Cleaner",
+    "url": "https://inbox-cleaner.vercel.app"
+  }
+}
+</script>
 </head>
 <body>
-
-<nav id="nav">
-  <a class="nav-logo" href="/">📥 Inbox<span>Cleaner</span></a>
-  <div class="blog-nav-right">
-    <a class="nav-blog-link" href="/blog/">Blog</a>
-    <a class="blog-nav-cta" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add to Chrome →</a>
-  </div>
-</nav>
-
-<main>
-  <div class="blog-wrap">
-    <span class="blog-eyebrow">Gmail Selection</span>
-    <h1 class="blog-h1">Why "Select All Conversations That Match This Search" Is Not Showing in Gmail</h1>
-    <p class="blog-meta">Updated October 2026 · 4 min read</p>
-
-    <div class="blog-body">
-
-      <div class="quick-answer">
-        <strong>Quick answer:</strong> Gmail only shows the "Select all conversations that match this search" link on a computer, after you tick the top Select box, and only when more conversations match than fit on the current page. The Gmail app on Android, iPhone and iPad has no such link: its Select all picks up to 50 messages at a time. If you are on a computer and none of those explain it, reload Gmail and try another browser before reporting it to Google.
-      </div>
-
-      <p>The link is not a permanent button. It is part of a notification Gmail shows only after a page-wide selection, worded like "All 50 conversations on this page are selected. Select all 2,000 conversations in Inbox." Google documents that flow in <a href="https://support.google.com/mail/answer/7401?hl=en">Delete messages in Gmail</a> (checked 17 October 2026). If you just need the basic steps, start with <a href="../blog/how-to-select-all-emails-gmail.html">how to select all emails in Gmail</a>. This page is for when the link is not there.</p>
-
-      <h2>Why is the select all conversations link missing?</h2>
-
-      <p>Match what you see to the first cause that fits. They are ordered from most to least common.</p>
-
-      <ol class="blog-steps">
-        <li><strong>You're in the Gmail app, not on a computer.</strong> Google's <a href="https://support.google.com/mail/answer/7401?hl=en&amp;co=GENIE.Platform%3DAndroid">Android</a> and <a href="https://support.google.com/mail/answer/7401?hl=en&amp;co=GENIE.Platform%3DiOS">iPhone and iPad</a> instructions say to touch and hold a message, then tap the box next to "Select all", which selects up to 50 messages. To do more, you delete, scroll back to the top and select all again. There is no match-the-whole-search link in the app.</li>
-        <li><strong>You ticked individual messages.</strong> The notification follows the top Select box above the message list. Checking messages one by one, or partly selecting the page, does not trigger it. Untick everything, then tick the top box once.</li>
-        <li><strong>Everything already fits on one page.</strong> If your search or label returns fewer conversations than your page size, the page selection is already the full set. There is nothing to extend, so Gmail has no reason to show the link. If the next-page arrow at the top right is greyed out, this is your answer.</li>
-        <li><strong>You're in a narrower view than you think.</strong> The link selects what matches the current category, label or search. In the Primary tab it covers Primary only. Google's steps start by choosing the category, such as Inbox, Promotions or All mail. Pick the right one first.</li>
-        <li><strong>You acted before clicking the link.</strong> The notification sits above the messages. If you clicked Delete or Archive straight after ticking the box, the action applied to the current page only. Scroll up, tick the box again and click the link before the action.</li>
-        <li><strong>Gmail itself is misbehaving.</strong> Reload, then try a different browser or a window with your browser extensions turned off. If the link is still missing on a multi-page search, send feedback from Gmail's Help menu. This has happened before: in October 2020 Google said the link had been <a href="https://www.androidheadlines.com/2020/10/gmail-mistake-button-emails.html">removed unintentionally</a> and that it was working to restore it.</li>
-      </ol>
-
-      <h2>How do I check whether there's more than one page of results?</h2>
-
-      <p>Look at the counter at the top right of the message list, such as "1–50 of 2,000", and the arrows beside it. If the arrows are both inactive, every match is already on screen. Your page size is set under Settings → See all settings → General → Maximum page size. A larger page size makes it more likely that a small search fits on one page, which is why the link can vanish after you change that setting. That is expected, not a fault.</p>
-
-      <h2>Is there another way to act on every matching email?</h2>
-
-      <p>Yes. Here are the options, from most to least practical:</p>
-
-      <ul>
-        <li><strong>Repeat the page selection.</strong> Tick the top box, act, and repeat until the search is empty. This is slow on a big search, but it works on both a computer and the app.</li>
-        <li><strong>Use a filter on existing mail.</strong> In 2020, while the link was missing, the documented workaround was to create a filter from the search, tick "Also apply filter to matching conversations", then delete the filter so it does not act on future mail. Check the search results before you save anything that deletes. Google's <a href="https://support.google.com/mail/answer/6579?hl=en">filter instructions</a> cover the basic steps.</li>
-        <li><strong>Narrow the job by sender.</strong> If the search you're struggling with is really "everything from these senders", working sender by sender keeps each batch small and easy to check.</li>
-      </ul>
-
-      <p>Before deleting a large selection, decide whether you actually want it gone. <a href="../blog/gmail-archive-vs-delete.html">Archiving versus deleting in Gmail</a> explains which one keeps the mail searchable. Deleted mail sits in Trash for 30 days before Gmail removes it.</p>
-
-      <h2>When does a sender-based tool fit instead?</h2>
-
-      <p>If the backlog is mostly a few high-volume senders, a select-all over one huge search is not the only route. The free Inbox Cleaner Chrome extension runs inside a Gmail tab you already have open in desktop Chrome. It scans your categories and ranks senders by email count. You tick the senders, then click Move to Trash as a separate step. Senders are processed in batches of up to 20, each using Gmail's own controls. Counts are exact for the top 250 senders, and the rest show a "~".</p>
-
-      <p>Two limits matter here. Deleting by sender is sender-wide, so the extension cannot carry over a date, category or <code>-is:starred</code> condition from your Gmail search. If you need those exclusions, stay with Gmail's own selection. The extension also does not work in the mobile app. For the native method, see <a href="../blog/delete-all-emails-from-one-sender-gmail.html">how to delete all emails from one sender in Gmail</a>, and for clearing many senders at once, see <a href="../blog/how-to-bulk-delete-gmail-emails.html">how to bulk delete Gmail emails</a>.</p>
-
-      <div class="blog-cta">
-<h3>Clean up Gmail with the Chrome extension</h3>
-<p>Rank senders, select the ones you want to clear, and move their emails to Trash. You have 30 days to recover trashed emails.</p>
-<a class="blog-cta-btn" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add Inbox Cleaner to Chrome →</a>
-</div>
-
-      <p>Sources checked 17 October 2026: Google's <a href="https://support.google.com/mail/answer/7401?hl=en">Delete messages in Gmail</a> for computer, Android and iPhone/iPad, and <a href="https://support.google.com/mail/answer/6579?hl=en">Create rules to filter your emails</a>. The 2020 removal is as reported by Android Headlines, citing Google's statement.</p>
-
-      <h2>Frequently asked questions</h2>
-      <div class="faq-list">
-        <div class="faq-item">
-          <p class="faq-q">Can I select all conversations in the Gmail app on my phone?</p>
-          <p class="faq-a">Not in one pass. Google's Android and iPhone instructions say Select all in the Gmail app selects up to 50 messages; you delete them, scroll to the top and select all again. For a larger search, use Gmail on a computer.</p>
-        </div>
-        <div class="faq-item">
-          <p class="faq-q">Has Google ever removed the select all conversations link?</p>
-          <p class="faq-a">Yes, briefly. In early October 2020 the link disappeared for many users, and Google said the removal was unintentional and that it was working to restore it. If it is missing for you today, check the ordinary causes in this guide before assuming another bug.</p>
-        </div>
-        <div class="faq-item">
-          <p class="faq-q">Does changing the maximum page size make the link appear?</p>
-          <p class="faq-a">It can make the link disappear, not appear. If your page size is large enough to show every match, the whole result set is already on the page and there is nothing extra to select. A smaller page size does not change what the link selects.</p>
-        </div>
-        <div class="faq-item">
-          <p class="faq-q">Will selecting all conversations also delete starred or important emails?</p>
-          <p class="faq-a">Yes, if they match the search. Add -is:starred or -is:important to the Gmail search before selecting, and remember that Gmail acts on conversations, so a thread can be returned because one of its messages matched.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
+<nav id="nav"><a class="nav-logo" href="/">📥 Inbox<span>Cleaner</span></a><div class="blog-nav-right"><a class="nav-blog-link" href="/blog/">Guides</a><a class="blog-nav-cta" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">View Chrome extension →</a></div></nav>
+<main><article class="blog-wrap"><span class="blog-eyebrow">Gmail cleanup guide</span><h1 class="blog-h1">Why Gmail’s Select All Conversations Link Is Missing</h1><p class="blog-meta">Updated October 17, 2026 · Source-reviewed guide</p><div class="blog-body">
+<p class="quick-answer">Gmail’s all-matching-conversations link is separate from the top checkbox. It is useful when the results extend beyond the current page. If you cannot find it, first confirm that you are in Gmail on a computer and have selected the page using the top checkbox.</p><h2>Diagnose the missing link</h2>
+<ul><li>Have you selected the page? The notification is part of the selection state; looking at an unselected list is not enough.</li><li>Do all matches fit on the page? If so, there may be no additional results to select. Compare the displayed range and result count.</li><li>Are you in a message, a search list or a special view? Return to a normal search list and run the intended query again.</li><li>Are you using a mobile app? Desktop instructions do not describe every app selection control. Use Gmail on a computer for this workflow.</li><li>Has Gmail actually finished loading? Let the list settle and inspect its notification. If the interface remains inconsistent, stop rather than clicking an unrelated control.</li></ul><h2>Do not rely on a fixed page number</h2>
+<p>Gmail’s documentation uses an example with 50 conversations. Your page settings and results can differ. The distinction to check is <em>this page</em> versus <em>all matching results</em>, not whether a particular number appears.</p><h2>Once selection is clear</h2>
+<ol class="blog-steps"><li>Open Gmail on a computer, confirm the account, and search <code>from:sender@example.com</code>. Replace any example sender with the address from a real message.</li><li>Review several results and any mixed conversations. Save records you need before selecting mail.</li><li>Use the top checkbox to select the current page. If Gmail offers an all-matching-conversations notification, use its link only after checking that the search scope is correct. The page count depends on your settings.</li><li>Choose the Trash icon and wait for Gmail’s confirmation. Rerun the search to inspect what remains; do not assume an unseen batch completed.</li></ol><h2>Check mixed conversations</h2>
+<p>Search can return a whole conversation when only some messages match. In particular, <code>-is:starred</code> does not guarantee protection for starred messages in a mixed thread. Open important conversations and handle individual messages when necessary.</p><h2>Review Trash separately</h2>
+<p>Gmail normally allows Trash recovery for up to 30 days unless permanently removed sooner. Archive and Trash still use storage. Review before Empty Trash or Delete forever; those actions end ordinary recovery.</p><h2>Does sender cleanup fit this task?</h2>
+<p>Inbox Cleaner needs an open Gmail tab in desktop Chrome. Its sender-wide action can include archived mail and does not inherit date, category, size, unread or starred restrictions. For those limits, use native Gmail. Counts may be approximate and are not storage measurements. <a href="/blog/inbox-cleaner-setup-permissions-recovery.html">Read setup, permissions and recovery limits</a>.</p><h2>Choose the next step</h2>
+<ul><li><a href="/blog/how-to-select-all-emails-gmail.html">Full all-results selection guide</a></li><li><a href="/blog/gmail-bulk-delete-not-working.html">Check a deletion that moved less mail than expected</a></li><li><a href="/blog/how-to-bulk-delete-gmail-emails.html">Plan the search before selecting</a></li></ul>
+<div class="blog-cta"><h3>Review senders inside Gmail</h3><p>Open Gmail in desktop Chrome, scan discovered senders, then review the sender-wide scope before confirming a move to Trash.</p><a class="blog-cta-btn" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">View Inbox Cleaner on the Chrome Web Store →</a></div>
+<h2>Sources and review</h2>
+<p>Procedures checked against <a href="https://support.google.com/mail/answer/7190?hl=en">Gmail search operators</a>, <a href="https://support.google.com/mail/answer/7401?hl=en">Gmail deletion and recovery</a>. Reviewed October 17, 2026. This is a documentation and source review; no live mailbox walkthrough, speed benchmark or original screenshots were produced.</p>
+</div></article>
 <!-- AUTO:related:start -->
 <section class="blog-wrap related-guides" aria-labelledby="related-heading">
 <h2 id="related-heading">More Gmail cleanup guides</h2>
@@ -174,11 +65,5 @@
 </div>
 </section>
 <!-- AUTO:related:end -->
-</main>
-
-<footer>
-  <p>Built by <a href="https://github.com/iampushpendra" target="_blank" rel="noopener">@iampushpendra</a> · <a href="../privacy.html">Privacy Policy</a> · <a href="https://github.com/iampushpendra/inbox-cleaner" target="_blank" rel="noopener">GitHub</a> · Emails go to Trash — you have 30 days to restore them.</p>
-</footer>
-
-</body>
-</html>
+</main><footer><p>Built by <a href="https://github.com/iampushpendra">@iampushpendra</a> · <a href="/privacy.html">Privacy policy</a> · <a href="/blog/">All guides</a> · Review Trash before permanent removal.</p></footer>
+</body></html>

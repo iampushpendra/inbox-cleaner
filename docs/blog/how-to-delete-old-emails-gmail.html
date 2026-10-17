@@ -4,170 +4,52 @@
   <meta charset="UTF-8">
   <link rel="canonical" href="https://inbox-cleaner.vercel.app/blog/how-to-delete-old-emails-gmail.html">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How to Delete Old Emails in Gmail (2026 Guide) | Inbox Cleaner</title>
-  <meta name="description" content="Use Gmail's older_than search operator to find and bulk-delete old emails, or clear years of backlog with a sender-ranked tool.">
-  <meta property="og:title" content="How to Delete Old Emails in Gmail (2026 Guide)">
-  <meta property="og:description" content="Use Gmail's older_than search operator to find and bulk-delete old emails, or clear years of backlog with a sender-ranked tool.">
+  <title>How to Delete Old Emails in Gmail by Date or Age</title>
+  <meta name="description" content="Find old Gmail messages with older_than: or before:, narrow the search, review conversations, then select matching results and use Trash.">
+  <meta property="og:title" content="How to Delete Old Emails in Gmail by Date or Age">
+  <meta property="og:description" content="Find old Gmail messages with older_than: or before:, narrow the search, review conversations, then select matching results and use Trash.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://inbox-cleaner.vercel.app/blog/how-to-delete-old-emails-gmail.html">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "How to Delete Old Emails in Gmail",
-    "datePublished": "2026-09-03",
-    "dateModified": "2026-09-03",
-    "author": { "@type": "Organization", "name": "Inbox Cleaner" },
-    "publisher": { "@type": "Organization", "name": "Inbox Cleaner", "url": "https://inbox-cleaner.vercel.app" }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    "name": "How to Delete Old Emails in Gmail",
-    "step": [
-      { "@type": "HowToStep", "name": "Search by age", "text": "In Gmail's search bar, type older_than:1y (or 2y, 6m, 30d) to filter to emails older than that period." },
-      { "@type": "HowToStep", "name": "Select all matching emails", "text": "Click the checkbox above the message list, then click \"Select all conversations that match this search\" to extend the selection past the visible page." },
-      { "@type": "HowToStep", "name": "Delete", "text": "Click the Trash icon. Every matching email moves to Trash." },
-      { "@type": "HowToStep", "name": "For large backlogs, use Inbox Cleaner", "text": "Install the free Chrome extension, open Gmail in desktop Chrome, to rank senders by email count and clear years of old mail from the worst offenders in batches of up to 20 senders at a time." }
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What does the older_than search operator accept in Gmail?",
-        "acceptedAnswer": { "@type": "Answer", "text": "older_than: accepts a number followed by d (days), m (months), or y (years) — for example older_than:6m or older_than:2y. Gmail treats a month as 30 days, so older_than:1m is roughly the same as older_than:30d." }
-      },
-      {
-        "@type": "Question",
-        "name": "Will deleting old emails delete them from all my devices?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Gmail syncs across web, mobile, and any mail client connected via IMAP, so once an email moves to Trash it disappears from the inbox view everywhere within a minute or two." }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I recover old emails after deleting them?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes, for 30 days. Deleted mail sits in Trash and can be dragged back to the inbox or any label during that window. After 30 days, or if you empty Trash manually, Gmail removes it permanently." }
-      },
-      {
-        "@type": "Question",
-        "name": "Should I delete old emails or just archive them?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Archive if you might need to search for something later but don't want it cluttering your inbox — archived mail still counts toward storage. Delete if you're trying to free up space or the content genuinely has no future value, like expired promotions or old notifications." }
-      },
-      {
-        "@type": "Question",
-        "name": "How old do emails need to be before it's safe to delete them?",
-        "acceptedAnswer": { "@type": "Answer", "text": "There's no universal rule, but a common approach is one year for personal mail and 7 years for anything with tax or legal relevance. For newsletters, notifications, and promotions, 30-90 days is usually plenty since they have no lasting value." }
-      }
-    ]
-  }
-  </script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>📥</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
   <link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Delete Old Emails in Gmail by Date or Age",
+  "description": "Find old Gmail messages with older_than: or before:, narrow the search, review conversations, then select matching results and use Trash.",
+  "datePublished": "2026-09-03",
+  "dateModified": "2026-10-17",
+  "author": {
+    "@type": "Organization",
+    "name": "Inbox Cleaner"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Inbox Cleaner",
+    "url": "https://inbox-cleaner.vercel.app"
+  }
+}
+</script>
 </head>
 <body>
-
-<nav id="nav">
-  <a class="nav-logo" href="/">📥 Inbox<span>Cleaner</span></a>
-  <div class="blog-nav-right">
-    <a class="nav-blog-link" href="/blog/">Blog</a>
-    <a class="blog-nav-cta" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add to Chrome →</a>
-  </div>
-</nav>
-
-<main>
-  <div class="blog-wrap">
-    <span class="blog-eyebrow">Gmail Tips</span>
-    <h1 class="blog-h1">How to Delete Old Emails in Gmail</h1>
-    <p class="blog-meta">Updated September 2026 · 5 min read</p>
-
-    <div class="blog-body">
-
-      <div class="quick-answer">
-        <strong>Quick answer:</strong> To delete old emails in Gmail, search <code>older_than:1y</code> (swap in 6m, 2y, or any period you want), click the checkbox above the results, then "Select all conversations that match this search," and hit delete. For inboxes with years of buildup across hundreds of senders, <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a> ranks senders by volume so you can clear the biggest sources of old mail in batches of up to 20 senders at a time.
-      </div>
-
-      <p>Old emails don't just sit there quietly. They eat into your 15 GB storage quota, slow down search, and make it harder to find anything recent. Most of what's sitting in a five-year-old inbox is newsletters, notifications, and receipts nobody's opened in years — safe to clear out with the right search.</p>
-
-      <p>The tricky part isn't deleting one old email — it's deleting thousands of them without spending an afternoon scrolling. Gmail gives you a search operator built for exactly this, plus a bulk-select tool that extends past what's rendered on screen. Below is the manual method, followed by a faster route for inboxes with years of unsorted buildup across dozens of senders.</p>
-
-      <h2>How do I delete old emails in Gmail?</h2>
-
-      <p>Gmail's <code>older_than:</code> search operator filters your inbox to messages past a certain age, so you don't have to scroll back manually:</p>
-
-      <ol class="blog-steps">
-        <li>Open Gmail and click the search bar.</li>
-        <li>Type <code>older_than:1y</code> and press Enter — this shows every email over a year old. Swap <code>1y</code> for <code>6m</code>, <code>30d</code>, or <code>2y</code> depending on how far back you want to cut.</li>
-        <li>Click the checkbox at the top-left of the message list to select everything on the page.</li>
-        <li>A banner appears: "Select all conversations that match this search." Click it to extend the selection to every matching email, not just the current page.</li>
-        <li>Click the <strong>Trash</strong> icon. Everything selected moves to Trash.</li>
-      </ol>
-
-      <p>This works well for a single sweep. But Gmail's select-all banner can time out on very large result sets — the same limit you'd run into trying to <a href="../blog/how-to-bulk-delete-gmail-emails.html">bulk delete Gmail emails</a> any other way — so a five-figure backlog sometimes needs a few passes.</p>
-
-      <h2>How do I delete old emails from specific senders instead of by date?</h2>
-
-      <p>Date alone doesn't tell you which old emails are safe to clear. A sender-first approach is usually faster: find who's actually filled your inbox with years of mail, then clear all of it from that sender at once. See <a href="../blog/delete-all-emails-from-one-sender-gmail.html">How to Delete All Emails from One Sender in Gmail</a> if you already know who the worst offender is.</p>
-
-      <p>If you don't know which senders are worth targeting, Inbox Cleaner scans your whole inbox from inside Gmail and ranks every sender by email count:</p>
-
-      <ol class="blog-steps">
-        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
-        <li><strong>Scope:</strong> deleting by sender is sender-wide. It does not carry over the <code>older_than:</code>, <code>category:</code> or <code>-is:starred</code> limits from the Gmail search above — a selected sender goes in full, including archived mail. If you need those exclusions, stay with the Gmail search method above.</li>
-        <li>Senders with years of accumulated mail — old newsletters, defunct services, notification bots — typically sit at the top of the ranked list.</li>
-        <li>Check the boxes next to the senders you no longer need.</li>
-        <li>Click <strong>Move to Trash</strong>. All their emails move at once, regardless of how old or how many.</li>
-      </ol>
-
-      <div class="blog-cta">
-<h3>Clean up Gmail with the Chrome extension</h3>
-<p>Rank senders, select the ones you want to clear, and move their emails to Trash. You have 30 days to recover trashed emails.</p>
-<a class="blog-cta-btn" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add Inbox Cleaner to Chrome →</a>
-</div>
-
-      <h2>How do I stop old emails from piling up again?</h2>
-
-      <p>A one-time cleanup only resets the clock. To keep old mail from stacking back up, set a Gmail filter that auto-deletes messages past a certain age from sources you don't need to keep — see <a href="../blog/gmail-filters-delete-emails-automatically.html">Gmail filters to delete emails automatically</a> for the exact setup with the <code>older_than:</code> operator baked into a filter's search criteria.</p>
-
-      <h2>Should I delete old emails or archive them instead?</h2>
-
-      <p>It depends on whether you might need to find the email again. Archiving removes a message from your inbox view but keeps it searchable forever — useful for old receipts or confirmations you might reference later. Deleting is better for anything with genuinely no future value: expired promotions, old notifications, or mail from services you no longer use. For the full breakdown of when each makes sense, see <a href="../blog/gmail-archive-vs-delete.html">Gmail archive vs delete</a>.</p>
-
-      <p>One thing worth remembering either way: archived emails still count toward your 15 GB storage limit. If storage is the actual problem, archiving won't fix it — only deleting (and then emptying Trash) recovers space. Deleted mail sits in Trash for 30 days before Gmail removes it for good, so a bulk cleanup is reversible right up until that window closes — you're not one wrong click away from losing something permanently.</p>
-
-      <h2>Frequently asked questions</h2>
-      <div class="faq-list">
-        <div class="faq-item">
-          <p class="faq-q">What does the older_than search operator accept in Gmail?</p>
-          <p class="faq-a">older_than: accepts a number followed by d (days), m (months), or y (years) — for example older_than:6m or older_than:2y. Gmail treats a month as 30 days, so older_than:1m is roughly the same as older_than:30d.</p>
-        </div>
-        <div class="faq-item">
-          <p class="faq-q">Will deleting old emails delete them from all my devices?</p>
-          <p class="faq-a">Yes. Gmail syncs across web, mobile, and any mail client connected via IMAP, so once an email moves to Trash it disappears from the inbox view everywhere within a minute or two.</p>
-        </div>
-        <div class="faq-item">
-          <p class="faq-q">Can I recover old emails after deleting them?</p>
-          <p class="faq-a">Yes, for 30 days. Deleted mail sits in Trash and can be dragged back to the inbox or any label during that window. After 30 days, or if you empty Trash manually, Gmail removes it permanently.</p>
-        </div>
-        <div class="faq-item">
-          <p class="faq-q">Should I delete old emails or just archive them?</p>
-          <p class="faq-a">Archive if you might need to search for something later but don't want it cluttering your inbox — archived mail still counts toward storage. Delete if you're trying to free up space or the content genuinely has no future value, like expired promotions or old notifications.</p>
-        </div>
-        <div class="faq-item">
-          <p class="faq-q">How old do emails need to be before it's safe to delete them?</p>
-          <p class="faq-a">There's no universal rule, but a common approach is one year for personal mail and 7 years for anything with tax or legal relevance. For newsletters, notifications, and promotions, 30-90 days is usually plenty since they have no lasting value.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
+<nav id="nav"><a class="nav-logo" href="/">📥 Inbox<span>Cleaner</span></a><div class="blog-nav-right"><a class="nav-blog-link" href="/blog/">Guides</a><a class="blog-nav-cta" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">View Chrome extension →</a></div></nav>
+<main><article class="blog-wrap"><span class="blog-eyebrow">Gmail cleanup guide</span><h1 class="blog-h1">How to Delete Old Emails in Gmail by Date or Age</h1><p class="blog-meta">Updated October 17, 2026 · Source-reviewed guide</p><div class="blog-body">
+<p class="quick-answer">Gmail supports both relative age searches and fixed date boundaries. Use <code>older_than:1y</code> for mail older than a year, or <code>before:2025/01/01</code> for a specific cutoff. Review the results, select the intended scope and use Trash. Age alone does not establish that mail is safe to remove.</p><h2>Relative age or fixed date?</h2>
+<ul><li><code>older_than:6m</code> uses months; <code>older_than:2y</code> uses years. The results change as time passes.</li><li><code>before:2025/01/01</code> is a fixed boundary that is easier to document and repeat.</li><li><code>after:2023/01/01 before:2024/01/01</code> targets a bounded period. Check emails near the boundaries if exact inclusion matters.</li><li>Add <code>from:sender@example.com</code> or <code>category:promotions</code> to reduce the review scope.</li></ul><ol class="blog-steps"><li>Open Gmail on a computer, confirm the account, and search <code>before:2025/01/01</code>. Replace any example sender with the address from a real message.</li><li>Review several results and any mixed conversations. Save records you need before selecting mail.</li><li>Use the top checkbox to select the current page. If Gmail offers an all-matching-conversations notification, use its link only after checking that the search scope is correct. The page count depends on your settings.</li><li>Choose the Trash icon and wait for Gmail’s confirmation. Rerun the search to inspect what remains; do not assume an unseen batch completed.</li></ol><h2>Choose a retention boundary before deleting</h2>
+<p>Preserve correspondence needed for taxes, contracts, warranties, work policies or open disputes. There is no universal one-year or seven-year rule for email. Confirm the requirements for your records and jurisdiction. A downloaded attachment should be opened and checked before you rely on it as your only copy.</p><h2>Old does not mean large</h2>
+<p>If the problem is storage rather than visual clutter, combine age with a size query such as <code>older_than:1y larger:10M</code>. Check Google’s storage breakdown first: other services can account for the pressure. Deleting many small messages may have a limited effect on capacity.</p><h2>Do not use an age filter as a rolling timer</h2>
+<p>Gmail filters act on incoming messages. A rule containing <code>older_than:1y</code> does not arrange for each new message to be deleted a year later. For periodic cleanup, save the search somewhere you can rerun it and review the results each time.</p><h2>Check mixed conversations</h2>
+<p>Search can return a whole conversation when only some messages match. In particular, <code>-is:starred</code> does not guarantee protection for starred messages in a mixed thread. Open important conversations and handle individual messages when necessary.</p><h2>Does sender cleanup fit this task?</h2>
+<p>Inbox Cleaner needs an open Gmail tab in desktop Chrome. Its sender-wide action can include archived mail and does not inherit date, category, size, unread or starred restrictions. For those limits, use native Gmail. Counts may be approximate and are not storage measurements. <a href="/blog/inbox-cleaner-setup-permissions-recovery.html">Read setup, permissions and recovery limits</a>.</p><h2>Review Trash separately</h2>
+<p>Gmail normally allows Trash recovery for up to 30 days unless permanently removed sooner. Archive and Trash still use storage. Review before Empty Trash or Delete forever; those actions end ordinary recovery.</p><h2>Choose the next step</h2>
+<ul><li><a href="/blog/how-to-delete-emails-older-than-a-year-gmail.html">Use a one-year review boundary</a></li><li><a href="/blog/gmail-search-operators-to-find-old-emails.html">Compare search recipes</a></li><li><a href="/blog/gmail-filters-delete-emails-automatically.html">Understand incoming-mail filters</a></li></ul>
+<div class="blog-cta"><h3>Review senders inside Gmail</h3><p>Open Gmail in desktop Chrome, scan discovered senders, then review the sender-wide scope before confirming a move to Trash.</p><a class="blog-cta-btn" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">View Inbox Cleaner on the Chrome Web Store →</a></div>
+<h2>Sources and review</h2>
+<p>Procedures checked against <a href="https://support.google.com/mail/answer/7190?hl=en">Gmail search operators</a>, <a href="https://support.google.com/mail/answer/7401?hl=en">Gmail deletion and recovery</a>. Reviewed October 17, 2026. This is a documentation and source review; no live mailbox walkthrough, speed benchmark or original screenshots were produced.</p>
+</div></article>
 <!-- AUTO:related:start -->
 <section class="blog-wrap related-guides" aria-labelledby="related-heading">
 <h2 id="related-heading">More Gmail cleanup guides</h2>
@@ -184,11 +66,5 @@
 </div>
 </section>
 <!-- AUTO:related:end -->
-</main>
-
-<footer>
-  <p>Built by <a href="https://github.com/iampushpendra" target="_blank" rel="noopener">@iampushpendra</a> · <a href="../privacy.html">Privacy Policy</a> · <a href="https://github.com/iampushpendra/inbox-cleaner" target="_blank" rel="noopener">GitHub</a> · Emails go to Trash — you have 30 days to restore them.</p>
-</footer>
-
-</body>
-</html>
+</main><footer><p>Built by <a href="https://github.com/iampushpendra">@iampushpendra</a> · <a href="/privacy.html">Privacy policy</a> · <a href="/blog/">All guides</a> · Review Trash before permanent removal.</p></footer>
+</body></html>

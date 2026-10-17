@@ -1,136 +1,78 @@
-# Chrome Web Store submission package
+# Chrome Web Store listing draft and submission evidence
 
-**Release prepared: 3.2.1.** The public listing was verified as version 3.0.0 on 2026-10-16; this update is not published until the Developer Dashboard confirms submission/release.
+Reviewed October 17, 2026 against `manifest.json`, `content.js`, `popup.js`, `parsing.js` and `scripts/product-facts.json`. This is prepared copy only: no upload, submission or live listing change was performed. Local manifest version is 3.2.1; repository documentation versions can differ. The installed store version, published permissions and live listing text require a current dashboard/package comparison. Historical publication notes are not current certification.
 
 Listing: https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep
 
-Upload `inbox-cleaner-extension-3.2.1.zip` from the repository root through https://chrome.google.com/webstore/devconsole. This update fixes scanning beyond the first 500 conversations and has automated 10,000-conversation pagination coverage. The source supports up to 500 pages per category and fails explicitly on incomplete pagination. No new permissions are requested.
+## Proposed listing copy
 
-The dashboard requires the publisher's Google account sign-in. The listing copy below is the maintained draft; confirm it alongside the package during submission.
+**Name**
 
-## Listing copy
-
-**Name** (max 45 chars)
-```
-Inbox Cleaner — Bulk Gmail Delete
+```text
+Inbox Cleaner — Gmail Sender Cleanup
 ```
 
-**Summary** (max 132 chars, shown in search results)
-```
-See who's filling your Gmail. Scan all 5 categories, pick senders, move everything from them to Trash in one click.
+**Summary** (under 132 characters)
+
+```text
+Review Gmail senders in desktop Chrome. Select unwanted senders, then confirm a move to Trash. Requires an open Gmail tab.
 ```
 
-**Description** (max 16,000 chars, first ~3 lines matter most before "read more")
-```
-Most Gmail cleaners only look at your Primary inbox. Inbox Cleaner scans all
-5 categories — Primary, Social, Promotions, Updates, Forums — and shows a
-ranked list of exactly who's filling up your inbox.
+**Description**
 
-WHAT IT DOES
-• Scans every category, not just Primary
-• Ranks senders by email count (color-coded: red 100+, orange 50+)
-• Shows category badges and last-received date per sender
-• Select one sender or dozens at once
-• One click moves everything from selected senders to Trash
+```text
+Find repeat senders in Gmail, review their mail, and choose which sender histories you no longer need.
 
-PRIVACY FIRST
-• Runs entirely in your browser — no server, no backend
-• Only reads the From and Date headers — never subject, body, or attachments
-• Nothing is ever sent anywhere — no API calls, no network requests at all
-• Scan results are cached locally in your browser
-• Moves mail to Trash (recoverable for 30 days), never permanently deletes
+Inbox Cleaner runs inside an already-open Gmail tab in desktop Chrome. It discovers senders across Primary, Social, Promotions, Updates and Forums, then presents a sender list with category information and last-received dates.
+
+HOW TO USE IT
+• Install the extension and open the correct Gmail account in desktop Chrome.
+• Start a scan and allow it to finish. A full scan can take minutes.
+• Review discovered senders and their broader mail history.
+• Select senders, review the scope, then confirm Move to Trash.
+
+UNDERSTAND THE SCOPE
+• This is sender cleanup: selected sender searches can include archived matching mail.
+• A category badge helps discovery; it does not limit the action to that category.
+• Age, size, unread and starred exclusions from a separate Gmail search do not carry over.
+• Use Gmail’s own reviewed searches when you need those restrictions.
+• Counts describe Gmail conversations/results, may be approximate or unresolved, and are not storage measurements. Up to 250 senders are checked against Gmail result counts when resolvable.
+• Senders are processed in batches of up to 20. No scan-time, deletion-size or recovered-storage guarantee is made.
+• Inspect Gmail and any operation feedback before starting another cleanup.
+
+PRIVACY AND RECOVERY
+• The extension reads rendered sender information, dates, categories and result counts, not message bodies or attachment contents.
+• Scan results are stored locally in chrome.storage.local.
+• There is no extension OAuth sign-in, Gmail API client, model API or independent network client. Gmail itself still communicates with Google as you use it.
+• The extension moves mail to Gmail Trash; it does not empty Trash or unsubscribe you.
+• Ordinary Gmail Trash is normally recoverable for up to 30 days unless permanently removed sooner. There is no extension one-click Undo guarantee.
 
 PERMISSIONS
-• storage — cache your scan results locally
-• host access to mail.google.com — read your Gmail page and drive its own
-  bulk "move to Trash" action; no API calls, no sign-in step
+• storage — cache scan results on this device.
+• tabs — find the open Gmail tab and communicate with its content script.
+• mail.google.com host access — read rendered Gmail metadata and use Gmail’s own controls for the selected action.
 
-Full privacy policy: https://inbox-cleaner.vercel.app/privacy.html
-Gmail cleanup guides: https://inbox-cleaner.vercel.app/blog/
+The separate optional browser app on the website uses Google OAuth and Gmail API. It is not the extension’s data path. Website waitlist submissions also have a separate network path.
+
+Privacy: https://inbox-cleaner.vercel.app/privacy.html
+Guides: https://inbox-cleaner.vercel.app/blog/
+Source: https://github.com/iampushpendra/inbox-cleaner
 ```
 
-**Category**: Productivity
+Category: Productivity. Language: English.
 
-**Language**: English
+## Privacy tab preparation
 
-## Privacy practices tab (Developer Dashboard → Privacy)
+Describe the single purpose as reviewing Gmail senders and moving user-confirmed sender mail to Gmail Trash. The permission explanations above should match the package being submitted. Sender addresses and mailbox metadata are accessed locally; “no network client” must not be presented as “no personal information is accessed.” Use the Developer Dashboard’s current definitions when deciding its disclosure fields; this file does not certify which boxes are already selected or which disclosures the published listing currently makes.
 
-This is the part that most commonly blocks approval — be exact.
+The current package declares `storage`, `tabs` and `https://mail.google.com/*`. It does not declare an OAuth identity permission or a background service worker. Recheck the actual release package rather than assuming that an existing zip matches current source.
 
-- **Single purpose**: "Scans a user's Gmail inbox across all categories and
-  lets them bulk-move messages from selected senders to Trash."
-- **Permission justifications**:
-  - `host_permissions` (`mail.google.com`) — "Used to run a content script inside
-    the user's own already-authenticated Gmail tab, reading the rendered sender
-    name and date off each conversation row and driving Gmail's own bulk
-    'move to Trash' action. No network requests are made by the extension and
-    no other host is contacted."
-  - `storage` — "Caches the scan results (sender name, email, count, category,
-    last-received date) in chrome.storage.local so the user doesn't have to
-    rescan on every popup open."
-  - `tabs` — "The popup needs the tab ID of the user's already-open Gmail tab
-    so it can send scan and move-to-Trash commands to its content script via
-    chrome.tabs.sendMessage. The only query the extension makes is
-    chrome.tabs.query({ url: 'https://mail.google.com/*' }) — restricted to the
-    single host already declared in host_permissions. No other tab is queried;
-    no tab URL, title, or content from any other site is read; and no tab is
-    created, modified, or closed. Without this the popup cannot reach its
-    content script and the extension cannot function."
-- **Data usage disclosure** — check these boxes honestly:
-  - Does NOT collect personally identifiable info, health info, financial
-    info, authentication info, personal communications content, location,
-    web history, or user activity — because subject/body/recipients are
-    never read. (3.0.0 note: there is no OAuth token and no sign-in of any
-    kind; the extension never authenticates.)
-  - Email addresses of senders ARE read (that's the product), but this is
-    the user's own inbox metadata processed locally, not transmitted to the
-    developer or any third party. Declare "Personal communications" as
-    accessed-but-not-collected/transmitted: as of 3.0.0 the extension makes
-    no network requests at all, so nothing leaves the browser.
-  - Certify: data is not sold to third parties; data is not used for
-    purposes unrelated to the extension's single purpose; data is not used
-    to determine creditworthiness or for lending.
-- **Privacy policy URL**: https://inbox-cleaner.vercel.app/privacy.html
+## Evidence still required before submission
 
-## Assets checklist (you'll need to produce these — screenshots of the real
-UI convert better than any stock mockup, so this needs your Chrome, not me)
+- Compare every packaged file to the intended source and inspect the manifest version and permissions. Existing versioned archives may predate copy changes; no archive is certified here.
+- Confirm the installed store version and listing copy in the authenticated Developer Dashboard.
+- Run a disposable-mailbox walkthrough covering discovery, estimates, sender-wide scope, archived matches, batched Trash and recovery. Repository fixtures are not a live Gmail test.
+- Capture screenshots of the real installed UI, including qualified counts and the confirmation. No screenshots or testimonials have been fabricated. Suggested store screenshot sizes: 1280×800 or 640×400; verify current dashboard requirements before uploading.
+- Check the privacy URL’s live reachability, store permission declarations, release approval and actual publication separately.
 
-| Asset | Size | Status |
-|---|---|---|
-| Store icon | 128×128 | ✅ already have `icons/icon128.png` |
-| Screenshots (1–5) | 1280×800 or 640×400 | ❌ needed — capture: (1) sender list ranked view, (2) category filter tabs, (3) selection + action bar, (4) delete confirmation modal |
-| Small promo tile | 440×280 | optional but improves search placement — ❌ needed |
-| Marquee promo tile | 1400×560 | optional, only used if Google features the extension — skip for now |
-
-## Pre-submission technical checklist (completed for the 2.1.0 submission)
-
-- [x] `manifest.json` version bumped to match README/CHANGELOG (`2.1.0`)
-- [x] `manifest_version: 3` (required — already correct)
-- [x] No remote code execution, no `eval`, no CDN-loaded scripts in the
-      extension bundle (popup.js/content.js/parsing.js are self-contained —
-      verify before zip if this changes)
-- [x] Zip the repo root for upload — **exclude** `docs/`, `.git/`, `.vercel/`,
-      `.superpowers/`, `.impeccable/`, `scripts/`, `*.py`, `.DS_Store` (the
-      Web Store only needs manifest.json, content.js, parsing.js, popup.*,
-      icons/)
-- [x] $5 one-time developer registration fee (per Google account, not per
-      extension)
-- [x] Review completed — listing is live ("Published - public" as of
-      2026-09-06)
-
-## Checklist for the *next* version bump
-
-- [ ] Bump `manifest.json` `version` + README/CHANGELOG together (see the
-      `[Unreleased]` fix in CHANGELOG.md for why this drifted once already)
-- [ ] Re-zip per the command below and upload as a new package version in the
-      Developer Dashboard (Package → Upload new package)
-- [ ] Update listing copy here first, then paste into the dashboard, so this
-      file never falls out of sync with the live listing
-- [ ] Expect 1–3 business days review time for the update
-
-## Suggested zip command (once screenshots/promo tile are ready)
-
-```bash
-cd /Users/pushpendrasingh/projects/inbox-cleaner
-zip -r inbox-cleaner-extension.zip manifest.json content.js parsing.js popup.html popup.js popup.css icons/
-```
+No submission date, review-time promise, installed behavior, benchmark, rating, user count or store-console state has been inferred from local tests.

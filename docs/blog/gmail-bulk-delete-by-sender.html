@@ -4,167 +4,50 @@
   <meta charset="UTF-8">
   <link rel="canonical" href="https://inbox-cleaner.vercel.app/blog/gmail-bulk-delete-by-sender.html">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How to Bulk Delete Gmail Emails by Sender (2026 Guide) | Inbox Cleaner</title>
-  <meta name="description" content="Deleting one sender at a time is slow. Here's how to rank every sender by email count and bulk delete from several senders at once in Gmail.">
-  <meta property="og:title" content="How to Bulk Delete Gmail Emails by Sender (2026 Guide)">
-  <meta property="og:description" content="Deleting one sender at a time is slow. Here's how to rank every sender by email count and bulk delete from several senders at once in Gmail.">
+  <title>How to Plan a Gmail Cleanup by Sender</title>
+  <meta name="description" content="Discover repeat senders, check mixed mail types and plan sender-based Gmail cleanup. Learn where exact sender searches are safer than broader selection.">
+  <meta property="og:title" content="How to Plan a Gmail Cleanup by Sender">
+  <meta property="og:description" content="Discover repeat senders, check mixed mail types and plan sender-based Gmail cleanup. Learn where exact sender searches are safer than broader selection.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://inbox-cleaner.vercel.app/blog/gmail-bulk-delete-by-sender.html">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "How to Bulk Delete Gmail Emails by Sender",
-    "datePublished": "2026-09-06",
-    "dateModified": "2026-09-06",
-    "author": { "@type": "Organization", "name": "Inbox Cleaner" },
-    "publisher": { "@type": "Organization", "name": "Inbox Cleaner", "url": "https://inbox-cleaner.vercel.app" }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    "name": "How to Bulk Delete Gmail Emails by Sender",
-    "step": [
-      { "@type": "HowToStep", "name": "Open Inbox Cleaner", "text": "Install the free extension from the Chrome Web Store, open your Gmail tab in desktop Chrome, and click the extension icon." },
-      { "@type": "HowToStep", "name": "Review senders ranked by email count", "text": "The tool scans your inbox and lists every sender, ranked from most emails to fewest." },
-      { "@type": "HowToStep", "name": "Select multiple senders at once", "text": "Check the box next to each sender you want cleared out — you're not limited to one at a time." },
-      { "@type": "HowToStep", "name": "Move to Trash", "text": "Click Move to Trash and confirm. Senders are cleared in batches of up to 20 senders at a time, so a larger selection takes proportionally longer." }
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Does bulk deleting by sender delete emails permanently?",
-        "acceptedAnswer": { "@type": "Answer", "text": "No. Emails move to Trash first, where they sit for 30 days before Gmail permanently removes them. You can restore anything from Trash during that window." }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I bulk delete by sender without installing anything?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes — in Chrome you install the free extension and run it inside a Gmail tab you already have open. It reads only the sender name, address and date from each rendered row, makes no network requests, and moves mail using Gmail's own Trash control. There is also a separate OAuth web app on this site if you prefer it; the privacy policy explains both." }
-      },
-      {
-        "@type": "Question",
-        "name": "What if I only want to delete some emails from a sender, not all?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Bulk-delete-by-sender tools remove every email from a selected sender. If you need to keep specific messages, star them first or search for that sender in Gmail and manually exclude the ones you want to keep before bulk deleting the rest." }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I stop new emails from a sender after bulk deleting?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Deleting clears the backlog but doesn't block future mail. Unsubscribe using the link in the email, or block the sender from Gmail's message menu, then set up a filter so anything that slips through gets auto-deleted." }
-      },
-      {
-        "@type": "Question",
-        "name": "Is there a limit to how many senders I can select at once?",
-        "acceptedAnswer": { "@type": "Answer", "text": "You can check as many senders as you want before clicking Move to Trash — the tool works through them in batches of up to 20 senders at a time, so a large selection takes proportionally longer." }
-      }
-    ]
-  }
-  </script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>📥</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
   <link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Plan a Gmail Cleanup by Sender",
+  "description": "Discover repeat senders, check mixed mail types and plan sender-based Gmail cleanup. Learn where exact sender searches are safer than broader selection.",
+  "datePublished": "2026-09-06",
+  "dateModified": "2026-10-17",
+  "author": {
+    "@type": "Organization",
+    "name": "Inbox Cleaner"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Inbox Cleaner",
+    "url": "https://inbox-cleaner.vercel.app"
+  }
+}
+</script>
 </head>
 <body>
-
-<nav id="nav">
-  <a class="nav-logo" href="/">📥 Inbox<span>Cleaner</span></a>
-  <div class="blog-nav-right">
-    <a class="nav-blog-link" href="/blog/">Blog</a>
-    <a class="blog-nav-cta" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add to Chrome →</a>
-  </div>
-</nav>
-
-<main>
-  <div class="blog-wrap">
-    <span class="blog-eyebrow">Gmail Tips</span>
-    <h1 class="blog-h1">How to Bulk Delete Gmail Emails by Sender</h1>
-    <p class="blog-meta">Updated September 2026 · 5 min read</p>
-
-    <div class="blog-body">
-
-      <div class="quick-answer">
-        <strong>Quick answer:</strong> To bulk delete Gmail emails by sender, connect your account at <a href="https://inbox-cleaner.vercel.app">Inbox Cleaner</a>, which ranks every sender in your inbox by email count. Check the boxes next to the senders you want gone — you can pick several at once — and click Move to Trash to clear their mail in batches of up to 20 senders at a time.
-      </div>
-
-      <p>Most cluttered inboxes aren't random — they're dominated by a handful of repeat senders: a retailer that emails daily, a social network's notification address, a newsletter you signed up for once. Deleting by sender is the fastest way to make a real dent, but Gmail doesn't make it easy to see who's actually flooding your inbox, let alone clear several senders in one pass.</p>
-
-      <h2>How do I bulk delete Gmail emails by sender?</h2>
-
-      <p>The fastest approach starts by figuring out which senders are worth targeting, then clearing them in bulk:</p>
-
-      <ol class="blog-steps">
-        <li>Install the free <a href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Inbox Cleaner Chrome extension</a>, then open your Gmail tab in desktop Chrome and click the extension icon.</li>
-        <li>Inbox Cleaner scans your inbox and lists every sender, ranked from most emails to fewest.</li>
-        <li>Check the box next to each sender you want cleared out — you're not limited to picking just one.</li>
-        <li>Click <strong>Move to Trash</strong> and confirm. Senders are cleared in batches of up to 20 senders at a time, so a larger selection takes proportionally longer.</li>
-      </ol>
-
-      <p>This is different from <a href="../blog/delete-all-emails-from-one-sender-gmail.html">deleting all emails from one sender</a> in Gmail's native search bar, which handles one address at a time and, without clicking Gmail's "select all conversations that match this search" link, still stops at the current page.</p>
-
-      <h2>How do I find out which senders are flooding my inbox?</h2>
-
-      <p>Most people don't actually know which senders are worth deleting until they see the numbers. Gmail's search bar can tell you the count for one sender at a time — search <code>from:sender@example.com</code> and check the result count — but doing that address by address is tedious and you have to already know who to check. A ranked list flips that: instead of guessing, you see every sender sorted by volume, so the biggest offenders are obvious in seconds.</p>
-
-      <h2>Can I delete emails from multiple senders at once in Gmail?</h2>
-
-      <p>Not with Gmail's native tools in a single action. You'd need to search for one sender, select all, delete, then repeat the entire process for the next sender — and each round still caps at 50 selected emails per page unless you use "select all conversations that match this search." Doing this for five or six senders back to back is exactly the kind of repetitive task that makes inbox cleanup feel endless. Selecting multiple senders in one ranked list and deleting them together turns a multi-step chore into one click.</p>
-
-      <div class="blog-cta">
-<h3>Clean up Gmail with the Chrome extension</h3>
-<p>Rank senders, select the ones you want to clear, and move their emails to Trash. You have 30 days to recover trashed emails.</p>
-<a class="blog-cta-btn" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add Inbox Cleaner to Chrome →</a>
-</div>
-
-      <h2>How do I bulk delete by sender using Gmail search operators?</h2>
-
-      <p>If you'd rather stay inside Gmail and only need to clear one or two senders, search operators work fine for smaller volumes:</p>
-
-      <ul>
-        <li><code>from:sender@example.com</code> — everything from one exact address</li>
-        <li><code>from:(sender1@example.com OR sender2@example.com)</code> — combine a few senders in one search</li>
-        <li><code>from:example.com</code> — every address at a given domain</li>
-      </ul>
-
-      <p>Run the search, click the checkbox, then "Select all conversations that match this search," and delete. It works, but combining more than two or three senders in one query gets unwieldy fast, and you're still bound by the same per-page selection limits covered in <a href="../blog/how-to-bulk-delete-gmail-emails.html">how to bulk delete Gmail emails</a>.</p>
-
-      <h2>Is bulk deleting by sender safer than deleting everything at once?</h2>
-
-      <p>Yes, generally. Deleting by sender lets you make deliberate choices — clear out the retailer that emails you daily while leaving your bank and your family untouched. A blanket "delete everything older than X" approach is faster but riskier, since it doesn't distinguish between a newsletter you don't care about and a receipt you might need later. Ranking by sender gives you the context to decide sender by sender instead of guessing at a date cutoff.</p>
-
-      <h2>Frequently asked questions</h2>
-      <div class="faq-list">
-        <div class="faq-item">
-          <p class="faq-q">Does bulk deleting by sender delete emails permanently?</p>
-          <p class="faq-a">No. Emails move to Trash first, where they sit for 30 days before Gmail permanently removes them. You can restore anything from Trash during that window.</p>
-        </div>
-        <div class="faq-item">
-          <p class="faq-q">Can I bulk delete by sender without installing anything?</p>
-          <p class="faq-a">Yes — in Chrome you install the free extension and run it inside a Gmail tab you already have open. It reads only the sender name, address and date from each rendered row, makes no network requests, and moves mail using Gmail's own Trash control. There is also a separate OAuth web app on this site if you prefer it; the privacy policy explains both.</p>
-        </div>
-        <div class="faq-item">
-          <p class="faq-q">What if I only want to delete some emails from a sender, not all?</p>
-          <p class="faq-a">Bulk-delete-by-sender tools remove every email from a selected sender. If you need to keep specific messages, star them first or manually exclude the ones you want to keep before bulk deleting the rest.</p>
-        </div>
-        <div class="faq-item">
-          <p class="faq-q">How do I stop new emails from a sender after bulk deleting?</p>
-          <p class="faq-a">Deleting clears the backlog but doesn't block future mail. Unsubscribe using the link in the email, or block the sender from Gmail's message menu, then set up a filter so anything that slips through gets auto-deleted.</p>
-        </div>
-        <div class="faq-item">
-          <p class="faq-q">Is there a limit to how many senders I can select at once?</p>
-          <p class="faq-a">You can check as many senders as you want before clicking Move to Trash — the tool works through them in batches of up to 20 senders at a time, so a large selection takes proportionally longer.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
+<nav id="nav"><a class="nav-logo" href="/">📥 Inbox<span>Cleaner</span></a><div class="blog-nav-right"><a class="nav-blog-link" href="/blog/">Guides</a><a class="blog-nav-cta" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">View Chrome extension →</a></div></nav>
+<main><article class="blog-wrap"><span class="blog-eyebrow">Gmail cleanup guide</span><h1 class="blog-h1">How to Plan a Gmail Cleanup by Sender</h1><p class="blog-meta">Updated October 17, 2026 · Source-reviewed guide</p><div class="blog-body">
+<p class="quick-answer">Sender cleanup groups decisions around who sent the mail. It works well when a sender’s complete history is unwanted, but poorly when one address mixes newsletters with receipts or personal replies. Review that distinction before using a sender-ranked list.</p><h2>Build a sender review list</h2>
+<ul><li><strong>Discover.</strong> Look at repeated addresses or scan discovered senders with the extension. A high count identifies volume, not storage cost or low value.</li><li><strong>Classify.</strong> Mark each sender as keep, archive, narrow search or eligible for sender-wide Trash. Check multiple messages from each.</li><li><strong>Narrow where necessary.</strong> Use <code>from:sender@example.com older_than:1y</code> in Gmail when you want to keep recent mail.</li><li><strong>Verify.</strong> After a Trash operation, rerun the same search and inspect remaining results rather than relying only on the original estimate.</li></ul><h2>Apply the reviewed search in Gmail</h2>
+<ol class="blog-steps"><li>Open Gmail on a computer, confirm the account, and search <code>from:newsletter@example.com older_than:6m</code>. Replace any example sender with the address from a real message.</li><li>Review several results and any mixed conversations. Save records you need before selecting mail.</li><li>Use the top checkbox to select the current page. If Gmail offers an all-matching-conversations notification, use its link only after checking that the search scope is correct. The page count depends on your settings.</li><li>Choose the Trash icon and wait for Gmail’s confirmation. Rerun the search to inspect what remains; do not assume an unseen batch completed.</li></ol><h2>Check mixed conversations</h2>
+<p>Search can return a whole conversation when only some messages match. In particular, <code>-is:starred</code> does not guarantee protection for starred messages in a mixed thread. Open important conversations and handle individual messages when necessary.</p><h2>Does sender cleanup fit this task?</h2>
+<p>Inbox Cleaner needs an open Gmail tab in desktop Chrome. Its sender-wide action can include archived mail and does not inherit date, category, size, unread or starred restrictions. For those limits, use native Gmail. Counts may be approximate and are not storage measurements. <a href="/blog/inbox-cleaner-setup-permissions-recovery.html">Read setup, permissions and recovery limits</a>.</p><h2>Review Trash separately</h2>
+<p>Gmail normally allows Trash recovery for up to 30 days unless permanently removed sooner. Archive and Trash still use storage. Review before Empty Trash or Delete forever; those actions end ordinary recovery.</p><h2>Choose the next step</h2>
+<ul><li><a href="/blog/how-to-bulk-delete-gmail-emails.html">Review native Gmail bulk deletion</a></li><li><a href="/blog/gmail-archive-vs-delete.html">Compare Archive and Trash</a></li><li><a href="/blog/how-to-free-up-gmail-storage.html">Investigate storage separately</a></li></ul>
+<div class="blog-cta"><h3>Review senders inside Gmail</h3><p>Open Gmail in desktop Chrome, scan discovered senders, then review the sender-wide scope before confirming a move to Trash.</p><a class="blog-cta-btn" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">View Inbox Cleaner on the Chrome Web Store →</a></div>
+<h2>Sources and review</h2>
+<p>Procedures checked against <a href="https://support.google.com/mail/answer/7190?hl=en">Gmail search operators</a>, <a href="https://support.google.com/mail/answer/7401?hl=en">Gmail deletion and recovery</a>. Reviewed October 17, 2026. This is a documentation and source review; no live mailbox walkthrough, speed benchmark or original screenshots were produced.</p>
+</div></article>
 <!-- AUTO:related:start -->
 <section class="blog-wrap related-guides" aria-labelledby="related-heading">
 <h2 id="related-heading">More Gmail cleanup guides</h2>
@@ -181,11 +64,5 @@
 </div>
 </section>
 <!-- AUTO:related:end -->
-</main>
-
-<footer>
-  <p>Built by <a href="https://github.com/iampushpendra" target="_blank" rel="noopener">@iampushpendra</a> · <a href="../privacy.html">Privacy Policy</a> · <a href="https://github.com/iampushpendra/inbox-cleaner" target="_blank" rel="noopener">GitHub</a> · Emails go to Trash — you have 30 days to restore them.</p>
-</footer>
-
-</body>
-</html>
+</main><footer><p>Built by <a href="https://github.com/iampushpendra">@iampushpendra</a> · <a href="/privacy.html">Privacy policy</a> · <a href="/blog/">All guides</a> · Review Trash before permanent removal.</p></footer>
+</body></html>
