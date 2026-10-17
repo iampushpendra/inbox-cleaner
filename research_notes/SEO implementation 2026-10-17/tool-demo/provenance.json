@@ -1,0 +1,35 @@
+{
+  "version": "1.0.0",
+  "screenshots": {
+    "assets/query-builder.png": {
+      "sha256": "1e2a8f5a7a1ff00fa3ce783b1259808cf04dbd5c7a4f9db9ae456f7227437fbc",
+      "source": "../query-builder-preview.png",
+      "capture": "Parent SEO08 task: actual local tool UI through CUA; synthetic inputs; 2026-10-17",
+      "pixelEdits": "none; CSS containment only"
+    },
+    "assets/storage-diagnostic.png": {
+      "sha256": "87ac2e814c317e0c470f00edc164fd7af933f84e8f9bf5e67ecc3f9006f110a7",
+      "source": "../storage-diagnostic-preview.png",
+      "capture": "Parent SEO08 task: actual local tool UI through CUA; synthetic inputs; 2026-10-17",
+      "pixelEdits": "none; CSS containment only"
+    }
+  },
+  "render": {
+    "engine": "HyperFrames 0.7.33",
+    "durationSeconds": 16,
+    "width": 1920,
+    "height": 1080,
+    "fps": 24,
+    "audioStreams": 0,
+    "frames": 384,
+    "bytes": 1437743
+  },
+  "query": "from:newsletter@example.com larger:10M",
+  "syntheticStorageGB": {
+    "Gmail": 1,
+    "Drive": 2,
+    "Photos": 13
+  },
+  "mailboxAccess": false,
+  "deletion": false
+}

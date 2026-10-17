@@ -1,0 +1,12 @@
+WEBVTT
+
+00:00.000 --> 00:08.000
+Query example: from:newsletter@example.com larger:10M.
+Verify the active Gmail account and review matches before taking action.
+
+00:08.000 --> 00:16.000
+Synthetic storage: Gmail 1 GB, Drive 2 GB, Photos 13 GB.
+Photos is largest in this entered example. Compare with Google's live breakdown.
+
+NOTE
+Persistent on-screen disclosure: Synthetic local inputs. No mailbox access or deletion.
