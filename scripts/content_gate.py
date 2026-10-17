@@ -95,6 +95,8 @@ def check_post(path: Path, today: date | None = None, blog_dir: Path = BLOG_DIR)
         problems.append("missing a canonical link")
     elif not canonical.group(1).startswith("https://inbox-cleaner.vercel.app/"):
         problems.append(f"canonical points off the preferred host: {canonical.group(1)}")
+    elif canonical.group(1) != f"https://inbox-cleaner.vercel.app/blog/{path.stem}.html":
+        problems.append(f"canonical must match the article slug: https://inbox-cleaner.vercel.app/blog/{path.stem}.html")
 
     dates = _date_fields(html)
     if not dates:

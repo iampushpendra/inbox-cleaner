@@ -93,6 +93,17 @@ class ContentGateTest(unittest.TestCase):
                 "https://iampushpendra.github.io/inbox-cleaner/blog/example.html")))
             self.assertTrue(any("preferred host" in p for p in problems), problems)
 
+    def test_blocks_same_host_canonical_for_a_different_slug_including_drafts(self):
+        for directory in ("public", "internal/blog-drafts"):
+            with self.Temporary() as tmp:
+                target = tmp / directory
+                target.mkdir(parents=True)
+                path = self.write(target, VALID.replace(
+                    "https://inbox-cleaner.vercel.app/blog/example.html",
+                    "https://inbox-cleaner.vercel.app/blog/wrong-slug.html"))
+                problems = check_post(path)
+                self.assertTrue(any("canonical must match" in problem for problem in problems), problems)
+
     def test_blocks_invalid_json_ld(self):
         with self.Temporary() as tmp:
             problems = check_post(self.write(tmp, VALID.replace(
