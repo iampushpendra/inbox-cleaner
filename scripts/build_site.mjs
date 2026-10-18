@@ -137,15 +137,16 @@ export function buildSite(root = projectRoot) {
   // One shared brand card, generated for every article and the hub. Per-post images
   // would need an asset pipeline; a single 1200x630 card still beats no preview.
   // Generated as an AUTO region so reviewed articles keep their evidence hash.
-  const social = ({ title, description, url, type }) => [
-    `<meta property="og:title" content="${escape(title)}">`,
-    `<meta property="og:description" content="${escape(description)}">`,
-    `<meta property="og:type" content="${type}">`,
-    `<meta property="og:url" content="${escape(url)}">`,
+  // Pages already author og:title/description/url, so those tags are reused
+  // verbatim (already escaped in the source) and only the image, article type and
+  // Twitter card are added — no duplicated og tags in the served HTML.
+  const social = (html, { url, type }) => [
+    ...(html.match(/<meta property="og:(?:title|description)" content="[^"]*">/g) || []),
+    ...(/property="og:type"/.test(html) ? [] : [`<meta property="og:type" content="${type}">`]),
+    ...(/property="og:url"/.test(html) ? [] : [`<meta property="og:url" content="${escape(url)}">`]),
     `<meta property="og:image" content="${base}/og-image.png">`,
     `<meta name="twitter:card" content="summary_large_image">`,
-    `<meta name="twitter:title" content="${escape(title)}">`,
-    `<meta name="twitter:description" content="${escape(description)}">`,
+    ...(html.match(/<meta property="og:(?:title|description)" content="[^"]*">/g) || []).map(tag => tag.replace('property="og:', 'name="twitter:')),
     `<meta name="twitter:image" content="${base}/og-image.png">`,
   ].join('\n');
   const link = post => `<a href="/blog/${escape(post.slug)}.html">${escape(post.title)}</a>`;
@@ -157,22 +158,14 @@ export function buildSite(root = projectRoot) {
       : post.html;
     const related = `<section class="blog-wrap related-guides" aria-labelledby="related-heading">\n<h2 id="related-heading">More Gmail cleanup guides</h2>\n<ul>${relatedPosts(posts, index).map(other => `<li>${link(other)}</li>`).join('\n')}</ul>\n<p><a href="/blog/">Browse all ${posts.length} guides</a> · <a href="/">About Inbox Cleaner</a></p>\n${cta}\n</section>`;
     html = replaceRegion(html, 'related', related, '</main>');
-    html = replaceRegion(html, 'social', social({ title: post.title, description: post.description, url: `${base}/blog/${escape(post.slug)}.html`, type: 'article' }), '</head>');
+    html = replaceRegion(html, 'social', social(html, { url: `${base}/blog/${escape(post.slug)}.html`, type: 'article' }), '</head>');
     write(`docs/blog/${post.slug}.html`, html);
   }
   const toolLinks = tools.length ? `<section aria-labelledby="tools-heading"><h2 id="tools-heading">Plan your Gmail cleanup</h2><p>Local tools to help you review a search or diagnose storage. No mailbox access or automatic deletion.</p><ul>${tools.map(tool => `<li><a href="/tools/${escape(tool.slug)}/">${escape(tool.title)}</a> — ${escape(tool.description)}</li>`).join('')}</ul></section>` : '';
   const list = `<div class="blog-index-list">\n${posts.map(post => `<article class="blog-index-item">\n<time class="blog-index-date" datetime="${post.published}">${post.published}</time>\n<a class="blog-index-title" href="/blog/${escape(post.slug)}.html">${escape(post.title)}</a>\n<p class="blog-index-desc">${escape(post.description)}</p>\n</article>`).join('\n')}\n</div>`;
   let hub = navigation(readFileSync(resolve(root, 'docs/blog/index.html'), 'utf8'));
   hub = replaceRegion(hub, 'blog-index', `${cta}\n${toolLinks}\n<p>${posts.length} practical guides. Start with a topic below, then use the extension when you are ready to clean up.</p>\n${list}`, '</main>');
-  // The hub already declares og:title/description/type/url by hand, so add only
-  // the missing image and Twitter card, reusing those tags verbatim (already
-  // escaped in the source).
-  hub = replaceRegion(hub, 'social', [
-    `<meta property="og:image" content="${base}/og-image.png">`,
-    `<meta name="twitter:card" content="summary_large_image">`,
-    ...(hub.match(/<meta property="og:(?:title|description)" content="[^"]*">/g) || []).map(tag => tag.replace('property="og:', 'name="twitter:')),
-    `<meta name="twitter:image" content="${base}/og-image.png">`,
-  ].join('\n'), '</head>');
+  hub = replaceRegion(hub, 'social', social(hub, { url: `${base}/blog/`, type: 'website' }), '</head>');
   write('docs/blog/index.html', hub);
   const guides = `<section class="site-guides" aria-labelledby="guides-heading">\n<div class="guides-inner">\n<h2 id="guides-heading">Practical ways to clear your Gmail inbox</h2>\n<p>Start with a guide, then put it into practice with Inbox Cleaner for Chrome.</p>\n<ul>${posts.slice(0, 6).map(post => `<li>${link(post)}</li>`).join('\n')}</ul>\n${toolLinks}\n<p><a href="/blog/">Browse all ${posts.length} Gmail guides →</a></p>\n<a class="blog-nav-cta" href="${escape(store)}">Add Inbox Cleaner to Chrome →</a>\n</div>\n</section>`;
   const home = navigation(replaceRegion(readFileSync(resolve(root, 'docs/index.html'), 'utf8'), 'guides', guides, '<footer>'));
