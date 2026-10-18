@@ -47,5 +47,7 @@
   "delete-paypal-emails-gmail",
   "delete-zoom-meeting-emails-gmail",
   "gmail-select-all-conversations-not-showing",
-  "gmail-bulk-delete-not-working"
+  "gmail-bulk-delete-not-working",
+  "inbox-cleaner-setup-permissions-recovery",
+  "inbox-cleaner-vs-native-gmail"
 ]
