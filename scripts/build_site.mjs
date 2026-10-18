@@ -140,15 +140,23 @@ export function buildSite(root = projectRoot) {
   // Pages already author og:title/description/url, so those tags are reused
   // verbatim (already escaped in the source) and only the image, article type and
   // Twitter card are added — no duplicated og tags in the served HTML.
-  const social = (html, { url, type }) => [
-    ...(html.match(/<meta property="og:(?:title|description)" content="[^"]*">/g) || []),
-    ...(/property="og:type"/.test(html) ? [] : [`<meta property="og:type" content="${type}">`]),
-    ...(/property="og:url"/.test(html) ? [] : [`<meta property="og:url" content="${escape(url)}">`]),
-    `<meta property="og:image" content="${base}/og-image.png">`,
-    `<meta name="twitter:card" content="summary_large_image">`,
-    ...(html.match(/<meta property="og:(?:title|description)" content="[^"]*">/g) || []).map(tag => tag.replace('property="og:', 'name="twitter:')),
-    `<meta name="twitter:image" content="${base}/og-image.png">`,
-  ].join('\n');
+  const social = (html, { url, type }) => {
+    // Every page authors its own og:title/description/type/url, so this region
+    // adds only what they lack: the shared image and the Twitter card. The
+    // authored title/description are read from the page with its PREVIOUS
+    // region removed — matching the built HTML would re-collect this region's
+    // own output and append another duplicate pair on every rebuild.
+    const authored = html.replace(/<!-- AUTO:social:start -->[\s\S]*?<!-- AUTO:social:end -->/g, '');
+    const titleDesc = authored.match(/<meta property="og:(?:title|description)" content="[^"]*">/g) || [];
+    return [
+      ...(/property="og:type"/.test(authored) ? [] : [`<meta property="og:type" content="${type}">`]),
+      ...(/property="og:url"/.test(authored) ? [] : [`<meta property="og:url" content="${escape(url)}">`]),
+      `<meta property="og:image" content="${base}/og-image.png">`,
+      `<meta name="twitter:card" content="summary_large_image">`,
+      ...titleDesc.map(tag => tag.replace('property="og:', 'name="twitter:')),
+      `<meta name="twitter:image" content="${base}/og-image.png">`,
+    ].join('\n');
+  };
   const link = post => `<a href="/blog/${escape(post.slug)}.html">${escape(post.title)}</a>`;
   const toolLink = (slug, title) => `<a href="/tools/${escape(slug)}/">${escape(title)}</a>`;
   // Contextual tool mention: storage posts point at the troubleshooter,
