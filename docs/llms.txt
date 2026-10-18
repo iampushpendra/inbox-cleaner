@@ -1,0 +1,24 @@
+# Inbox Cleaner
+
+Inbox Cleaner is a free Chrome extension that helps you bulk-delete Gmail emails by sender from an already-open Gmail tab in desktop Chrome. It reads only sender metadata (From, Date, category, counts) — never message bodies — and uses Gmail's own Move to Trash controls.
+
+## What it does
+
+- Discover and rank repeat senders in Gmail
+- Review matched conversations before selecting senders
+- Move selected senders' mail to Gmail Trash (normally recoverable up to 30 days)
+- Two local, no-sign-in planning tools: a Gmail cleanup search builder and a storage troubleshooter
+- A separate optional legacy browser app that connects via Google OAuth / Gmail API (distinct from the extension)
+
+## Key pages
+
+- https://inbox-cleaner.vercel.app/ — homepage and extension install
+- https://inbox-cleaner.vercel.app/blog/ — 51 Gmail cleanup guides (bulk delete, unsubscribe, archive vs delete, storage, search operators)
+- https://inbox-cleaner.vercel.app/tools/gmail-cleanup-search-builder/ — build and check a Gmail search query locally
+- https://inbox-cleaner.vercel.app/tools/gmail-storage-troubleshooter/ — manual decision tree for full Gmail storage
+- https://inbox-cleaner.vercel.app/privacy.html — privacy policy for the extension, legacy app, tools, and waitlist
+- https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep — Chrome Web Store listing
+
+## About
+
+Built by @iampushpendra. Open source: https://github.com/iampushpendra/inbox-cleaner. The packaged extension has no OAuth flow, Gmail API client, or independent network client; it operates within your open Gmail tab.

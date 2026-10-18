@@ -10,7 +10,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 // top-level file, and allow only .html under blog/.
 const PUBLISHABLE = new Set([
   'app.js', 'blog', 'favicon.ico', 'google846fa3a21a23b5fc.html', 'index.html',
-  'og-image.png', 'privacy.html', 'robots.txt', 'sitemap.xml', 'style.css',
+  'llms.txt', 'og-image.png', 'privacy.html', 'robots.txt', 'sitemap.xml', 'style.css',
 ]);
 
 function readTools(root) {
