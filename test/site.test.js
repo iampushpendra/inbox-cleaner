@@ -14,7 +14,7 @@ function fixture(t) {
   fs.mkdirSync(path.join(root, 'scripts'));
   fs.writeFileSync(path.join(root, 'scripts/site-config.json'), JSON.stringify({ baseUrl: 'https://inbox-cleaner.vercel.app', extensionStoreUrl: store }));
   fs.writeFileSync(path.join(root, 'docs/index.html'), '<html><body><!-- AUTO:guides:start --><!-- AUTO:guides:end --></body></html>');
-  fs.writeFileSync(path.join(root, 'docs/blog/index.html'), '<html><body><!-- AUTO:blog-index:start --><!-- AUTO:blog-index:end --></body></html>');
+  fs.writeFileSync(path.join(root, 'docs/blog/index.html'), '<html><head><meta property="og:title" content="Guides &amp; more"><meta property="og:description" content="Practical Gmail cleanup guides."></head><body><!-- AUTO:blog-index:start --><!-- AUTO:blog-index:end --></body></html>');
   return root;
 }
 
@@ -54,6 +54,10 @@ test('every post is linked from the hub and other articles, with a direct extens
     assert.match(html, /Original article text\./);
     assert.ok(html.includes(`href="${store}"`));
     assert.match(html, /href="\/blog\/"/);
+    // Every article must carry a social preview; the hub supplies its own tags.
+    assert.match(html, new RegExp(`<meta property="og:image" content="https://inbox-cleaner\\.vercel\\.app/og-image\\.png">`));
+    assert.match(html, /<meta name="twitter:card" content="summary_large_image">/);
+    assert.match(html, new RegExp(`<meta property="og:url" content="https://inbox-cleaner\\.vercel\\.app/blog/gmail-${i}\\.html">`));
     const related = html.split('<!-- AUTO:related:start -->')[1].split('<!-- AUTO:related:end -->')[0];
     assert.doesNotMatch(related, new RegExp(`href="/blog/gmail-${i}\\.html"`));
     assert.equal((related.match(/href="\/blog\/gmail-\d+\.html"/g) || []).length, 5);
@@ -92,7 +96,7 @@ test('the publishing command generates discovery links before marking a queued p
   const ready = spawnSync('python3', [path.join(root, 'scripts/content_gate.py'), '--ready', 'gmail-new'], { encoding: 'utf8' });
   assert.equal(ready.status, 0, ready.stdout + ready.stderr);
   const changedPost = path.join(root, 'docs/blog/gmail-new.html');
-  fs.writeFileSync(changedPost, fs.readFileSync(changedPost, 'utf8').replace('A newly queued guide', 'An unreviewed title change'));
+  fs.writeFileSync(changedPost, fs.readFileSync(changedPost, 'utf8').replace('>A newly queued guide<', '>An unreviewed title change<'));
   const rejected = spawnSync('node', [path.join(root, 'scripts/build_site.mjs')], { encoding: 'utf8' });
   assert.notEqual(rejected.status, 0, 'a published status must never bypass the fingerprint gate');
   assert.match(rejected.stderr, /Unreviewed article|fingerprint/);
