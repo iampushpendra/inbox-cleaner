@@ -150,13 +150,29 @@ export function buildSite(root = projectRoot) {
     `<meta name="twitter:image" content="${base}/og-image.png">`,
   ].join('\n');
   const link = post => `<a href="/blog/${escape(post.slug)}.html">${escape(post.title)}</a>`;
+  const toolLink = (slug, title) => `<a href="/tools/${escape(slug)}/">${escape(title)}</a>`;
+  // Contextual tool mention: storage posts point at the troubleshooter,
+  // search/select posts at the builder, everything else gets both.
+  const toolMention = post => {
+    const haystack = (post.slug + ' ' + post.title).toLowerCase();
+    const isStorage = /storage|mailbox|quota|size|full/.test(haystack);
+    const isSearch = /search|select|operator|bulk|sender|delete|filter/.test(haystack);
+    let links = [];
+    if (isStorage) links.push(toolLink('gmail-storage-troubleshooter', 'Gmail storage troubleshooter'));
+    if (isSearch) links.push(toolLink('gmail-cleanup-search-builder', 'Gmail cleanup search builder'));
+    if (!links.length) links = links.concat([
+      toolLink('gmail-cleanup-search-builder', 'Gmail cleanup search builder'),
+      toolLink('gmail-storage-troubleshooter', 'Gmail storage troubleshooter')
+    ]);
+    return `<p class="blog-tool-mention">Manage this with our free tools: ${links.join(' · ')}.</p>`;
+  };
   for (const [index, post] of posts.entries()) {
     // Only the fixed historical inventory permits authored CTA migrations.
     // Reviewed pages receive generated regions only, preserving their approval hash.
     let html = (!existsSync(queueFile) || legacy.has(post.slug))
       ? navigation(post.html).replace(/<div\b[^>]*class="blog-cta"[^>]*>[\s\S]*?<\/div>/g, cta)
       : post.html;
-    const related = `<section class="blog-wrap related-guides" aria-labelledby="related-heading">\n<h2 id="related-heading">More Gmail cleanup guides</h2>\n<ul>${relatedPosts(posts, index).map(other => `<li>${link(other)}</li>`).join('\n')}</ul>\n<p><a href="/blog/">Browse all ${posts.length} guides</a> · <a href="/">About Inbox Cleaner</a></p>\n${cta}\n</section>`;
+    const related = `<section class="blog-wrap related-guides" aria-labelledby="related-heading">\n<h2 id="related-heading">More Gmail cleanup guides</h2>\n<ul>${relatedPosts(posts, index).map(other => `<li>${link(other)}</li>`).join('\n')}</ul>\n<p><a href="/blog/">Browse all ${posts.length} guides</a> · <a href="/">About Inbox Cleaner</a></p>\n${cta}\n</section>\n${toolMention(post)}`;
     html = replaceRegion(html, 'related', related, '</main>');
     html = replaceRegion(html, 'social', social(html, { url: `${base}/blog/${escape(post.slug)}.html`, type: 'article' }), '</head>');
     write(`docs/blog/${post.slug}.html`, html);
