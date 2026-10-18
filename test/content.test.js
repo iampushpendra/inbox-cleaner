@@ -81,6 +81,95 @@ test('a stuck Older button reports an incomplete scan instead of success at 100'
   await assert.rejects(vm.runInContext('scanCategory("primary")', gmail({ stalled: true })), /page|incomplete/i);
 });
 
+// Gmail's newer list view models a real large mailbox: no Older button, no
+// "1-100 of N" counter, and a list that grows as it is scrolled. This is the
+// shape that truncated a large mailbox to its first screenful.
+function gmailInfiniteScroll({ total = 18000, firstBatch = 50, perScroll = 50, stillClaimsMore = false } = {}) {
+  let clock = 0;
+  let revealed = Math.min(firstBatch, total);
+  let stalled = false;
+  const rowEls = () => Array.from({ length: revealed }, (_, i) => ({
+    getClientRects: () => [{}],
+    getAttribute: name => name === 'data-legacy-thread-id' ? `thread-${i}` : null,
+    querySelector: selector => selector.includes('email')
+      ? { getAttribute: name => name === 'email' ? `sender${i}@example.com` : `Sender ${i}` }
+      : selector.includes('title') ? { getAttribute: () => '2026-10-18T09:00:00Z' } : null,
+    parentElement: container,
+  }));
+
+  // findScrollableAncestor walks up looking for scrollHeight > clientHeight, so
+  // the container must report a viewport smaller than its content even for the
+  // very first batch.
+  const container = {
+    parentElement: null,
+    clientHeight: 400,
+    dispatchEvent() {},
+  };
+  Object.defineProperty(container, 'scrollHeight', { get: () => (revealed + 5) * 10 });
+  Object.defineProperty(container, 'scrollTop', {
+    get: () => 0,
+    // A scroll to the bottom reveals one more batch, exactly as Gmail lazily
+    // renders the next screenful. Once everything is rendered it adds nothing.
+    set: () => {
+      if (!stalled && revealed < total) revealed = Math.min(revealed + perScroll, total);
+    },
+  });
+
+  const dom = {
+    get revealed() { return revealed; },
+    freeze() { stalled = true; },
+  };
+  // A counter is optional: by default this view shows none. `stillClaimsMore`
+  // models the contradictory case where a counter insists pages remain while
+  // the list has stopped producing rows.
+  const counterText = stillClaimsMore ? `1-${revealed} of ${total.toLocaleString('en-US')}` : '';
+  const toolbar = {
+    getClientRects: () => [{}],
+    querySelectorAll: () => (counterText ? [{ textContent: counterText }] : []),
+  };
+
+  const context = vm.createContext({
+    self: { InboxCleanerParsing: parsing }, InboxCleanerParsing: parsing,
+    location: { hash: '' },
+    chrome: { runtime: { onMessage: { addListener() {} }, sendMessage: async () => {} } },
+    Date: class extends Date { static now() { return clock; } },
+    setTimeout(callback, ms) { clock += ms; queueMicrotask(callback); return 0; },
+    clearTimeout() {},
+    MutationObserver: class { observe() {} disconnect() {} },
+  });
+  vm.runInContext(fs.readFileSync(require.resolve('../content.js'), 'utf8'), context);
+  context.__dom = dom;
+  context.Event = class { constructor(type) { this.type = type; } };
+  context.document = {
+    querySelector: selector => {
+      if (selector === 'tr.zA') return rowEls()[0];
+      if (selector === 'div[gh="tm"]') return stillClaimsMore ? toolbar : null;
+      return null;
+    },
+    querySelectorAll: selector => (selector === 'tr.zA' ? rowEls() : []),
+  };
+  return context;
+}
+
+test('an infinite-scrolling mailbox is walked to the end, not truncated to the first screenful', async () => {
+  const rows = await vm.runInContext('scanCategory("primary")', gmailInfiniteScroll({ total: 18000 }));
+  assert.equal(rows.length, 18000, 'every conversation in the category must be reached');
+  assert.equal(new Set(rows.map(row => row.threadId)).size, 18000, 'each conversation is counted once');
+});
+
+test('a small infinite-scrolling list stops once it genuinely stops growing', async () => {
+  const context = gmailInfiniteScroll({ total: 120 });
+  const rows = await vm.runInContext('scanCategory("primary")', context);
+  assert.equal(rows.length, 120);
+  assert.equal(context.__dom.revealed, 120, 'the walk ends at the end of the list, not past it');
+});
+
+test('an infinite scroll that stops while Gmail reports more pages is an incomplete scan', async () => {
+  const context = gmailInfiniteScroll({ total: 18000, stillClaimsMore: true });
+  context.__dom.freeze();
+  await assert.rejects(vm.runInContext('scanCategory("primary")', context), /incomplete/i);
+});
+
 // Gmail-shaped DOM for the delete path: search box, page checkbox, the "select
 // all matching" banner, and the toolbar's Trash button. Rows vanish when Trash
 // is clicked, as Gmail's do. `banner: false` models Gmail never rendering the

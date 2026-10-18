@@ -32,6 +32,12 @@ const PAGE_SETTLE_MS = 400;
 // guard, not a product limit: 500 pages is ~50k conversations per category.
 const MAX_PAGES_PER_CATEGORY = 500;
 
+// Gmail's newer list view infinite-scrolls instead of paginating: there is no
+// Older button and no "1-100 of N" counter. A scroll round that adds no new
+// conversation is treated as the end of the list after this many consecutive
+// stalls, so a temporarily idle render doesn't stop the walk early.
+const SCROLL_STALL_LIMIT = 3;
+
 // Phase B costs one Gmail search per sender (~1-2s each). Counting every sender
 // in a long tail would run for an hour, so only the heaviest senders get an
 // exact total; the rest keep their sampled count and are flagged inexact.
@@ -195,7 +201,21 @@ async function scanCategory(op, onPage) {
   }
 
   const rows = [];
+  const seen = new Set();
   let pages = 0;
+
+  // Conversations are deduped on the way in, so the count of distinct
+  // conversations is the size of `seen` — recounting `rows` would re-add ids
+  // that `record` has already seen and report zero progress.
+  const record = batch => {
+    for (const row of batch) {
+      if (row.threadId) {
+        if (seen.has(row.threadId)) continue;
+        seen.add(row.threadId);
+      }
+      rows.push(row);
+    }
+  };
 
   while (pages < MAX_PAGES_PER_CATEGORY) {
     await sleep(PAGE_SETTLE_MS);
@@ -218,24 +238,48 @@ async function scanCategory(op, onPage) {
       pageRows = extractVisibleRows(pageIndex);
     }
 
-    rows.push(...pageRows);
+    record(pageRows);
     pages += 1;
-    if (onPage) onPage(pages, rows.length);
+    if (onPage) onPage(pages, seen.size);
 
     // The counter is optional: an enabled Older button is enough to continue.
     // Never mistake a hidden/unparseable counter for the end of the mailbox.
     if (range && !hasMorePages(range)) break;
+
     const older = findOlderButton();
-    if (!older) {
-      if (range && hasMorePages(range)) throw new Error('Scan incomplete: Gmail has more pages but the Older button is unavailable.');
+    if (older) {
+      if (pages >= MAX_PAGES_PER_CATEGORY) throw new Error('Scan incomplete: category page safety limit reached.');
+      older.click();
+      if (!(await waitForPageChange(pageRows, range, pageIndex))) throw new Error('Scan incomplete: Gmail did not load the next page. Please retry.');
+      continue;
+    }
+
+    // No Older button and no counter: Gmail is infinite-scrolling this view
+    // rather than paginating it. Treating that as "end of category" is what
+    // silently truncated large mailboxes to the first screenful, so keep
+    // scrolling and accumulate until the list genuinely stops growing.
+    //
+    // Scroll rows are read with a FIXED index: this is one continuous list, so
+    // re-tagging the same row with a new page index each round would give it a
+    // fresh id and defeat the dedupe that counts conversations.
+    const before = seen.size;
+    let grew = false;
+    for (let attempt = 0; attempt < SCROLL_STALL_LIMIT; attempt += 1) {
+      await scrollListToBottom();
+      await sleep(SCROLL_SETTLE_MS);
+      record(extractVisibleRows(0));
+      if (seen.size > before) { grew = true; break; }
+    }
+    if (!grew) {
+      // The list stopped growing. If Gmail still claims more pages, the walk
+      // is incomplete and must be reported rather than cached as a full scan.
+      if (range && hasMorePages(range)) throw new Error('Scan incomplete: Gmail reports more pages but this view stopped loading rows. Please retry.');
       break;
     }
-    if (pages >= MAX_PAGES_PER_CATEGORY) throw new Error('Scan incomplete: category page safety limit reached.');
-
-    older.click();
-    if (!(await waitForPageChange(pageRows, range, pageIndex))) throw new Error('Scan incomplete: Gmail did not load the next page. Please retry.');
+    if (onPage) onPage(pages, seen.size);
   }
 
+  if (pages >= MAX_PAGES_PER_CATEGORY) throw new Error('Scan incomplete: category page safety limit reached.');
   return dedupeRowsByThreadId(rows);
 }
 
