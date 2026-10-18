@@ -1,6 +1,8 @@
 # Chrome Web Store listing draft and submission evidence
 
-Reviewed October 17, 2026 against `manifest.json`, `content.js`, `popup.js`, `parsing.js` and `scripts/product-facts.json`. This is prepared copy only: no upload, submission or live listing change was performed. Local manifest version is 3.2.1; repository documentation versions can differ. The installed store version, published permissions and live listing text require a current dashboard/package comparison. Historical publication notes are not current certification.
+Reviewed October 17, 2026 against `manifest.json`, `content.js`, `popup.js`, `parsing.js` and `scripts/product-facts.json`; updated October 18, 2026 for manifest 3.2.2. This is prepared copy only: no upload, submission or live listing change was performed. Repository documentation versions can differ from the manifest.
+
+**Listing comparison, 18 October 2026.** The public listing page was read and compared against this package. It shows version 3.2.1 with permissions `identity`, `gmail.readonly` and `gmail.modify`, and OAuth-era copy: "One click moves everything from selected senders to Trash", "nothing is ever sent anywhere except directly to Google's Gmail API", "cached locally in your browser and cleared on sign-out". Chrome renders a listing's permission block from the uploaded manifest, so the published build is the retired OAuth/Gmail-API extension, not the DOM-automation build. The copy below replaces that text; the permission block changes only when the 3.2.2 package is uploaded. Not confirmed against the Developer Dashboard, which was not accessible.
 
 Listing: https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep
 
@@ -21,40 +23,46 @@ Review Gmail senders in desktop Chrome. Select unwanted senders, then confirm a 
 **Description**
 
 ```text
-Find repeat senders in Gmail, review their mail, and choose which sender histories you no longer need.
+Find repeat senders in Gmail, review their mail, and choose which sender histories you no longer need. No account linking and no mailbox upload.
 
-Inbox Cleaner runs inside an already-open Gmail tab in desktop Chrome. It discovers senders across Primary, Social, Promotions, Updates and Forums, then presents a sender list with category information and last-received dates.
+Inbox Cleaner runs inside an already-open Gmail tab in desktop Chrome. It discovers senders across Primary, Social, Promotions, Updates and Forums, then shows them ranked by how much mail each one has, with category badges and a last-received date.
 
 HOW TO USE IT
-• Install the extension and open the correct Gmail account in desktop Chrome.
-• Start a scan and allow it to finish. A full scan can take minutes.
-• Review discovered senders and their broader mail history.
-• Select senders, review the scope, then confirm Move to Trash.
+• Install the extension, then open the Gmail account you want to clean in desktop Chrome.
+• Start a scan and let it finish. A full scan of a large mailbox can take several minutes.
+• Review the discovered senders and their broader mail history.
+• Select the senders you want to clear, review the scope, then confirm Move to Trash.
+
+WHAT IT DOES
+• Scans all five Gmail categories, not just Primary.
+• Ranks senders by conversation count: red for 100 or more, orange for 50 or more.
+• Shows category badges and a last-received date for each sender.
+• Select one sender or dozens at once.
 
 UNDERSTAND THE SCOPE
-• This is sender cleanup: selected sender searches can include archived matching mail.
+• This is sender cleanup: a selected sender's search can include archived matching mail.
 • A category badge helps discovery; it does not limit the action to that category.
 • Age, size, unread and starred exclusions from a separate Gmail search do not carry over.
-• Use Gmail’s own reviewed searches when you need those restrictions.
+• Use Gmail's own reviewed searches when you need those restrictions.
 • Counts describe Gmail conversations/results, may be approximate or unresolved, and are not storage measurements. Up to 250 senders are checked against Gmail result counts when resolvable.
-• Senders are processed in batches of up to 20. No scan-time, deletion-size or recovered-storage guarantee is made.
-• Inspect Gmail and any operation feedback before starting another cleanup.
+• Selected senders are processed in batches of up to 20.
+• No scan-time, deletion-size or recovered-storage guarantee is made.
 
 PRIVACY AND RECOVERY
-• The extension reads rendered sender information, dates, categories and result counts, not message bodies or attachment contents.
-• Scan results are stored locally in chrome.storage.local.
-• There is no extension OAuth sign-in, Gmail API client, model API or independent network client. Gmail itself still communicates with Google as you use it.
-• The extension moves mail to Gmail Trash; it does not empty Trash or unsubscribe you.
-• Ordinary Gmail Trash is normally recoverable for up to 30 days unless permanently removed sooner. There is no extension one-click Undo guarantee.
+• The extension reads rendered sender information, dates, categories and result counts. It does not read message bodies, subject lines or attachment contents.
+• Scan results are cached locally in chrome.storage.local on your device.
+• There is no extension OAuth sign-in, no Gmail API client, no model API and no independent network client. The extension drives Gmail's own interface, and Gmail itself continues communicating with Google as you use it.
+• Sender selection and the Move to Trash confirmation are separate steps. Nothing is removed until you confirm.
+• Mail moved to Trash is normally recoverable for up to 30 days unless permanently removed sooner. The extension does not empty Trash and does not unsubscribe you, and it offers no one-click Undo guarantee.
 
 PERMISSIONS
 • storage — cache scan results on this device.
-• tabs — find the open Gmail tab and communicate with its content script.
-• mail.google.com host access — read rendered Gmail metadata and use Gmail’s own controls for the selected action.
+• tabs — find your open Gmail tab and communicate with its content script.
+• mail.google.com host access — read rendered Gmail metadata and use Gmail's own controls for the action you confirm.
 
-The separate optional browser app on the website uses Google OAuth and Gmail API. It is not the extension’s data path. Website waitlist submissions also have a separate network path.
+The separate optional browser app on the website uses Google OAuth and the Gmail API. It is not the extension's data path.
 
-Privacy: https://inbox-cleaner.vercel.app/privacy.html
+Privacy policy: https://inbox-cleaner.vercel.app/privacy.html
 Guides: https://inbox-cleaner.vercel.app/blog/
 Source: https://github.com/iampushpendra/inbox-cleaner
 ```
