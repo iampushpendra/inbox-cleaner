@@ -34,22 +34,8 @@
 }
 </script>
 <!-- AUTO:social:start -->
-<meta property="og:title" content="How to Bulk Delete Gmail Emails: Review, Select and Trash">
-<meta property="og:description" content="Bulk delete Gmail messages using a reviewed search and the all-matching-results link. Understand page selection, conversation scope and recovery before confirming.">
-<meta property="og:title" content="How to Bulk Delete Gmail Emails: Review, Select and Trash">
-<meta property="og:description" content="Bulk delete Gmail messages using a reviewed search and the all-matching-results link. Understand page selection, conversation scope and recovery before confirming.">
-<meta property="og:title" content="How to Bulk Delete Gmail Emails: Review, Select and Trash">
-<meta property="og:description" content="Bulk delete Gmail messages using a reviewed search and the all-matching-results link. Understand page selection, conversation scope and recovery before confirming.">
-<meta property="og:title" content="How to Bulk Delete Gmail Emails: Review, Select and Trash">
-<meta property="og:description" content="Bulk delete Gmail messages using a reviewed search and the all-matching-results link. Understand page selection, conversation scope and recovery before confirming.">
 <meta property="og:image" content="https://inbox-cleaner.vercel.app/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="How to Bulk Delete Gmail Emails: Review, Select and Trash">
-<meta name="twitter:description" content="Bulk delete Gmail messages using a reviewed search and the all-matching-results link. Understand page selection, conversation scope and recovery before confirming.">
-<meta name="twitter:title" content="How to Bulk Delete Gmail Emails: Review, Select and Trash">
-<meta name="twitter:description" content="Bulk delete Gmail messages using a reviewed search and the all-matching-results link. Understand page selection, conversation scope and recovery before confirming.">
-<meta name="twitter:title" content="How to Bulk Delete Gmail Emails: Review, Select and Trash">
-<meta name="twitter:description" content="Bulk delete Gmail messages using a reviewed search and the all-matching-results link. Understand page selection, conversation scope and recovery before confirming.">
 <meta name="twitter:title" content="How to Bulk Delete Gmail Emails: Review, Select and Trash">
 <meta name="twitter:description" content="Bulk delete Gmail messages using a reviewed search and the all-matching-results link. Understand page selection, conversation scope and recovery before confirming.">
 <meta name="twitter:image" content="https://inbox-cleaner.vercel.app/og-image.png">
@@ -61,11 +47,13 @@
 <p class="quick-answer">Bulk deletion in Gmail starts by deciding what belongs in the batch. Run a search on a computer, review its results, tick the top checkbox, and use the all-matching-conversations link if Gmail offers one. The Trash icon then acts on the selected scope; it does not merely hide mail from the inbox.</p><h2>Choose a batch you can explain</h2>
 <ul><li>One sender: <code>from:sender@example.com</code>. Check the address from an actual email.</li><li>A date boundary: <code>before:2025/01/01</code>. Preserve records before selecting older mail.</li><li>Older promotional mail: <code>category:promotions older_than:6m</code>. Category assignment is not proof that a message is disposable.</li><li>Large messages: <code>larger:10M</code>. A sender count is not a size measurement.</li></ul><ol class="blog-steps"><li>Open Gmail on a computer, confirm the account, and search <code>category:promotions older_than:6m</code>.</li><li>Review several results and any mixed conversations. Save records you need before selecting mail.</li><li>Use the top checkbox to select the current page. If Gmail offers an all-matching-conversations notification, use its link only after checking that the search scope is correct. The page count depends on your settings.</li><li>Choose the Trash icon and wait for Gmail’s confirmation. Rerun the search to inspect what remains; do not assume an unseen batch completed.</li></ol><h2>Check the selection before confirming</h2>
 <p>The top checkbox initially selects the displayed page. Read the notification above the list to see whether an additional link extends to all matches. If every result already fits on one page, there may be no need for that extension. If you expect more matches but cannot see the link, use <a href="/blog/gmail-select-all-conversations-not-showing.html">this selection diagnostic</a>.</p><h2>For a large backlog, verify one batch before the next</h2>
-<p>Wait for Gmail’s result, then rerun the same query and inspect what remains. If the operation fails or remains unclear, narrow the search with a sender or a bounded date range. Avoid starting overlapping destructive actions. This guide does not claim a universal batch limit or a measured completion time.</p><h2>Check mixed conversations</h2>
+<p>Wait for Gmail’s result, then rerun the same query and inspect what remains. If the operation fails or remains unclear, narrow the search with a sender or a bounded date range. Avoid starting overlapping destructive actions. This guide does not claim a universal batch limit or a measured completion time.</p><h2>Plan by sender, and group more than one</h2>
+<p>Sender cleanup groups decisions around who sent the mail. It works well when a sender’s complete history is unwanted, and poorly when one address mixes newsletters with records you must keep — review the history before trusting the count.</p>
+<p>For several senders at once, Gmail accepts a grouped OR search such as <code>{from:one@example.com from:two@example.com}</code>. Conditions outside the braces apply to every alternative, while a condition inside applies only to the term it follows. Check the grouping before selecting.</p><h2>Check mixed conversations</h2>
 <p>Search can return a whole conversation when only some messages match. In particular, <code>-is:starred</code> does not guarantee protection for starred messages in a mixed thread. Open important conversations and handle individual messages when necessary.</p><h2>Can I bulk delete from the Gmail app on my phone?</h2><p>Yes, in batches, and the batching is the part worth knowing. Google documents that on Android you touch and hold a message, tap the box next to “Select all”, and Gmail selects up to 50 messages by default; scrolling back to the top and tapping it again selects 50 more, and you repeat that before tapping Delete. A phone cleanup therefore proceeds as a series of reviewed batches rather than one action over the whole result set, which makes it a workable route for a modest backlog and a poor route for a large one. Follow Google’s <a href="https://support.google.com/mail/answer/7401?hl=en&amp;co=GENIE.Platform%3DAndroid">Android deletion and recovery steps</a> and check the app’s selected count before each batch. Those steps cover Android; the iPhone and iPad apps have their own controls and were not reviewed here. Inbox Cleaner requires desktop Chrome.</p><h2>Does sender cleanup fit this task?</h2>
 <p>Inbox Cleaner needs an open Gmail tab in desktop Chrome. Its sender-wide action can include archived mail and does not inherit date, category, size, unread or starred restrictions. For those limits, use native Gmail. Counts may be approximate and are not storage measurements. <a href="/blog/inbox-cleaner-setup-permissions-recovery.html">Read setup, permissions and recovery limits</a>.</p><h2>Review Trash separately</h2>
 <p>Gmail normally allows Trash recovery for up to 30 days unless permanently removed sooner. Archive and Trash still use storage. Review before Empty Trash or Delete forever; those actions end ordinary recovery.</p><h2>Choose the next step</h2>
-<ul><li><a href="/blog/how-to-select-all-emails-gmail.html">Select beyond the current page</a></li><li><a href="/blog/gmail-bulk-delete-not-working.html">Investigate an incomplete cleanup</a></li><li><a href="/blog/how-to-delete-thousands-of-emails-gmail.html">Plan several large batches</a></li></ul>
+<ul><li><a href="/blog/how-to-select-all-emails-gmail.html">Select beyond the current page</a></li><li><a href="/blog/gmail-bulk-delete-not-working.html">Investigate an incomplete cleanup</a></li><li><a href="/blog/how-to-mass-delete-emails-gmail.html">Plan several large batches</a></li></ul>
 <div class="blog-cta">
 <h3>Clean up Gmail with the Chrome extension</h3>
 <p>Rank senders, select the ones you want to clear, and move their emails to Trash. Mail in Trash is normally recoverable for up to 30 days unless permanently removed sooner.</p>
@@ -81,8 +69,8 @@
 <li><a href="/blog/how-to-unsubscribe-from-emails-gmail.html">How to Unsubscribe from Emails in Gmail</a></li>
 <li><a href="/blog/gmail-bulk-delete-not-working.html">Gmail Bulk Delete Not Working? Check Scope and Completion</a></li>
 <li><a href="/blog/gmail-vs-outlook-bulk-delete.html">Gmail vs. Outlook Bulk Delete: Compare the Scope</a></li>
-<li><a href="/blog/gmail-bulk-delete-by-sender.html">How to Plan a Gmail Cleanup by Sender</a></li></ul>
-<p><a href="/blog/">Browse all 51 guides</a> · <a href="/">About Inbox Cleaner</a></p>
+<li><a href="/blog/delete-zoom-meeting-emails-gmail.html">How to Delete Zoom Meeting Invite Emails in Gmail</a></li></ul>
+<p><a href="/blog/">Browse all 39 guides</a> · <a href="/">About Inbox Cleaner</a></p>
 <div class="blog-cta">
 <h3>Clean up Gmail with the Chrome extension</h3>
 <p>Rank senders, select the ones you want to clear, and move their emails to Trash. Mail in Trash is normally recoverable for up to 30 days unless permanently removed sooner.</p>

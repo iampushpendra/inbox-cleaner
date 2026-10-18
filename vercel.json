@@ -5,7 +5,19 @@
   "redirects": [
     { "source": "/privacy", "destination": "/privacy.html", "permanent": true },
     { "source": "/index.html", "destination": "/", "permanent": true },
-    { "source": "/blog/index.html", "destination": "/blog/", "permanent": true }
+    { "source": "/blog/index.html", "destination": "/blog/", "permanent": true },
+    { "source": "/blog/delete-facebook-notification-emails-gmail.html", "destination": "/blog/gmail-delete-social-media-notifications.html", "permanent": true },
+    { "source": "/blog/delete-instagram-emails-gmail.html", "destination": "/blog/gmail-delete-social-media-notifications.html", "permanent": true },
+    { "source": "/blog/delete-linkedin-notification-emails-gmail.html", "destination": "/blog/gmail-delete-social-media-notifications.html", "permanent": true },
+    { "source": "/blog/delete-twitter-x-notification-emails-gmail.html", "destination": "/blog/gmail-delete-social-media-notifications.html", "permanent": true },
+    { "source": "/blog/delete-google-alerts-emails-gmail.html", "destination": "/blog/delete-all-emails-from-one-sender-gmail.html", "permanent": true },
+    { "source": "/blog/delete-calendar-invite-emails-gmail.html", "destination": "/blog/delete-all-emails-from-one-sender-gmail.html", "permanent": true },
+    { "source": "/blog/gmail-bulk-delete-by-sender.html", "destination": "/blog/how-to-bulk-delete-gmail-emails.html", "permanent": true },
+    { "source": "/blog/gmail-delete-all-emails-from-multiple-senders.html", "destination": "/blog/how-to-bulk-delete-gmail-emails.html", "permanent": true },
+    { "source": "/blog/how-to-delete-thousands-of-emails-gmail.html", "destination": "/blog/how-to-mass-delete-emails-gmail.html", "permanent": true },
+    { "source": "/blog/clean-up-gmail-inbox.html", "destination": "/blog/best-way-to-clean-gmail-2026.html", "permanent": true },
+    { "source": "/blog/gmail-storage-full-how-to-fix.html", "destination": "/blog/how-to-free-up-gmail-storage.html", "permanent": true },
+    { "source": "/blog/gmail-storage-almost-full-what-to-do.html", "destination": "/blog/how-to-free-up-gmail-storage.html", "permanent": true }
   ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/$1" }

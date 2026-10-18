@@ -6,6 +6,18 @@ Versioning: see `VERSION` file (semver, no `package.json` — this isn't a Node/
 
 ## [Unreleased]
 
+### Changed — consolidated 12 near-duplicate guides
+
+- Retired 12 blog URLs that were near-duplicates of a stronger page. Each was measured before the decision: 574–598 words (the site's thinnest pages are shorter and *are* indexed, so length was never the problem), 0.69–0.80 paragraph overlap with its cluster, and zero impressions in both the 16-month and 3-month Search Console exports. Every URL gets a permanent redirect, so nothing 404s and the change is reversible.
+- Merges: facebook/instagram/linkedin/twitter-x notification recipes into `gmail-delete-social-media-notifications`; google-alerts and calendar-invite recipes into `delete-all-emails-from-one-sender-gmail`; `gmail-bulk-delete-by-sender` and `gmail-delete-all-emails-from-multiple-senders` into `how-to-bulk-delete-gmail-emails`; `how-to-delete-thousands-of-emails-gmail` into `how-to-mass-delete-emails-gmail`; `clean-up-gmail-inbox` into `best-way-to-clean-gmail-2026`; `gmail-storage-full-how-to-fix` and `gmail-storage-almost-full-what-to-do` into `how-to-free-up-gmail-storage`.
+- Unique material was carried into each owner rather than dropped: the four services' sender guidance, the `.ics` and Google Alerts caveats, the grouped `{}` OR syntax, the scope-first batching advice, the staged-cleanup framing, and the almost-full versus fully-full distinction.
+- Four of the sixteen reviewed pages were deliberately kept because they serve a distinct job: the search-operator reference, the Gmail-versus-Outlook comparison, and the incoming-filter guide. A similar length was never treated as evidence for a merge.
+- The sitemap regenerated to 44 URLs and the publishing gate reports no broken local links. Decision driven by page-level overlap and impressions; no backlink export was available, which remains a stated limit.
+
+### Fixed
+
+- The site build appended another duplicate `og:title`/`og:description` pair to every article on every rebuild, so live pages were already serving six copies and growing. Generated tags were re-collected as if they were authored. The social region now reads the authored head with its previous region removed, and emits only what pages lack (image and Twitter card), restoring an idempotent build and one tag per page.
+
 ### Extension — manifest 3.2.1 → 3.2.2
 
 - Fixed a silent truncation that cut any large mailbox down to its first screenful. The scan loop treated "no Older button" as the end of a category, which is only true of Gmail's paginated list; Gmail's newer view infinite-scrolls with no Older button and no "1-100 of N" counter, so both the pagination branch and its missing-controls guard fell through and the partial result was cached as a complete scan. A reported 237 conversations is 5 categories × ~47 initially-rendered rows, nowhere near the 50,000-conversation page guard. The walk now keeps scrolling until the list genuinely stops growing, counts conversations from the dedupe set rather than recounting accumulated rows, and throws an incomplete-scan error when a stalled list still claims more pages. Covered by three regression tests including an 18,000-conversation infinite scroll walked exactly once.
