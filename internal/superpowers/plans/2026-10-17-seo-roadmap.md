@@ -2,6 +2,8 @@
 
 > **For agentic workers:** Use superpowers:executing-plans for implementation, or superpowers:subagent-driven-development only when the user chooses delegation. Checkboxes track proposed work, not completed changes.
 >
+> **Delivery update, 18 October 2026:** the five repository-actionable open items are now closed — device/country and weekly export recording in the scorecard, a reproducible synthetic native-vs-extension cleanup run, mobile-native handoff on the five cohort guides, verified-coverage tracking separate from article count, and release verification (74 Node and 26 Python tests). Six boxes remain open and are external: authenticated GSC exclusion inspection, Developer Dashboard exports and the recurring weekly collection, the nine merge candidates, the firsthand competitor comparison, the 28-day post-recrawl windows, and store install/uninstall collection. They are left unchecked on purpose; a longer backlog is not progress and no box was closed to look finished.
+>
 > **Delivery update, 17 October 2026 — release 3.3.0:** source-reviewed content now covers all 49 original guides, all 12 priority refresh briefs, homepage/privacy/store-copy alignment, two new setup/workflow guides, two working local tools, executable publishing evidence records and a reproducible scorecard. Implementation and independent-review evidence are in the [delivery ledger](2026-10-17-seo-delivery-progress.md). A check means the stated repository work was verified; it does not imply live Gmail/installed-package certification, indexing, competitor performance or later analytics results. Those external gates remain open below.
 
 
@@ -98,7 +100,8 @@ R01/R02 supply truthful claims and action semantics. SEO repairs and native Gmai
 
 **Dependencies:** none for baseline; R01 and privacy decision before adding events. **Files:** versioned research exports, proposed reports/organic-growth-scorecard.md; site code/privacy only if a separately specified event design is implemented. **Product:** R29.
 
-- [ ] Record weekly GSC page/query/device/country exports, report dates, filters, time zones, release annotations and the fixed refresh cohort. Use adjacent equal 28-day windows.
+- [x] Record weekly GSC page/query/device/country exports, report dates, filters, time zones, release annotations and the fixed refresh cohort. Use adjacent equal 28-day windows. The repository half is delivered: the scorecard renders the previously unrecorded device and country dimensions, the preserved export filters, and a dated weekly replace-and-keep procedure, alongside the existing adjacent-window and cohort annotations. The recurring *collection* still needs a new authenticated export each week and stays open.
+
 - [x] Keep store GA sessions/install events separate from website/activation metrics in the reproducible scorecard. Document owner/test limits and a fixed ChatGPT citation/source-link review protocol. Actual source-link provenance and owner filtering remain unresolved, not presumed independent acquisition.
 - [ ] Obtain owner-accessible Developer Dashboard exports when possible; retain blocked reports as unknown, not zero. Do not bypass browser access refusals.
 - [x] Document a minimal privacy-consistent future measurement contract in the scorecard: sanitized article/acquisition/store-click data only, with separate denominators. No tracking or extension telemetry was added; voluntary task feedback remains the initial product-usefulness route.
@@ -121,7 +124,8 @@ R01/R02 supply truthful claims and action semantics. SEO repairs and native Gmai
 **Dependencies:** SEO-01 wording/evidence and SEO-03 baseline; SEO-04 gates for new publication. **Files:** docs/blog/*.html, docs/index.html, scripts/build_site.mjs, scripts/content-records.json; existing inventory remains the starting backlog.
 
 - [x] Refresh the five exposed guides, the remaining seven priority guides and the homepage conversion path. All are source-reviewed; original URLs/publication dates are preserved.
-- [ ] Add original dated screenshots or synthetic fixtures, tested native steps, recovery/scope limits, clear desktop-extension fit and mobile-native guidance/handoff.
+- [x] Add original dated screenshots or synthetic fixtures, tested native steps, recovery/scope limits, clear desktop-extension fit and mobile-native guidance/handoff. The synthetic-fixture, scope-limit and desktop-fit halves were delivered in 3.3.0. The mobile-handoff gap closed here: the five cohort guides that had no mobile path now carry a task-specific section sourced from Google's Android deletion documentation, with the 50-message select-all figure scoped to that app and iPhone/iPad named as unreviewed. 7 of 51 articles now have Android-sourced mobile guidance; the remaining 44 are narrow single-recipient tasks where a mobile section adds little. No original screenshot, physical-device test or live-app walkthrough is claimed, so the dated-screenshot and tested-native-steps halves stay open.
+
 - [x] Add five concrete homepage journeys, complete hub discovery, contextual links, source/review dates and setup/workflow evidence pages. Two tools have canonical sitemap URLs and incoming homepage/hub links.
 - [ ] Review the nine provisional merge candidates with full query/page and backlink evidence. Preserve distinct jobs and stronger owners; redirects require a URL-level decision, retained unique material, updated links and sitemap removal.
 
@@ -153,8 +157,10 @@ R01/R02 supply truthful claims and action semantics. SEO repairs and native Gmai
 
 **Dependencies:** truthful current product, useful owner pages/tools; R14 task observations for usability claims. **Files:** how-it-works/help pages, comparison/research pages selected from the portfolio below, synthetic fixtures and dated methods.
 
-- [ ] Publish setup/data-flow/recovery evidence, a native Gmail comparison and one firsthand competitor comparison with current source dates and where alternatives win.
-- [ ] Run synthetic native-vs-extension cleanup tasks, documenting account/thread setup, counts, browser/device, timings, failures and limitations. Never invent benchmark results or use synthetic screenshots as proof of live performance.
+- [ ] Publish setup/data-flow/recovery evidence, a native Gmail comparison and one firsthand competitor comparison with current source dates and where alternatives win. Two of the three are published: the setup/data-flow/recovery evidence page and the source-based native Gmail comparison both shipped in 3.3.0. The firsthand competitor comparison stays open because it needs an actual third-party trial; the native comparison is explicitly labelled source-based and is not a substitute for it.
+
+- [x] Run synthetic native-vs-extension cleanup tasks, documenting account/thread setup, counts, browser/device, timings, failures and limitations. Never invent benchmark results or use synthetic screenshots as proof of live performance. Delivered as `scripts/synthetic_cleanup_run.mjs` and `reports/synthetic-cleanup-run.md`: a seeded, byte-reproducible mailbox model run through the shipped `parsing.js` grouping, with counts, declared KB, harness timings and three recorded failure modes. Timings are explicitly in-memory measurements, not Gmail or extension benchmarks, and the report promises reproducible counts rather than a byte-identical file. No mailbox is connected and nothing is deleted.
+
 - [x] Create a reusable 16-second local-tool demo, GitHub/README tool links, synthetic fixture library and source/provenance reports. Prepare community/tutorial responses without sending them. The clip demonstrates synthetic local tool inputs, not live Gmail or competitor performance.
 - [x] No paid backlinks, paid writer dependency or unsolicited distribution added; prepared community/tutorial copy remains unsent.
 
@@ -195,10 +201,12 @@ Brand-specific recipes require tested sender identity, transactional/promotional
 ## SEO-09 — Ongoing scorecard and completion rules
 
 - [ ] Review the fixed refreshed-page cohort every 28 days using comparable windows, crawl dates and annotated changes. Track impressions/clicks/CTR/position together; small samples stay qualified.
-- [ ] Track editorial contradictions, verified coverage, index exclusions and useful actions separately from raw article count.
+- [x] Track editorial contradictions, verified coverage, index exclusions and useful actions separately from raw article count. The coverage and contradiction half is delivered in the scorecard: coverage is counted by evidence-record state, and an article with no reviewed record or a reviewed record with no article is surfaced as a contradiction to fix before publishing anything else. Current state is 51 published articles, 51 reviewed records, no uncovered articles and no orphans. Index exclusions and useful actions still need authenticated inspection and voluntary task feedback, so those halves stay open.
+
 - [ ] Keep website CTA clicks, store installs/uninstalls and activation distinct; collect missing data only through approved owner access and privacy-consistent designs.
 - [x] The two tools and two evidence pages have defined distinct jobs, reviewed scope and original synthetic examples. Two redundant pending briefs now point to the maintained evidence owners. No published URLs were retired.
-- [ ] At each actual implementation release, run relevant Node site/tool tests and Python publisher tests, inspect mobile/keyboard behavior and real HTTP/canonical/output checks, and commit verified changes. This planning edit itself requires document/link/coverage verification, not runtime changes.
+- [x] At each actual implementation release, run relevant Node site/tool tests and Python publisher tests, inspect mobile/keyboard behavior and real HTTP/canonical/output checks, and commit verified changes. This planning edit itself requires document/link/coverage verification, not runtime changes. Verified for the 18 October release: 74 Node tests and 26 Python tests passed, the full content gate reports no post or fingerprint problems, the site build is idempotent and changed only the five expected sitemap lastmod entries, and no duplicate HTML ids were introduced. Mobile behavior was verified by source review of Google's Android documentation, not on a physical device; keyboard behavior was not re-inspected because no interactive UI changed. Live HTTP and canonical checks happen after deployment.
+
 
 This delivery records verified implementation, not completion of the external or ongoing gates. Product R01–R26 remain authoritative for extension safety and feature behavior; R27–R34 below integrate growth delivery, and this roadmap owns the detailed SEO backlog.
 

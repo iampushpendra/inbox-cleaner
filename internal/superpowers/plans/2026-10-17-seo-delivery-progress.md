@@ -30,6 +30,18 @@ External dependencies remain pending explicitly: private Developer Dashboard exp
 - Scorecard implemented in 6752fc6 with two meaningful window/unknown tests; exported baseline reproduces 4/1307 vs 13/1847 without joining store attribution.
 - Publishing evidence-record implementation delegated; discovered existing roadmap claimed record/readiness behavior that code did not enforce. Correcting implementation rather than treating checked plan text as proof.
 
+## Second pass, 18 October 2026 — remaining repository items
+
+The five repository-actionable open boxes were picked up and delivered; the six external-evidence boxes were deliberately left open rather than fabricated.
+
+- SEO-03 device/country and weekly recording: `5841c1b`. The scorecard now renders the device and country dimensions that were collected but never read, plus preserved export filters and the weekly replace-and-keep procedure. Finding worth carrying forward: mobile holds a better approximate position (12.28 vs 26.59) and CTR (1.372% vs 0.474%) than desktop, while the extension is desktop-only.
+- SEO-08 synthetic cleanup task: `d805e84`. `scripts/synthetic_cleanup_run.mjs` runs the shipped `parsing.js` grouping over a seeded generated mailbox. All five chosen senders are touched by more conversations than the scan attributed to them, which is the scan-count-versus-action-scope gap the existing scope copy already warns about, now reproducible. Harness timings are labelled as in-memory measurements.
+- SEO-05 mobile handoff: `a71f5cf`. Five cohort guides gained task-specific Android-sourced sections. Google's Android page was re-fetched and read for the 50-message default, the scroll-to-top repeat step and in-app operator support. The publishing gate flagged all five stale fingerprints before the records were updated; `post_sha256`, `verified_on`, reviewer, source notes and limitations were refreshed per record.
+- SEO-09 coverage tracking: in `5841c1b`. 51 published articles, 51 reviewed records, no uncovered articles, no orphan records.
+- SEO-09 release verification: 74 Node tests and 26 Python tests pass, up from 68 and 21. Full content gate clean, build idempotent, no duplicate ids.
+
+Remaining open, unchanged and still requiring external access or future observation: SEO-02 authenticated GSC exclusion inspection; SEO-03 Developer Dashboard exports and the recurring weekly collection; SEO-05 the nine merge candidates, which need per-page query cross-tabs the current exports do not contain plus backlink data from a source with no access at all; SEO-08 the firsthand competitor trial; SEO-09 the 28-day post-recrawl windows, index-exclusion inspection and store install/uninstall collection. The two unreviewed drafts in `internal/blog-drafts/` still await a human readiness decision.
+
 ## Completed implementation and review
 
 - Content source review: `6b08f98`; 44 article rewrites, homepage/privacy/prepared store copy, all 12 priority refresh records and all 49 original URL dispositions. Original publication dates preserved. Additional copy fixes `41c7571` and `08afe6f` qualify recovery and correct irrelevant sender recipes.
