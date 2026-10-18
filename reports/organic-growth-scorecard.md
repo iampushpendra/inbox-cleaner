@@ -12,6 +12,42 @@ Generated from exports, not a new authenticated analytics collection. Re-run `py
 
 Position is an impression-weighted approximation from rounded daily values; this is not a fixed keyword rank. Query exports omit undisclosed searches. No causal release effect is inferred.
 
+## Search by device and country
+
+| Device | Clicks | Impressions | CTR | Approx. position |
+|---|---:|---:|---:|---:|
+| Desktop | 14 | 2953 | 0.474% | 26.59 |
+| Mobile | 8 | 583 | 1.372% | 12.28 |
+| Tablet | 0 | 16 | 0.000% | 7.50 |
+
+Ten highest-impression countries. A long tail follows in the raw export; it is not a demand ranking.
+
+| Country | Clicks | Impressions | Approx. position |
+|---|---:|---:|---:|
+| United States | 12 | 1755 | 29.83 |
+| United Kingdom | 0 | 258 | 19.73 |
+| Australia | 1 | 158 | 31.32 |
+| Canada | 0 | 157 | 19.89 |
+| India | 2 | 148 | 15.26 |
+| Netherlands | 0 | 61 | 9.69 |
+| Philippines | 2 | 60 | 23.38 |
+| Brazil | 0 | 51 | 17.29 |
+| Spain | 0 | 50 | 12.78 |
+| Indonesia | 0 | 45 | 26.89 |
+
+These two dimensions are whole-export aggregates over the full selected date range, not the adjacent 28-day windows above, and they must not be force-reconciled with them.
+
+Mobile currently holds a better approximate position and CTR than desktop. That matters editorially: the extension requires desktop Chrome, so a mobile reader needs working native Gmail steps and an honest handoff rather than an install button that cannot help them. It is not a claim about future mobile traffic.
+
+## Export provenance
+
+| Export filter | Value |
+|---|---|
+| Search type | Web (text-based) |
+| Date | Last 16 months |
+
+Weekly procedure: replace this dated directory with a new one, re-run the script, and keep the old directory. Store exports keep their own window and reporting timezone and are never merged into search rows. Record the deployed revision alongside any release annotation.
+
 ## Store attribution: a different surface
 
 Source files retain their own July 19–October 16 window and Los Angeles reporting timezone. Install counts below use the separately install-filtered export, not the ordinary all-events export.
@@ -33,6 +69,18 @@ ChatGPT attribution is a small-sample observation. Owner/test traffic and origin
 - Current delivery: seven further refreshes, privacy/homepage alignment, local tools and evidence gates. Record the deployed revision and actual publication date in the delivery ledger.
 
 Fixed cohort: select-all, size deletion, mailbox-full, biggest-mail, older-than-year plus the homepage. Preserve these URLs and compare the same page/query rows after recrawl. Other page improvements are reported separately.
+
+## Verified coverage, not article count
+
+- Published articles: 51
+- Evidence records: 199 (148 draft, 49 evidence_checked, 2 publish_ready)
+- Reviewed records: 51 — only these count as verified coverage
+- Topics by status: 18 deferred, 130 pending, 51 published
+
+Articles with no reviewed record: none.
+Reviewed records with no published article: none.
+
+Reviewed coverage is tracked here instead of an article total because a longer backlog is not progress. A `draft` record is unverified no matter how plausible the article reads, and index exclusions stay an external gate until an owner inspection exists.
 
 ## Unknowns and collection procedure
 
