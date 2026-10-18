@@ -3,13 +3,13 @@
     "state": "evidence_checked",
     "intent_owner": "delete-all-emails-from-one-sender-gmail",
     "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "verified_on": "2026-10-18",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; OpenCode Space Bunny mobile-handoff source review 2026-10-18",
       "kind": "agent"
     },
-    "post_sha256": "651467c427d4346a41dd7db3a3c062f6afa0c6f5b2d9254b784da782a97f6292",
+    "post_sha256": "855808fce2473efee152db54996c14ee510b7d516c4b40ef8177c7ede8d22cb2",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -20,6 +20,11 @@
         "url": "https://support.google.com/mail/answer/7401?hl=en",
         "supports": "Selection, Trash and recovery boundaries where relevant.",
         "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en&co=GENIE.Platform%3DAndroid",
+        "supports": "In-app deletion controls on Android: touch and hold, the box next to 'Select all', up to 50 messages selected by default with further batches added by scrolling to the top and tapping it again, search operators usable in the search bar including From:, after:/before: and has:attachment, Trash emptied from Menu, and a configurable swipe-to-delete action.",
+        "review_notes": "Fetched 2026-10-18 by the drafting agent and re-read for this mobile-handoff addition. Confirmed the 50-message default and the scroll-to-top repeat step verbatim, the operator examples, and the 30-day Trash recovery statement. The page is explicitly the Android phone and tablet variant. It says nothing about the iPhone or iPad apps, about how large a batch the desktop interface can select, or about any timing, so the articles state those limits as undocumented rather than tested."
       }
     ],
     "assets": [
@@ -27,7 +32,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Mobile section added 2026-10-18 from Google's Android documentation only. No physical Android or iOS device was used, no in-app selection was performed, and iPhone/iPad controls remain unreviewed."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -114,13 +120,13 @@
     "state": "evidence_checked",
     "intent_owner": "how-to-bulk-delete-gmail-emails",
     "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "verified_on": "2026-10-18",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; OpenCode Space Bunny mobile-handoff source review 2026-10-18",
       "kind": "agent"
     },
-    "post_sha256": "4e318808b5f10d0e321d152948de7bd8983ea05e1e5773afcb0e9de59bfccbaa",
+    "post_sha256": "16b4eb6246e072df88292175d78b0a4b8e7c74b4afdcd899a4999855499b3729",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -131,6 +137,11 @@
         "url": "https://support.google.com/mail/answer/7401?hl=en",
         "supports": "Selection, Trash and recovery boundaries where relevant.",
         "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en&co=GENIE.Platform%3DAndroid",
+        "supports": "In-app deletion controls on Android: touch and hold, the box next to 'Select all', up to 50 messages selected by default with further batches added by scrolling to the top and tapping it again, search operators usable in the search bar including From:, after:/before: and has:attachment, Trash emptied from Menu, and a configurable swipe-to-delete action.",
+        "review_notes": "Fetched 2026-10-18 by the drafting agent and re-read for this mobile-handoff addition. Confirmed the 50-message default and the scroll-to-top repeat step verbatim, the operator examples, and the 30-day Trash recovery statement. The page is explicitly the Android phone and tablet variant. It says nothing about the iPhone or iPad apps, about how large a batch the desktop interface can select, or about any timing, so the articles state those limits as undocumented rather than tested."
       }
     ],
     "assets": [
@@ -138,7 +149,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Mobile section added 2026-10-18 from Google's Android documentation only. No physical Android or iOS device was used, no in-app selection was performed, and iPhone/iPad controls remain unreviewed."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -743,13 +755,13 @@
     "state": "evidence_checked",
     "intent_owner": "how-to-find-biggest-emails-gmail",
     "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "verified_on": "2026-10-18",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; OpenCode Space Bunny mobile-handoff source review 2026-10-18",
       "kind": "agent"
     },
-    "post_sha256": "fdae2d514dfc06502b66f5f1f8720e5b14ab4c25e8a1a23a63d125141481e88b",
+    "post_sha256": "8b5608eb48bd0f00f4e4bf26f2c42dfb5a0945634efae9e6fb2e7b2ce60be69d",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -760,6 +772,11 @@
         "url": "https://support.google.com/mail/answer/7401?hl=en",
         "supports": "Selection, Trash and recovery boundaries where relevant.",
         "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en&co=GENIE.Platform%3DAndroid",
+        "supports": "In-app deletion controls on Android: touch and hold, the box next to 'Select all', up to 50 messages selected by default with further batches added by scrolling to the top and tapping it again, search operators usable in the search bar including From:, after:/before: and has:attachment, Trash emptied from Menu, and a configurable swipe-to-delete action.",
+        "review_notes": "Fetched 2026-10-18 by the drafting agent and re-read for this mobile-handoff addition. Confirmed the 50-message default and the scroll-to-top repeat step verbatim, the operator examples, and the 30-day Trash recovery statement. The page is explicitly the Android phone and tablet variant. It says nothing about the iPhone or iPad apps, about how large a batch the desktop interface can select, or about any timing, so the articles state those limits as undocumented rather than tested."
       }
     ],
     "assets": [
@@ -767,7 +784,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Mobile section added 2026-10-18 from Google's Android documentation only. No physical Android or iOS device was used, no in-app selection was performed, and iPhone/iPad controls remain unreviewed."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -891,13 +909,13 @@
     "state": "evidence_checked",
     "intent_owner": "how-to-delete-emails-older-than-a-year-gmail",
     "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "verified_on": "2026-10-18",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; OpenCode Space Bunny mobile-handoff source review 2026-10-18",
       "kind": "agent"
     },
-    "post_sha256": "3748a7b14feeb9a9b1a0da5beb53aeb5c97c1b9e3f89990b8ebbacc0e7749b88",
+    "post_sha256": "7648625e9e2f14bda621f84e36f1b1fe71a5dde658ad324e3ba1c139c767bfee",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -908,6 +926,11 @@
         "url": "https://support.google.com/mail/answer/7401?hl=en",
         "supports": "Selection, Trash and recovery boundaries where relevant.",
         "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en&co=GENIE.Platform%3DAndroid",
+        "supports": "In-app deletion controls on Android: touch and hold, the box next to 'Select all', up to 50 messages selected by default with further batches added by scrolling to the top and tapping it again, search operators usable in the search bar including From:, after:/before: and has:attachment, Trash emptied from Menu, and a configurable swipe-to-delete action.",
+        "review_notes": "Fetched 2026-10-18 by the drafting agent and re-read for this mobile-handoff addition. Confirmed the 50-message default and the scroll-to-top repeat step verbatim, the operator examples, and the 30-day Trash recovery statement. The page is explicitly the Android phone and tablet variant. It says nothing about the iPhone or iPad apps, about how large a batch the desktop interface can select, or about any timing, so the articles state those limits as undocumented rather than tested."
       }
     ],
     "assets": [
@@ -915,7 +938,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Mobile section added 2026-10-18 from Google's Android documentation only. No physical Android or iOS device was used, no in-app selection was performed, and iPhone/iPad controls remain unreviewed."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -1150,13 +1174,13 @@
     "state": "evidence_checked",
     "intent_owner": "gmail-mailbox-full-cant-receive-emails",
     "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "verified_on": "2026-10-18",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; OpenCode Space Bunny mobile-handoff source review 2026-10-18",
       "kind": "agent"
     },
-    "post_sha256": "ec72fa94b2461cf4d931f7425399a9d2d4e7567c553820f6beb18d68eafccf5d",
+    "post_sha256": "3fa2698a0cf9c7fbb231f8025e2decc4680c30f6a63f10fe227d3b47b9e72a3f",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -1167,6 +1191,11 @@
         "url": "https://support.google.com/mail/answer/7401?hl=en",
         "supports": "Selection, Trash and recovery boundaries where relevant.",
         "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en&co=GENIE.Platform%3DAndroid",
+        "supports": "In-app deletion controls on Android: touch and hold, the box next to 'Select all', up to 50 messages selected by default with further batches added by scrolling to the top and tapping it again, search operators usable in the search bar including From:, after:/before: and has:attachment, Trash emptied from Menu, and a configurable swipe-to-delete action.",
+        "review_notes": "Fetched 2026-10-18 by the drafting agent and re-read for this mobile-handoff addition. Confirmed the 50-message default and the scroll-to-top repeat step verbatim, the operator examples, and the 30-day Trash recovery statement. The page is explicitly the Android phone and tablet variant. It says nothing about the iPhone or iPad apps, about how large a batch the desktop interface can select, or about any timing, so the articles state those limits as undocumented rather than tested."
       }
     ],
     "assets": [
@@ -1174,7 +1203,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Mobile section added 2026-10-18 from Google's Android documentation only. No physical Android or iOS device was used, no in-app selection was performed, and iPhone/iPad controls remain unreviewed."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
