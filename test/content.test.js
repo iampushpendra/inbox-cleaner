@@ -6,7 +6,7 @@ const parsing = require('../parsing.js');
 
 // Run the actual content script against paginated Gmail-shaped DOM results.
 // No mailbox, Chrome profile, credentials, or deletion actions are involved.
-function gmail({ total = 10000, counter = true, stalled = false, searchConfirms = true, positionalIds = false, identicalPages = false } = {}) {
+function gmail({ total = 10000, counter = true, stalled = false, searchConfirms = true, positionalIds = false, identicalPages = false, enabledStyle = false, hiddenRows = false, nestedIds = false, queryAware = false } = {}) {
   let page = 0;
   let clock = 0;
   const range = () => `${page * 100 + 1}–${Math.min(total, (page + 1) * 100)} of ${total.toLocaleString('en-US')}`;
@@ -14,27 +14,38 @@ function gmail({ total = 10000, counter = true, stalled = false, searchConfirms 
     getAttribute: name => name === 'aria-disabled' ? String((page + 1) * 100 >= total) : null,
     hasAttribute: () => false,
     getClientRects: () => [{}],
-    classList: { contains: () => false },
+    classList: { contains: name => enabledStyle && name === 'T-I-Js-Gs' },
     click() { dom.olderClicks += 1; if (!stalled) page++; },
   };
-  const dom = { olderClicks: 0 };
-  const toolbar = { getClientRects: () => [{}], querySelectorAll: () => counter ? [{ textContent: range() }] : [] };
+  const dom = { olderClicks: 0, broadcasts: [], listeners: [], cache: null };
+  const toolbar = { getClientRects: () => [{}], querySelectorAll: () => counter ? [{ textContent: range(), getClientRects: () => [{}] }] : [] };
+  let cachedRowKey = null;
+  let cachedRows = [];
   function rows() {
-    return Array.from({ length: Math.min(100, total - page * 100) }, (_, i) => {
+    const rowKey = `${page}:${queryAware ? context.location.hash : ''}`;
+    if (rowKey === cachedRowKey) return cachedRows;
+    cachedRowKey = rowKey;
+    cachedRows = Array.from({ length: Math.min(100, total - page * 100) }, (_, i) => {
       const id = page * 100 + i;
       // `identicalPages` models a pathological mailbox where two consecutive
       // pages show the same senders on the same date — the only case where a
       // page with no ids and no counter is genuinely indistinguishable from the
       // one before it.
       const senderId = identicalPages ? i % 10 : id;
+      const query = decodeURIComponent(context.location.hash.replace(/^search\//, ''));
+      const category = query.match(/category:(\w+)|from:\((\w+)@example.com\)/);
+      const key = queryAware && category ? category[1] || category[2] : null;
       return {
         id: positionalIds ? `p${i}` : `row-${id}`, getClientRects: () => [{}],
-        getAttribute: name => name === 'data-legacy-thread-id' && !positionalIds ? `thread-${id}` : null,
-        querySelector: selector => selector.includes('email')
-          ? { getAttribute: name => name === 'email' ? `sender${senderId}@example.com` : `Sender ${senderId}` }
+        getAttribute: name => name === 'data-legacy-thread-id' && !positionalIds && !nestedIds ? `${key || "thread"}-${id}` : null,
+        querySelector: selector => selector === '[data-legacy-thread-id]' && nestedIds
+          ? { getAttribute: () => `${key || "thread"}-${id}` }
+          : selector.includes('email')
+          ? { getAttribute: name => name === 'email' ? (key ? `${key}@example.com` : `sender${senderId}@example.com`) : `Sender ${senderId}` }
           : selector.includes('title') ? { getAttribute: () => '2026-10-16T09:00:00Z' } : null,
       };
     });
+    return cachedRows;
   }
   const document = {
     querySelector(selector) {
@@ -45,7 +56,9 @@ function gmail({ total = 10000, counter = true, stalled = false, searchConfirms 
       return null;
     },
     querySelectorAll(selector) {
-      if (selector === 'tr.zA') return rows();
+      if (selector === 'tr.zA') return hiddenRows
+        ? [{ ...rows()[0], id: 'hidden', getClientRects: () => [], getAttribute: () => 'hidden-thread' }, ...rows()]
+        : rows();
       if (selector === 'div[gh="tm"]') return [toolbar];
       if (selector.includes('Older')) return [older];
       return [];
@@ -53,8 +66,11 @@ function gmail({ total = 10000, counter = true, stalled = false, searchConfirms 
   };
   const context = vm.createContext({
     self: { InboxCleanerParsing: parsing }, InboxCleanerParsing: parsing,
-    document, location: { hash: '' },
-    chrome: { runtime: { onMessage: { addListener() {} }, sendMessage: async () => {} } },
+    document, location: { hash: 'search/category:primary' },
+    chrome: {
+      runtime: { onMessage: { addListener(fn) { dom.listeners.push(fn); } }, sendMessage: async msg => { dom.broadcasts.push(msg); } },
+      storage: { local: { set: async data => { dom.cache = data.inboxCleanerData; } } },
+    },
     Date: class extends Date { static now() { return clock; } },
     setTimeout(callback, ms) { clock += ms; queueMicrotask(callback); return 0; },
     clearTimeout() {},
@@ -62,6 +78,13 @@ function gmail({ total = 10000, counter = true, stalled = false, searchConfirms 
   });
   vm.runInContext(fs.readFileSync(require.resolve('../content.js'), 'utf8'), context);
   context.__dom = dom;
+  if (queryAware) {
+    let hash = context.location.hash;
+    Object.defineProperty(context.location, 'hash', {
+      get: () => hash,
+      set: value => { hash = value; page = 0; },
+    });
+  }
   return context;
 }
 
@@ -88,7 +111,11 @@ function gmailInfiniteScroll({ total = 18000, firstBatch = 50, perScroll = 50, s
   let clock = 0;
   let revealed = Math.min(firstBatch, total);
   let stalled = false;
-  const rowEls = () => Array.from({ length: revealed }, (_, i) => ({
+  let lastRevealed = -1, cachedRows = [];
+  const rowEls = () => {
+    if (lastRevealed === revealed) return cachedRows;
+    lastRevealed = revealed;
+    return cachedRows = Array.from({ length: revealed }, (_, i) => ({
     getClientRects: () => [{}],
     getAttribute: name => name === 'data-legacy-thread-id' ? `thread-${i}` : null,
     querySelector: selector => selector.includes('email')
@@ -96,6 +123,7 @@ function gmailInfiniteScroll({ total = 18000, firstBatch = 50, perScroll = 50, s
       : selector.includes('title') ? { getAttribute: () => '2026-10-18T09:00:00Z' } : null,
     parentElement: container,
   }));
+  };
 
   // findScrollableAncestor walks up looking for scrollHeight > clientHeight, so
   // the container must report a viewport smaller than its content even for the
@@ -125,12 +153,12 @@ function gmailInfiniteScroll({ total = 18000, firstBatch = 50, perScroll = 50, s
   const counterText = stillClaimsMore ? `1-${revealed} of ${total.toLocaleString('en-US')}` : '';
   const toolbar = {
     getClientRects: () => [{}],
-    querySelectorAll: () => (counterText ? [{ textContent: counterText }] : []),
+    querySelectorAll: () => (counterText ? [{ textContent: counterText, getClientRects: () => [{}] }] : []),
   };
 
   const context = vm.createContext({
     self: { InboxCleanerParsing: parsing }, InboxCleanerParsing: parsing,
-    location: { hash: '' },
+    location: { hash: 'search/category:primary' },
     chrome: { runtime: { onMessage: { addListener() {} }, sendMessage: async () => {} } },
     Date: class extends Date { static now() { return clock; } },
     setTimeout(callback, ms) { clock += ms; queueMicrotask(callback); return 0; },
@@ -142,11 +170,12 @@ function gmailInfiniteScroll({ total = 18000, firstBatch = 50, perScroll = 50, s
   context.Event = class { constructor(type) { this.type = type; } };
   context.document = {
     querySelector: selector => {
+      if (selector === 'input[name="q"]') return { value: decodeURIComponent(context.location.hash.replace(/^search\//, '')) };
       if (selector === 'tr.zA') return rowEls()[0];
       if (selector === 'div[gh="tm"]') return stillClaimsMore ? toolbar : null;
       return null;
     },
-    querySelectorAll: selector => (selector === 'tr.zA' ? rowEls() : []),
+    querySelectorAll: selector => selector === 'tr.zA' ? rowEls() : selector === 'div[gh="tm"]' && stillClaimsMore ? [toolbar] : [],
   };
   return context;
 }
@@ -320,4 +349,151 @@ test('a stuck Older button is still detected when only positional ids and no cou
     /did not load the next page/i,
   );
   assert.equal(context.__dom.olderClicks, 1, 'Older must be tried once, then the stall reported');
+});
+
+// Captured live Gmail structure on 2026-10-21: T-I-Js-Gs is present on the
+// ENABLED Older button; only Newer has aria-disabled="true" on page one.
+test('Gmail enabled Older styling does not prevent a complete scan', async () => {
+  const rows = await vm.runInContext('scanCategory("primary")', gmail({ total: 350, enabledStyle: true }));
+  assert.equal(rows.length, 350);
+});
+
+test('hidden rows retained by Gmail are excluded from sender discovery', async () => {
+  const rows = await vm.runInContext('scanCategory("primary")', gmail({ total: 200, hiddenRows: true }));
+  assert.equal(rows.length, 200);
+  assert.equal(rows.some(row => row.threadId === 'hidden-thread'), false);
+});
+
+test('thread ids on descendant spans survive row id changes', async () => {
+  const rows = await vm.runInContext('scanCategory("primary")', gmail({ total: 200, nestedIds: true }));
+  assert.equal(rows.length, 200);
+  assert.equal(rows[0].threadId, 'thread-0');
+  assert.equal(rows[199].threadId, 'thread-199');
+});
+
+test('a category scan waits for the new search results rather than counting stale rows', async () => {
+  const context = gmail({ total: 3 });
+  const oldQuery = context.document.querySelector;
+  const oldAll = context.document.querySelectorAll;
+  let elapsed = 0;
+  const timeout = context.setTimeout;
+  context.setTimeout = (fn, ms) => { elapsed += ms; return timeout(fn, ms); };
+  const currentRows = () => oldAll('tr.zA').map(row => elapsed < 1500 ? row : ({
+    ...row,
+    getAttribute: () => 'social-' + row.id,
+    querySelector: selector => selector.includes('email')
+      ? { getAttribute: attr => attr === 'email' ? 'social@example.com' : 'Social sender' }
+      : row.querySelector(selector),
+  }));
+  context.document.querySelector = selector => selector === 'input[name="q"]'
+    ? { value: elapsed < 200 ? 'category:primary' : 'category:social ' }
+    : selector === 'tr.zA' ? currentRows()[0] : oldQuery(selector);
+  context.document.querySelectorAll = selector => selector === 'tr.zA' ? currentRows() : oldAll(selector);
+  const rows = await vm.runInContext('scanCategory("social")', context);
+  assert.equal(rows.length, 3);
+  assert.equal(rows.every(row => row.email === 'social@example.com'), true);
+});
+
+test('an empty category ignores retained hidden rows and completes without old senders', async () => {
+  const context = gmail({ total: 3 });
+  const oldAll = context.document.querySelectorAll;
+  context.document.querySelectorAll = selector => {
+    if (selector === 'tr.zA') return oldAll(selector).map(row => ({ ...row, getClientRects: () => [] }));
+    if (selector === 'td.TC') return [{ getClientRects: () => [{}], textContent: 'No messages matched your search.' }];
+    return oldAll(selector);
+  };
+  const rows = await vm.runInContext('scanCategory("primary")', context);
+  assert.equal(rows.length, 0);
+});
+
+test('an unconfirmed category search fails instead of accepting the previous category', async () => {
+  await assert.rejects(vm.runInContext('scanCategory("social")', gmail({ searchConfirms: false })), /search|query/i);
+});
+
+test('exact sender counts wait for the sender result counter instead of reading a stale category total', async () => {
+  const context = gmail({ total: 200 });
+  const oldQuery = context.document.querySelector;
+  const oldAll = context.document.querySelectorAll;
+  let elapsed = 0;
+  const timeout = context.setTimeout;
+  context.setTimeout = (fn, ms) => { elapsed += ms; return timeout(fn, ms); };
+  context.document.querySelector = selector => selector === 'input[name="q"]'
+    ? { value: elapsed < 200 ? 'category:primary' : 'from:(target@example.com) ' }
+    : oldQuery(selector);
+  context.document.querySelectorAll = selector => {
+    if (selector === 'div[gh="tm"]' && elapsed >= 1500) return [{
+      getClientRects: () => [{}],
+      querySelectorAll: () => [{ textContent: '1–7 of 7', getClientRects: () => [{}] }],
+    }];
+    if (selector === 'tr.zA' && elapsed >= 1500) return oldAll(selector).slice(0, 7).map(row => ({
+      ...row, getAttribute: () => 'sender-result-' + row.id,
+    }));
+    return oldAll(selector);
+  };
+  assert.equal(await vm.runInContext('countSenderExactly("target@example.com")', context), 7);
+});
+
+
+test('Refresh scans all five paginated categories and saves only their visible senders', async () => {
+  const context = gmail({ total: 350, enabledStyle: true, hiddenRows: true, nestedIds: true, queryAware: true });
+  const replies = [];
+  for (const listener of context.__dom.listeners) listener({ type: 'START_SCAN' }, {}, reply => replies.push(reply));
+  await drain();
+  const final = context.__dom.broadcasts.filter(msg => msg.type === 'SCAN_STATE').pop();
+  assert.equal(final.data.status, 'done');
+  assert.equal(context.__dom.cache.total, 1750);
+  assert.equal(context.__dom.cache.senders.length, 5);
+  for (const sender of context.__dom.cache.senders) {
+    assert.equal(sender.sampledCount, 350);
+    assert.equal(sender.count, 350);
+    assert.equal(sender.categories.length, 1);
+    assert.equal(sender.categories[0], sender.email.split('@')[0].toUpperCase());
+  }
+});
+
+test('a failed Refresh preserves the last complete cache and reports failure', async () => {
+  const context = gmail({ total: 350, enabledStyle: true, stalled: true });
+  const previous = { total: 123, senders: [{ email: 'old@example.com' }] };
+  context.__dom.cache = previous;
+  for (const listener of context.__dom.listeners) listener({ type: 'START_SCAN' }, {}, () => {});
+  await drain();
+  assert.equal(context.__dom.cache, previous);
+  const final = context.__dom.broadcasts.filter(msg => msg.type === 'SCAN_STATE').pop();
+  assert.equal(final.data.status, 'error');
+  assert.match(final.data.error, /next page/i);
+});
+
+test('an empty category cannot make the next nonempty category finish before its rows load', async () => {
+  const context = gmail({ total: 3 });
+  const oldAll = context.document.querySelectorAll;
+  const oldQuery = context.document.querySelector;
+  const empty = { getClientRects: () => [{}], textContent: 'No messages matched your search.' };
+  let elapsed = 0;
+  const timeout = context.setTimeout;
+  context.setTimeout = (fn, ms) => { elapsed += ms; return timeout(fn, ms); };
+  context.document.querySelector = selector => selector === 'input[name="q"]'
+    ? { value: elapsed < 200 ? 'category:primary' : 'category:social ' } : oldQuery(selector);
+  context.document.querySelectorAll = selector => {
+    if (selector === 'tr.zA') return elapsed < 1500 ? [] : oldAll(selector);
+    if (selector === 'td.TC') return elapsed < 1500 ? [empty] : [];
+    return oldAll(selector);
+  };
+  const rows = await vm.runInContext('scanCategory("social")', context);
+  assert.equal(rows.length, 3);
+});
+
+test('a new query with identical conversations can still resolve its exact count after rendering', async () => {
+  const context = gmail({ total: 3 });
+  const oldAll = context.document.querySelectorAll;
+  const oldQuery = context.document.querySelector;
+  const original = oldAll('tr.zA');
+  const replacement = original.map(row => ({ ...row }));
+  let elapsed = 0;
+  const timeout = context.setTimeout;
+  context.setTimeout = (fn, ms) => { elapsed += ms; return timeout(fn, ms); };
+  context.document.querySelector = selector => selector === 'input[name="q"]'
+    ? { value: elapsed < 200 ? 'category:primary' : 'from:(sender@example.com)' } : oldQuery(selector);
+  context.document.querySelectorAll = selector => selector === 'tr.zA'
+    ? elapsed < 1500 ? original : replacement : oldAll(selector);
+  assert.equal(await vm.runInContext('countSenderExactly("sender@example.com")', context), 3);
 });

@@ -42,6 +42,22 @@ Versioning: see `VERSION` file (semver, no `package.json` — this isn't a Node/
 - Added an organic-growth audit covering 50 live sitemap URLs, all 47 articles, product-claim consistency, a transcribed authenticated Search Console baseline, and a prioritized low-budget page/tool roadmap.
 - Added a complete URL-level content inventory and reproducible provenance for the installed SEO audit, content strategy and programmatic SEO skills. No application, production or publishing schedule changes.
 
+## [3.3.1] - 2026-10-21
+
+### Fixed — extension Refresh
+
+- Inspected the failing Gmail view directly: its enabled Older button carries `T-I-Js-Gs` with no `aria-disabled`; only Newer is disabled. The scanner incorrectly rejected Older because of that CSS class, then fell into scrolling and failed with “Gmail reports more pages but this view stopped loading rows.” Enabled controls now use semantic disabled attributes.
+- Read only visible conversation rows, visible toolbars and visible range counters. Live Gmail retained 100 rows with only 50 visible; old hidden results must not contaminate sender counts or give every sender all five category badges.
+- Read stable thread IDs from descendant spans, where this Gmail layout places them, before falling back to page-qualified row IDs.
+- Wait for the search input and a changed or replaced visible result list before accepting category or sender-count searches. Trim Gmail's trailing search whitespace. Retained empty-result notices cannot skip the next category; identical conversations rendered for a new query can still produce exact counts. Search failures preserve the previous complete cache.
+- Synchronized the extension manifest and project version at 3.3.1. Updating requires reloading the extension **and the Gmail tab** so the old content script is replaced. Packaged permissions remain unchanged.
+
+### Validation
+
+- Confirmed the live Older control advances Gmail from 1–50 to 51–100, then restored page one. Inspected actual hidden rows, nested thread IDs, counter markup and empty-search markup. No messages were selected or deleted.
+- Extension/parser regressions cover 10,000-conversation pagination, 18,000-conversation scrolling, full Refresh over five categories, delayed/identical results, empty views, cache preservation and deletion safeguards. A rendered Chrome fixture with the actual content script also completed all 600 synthetic conversations across five categories.
+- Full repository checks retain one unrelated failing test: `the publishing command generates discovery links before marking a queued post published` (`test/site.test.js`), whose publisher fixture lacks the two linked tool pages. No full live-mailbox scan or installed-package upgrade has been claimed.
+
 ## [3.3.0] - 2026-10-17
 
 ### Added

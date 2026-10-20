@@ -107,7 +107,9 @@ function extractRow(rowEl, pageIndex = 0) {
     nameAttr: senderEl ? senderEl.getAttribute('name') : '',
   });
   const dateTs = parseDateFromTitle(dateEl ? dateEl.getAttribute('title') : '');
+  const threadEl = rowEl.querySelector(`[${SELECTORS.threadIdAttr}]`);
   const threadId = rowEl.getAttribute(SELECTORS.threadIdAttr) ||
+    (threadEl && threadEl.getAttribute(SELECTORS.threadIdAttr)) ||
     (rowEl.id ? `p${pageIndex}:${rowEl.id}` : '');
   return { name, email, dateTs, threadId };
 }
@@ -137,13 +139,13 @@ async function scrollListToBottom() {
 // Gmail CSS reshuffle doesn't silently break pagination; the tightest-matching
 // element wins so an outer container's stray digits can't be misread.
 function readResultRange() {
-  const toolbar = document.querySelector(SELECTORS.toolbar);
+  const toolbar = [...document.querySelectorAll(SELECTORS.toolbar)].find(el => el.getClientRects().length);
   if (!toolbar) return null;
 
   let best = null;
   for (const el of toolbar.querySelectorAll('div, span')) {
     const text = el.textContent;
-    if (!text || text.length > 60) continue;
+    if (!el.getClientRects().length || !text || text.length > 60) continue;
     const range = parseResultRange(text);
     if (range && (!best || text.length < best.length)) {
       best = { range, length: text.length };
@@ -156,7 +158,7 @@ function findOlderButton() {
   for (const selector of SELECTORS.olderButton) {
     for (const el of document.querySelectorAll(selector)) {
       if (el.getClientRects().length && el.getAttribute('aria-disabled') !== 'true' &&
-          !el.hasAttribute('disabled') && !el.classList.contains('T-I-Js-Gs')) return el;
+          !el.hasAttribute('disabled')) return el;
     }
   }
   return null;
@@ -186,19 +188,47 @@ async function waitForPageChange(previousRows, previousRange, pageIndex = 0, tim
 }
 
 function extractVisibleRows(pageIndex = 0) {
-  return [...document.querySelectorAll(SELECTORS.row)].map(el => extractRow(el, pageIndex));
+  return [...document.querySelectorAll(SELECTORS.row)]
+    .filter(el => el.getClientRects().length)
+    .map(el => extractRow(el, pageIndex));
 }
 
-// Phase A: walk every page of a category, not just the first one. Gmail
-// paginates (Older/Newer) rather than infinite-scrolling, so the previous
-// scroll-until-stable approach always stopped at page 1.
-async function scanCategory(op, onPage) {
-  location.hash = `search/category:${op}`;
-  try {
-    await waitForElement(SELECTORS.row);
-  } catch {
-    return []; // empty category — nothing to paginate
+// Wait for a new query's visible result list. Gmail retains old hidden tables,
+// and updates its search input before it finishes replacing the old results.
+async function openScanSearch(query) {
+  const input = document.querySelector('input[name="q"]');
+  const sameQuery = input && input.value.trim() === query.trim() &&
+    !/\/p\d+$/.test(location.hash);
+  const previousFirstRow = [...document.querySelectorAll(SELECTORS.row)].find(el => el.getClientRects().length);
+  const previousEmpty = [...document.querySelectorAll('td.TC')].filter(el => el.getClientRects().length);
+  const previousRows = extractVisibleRows();
+  const previousSignature = rowSignature(previousRows);
+  location.hash = `search/${encodeURIComponent(query)}`;
+  await waitForSearchQuery(query);
+  const deadline = Date.now() + RENDER_TIMEOUT_MS;
+  while (Date.now() < deadline) {
+    const rows = extractVisibleRows();
+    const changed = rowSignature(rows) !== previousSignature;
+    const firstRow = [...document.querySelectorAll(SELECTORS.row)].find(el => el.getClientRects().length);
+    const replaced = firstRow && firstRow !== previousFirstRow;
+    if (rows.length && (sameQuery || changed || replaced)) {
+      await sleep(PAGE_SETTLE_MS);
+      if (extractVisibleRows().length) return;
+    }
+    const empty = [...document.querySelectorAll('td.TC')].some(el =>
+      el.getClientRects().length && (sameQuery || !previousEmpty.includes(el)) &&
+      /no conversations|no messages/i.test(el.textContent));
+    if (!rows.length && empty) return;
+    await sleep(200);
   }
+  throw new Error('Scan incomplete: Gmail did not finish loading the search results. Please retry.');
+}
+
+// Phase A: walk every rendered page of a category, then scroll only when Gmail
+// provides no pagination control. Hidden tables never contribute scan rows.
+async function scanCategory(op, onPage) {
+  await openScanSearch(`category:${op}`);
+  if (!extractVisibleRows().length) return [];
 
   const rows = [];
   const seen = new Set();
@@ -290,11 +320,9 @@ async function scanCategory(op, onPage) {
 // total (an estimated "of many" result, or no counter at all).
 async function countSenderExactly(email) {
   const query = buildSenderQuery(email);
-  location.hash = `search/${encodeURIComponent(query)}`;
-  // A query that never lands leaves the previous sender's counter on screen, so
-  // there is nothing here to trust: report unknown rather than another
-  // sender's number (the caller keeps the sampled count and stays inexact).
-  const landed = await waitForSearchQuery(query).then(() => true, () => false);
+  // A query/input change alone is not evidence that the old counter was
+  // replaced. Use the same visible-result readiness check as discovery.
+  const landed = await openScanSearch(query).then(() => true, () => false);
   if (!landed) return null;
 
   const deadline = Date.now() + RENDER_TIMEOUT_MS;
@@ -387,7 +415,7 @@ async function waitForSearchQuery(query, timeoutMs = RENDER_TIMEOUT_MS) {
   const start = Date.now();
   while (Date.now() - start < timeoutMs) {
     const input = document.querySelector('input[name="q"]');
-    if (input && input.value === query) return;
+    if (input && input.value.trim() === query.trim()) return;
     await sleep(200);
   }
   throw new Error(`Gmail's layout may have changed — search box never reflected the query "${query}"`);

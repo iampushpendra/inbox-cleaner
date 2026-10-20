@@ -5,7 +5,7 @@
 [![Live App](https://img.shields.io/badge/Live%20App-open-blue?style=flat-square)](https://inbox-cleaner.vercel.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-**Current version: 3.3.0** — local cleanup tools, reviewed guides and publishing evidence gates; extension runtime remains 3.2.1. See [CHANGELOG.md](CHANGELOG.md) for what's new.
+**Current version: 3.3.1** — extension Refresh fixes verified against live Gmail markup; website tooling remains included. See [CHANGELOG.md](CHANGELOG.md) for what's new.
 
 ---
 
@@ -123,6 +123,8 @@ Inputs stay in page memory and are not saved to the tool URL, local storage or a
 2. Open `chrome://extensions` → enable **Developer mode** (top right)
 3. **Load unpacked** → select the repo root folder (not `docs/`)
 4. Click the 📥 icon in your Chrome toolbar
+
+**Updating an existing unpacked installation:** replace its files with the new package (or keep using this repo folder), click **Reload** on Inbox Cleaner at `chrome://extensions`, then **reload the Gmail tab** before clicking the extension's Refresh button. Chrome does not replace content scripts already running in an open Gmail tab when the extension is updated. The new package is `inbox-cleaner-extension-3.3.1.zip`.
 
 No sign-in step — the extension reads whichever Gmail tab you already have open.
 
