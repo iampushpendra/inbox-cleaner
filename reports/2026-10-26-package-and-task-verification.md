@@ -9,10 +9,14 @@ Plan task T06. Access-gated. Package comparison is complete; live disposable-mai
 | Repository source / `manifest.json` | 3.3.1 | `manifest.json` |
 | Built package `inbox-cleaner-extension-3.3.1.zip` | 3.3.1 | ZIP manifest, 9 entries |
 | `inbox-cleaner-extension.zip` | 3.3.1 | Identical SHA-256 to the versioned ZIP |
-| Installed Chrome package | **Unverified** | No local installed-extension inspection in this run |
-| Chrome Web Store listing | **Unverified** | Dashboard access not provided; earlier notes report 3.2.1 OAuth-era listing |
+| Chrome Web Store (published) | **3.2.1** | Owner confirmed on 2026-10-26; latest released version |
+| Repository archive `inbox-cleaner-extension-3.2.1.zip` | 3.2.1 | ZIP manifest; DOM build with `storage`, `tabs`, `mail.google.com` |
+| Installed local package | **Unverified** | No local installed-extension inspection in this run |
+| Published listing permission block | **Mismatched** | Listing shows OAuth scopes; repository 3.2.1 archive does not declare them. Dashboard access unavailable, so the cause is unresolved. |
 
 ZIP SHA-256: `2043139a3aec587020f6c1846b424342fbab43b23af1ab7c92a34dcbc7385e42`.
+
+Repository 3.2.1 archive SHA-256: `f0ab1cdce98bdd6b8d70e935331eda7d9d45955c1165cbad953371a0e12600aa`. It is the last published version and cannot be compared byte-for-byte with the current 3.3.1 source; the 3.3.1 package above is the prepared future release and remains unreleased.
 
 ## File-by-file comparison
 

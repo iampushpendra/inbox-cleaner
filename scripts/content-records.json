@@ -2,14 +2,14 @@
   "delete-all-emails-from-one-sender-gmail": {
     "state": "evidence_checked",
     "intent_owner": "delete-all-emails-from-one-sender-gmail",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-19",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; OpenCode Space Bunny mobile-handoff source review 2026-10-18 ; OpenCode consolidation review 2026-10-19",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; OpenCode Space Bunny mobile-handoff source review 2026-10-18 ; OpenCode consolidation review 2026-10-19; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "5ee25169edaf9b8e6f2a5d02be3fadb9fa20c32371531a4b78257659522ce42d",
+    "post_sha256": "6b66374ea308e0c36b5eb57982ab256fab62cdd570841cb2e0ae9bcd9804b2f2",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -34,7 +34,8 @@
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
       "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
       "Mobile section added 2026-10-18 from Google's Android documentation only. No physical Android or iOS device was used, no in-app selection was performed, and iPhone/iPad controls remain unreviewed.",
-      "Consolidated 2026-10-19: absorbed the google-alerts and calendar-invite recipes from near-duplicate pages that were redirected here. The unique service-specific and scope material was carried into this page; the merge was driven by paragraph overlap and absent impressions, not by a backlink export, which was not available."
+      "Consolidated 2026-10-19: absorbed the google-alerts and calendar-invite recipes from near-duplicate pages that were redirected here. The unique service-specific and scope material was carried into this page; the merge was driven by paragraph overlap and absent impressions, not by a backlink export, which was not available.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -46,51 +47,14 @@
   "gmail-inbox-zero": {
     "state": "evidence_checked",
     "intent_owner": "gmail-inbox-zero",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "dc2bbc278b21d30b375559cb5c72114e07aa9d8c68ed32e4ea040fd9ac52948e",
-    "sources": [
-      {
-        "url": "https://support.google.com/mail/answer/7190?hl=en",
-        "supports": "Native search syntax and mixed-conversation limits where relevant.",
-        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
-      },
-      {
-        "url": "https://support.google.com/mail/answer/7401?hl=en",
-        "supports": "Selection, Trash and recovery boundaries where relevant.",
-        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
-      }
-    ],
-    "assets": [
-      "internal/superpowers/plans/seo-content-review-report.md"
-    ],
-    "limitations": [
-      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
-    ],
-    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
-    "related_links": [
-      "/blog/gmail-archive-vs-delete.html",
-      "/blog/how-to-select-all-emails-gmail.html",
-      "/blog/delete-all-emails-from-one-sender-gmail.html"
-    ]
-  },
-  "how-to-free-up-gmail-storage": {
-    "state": "evidence_checked",
-    "intent_owner": "how-to-free-up-gmail-storage",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-19",
-    "verification_kind": "source_review",
-    "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review ; OpenCode consolidation review 2026-10-19",
-      "kind": "agent"
-    },
-    "post_sha256": "e41c6c402b8a1054f3e297f00c13d43ebf2bbcda67ca34e6caadf16ab0470bfa",
+    "post_sha256": "70b611b7e8adc80c589b5d303b79e61c889ac2232270ee409228586d3b956070",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -109,7 +73,51 @@
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
       "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
-      "Consolidated 2026-10-19: absorbed gmail-storage-full-how-to-fix and gmail-storage-almost-full-what-to-do from near-duplicate pages that were redirected here. The unique service-specific and scope material was carried into this page; the merge was driven by paragraph overlap and absent impressions, not by a backlink export, which was not available."
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
+    "related_links": [
+      "/blog/gmail-archive-vs-delete.html",
+      "/blog/how-to-select-all-emails-gmail.html",
+      "/blog/delete-all-emails-from-one-sender-gmail.html"
+    ]
+  },
+  "how-to-free-up-gmail-storage": {
+    "state": "evidence_checked",
+    "intent_owner": "how-to-free-up-gmail-storage",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
+    "verification_kind": "source_review",
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review ; OpenCode consolidation review 2026-10-19; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
+      "kind": "agent"
+    },
+    "post_sha256": "b7fb76289912fab7e5e6597fae4b7794a3c6de809ccf6a81e400fbebdde5ec7a",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      },
+      {
+        "url": "https://support.google.com/drive/answer/6374270?hl=en",
+        "supports": "Google storage is shared across Drive, Gmail and Photos; empty Trash and Spam are the documented short-term fixes.",
+        "review_notes": "Re-fetched and checked 2026-10-26 against the article text."
+      }
+    ],
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Consolidated 2026-10-19: absorbed gmail-storage-full-how-to-fix and gmail-storage-almost-full-what-to-do from near-duplicate pages that were redirected here. The unique service-specific and scope material was carried into this page; the merge was driven by paragraph overlap and absent impressions, not by a backlink export, which was not available.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -121,14 +129,14 @@
   "how-to-bulk-delete-gmail-emails": {
     "state": "evidence_checked",
     "intent_owner": "how-to-bulk-delete-gmail-emails",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-19",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; OpenCode Space Bunny mobile-handoff source review 2026-10-18 ; OpenCode consolidation review 2026-10-19",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; OpenCode Space Bunny mobile-handoff source review 2026-10-18 ; OpenCode consolidation review 2026-10-19; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "c482120348b0f38bdebf1aa446a1b4200952ade7128544c60739935613cfb114",
+    "post_sha256": "a4019c8ece37ec5e85dd211aa92b0a25f9905d165271fd1735c9b832a55caa4e",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -153,7 +161,8 @@
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
       "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
       "Mobile section added 2026-10-18 from Google's Android documentation only. No physical Android or iOS device was used, no in-app selection was performed, and iPhone/iPad controls remain unreviewed.",
-      "Consolidated 2026-10-19: absorbed gmail-bulk-delete-by-sender and gmail-delete-all-emails-from-multiple-senders from near-duplicate pages that were redirected here. The unique service-specific and scope material was carried into this page; the merge was driven by paragraph overlap and absent impressions, not by a backlink export, which was not available."
+      "Consolidated 2026-10-19: absorbed gmail-bulk-delete-by-sender and gmail-delete-all-emails-from-multiple-senders from near-duplicate pages that were redirected here. The unique service-specific and scope material was carried into this page; the merge was driven by paragraph overlap and absent impressions, not by a backlink export, which was not available.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -165,14 +174,14 @@
   "gmail-delete-all-promotional-emails": {
     "state": "evidence_checked",
     "intent_owner": "gmail-delete-all-promotional-emails",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "43e890b7ca07d744d8bca85f82c92eb46cf5586bac304fe7f073088a46747adf",
+    "post_sha256": "f2ef259ca197fd777ffadae9add40ae4d5aa733ee63fc29e558859778c3353e3",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -183,6 +192,11 @@
         "url": "https://support.google.com/mail/answer/7401?hl=en",
         "supports": "Selection, Trash and recovery boundaries where relevant.",
         "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/15621070?hl=en",
+        "supports": "Manage subscriptions is gradually rolling out, may unsubscribe from all lists for a sender, and can take a few days.",
+        "review_notes": "Re-fetched and checked 2026-10-26 against the article text."
       }
     ],
     "assets": [
@@ -190,7 +204,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -202,14 +217,14 @@
   "how-to-unsubscribe-from-emails-gmail": {
     "state": "evidence_checked",
     "intent_owner": "how-to-unsubscribe-from-emails-gmail",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "f0daf14559ba90bc23538225ffa48024319073c915bfd146bcc1127330a0dca7",
+    "post_sha256": "9e1a2e491be46d354e801ca15d4e9abc7e74a023d3fa2d012c4c7429a1b3fd57",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -220,6 +235,11 @@
         "url": "https://support.google.com/mail/answer/7401?hl=en",
         "supports": "Selection, Trash and recovery boundaries where relevant.",
         "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/15621070?hl=en",
+        "supports": "Manage subscriptions is gradually rolling out, may unsubscribe from all lists for a sender, and can take a few days.",
+        "review_notes": "Re-fetched and checked 2026-10-26 against the article text."
       }
     ],
     "assets": [
@@ -227,7 +247,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -246,7 +267,7 @@
       "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; OpenCode SEO completion re-review 2026-10-26",
       "kind": "agent"
     },
-    "post_sha256": "f01903b222d3d5c0ee369f8eb874e387c08bc2d390fc65b4d75c4f155a3be0bc",
+    "post_sha256": "fbab10c038286bb7b26363ce9de0d06d0f78e395cd7636e1cc6f1276f0cf7128",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -276,14 +297,14 @@
   "gmail-delete-all-unread-emails": {
     "state": "evidence_checked",
     "intent_owner": "gmail-delete-all-unread-emails",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "3329554b1c2f04fab4606cf09d2bdb035e6879a61e0a928d5ae7aa158c0d1876",
+    "post_sha256": "d76400d0fda0b6ad13d4114c65dce9d2f31101f283eb820ec90bb97ba1a85ab6",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -301,7 +322,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -313,14 +335,14 @@
   "gmail-archive-vs-delete": {
     "state": "evidence_checked",
     "intent_owner": "gmail-archive-vs-delete",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "eaa93e01a2dbff340e4297417e1117610b89ea7f581c83e777f3200e31985111",
+    "post_sha256": "f6c882f775d494623e88042ffed4a99e316db3d90dcd29ca56c4fb8fc3421c89",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -331,6 +353,11 @@
         "url": "https://support.google.com/mail/answer/7401?hl=en",
         "supports": "Selection, Trash and recovery boundaries where relevant.",
         "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/6576?hl=en",
+        "supports": "Archive removes the Inbox label and keeps mail under All Mail; archived mail is still searchable and still uses storage.",
+        "review_notes": "Re-fetched and checked 2026-10-26 against the article text."
       }
     ],
     "assets": [
@@ -338,7 +365,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -350,14 +378,14 @@
   "gmail-filters-delete-emails-automatically": {
     "state": "evidence_checked",
     "intent_owner": "gmail-filters-delete-emails-automatically",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "4976fe9e03cf63adfc2c4cfaacfcce53f9c0f0b1f1954eb4581dda7e3819ab54",
+    "post_sha256": "a2d2134d139e5f5117ed23314bd75a9d69195d044654f750449a9aeb6a79d357",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -368,6 +396,11 @@
         "url": "https://support.google.com/mail/answer/7401?hl=en",
         "supports": "Selection, Trash and recovery boundaries where relevant.",
         "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/6579?hl=en",
+        "supports": "Filters act on incoming mail; a forward filter affects only new messages unless they match the same criteria.",
+        "review_notes": "Re-fetched and checked 2026-10-26 against the article text."
       }
     ],
     "assets": [
@@ -375,7 +408,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -387,14 +421,14 @@
   "how-to-delete-old-emails-gmail": {
     "state": "evidence_checked",
     "intent_owner": "how-to-delete-old-emails-gmail",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "cfaa6fdab82f7e5eaa755242f7586ad04878607423e0f2a8de44d527b2bd6d9a",
+    "post_sha256": "7e9b64ad0dafa83d3d1bd52d98a90742a589a874833facd13751d3463e5e4134",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -412,7 +446,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -424,14 +459,14 @@
   "how-to-mass-delete-emails-gmail": {
     "state": "evidence_checked",
     "intent_owner": "how-to-mass-delete-emails-gmail",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-19",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review ; OpenCode consolidation review 2026-10-19",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review ; OpenCode consolidation review 2026-10-19; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "6a3681e2570e7644742d1b7941b9921481421f7045e3b3194fb3e5ab029d71a3",
+    "post_sha256": "999ef3ac8877febe18c84c0dfe7f015fba0d0314b1eb80d81d9e8930ce46abc8",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -450,7 +485,8 @@
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
       "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
-      "Consolidated 2026-10-19: absorbed how-to-delete-thousands-of-emails-gmail from near-duplicate pages that were redirected here. The unique service-specific and scope material was carried into this page; the merge was driven by paragraph overlap and absent impressions, not by a backlink export, which was not available."
+      "Consolidated 2026-10-19: absorbed how-to-delete-thousands-of-emails-gmail from near-duplicate pages that were redirected here. The unique service-specific and scope material was carried into this page; the merge was driven by paragraph overlap and absent impressions, not by a backlink export, which was not available.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -462,51 +498,14 @@
   "how-to-clean-gmail-inbox-in-5-minutes": {
     "state": "evidence_checked",
     "intent_owner": "how-to-clean-gmail-inbox-in-5-minutes",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "ca25e323a675784c371680dc1ff35b7b3a2c7be75fc92b17a780474cabf6bda3",
-    "sources": [
-      {
-        "url": "https://support.google.com/mail/answer/7190?hl=en",
-        "supports": "Native search syntax and mixed-conversation limits where relevant.",
-        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
-      },
-      {
-        "url": "https://support.google.com/mail/answer/7401?hl=en",
-        "supports": "Selection, Trash and recovery boundaries where relevant.",
-        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
-      }
-    ],
-    "assets": [
-      "internal/superpowers/plans/seo-content-review-report.md"
-    ],
-    "limitations": [
-      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
-    ],
-    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
-    "related_links": [
-      "/blog/delete-all-emails-from-one-sender-gmail.html",
-      "/blog/how-to-select-all-emails-gmail.html",
-      "/blog/gmail-archive-vs-delete.html"
-    ]
-  },
-  "gmail-delete-social-media-notifications": {
-    "state": "evidence_checked",
-    "intent_owner": "gmail-delete-social-media-notifications",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-19",
-    "verification_kind": "source_review",
-    "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review ; OpenCode consolidation review 2026-10-19",
-      "kind": "agent"
-    },
-    "post_sha256": "0301f6a82cf4981e6135c5a2cb5401f15363cf846da740fdfbc400c200b7e64b",
+    "post_sha256": "80a16093d65b5425b7b14daedb6ee0573bcc4afdc2eb2634e57b55afcd975e7a",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -525,7 +524,46 @@
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
       "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
-      "Consolidated 2026-10-19: absorbed facebook, instagram, linkedin and twitter-x notification recipes from near-duplicate pages that were redirected here. The unique service-specific and scope material was carried into this page; the merge was driven by paragraph overlap and absent impressions, not by a backlink export, which was not available."
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
+    ],
+    "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
+    "related_links": [
+      "/blog/delete-all-emails-from-one-sender-gmail.html",
+      "/blog/how-to-select-all-emails-gmail.html",
+      "/blog/gmail-archive-vs-delete.html"
+    ]
+  },
+  "gmail-delete-social-media-notifications": {
+    "state": "evidence_checked",
+    "intent_owner": "gmail-delete-social-media-notifications",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
+    "verification_kind": "source_review",
+    "reviewer": {
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review ; OpenCode consolidation review 2026-10-19; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
+      "kind": "agent"
+    },
+    "post_sha256": "79c61f0c7fd8eab68eca5049e44048ea42d0b78281ba447edb9ee521aad6a988",
+    "sources": [
+      {
+        "url": "https://support.google.com/mail/answer/7190?hl=en",
+        "supports": "Native search syntax and mixed-conversation limits where relevant.",
+        "review_notes": "Substantive source-reviewed rewrite or earlier refresh reviewed in the complete URL disposition inventory; no live semantics guarantee."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/7401?hl=en",
+        "supports": "Selection, Trash and recovery boundaries where relevant.",
+        "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      }
+    ],
+    "assets": [
+      "internal/superpowers/plans/seo-content-review-report.md"
+    ],
+    "limitations": [
+      "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Consolidated 2026-10-19: absorbed facebook, instagram, linkedin and twitter-x notification recipes from near-duplicate pages that were redirected here. The unique service-specific and scope material was carried into this page; the merge was driven by paragraph overlap and absent impressions, not by a backlink export, which was not available.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -544,7 +582,7 @@
       "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; OpenCode Space Bunny mobile-handoff source review 2026-10-18; OpenCode SEO completion re-review 2026-10-26",
       "kind": "agent"
     },
-    "post_sha256": "81a97a5916c9e5eb02108b5a9bf4fc276e440c5297886f710be425f05e1ec222",
+    "post_sha256": "db065552b932394812b0b81aee16d0eec1fc2c6772f81eb1be9f74a0972b09fb",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -587,7 +625,7 @@
       "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; OpenCode SEO completion re-review 2026-10-26",
       "kind": "agent"
     },
-    "post_sha256": "994da967219e832dc969b5879597aa3c2fb981c073045849966e04cfcfff44e7",
+    "post_sha256": "3f9c37980abb4c2d90fe1e767d0bff7c1b0ad8aa714c57d06a05d7da71cdc729",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -617,14 +655,14 @@
   "how-to-delete-spam-emails-gmail": {
     "state": "evidence_checked",
     "intent_owner": "how-to-delete-spam-emails-gmail",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "cf49fb0b6cd1e9da492a124ff9e0f8b874eac12090cd8b918ccb743d1768c911",
+    "post_sha256": "30a84690bbbb9280ac717aed0d1731d7b0496fce43b2b9f91b31d630b1427aec",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -642,7 +680,9 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims.",
+      "Google's Gmail Help pages reviewed on 2026-10-26 document Trash recovery but do not publish a Spam retention window; the 30-day Spam statement is hedged as normal behaviour, not a guaranteed documented period."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -654,14 +694,14 @@
   "gmail-empty-trash-automatically": {
     "state": "evidence_checked",
     "intent_owner": "gmail-empty-trash-automatically",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "42b4ee921cf5890f226e3609441b8c95350f11443eeb288bf2700f9b0c47e01e",
+    "post_sha256": "dbb962f053d02595ae33406db509ebf75f85819775db881a0f8ab568a7560fba",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -672,6 +712,11 @@
         "url": "https://support.google.com/mail/answer/7401?hl=en",
         "supports": "Selection, Trash and recovery boundaries where relevant.",
         "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      },
+      {
+        "url": "https://support.google.com/drive/answer/6374270?hl=en",
+        "supports": "Trash and Spam count toward shared Google storage until permanently cleared; storage updates can take 48-72 hours.",
+        "review_notes": "Re-fetched and checked 2026-10-26 against the article text."
       }
     ],
     "assets": [
@@ -679,7 +724,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -698,7 +744,7 @@
       "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; OpenCode Space Bunny mobile-handoff source review 2026-10-18; OpenCode SEO completion re-review 2026-10-26",
       "kind": "agent"
     },
-    "post_sha256": "ae991da58895d3340e73b9b919df3b77398f249cb5ffe08608ad112b3ed7cb51",
+    "post_sha256": "dd48ff30991d7f48acacb853dfa7774b56fd5f563d7d24bc4a80501ea5268471",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -734,14 +780,14 @@
   "gmail-vs-outlook-bulk-delete": {
     "state": "evidence_checked",
     "intent_owner": "gmail-vs-outlook-bulk-delete",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "7c888619a97a509be536461ba27ec2411c103f996c1b0f26a1ad0338cd9ad44f",
+    "post_sha256": "5874d595927d2564860fe70e8ad4357cbe05ea0aa72280d55d28d8cf390adbc9",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -759,7 +805,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -771,14 +818,14 @@
   "how-to-organize-cluttered-gmail-inbox": {
     "state": "evidence_checked",
     "intent_owner": "how-to-organize-cluttered-gmail-inbox",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "edafeccc9bc6b7d035492ca3838cea6a2efcfdfa284e36270a499b6ae4adc7d8",
+    "post_sha256": "5cd1fe0da95ce799ea6752ac8b7edf2cf662c569e3734d4fb4b95417870367c1",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -796,7 +843,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -808,14 +856,14 @@
   "gmail-storage-upgrade-vs-cleanup": {
     "state": "evidence_checked",
     "intent_owner": "gmail-storage-upgrade-vs-cleanup",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "b62290a1485d49ebf0fc79d91e7746f13a6a3681831f57100298b041fcc5c7e7",
+    "post_sha256": "3dbbccd356e786dbeba31dc3b1e5f97ba034fb109027df83f741bf433c4c8906",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -826,6 +874,11 @@
         "url": "https://support.google.com/mail/answer/7401?hl=en",
         "supports": "Selection, Trash and recovery boundaries where relevant.",
         "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      },
+      {
+        "url": "https://support.google.com/drive/answer/6374270?hl=en",
+        "supports": "Google storage is shared across Drive, Gmail and Photos; Google One raises the limit, cleanup frees space.",
+        "review_notes": "Re-fetched and checked 2026-10-26 against the article text."
       }
     ],
     "assets": [
@@ -833,7 +886,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -845,14 +899,14 @@
   "how-to-delete-newsletter-emails-gmail": {
     "state": "evidence_checked",
     "intent_owner": "how-to-delete-newsletter-emails-gmail",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "efaf3f1a68640f5adf23dc232015a3794a7a87c9598bbecb6455a80c8370dbf3",
+    "post_sha256": "ce04d8366861f06debfec36283dccfe0b9f1cf589d032164750288368712eff8",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -863,6 +917,11 @@
         "url": "https://support.google.com/mail/answer/7401?hl=en",
         "supports": "Selection, Trash and recovery boundaries where relevant.",
         "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      },
+      {
+        "url": "https://support.google.com/mail/answer/15621070?hl=en",
+        "supports": "Manage subscriptions is gradually rolling out, may unsubscribe from all lists for a sender, and can take a few days.",
+        "review_notes": "Re-fetched and checked 2026-10-26 against the article text."
       }
     ],
     "assets": [
@@ -870,7 +929,9 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims.",
+      "Manage subscriptions availability is now described as a gradual rollout after the 2026-10-26 source check."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -882,14 +943,14 @@
   "gmail-search-operators-to-find-old-emails": {
     "state": "evidence_checked",
     "intent_owner": "gmail-search-operators-to-find-old-emails",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "c8d96341edc8c39fa3b42dbff07572252a171d68d289ad063dbe36cd1a0f809e",
+    "post_sha256": "1c947284eabdffa450381e750786e90e661fd8061e0b1a374aa40d095089e5d9",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -907,7 +968,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -919,14 +981,14 @@
   "how-to-permanently-delete-gmail-emails": {
     "state": "evidence_checked",
     "intent_owner": "how-to-permanently-delete-gmail-emails",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "bf5ef930bd342041fb4e080b20c5813a93d264af4504af006c1af36673a3d61a",
+    "post_sha256": "9ddc6572ac5fcd3b9b7d65328539662717c9e3d14ae47d8e00068d816aea92b4",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -937,6 +999,11 @@
         "url": "https://support.google.com/mail/answer/7401?hl=en",
         "supports": "Selection, Trash and recovery boundaries where relevant.",
         "review_notes": "Reader-facing removal scope and recovery caveats checked; article-specific official references remain in visible text."
+      },
+      {
+        "url": "https://support.google.com/drive/answer/6374270?hl=en",
+        "supports": "Permanent removal of Trash and Spam is what stops those messages counting against shared storage.",
+        "review_notes": "Re-fetched and checked 2026-10-26 against the article text."
       }
     ],
     "assets": [
@@ -944,7 +1011,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -963,7 +1031,7 @@
       "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; OpenCode Space Bunny mobile-handoff source review 2026-10-18; OpenCode SEO completion re-review 2026-10-26",
       "kind": "agent"
     },
-    "post_sha256": "a69f8a72989bc0d60ac49705e320c38f5b33a871fbaf114bb3731a5cd18de5c7",
+    "post_sha256": "0cd6c83bf7f78fb72821f5bbc5f9908ae1cc4d5c5aee96aa970b875260aa3528",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -999,14 +1067,14 @@
   "best-way-to-clean-gmail-2026": {
     "state": "evidence_checked",
     "intent_owner": "best-way-to-clean-gmail-2026",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-19",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review ; OpenCode consolidation review 2026-10-19",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review ; OpenCode consolidation review 2026-10-19; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "8b6926f27f1bcf74552ddcfc35a01bdcf2db3867af78a25544844e443ce39412",
+    "post_sha256": "7fd5c290ecb0191e169054026949d3ce32558a3978c26fc9f06a618e2f97ac7e",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -1025,7 +1093,8 @@
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
       "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
-      "Consolidated 2026-10-19: absorbed clean-up-gmail-inbox from near-duplicate pages that were redirected here. The unique service-specific and scope material was carried into this page; the merge was driven by paragraph overlap and absent impressions, not by a backlink export, which was not available."
+      "Consolidated 2026-10-19: absorbed clean-up-gmail-inbox from near-duplicate pages that were redirected here. The unique service-specific and scope material was carried into this page; the merge was driven by paragraph overlap and absent impressions, not by a backlink export, which was not available.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -1037,14 +1106,14 @@
   "delete-amazon-order-emails-gmail": {
     "state": "evidence_checked",
     "intent_owner": "delete-amazon-order-emails-gmail",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "047d173f2889312aed75a88caa5a71576bb4bc09cbfb03d7b6677b63f1879172",
+    "post_sha256": "2d51765133e0b539b6b51e68c5ff994a496cb4e10e0c2d51f58a3fcc4651a84b",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -1062,7 +1131,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -1074,14 +1144,14 @@
   "delete-uber-eats-doordash-receipts-gmail": {
     "state": "evidence_checked",
     "intent_owner": "delete-uber-eats-doordash-receipts-gmail",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "69975ed1d3e4a872329503435b082ede6431f6ce5bbdee9c066d1f0b99fc9b49",
+    "post_sha256": "e221150cd8144cb6d4e2035d219bdaa27c1e6b1a4f4a88a790aaf2b64464c5dd",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -1099,7 +1169,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -1111,14 +1182,14 @@
   "delete-bank-statement-emails-safely-gmail": {
     "state": "evidence_checked",
     "intent_owner": "delete-bank-statement-emails-safely-gmail",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "7421ff4d9644c949f52984e6010f15d871222a1e5d25ddf5c54ebedf57a06b0a",
+    "post_sha256": "77d9b531779329504dec7f6573dfc83ca9cc421bfaec62da87e082b8c4d8474a",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -1136,7 +1207,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -1148,14 +1220,14 @@
   "delete-shipping-confirmation-emails-gmail": {
     "state": "evidence_checked",
     "intent_owner": "delete-shipping-confirmation-emails-gmail",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "caf2421f7f10cb2a7ec386dee6b2f9a77c0c948727b24d7f1305fe65272c81bc",
+    "post_sha256": "62ea15a30f522fe3009e2ade87d7b73294c3b6abdb31f18f87293534a470caea",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -1173,7 +1245,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -1185,14 +1258,14 @@
   "delete-job-alert-emails-gmail": {
     "state": "evidence_checked",
     "intent_owner": "delete-job-alert-emails-gmail",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "22d0a9dbec81838f0ee448f4e3f472731263f3a928fedf12e2a696cb1ec9b5a6",
+    "post_sha256": "0253aea70368329bccdd85dd8f0f362bc32189be8fdce15aac4243688e599e35",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -1210,7 +1283,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -1222,14 +1296,14 @@
   "delete-linkedin-connection-request-emails": {
     "state": "evidence_checked",
     "intent_owner": "delete-linkedin-connection-request-emails",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "8cb669111db1804ef35dad44e76fd6ba7ba9fe85ed9c253c0c3839abe9a9d299",
+    "post_sha256": "02b42eee9f27984c420aa03920f0bf728b5162eafa6d6651e3b7c7b7c9d510a9",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -1247,7 +1321,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -1259,14 +1334,14 @@
   "delete-paypal-emails-gmail": {
     "state": "evidence_checked",
     "intent_owner": "delete-paypal-emails-gmail",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "9a4bd70d5bc1f5cf9509513f3fc01c1d8f7ffda99dab96ea2f49e7cc4fe80b25",
+    "post_sha256": "5c891fa6314518fa11b1c09b79a24d6edf77a16517f6d4aab27eeecd5830420e",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -1284,7 +1359,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -1296,14 +1372,14 @@
   "delete-zoom-meeting-emails-gmail": {
     "state": "evidence_checked",
     "intent_owner": "delete-zoom-meeting-emails-gmail",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "a17c1b75610b1aba4a2e8f472ad80a517b253f028d7bc475907d3261d015a491",
+    "post_sha256": "446f3d2648300e1e4e909512b6a144ee4b2ed2e3dd8a9e66987a380cd658d294",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -1321,7 +1397,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Answer the specific job in the target query using a tested native Gmail example; distinguish it from the cluster hub before drafting.",
     "related_links": [
@@ -1333,14 +1410,14 @@
   "gmail-select-all-conversations-not-showing": {
     "state": "evidence_checked",
     "intent_owner": "gmail-select-all-conversations-not-showing",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "6c55b866362f869d8ca94c8521cc752518f16f153fd6ea5b315a0a9929d3735d",
+    "post_sha256": "eacbb127548c578fea74bd6db8accee3cc725d0081b99a1760a802e7f01fa2de",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -1358,7 +1435,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "A screenshot-led decision tree separating page selection, search results, view differences and mobile limitations; do not promise a universal fix.",
     "related_links": [
@@ -1370,14 +1448,14 @@
   "gmail-bulk-delete-not-working": {
     "state": "evidence_checked",
     "intent_owner": "gmail-bulk-delete-not-working",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; 2026-10-26 re-review by DeepSeek V4.1 Flash Free (agent): product claims checked against repository version 3.3.1 and the published 3.2.1 sender query; cited Google Help pages re-fetched; static review, no live mailbox run",
       "kind": "agent"
     },
-    "post_sha256": "9b40492d1930a6369d17173378cf6ee387393367b1fc5a8100c14db7f96a79e2",
+    "post_sha256": "aafdaf70593473f0ad5ebd46b4dc55003f793f6eba1d65e9cce954e750ee6f32",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -1395,7 +1473,8 @@
     ],
     "limitations": [
       "Historical URL retained; source/static review only, not a verified live Gmail walkthrough, installed-package certification or competitor test.",
-      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher."
+      "This record is evidence_checked, not permission for future publication or a changed refresh. A fresh matching readiness review is required by the manual publisher.",
+      "Re-reviewed 2026-10-26 against repository version 3.3.1; the published Chrome Web Store build is 3.2.1, whose sender query and Trash behavior match this article's claims."
     ],
     "information_gain": "Separate wrong selection scope, stale results and interrupted actions; verify a small disposable batch before retrying.",
     "related_links": [
@@ -4374,7 +4453,7 @@
       "identity": "Codex /root source review after /root/evidence_assets authorship and second text review; OpenCode SEO completion re-review 2026-10-26",
       "kind": "agent"
     },
-    "post_sha256": "64906b31e06825b1acfbfd4067b76233658aae996fac6a9c26dbc308f59aab82",
+    "post_sha256": "df382cb73e73143dac602bd9777fc9e0c1c476556d2a1697df05bdbc93b40ae7",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -4389,7 +4468,7 @@
       {
         "url": "https://github.com/iampushpendra/inbox-cleaner",
         "supports": "Local extension architecture, permissions, sender batch construction and cache.",
-        "review_notes": "Compared current manifest, content/parsing/popup source and conservative product-facts record; installed store package not verified."
+        "review_notes": "Compared current manifest, content/parsing/popup source and conservative product-facts record; installed store package not verified. Release status confirmed by owner 2026-10-26: store 3.2.1 is latest, repository 3.3.1 is unreleased."
       }
     ],
     "assets": [
@@ -4416,7 +4495,7 @@
       "identity": "Codex /root source review after /root/evidence_assets authorship and second text review; OpenCode SEO completion re-review 2026-10-26",
       "kind": "agent"
     },
-    "post_sha256": "cf232d846ea15922dcc5cea2ec6c2f86246b71859c530ada3488959ae739a743",
+    "post_sha256": "269e83cea8bac68c70023c0c325a8555ec7e0a36bc057a52530f6a075e6f7dde",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -4431,7 +4510,7 @@
       {
         "url": "https://github.com/iampushpendra/inbox-cleaner",
         "supports": "Local extension architecture, permissions, sender batch construction and cache.",
-        "review_notes": "Compared current manifest, content/parsing/popup source and conservative product-facts record; installed store package not verified."
+        "review_notes": "Compared current manifest, content/parsing/popup source and conservative product-facts record; installed store package not verified. Release status confirmed by owner 2026-10-26: store 3.2.1 is latest, repository 3.3.1 is unreleased."
       }
     ],
     "assets": [

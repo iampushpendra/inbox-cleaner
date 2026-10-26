@@ -1,6 +1,11 @@
 {
   "reviewed_on": "2026-10-26",
   "extension_manifest_version": "3.3.1",
+  "release_status": {
+    "repository_source": "3.3.1 (unreleased)",
+    "published_store": "3.2.1",
+    "statement": "The Chrome Web Store listing is on 3.2.1, confirmed by the owner on 2026-10-26. Version 3.3.1 exists in the repository only and has not been released; an installed copy may not include 3.3.1 changes."
+  },
   "evidence_scope": "Current repository source and local fixture tests; not certification of the installed Chrome Web Store package or a live mailbox run.",
   "source_files": ["manifest.json", "content.js", "parsing.js", "popup.js"],
   "permissions": ["storage", "tabs"],

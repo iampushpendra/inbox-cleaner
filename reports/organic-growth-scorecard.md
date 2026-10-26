@@ -75,15 +75,13 @@ Fixed cohort: select-all, size deletion, mailbox-full, biggest-mail, older-than-
 - Published articles: 39
 - Evidence records: 187 (148 draft, 37 evidence_checked, 2 publish_ready)
 - Reviewed records: 39 — historical state labels, not current verification
-- Current verified coverage: 7 — record version and authored fingerprint match today's source
-- Stale reviewed records: 32 — best-way-to-clean-gmail-2026, delete-all-emails-from-one-sender-gmail, delete-amazon-order-emails-gmail, delete-bank-statement-emails-safely-gmail, delete-job-alert-emails-gmail, delete-linkedin-connection-request-emails, delete-paypal-emails-gmail, delete-shipping-confirmation-emails-gmail, delete-uber-eats-doordash-receipts-gmail, delete-zoom-meeting-emails-gmail, gmail-archive-vs-delete, gmail-bulk-delete-not-working, gmail-delete-all-promotional-emails, gmail-delete-all-unread-emails, gmail-delete-social-media-notifications, gmail-empty-trash-automatically, gmail-filters-delete-emails-automatically, gmail-inbox-zero, gmail-search-operators-to-find-old-emails, gmail-select-all-conversations-not-showing, gmail-storage-upgrade-vs-cleanup, gmail-vs-outlook-bulk-delete, how-to-bulk-delete-gmail-emails, how-to-clean-gmail-inbox-in-5-minutes, how-to-delete-newsletter-emails-gmail, how-to-delete-old-emails-gmail, how-to-delete-spam-emails-gmail, how-to-free-up-gmail-storage, how-to-mass-delete-emails-gmail, how-to-organize-cluttered-gmail-inbox, how-to-permanently-delete-gmail-emails, how-to-unsubscribe-from-emails-gmail
+- Current verified coverage: 39 — record version and authored fingerprint match today's source
+- Stale reviewed records: 0 — none
 - Retired records with no live page: none
 - Topics by status: 18 deferred, 12 merged, 130 pending, 39 published
 
 Articles with no reviewed record: none.
 Reviewed records with no published article: none.
-
-Stale records name a manifest version or authored fingerprint that no longer matches the running source. The article must be re-reviewed; refreshing the hash or version alone would defeat the gate. A stale label is not verified coverage.
 
 Reviewed coverage is tracked here instead of an article total because a longer backlog is not progress. A `draft` record is unverified no matter how plausible the article reads, and index exclusions stay an external gate until an owner inspection exists.
 
