@@ -1,0 +1,29 @@
+{
+  "collected_on": "2026-10-26",
+  "status": "blocked_access",
+  "reason": "No authenticated Search Console, GA4 or Chrome Web Store Developer Dashboard session was available in this execution. No export was fabricated or copied forward as current.",
+  "source_property": "Inbox Cleaner Search Console property and Chrome Web Store listing (owner-accessible reports)",
+  "intended_window": "Latest complete GSC days plus comparable prior periods; store exports on their own window and reporting timezone",
+  "timezone": "Not recorded for a new collection; the preserved 2026-10-17 snapshot uses the store's Los Angeles reporting timezone",
+  "filters": [],
+  "exported_at": null,
+  "missing_files": [
+    "gsc-full-history/chart.csv",
+    "gsc-full-history/pages.csv",
+    "gsc-full-history/queries.csv",
+    "gsc-full-history/devices.csv",
+    "gsc-full-history/countries.csv",
+    "gsc-full-history/filters.csv",
+    "ga-90d-traffic-source-medium.csv",
+    "ga-90d-install-events-by-source.csv"
+  ],
+  "preserved_baseline": "research_notes/Analytics intelligence 2026-10-17",
+  "owner_actions_required": [
+    "Export the latest complete GSC window with all disclosed page/query rows, devices, countries and filters.",
+    "Export comparable previous-period GSC rows without joining anonymized queries.",
+    "Export store GA source/session and separately install-filtered events, preserving window and timezone.",
+    "Export Developer Dashboard installs, uninstalls, active users and acquisition reports."
+  ],
+  "attribution_note": "The four ChatGPT-attributed install events in the preserved snapshot remain a small-sample observation. The provenance of those links (public answer, owner-shared link or unknown) is unresolved and must not be described as conversion from website clicks.",
+  "scorecard_run": "Re-ran scripts/growth_scorecard.py against the preserved 2026-10-17 snapshot so verified-coverage validity from T01/T02 is recorded. That snapshot remains historical, not a current total."
+}

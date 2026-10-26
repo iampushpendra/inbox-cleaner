@@ -76,3 +76,10 @@ Decide whether pages serve different intents before merging. Only if intent and 
 ## Delivery checks and follow-through
 
 Local JSON/HTML checks and semantic fixture assertions are recorded in `internal/superpowers/plans/seo-evidence-assets-report.md`. Root integration must add discovery/manifest/evidence records and run the site gates. Live publication, search indexing, community publication, competitor testing and mailbox demonstrations are separate unfinished external work; no completion claim is implied.
+
+## Status update — 26 October 2026
+
+**Competitor comparison (T08): blocked, no firsthand claim published.** No competitor was installed, no trial was purchased and no account was connected. The candidates and protocol above remain preparation only. The existing native-Gmail comparison stays explicitly source-based. A firsthand comparison can be added only after the authorized disposable-account tasks are run with a documented method; until then, any source-only competitor section must say so.
+
+**Distribution and citation (T09): prepared, nothing sent.** The ten fixed question families are in `research_notes/SEO completion 2026-10-26/citation-checks.csv` with blank results because no authenticated ChatGPT/search session was available. The distribution ledger is `reports/2026-10-26-distribution-ledger.md`; Medium/community sends still need specific authorization. The 16-second demo and the worked examples remain preferred over generic promotion. `llms.txt` stays optional infrastructure, not a citation guarantee.
+

@@ -1,0 +1,11 @@
+family,prompt,search_mode,checked_at,cited_url,answer_correct,owner_test_status,notes
+selection_link,"Why is 'Select all conversations that match this search' missing in Gmail?",,,,unchecked,not_run,No authenticated ChatGPT/search session was available in this execution
+bulk_completion,"How do I bulk delete thousands of Gmail emails without deleting the wrong ones?",,,,unchecked,not_run,
+sender_cleanup,"How can I delete all emails from one sender in Gmail?",,,,unchecked,not_run,
+age_syntax,"How do I delete Gmail emails older than one year?",,,,unchecked,not_run,
+size_recipe,"How do I find and delete the biggest emails in Gmail?",,,,unchecked,not_run,
+full_storage,"What should I do when Gmail says storage is full and I cannot receive email?",,,,unchecked,not_run,
+storage_after_deletion,"Why didn't my Gmail storage free up after deleting emails?",,,,unchecked,not_run,
+archive_delete,"What is the difference between archiving and deleting in Gmail?",,,,unchecked,not_run,
+unsubscribe_backlog,"How do I unsubscribe from emails and stop the backlog in Gmail?",,,,unchecked,not_run,
+permissions_setup,"What permissions does the Inbox Cleaner Chrome extension need?",,,,unchecked,not_run,

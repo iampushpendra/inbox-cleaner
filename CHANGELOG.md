@@ -16,6 +16,9 @@ Versioning: see `VERSION` file (semver, no `package.json` — this isn't a Node/
 
 ### Fixed
 
+- The publisher fixture failed because the build emitted contextual tool links even when a site had no tool manifest, so the generated article linked to `/tools/...` pages that did not exist. Tool mentions are now emitted only for configured tools. The genuine broken-local-link rejection remains covered in the content-gate tests; the check was not weakened.
+- Verified coverage no longer counts a stale evidence label as current. `scripts/growth_scorecard.py` keeps the historical `reviewed` count and adds `current_reviewed`, `stale_records` and `retired_records` based on the running manifest version and authored fingerprint. A manifest bump or an unreviewed edit now shows as stale, and consolidated records with no live page show as retired.
+
 - The site build appended another duplicate `og:title`/`og:description` pair to every article on every rebuild, so live pages were already serving six copies and growing. Generated tags were re-collected as if they were authored. The social region now reads the authored head with its previous region removed, and emits only what pages lack (image and Twitter card), restoring an idempotent build and one tag per page.
 
 ### Extension — manifest 3.2.1 → 3.2.2
@@ -34,6 +37,12 @@ Versioning: see `VERSION` file (semver, no `package.json` — this isn't a Node/
 
 ### Changed
 - The acquisition scorecard now reports the device and country dimension exports that were already collected but never read, records the preserved export filters with the weekly replace-and-keep procedure, and counts verified editorial coverage by evidence-record state instead of article totals. A published article with no reviewed record, and a reviewed record with no article, are now surfaced as contradictions to fix. Blank or uncollected cells stay Unknown; no window is force-reconciled with the adjacent 28-day rows. Mobile holds a better approximate position and CTR than desktop in the current export, which is recorded as the editorial reason the mobile handoff exists.
+
+### Changed — SEO completion verification
+
+- Re-reviewed the two gated guides and the five owners whose authored content changed during consolidation. Their manifest version is now 3.3.1 with current fingerprints and dated reviewer records; the other 32 reviewed records remain visibly stale until re-reviewed rather than being mechanically blessed. `scripts/product-facts.json` now records the 3.3.1 pagination, visible-row and scan-completion behavior and keeps the installed-package limitation.
+- Captured a 73-URL production check: all 44 sitemap URLs, all 12 consolidation redirects (single 308 to a self-canonical owner), alias routes, tools/assets and private-path leakage checks. Results are in `reports/2026-10-26-seo-url-reconciliation.md`; the sitemap and article internal links are now pinned by a repository test.
+- Recorded the acquisition measurement limit (no new tracker), the package-versus-source comparison, the editorial shortlist, the citation-check baseline and the distribution ledger for the remaining plan tasks.
 
 ### Documentation
 - Integrated the organic-growth audit into product tasks R27–R34 and a current SEO roadmap with SEO-01–SEO-09, all 15 page/tool briefs, analytics boundaries, dependencies and acceptance gates. Marked older SEO plans as historical and synchronized the product roadmap reading edition.
