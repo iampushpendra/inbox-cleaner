@@ -42,6 +42,13 @@ Versioning: see `VERSION` file (semver, no `package.json` — this isn't a Node/
 - Added an organic-growth audit covering 50 live sitemap URLs, all 47 articles, product-claim consistency, a transcribed authenticated Search Console baseline, and a prioritized low-budget page/tool roadmap.
 - Added a complete URL-level content inventory and reproducible provenance for the installed SEO audit, content strategy and programmatic SEO skills. No application, production or publishing schedule changes.
 
+## [3.3.2] - 2026-10-26
+
+### Documentation
+- Added a complete SEO/ChatGPT discovery completion plan with verified current inventory, ten work packages, subagent ownership, dependencies, acceptance gates, access requirements and post-recrawl 28/56/84-day reviews.
+- Reconciled the historical roadmap with 12 existing consolidations and 39 retained articles. Recorded the current publisher-fixture failure and stale manifest/fingerprint readiness records as P0 execution work rather than claiming technical completion.
+- Linked the authoritative current plan from README and the historical roadmap/delivery ledger. Planning-only release: no runtime, site, analytics, store, mailbox or publishing changes; extension manifest remains 3.3.1. Existing unrelated local work is preserved.
+
 ## [3.3.1] - 2026-10-21
 
 ### Fixed — extension Refresh

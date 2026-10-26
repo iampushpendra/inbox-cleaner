@@ -1,5 +1,7 @@
 # SEO roadmap delivery — 17 October 2026
 
+> Historical release ledger. For current state, release blockers, later consolidations and remaining work, use [the 26 October completion plan](2026-10-26-seo-completion-plan.md). Earlier publication/check counts below are dated records, not current deployment proof.
+
 Plan: `internal/superpowers/plans/2026-10-17-seo-roadmap.md`.
 Base: `2263d24`. User authorizes continuing all SEO work through subagents. Existing repo is shared; each worker owns disjoint files. Controller owns integration and release metadata. User previously authorized push and publication; this continues that same SEO scope. Publish the verified finished batch with an ordinary push; never force-push.
 
