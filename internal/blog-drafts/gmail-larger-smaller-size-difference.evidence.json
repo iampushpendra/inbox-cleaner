@@ -1,0 +1,60 @@
+{
+  "slug": "gmail-larger-smaller-size-difference",
+  "state": "draft",
+  "intent_owner": "gmail-larger-smaller-size-difference",
+  "hub_slug": "gmail-delete-emails-by-size",
+  "target_query": "what is the difference between larger smaller and size in gmail search",
+  "product_manifest_version": "3.2.2",
+  "drafted_on": "2026-10-20",
+  "drafted_by": { "identity": "Claude Opus 5.5 scheduled editorial draft job (Claude Code)", "kind": "agent" },
+  "verification_kind": "source_review",
+  "verified_on": null,
+  "reviewer": null,
+  "post_sha256": null,
+  "sources": [
+    {
+      "url": "https://support.google.com/mail/answer/7190?hl=en",
+      "supports": "size:, larger: and smaller: share one table row described as 'Find emails by their size' with examples size:1000000 and larger:10M (no smaller: example); number rule that a space or dash separates a number and a dot is a decimal; negative-operator caveat that Gmail 'identifies matching messages first'; page is the Computer version.",
+      "review_notes": "Fetched 2026-10-20 by the drafting agent (WebFetch and a raw curl text extraction, both agreeing). Confirmed the shared row wording and both examples verbatim. The page does NOT state units beyond the M example, whether thresholds are inclusive, whether M is decimal or binary, whether size: means at-least or exact, whether decimals are accepted, or any sort-by-size option. The draft states each of these as undocumented. Extending the 'matching messages first' caveat from negative operators to size searches is the draft's reasoning, presented as such."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/6593?hl=en",
+      "supports": "The search options panel has a Size field described as 'Searches for emails that match a certain size'.",
+      "review_notes": "Fetched 2026-10-20 via curl text extraction. Confirmed the Size field wording. The page gives no detail on its comparison choices or units, and the draft does not claim any; it only suggests comparing the generated query with a typed one. Whether the panel writes a query into the search box was not verified and the FAQ wording should be checked by a reviewer."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en",
+      "supports": "Deleted messages go to Trash and are recoverable for 30 days.",
+      "review_notes": "Relied on the 30-day Trash statement as confirmed in sibling drafts' 2026-10-17 fetch; not re-fetched in this run. Cited only for the cleanup step of the self-test."
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc2045",
+      "supports": "Base64 content-transfer-encoding represents each 24-bit group (3 bytes) of input as 4 encoded characters, with encoded lines no longer than 76 characters.",
+      "review_notes": "Fetched rfc2045.txt 2026-10-20 and located section 6.8 text on 24-bit groups and the 76-character line limit. The draft says only that an encoded attachment is about a third larger; it explicitly says Google does not document whether size search counts encoded or raw bytes."
+    }
+  ],
+  "serp_review": {
+    "checked_on": "2026-10-20",
+    "query": "gmail search difference between size: larger: smaller: operator",
+    "observation": "Standard web search returned Google's 7190 reference, third-party operator guides (ionos.com, webnots.com, supportbee.com, computerworld.com, a helpdesk page) and a Google Workspace Cloud Search reserved-operators page. Third-party guides commonly assert size: is a bytes-only version of larger: and disagree on whether the boundary is inclusive; none separated Google-documented facts from inference or offered a way to check the thresholds. The Cloud Search page concerns a different product and was not used as evidence (fetch also timed out).",
+    "limitation": "A single standard US search; not a full Google SERP capture. Third-party guide content was seen only through search summaries, not fetched."
+  },
+  "information_gain": "A documented-versus-undocumented table for the three operators (what Google's single shared row actually says vs. inclusivity, MB definition, units, exact-vs-at-least size:), a job-to-query decision table, and a reader-runnable known-size bracketing test that explains why a message can be larger than its attachment (Base64 per RFC 2045) and lets readers measure where Gmail's thresholds fall. The hub (gmail-delete-emails-by-size) and how-to-find-biggest-emails-gmail give recipes but neither explains how the three operators differ or what is undocumented.",
+  "overlap_check": "Hub gmail-delete-emails-by-size owns the deletion procedure and how-to-find-biggest-emails-gmail owns the discovery recipe; this draft links to both and does not repeat their steps. Deferred topic gmail-search-operator-size-larger ('search larger than a certain size') is owned by the hub. Pending gmail-large-email-query-no-results (troubleshooting no results) remains distinct: this draft does not troubleshoot empty results. Pending gmail-find-large-emails-without-attachments is only touched in one table row.",
+  "limitations": [
+    "Source and documentation review only; no live Gmail mailbox test was run. The known-size bracketing test is presented as a method for readers with no expected results, and its outcome (encoded vs raw counting, inclusive boundaries, MB definition, K unit, decimals, size: semantics) is unverified.",
+    "The step-4 interpretation (matching larger:3M for a file just under 3 MB suggests encoded counting) also depends on Gmail's undocumented M definition; a reviewer may want to soften or test it.",
+    "The FAQ about the search-options Size field assumes Gmail shows a generated query in the search box; this was not verified.",
+    "The 7401 Trash statement was not re-fetched in this run.",
+    "Mobile app operator support is not discussed; the cited reference is the computer version."
+  ],
+  "related_links": [
+    "/blog/gmail-delete-emails-by-size.html",
+    "/blog/how-to-find-biggest-emails-gmail.html",
+    "/blog/how-to-select-all-emails-gmail.html",
+    "/blog/how-to-free-up-gmail-storage.html",
+    "/blog/delete-all-emails-from-one-sender-gmail.html"
+  ],
+  "assets": [],
+  "review_needed": "An independent substantive reviewer should re-read 7190 and 6593 claim by claim, decide whether the step-4 interpretation and the Size-field FAQ need softening or a live test, ideally run the known-size test in a real mailbox (recording assets if so), then record evidence_checked or publish_ready with their real identity, verified_on and post_sha256 in scripts/content-records.json during a separate promotion."
+}

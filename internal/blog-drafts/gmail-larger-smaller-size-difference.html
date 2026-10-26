@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="canonical" href="https://inbox-cleaner.vercel.app/blog/gmail-larger-smaller-size-difference.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>larger:, smaller: and size: in Gmail Search: What's the Difference? | Inbox Cleaner</title>
+  <meta name="description" content="Gmail's larger: and smaller: set a size threshold with units like 10M; size: takes a plain number. What Google documents, what it doesn't, and how to test.">
+  <meta property="og:title" content="larger:, smaller: and size: in Gmail Search: What's the Difference?">
+  <meta property="og:description" content="Gmail's larger: and smaller: set a size threshold with units like 10M; size: takes a plain number. What Google documents, what it doesn't, and how to test.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://inbox-cleaner.vercel.app/blog/gmail-larger-smaller-size-difference.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "larger:, smaller: and size: in Gmail Search: What's the Difference?",
+    "datePublished": "2026-10-20",
+    "dateModified": "2026-10-20",
+    "author": { "@type": "Organization", "name": "Inbox Cleaner" },
+    "publisher": { "@type": "Organization", "name": "Inbox Cleaner", "url": "https://inbox-cleaner.vercel.app" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "larger:, smaller: and size: in Gmail Search: What's the Difference?",
+    "step": [
+      { "@type": "HowToStep", "name": "Pick a test file of known size", "text": "Choose a file whose size your computer reports, such as a photo or PDF of about 3 MB. Note the exact size in bytes from the file's information panel." },
+      { "@type": "HowToStep", "name": "Email it to yourself", "text": "In Gmail on a computer, send a new message to your own address with the file attached and a unique subject such as size-test-3mb." },
+      { "@type": "HowToStep", "name": "Bracket it with thresholds", "text": "Search subject:size-test-3mb larger:2M, then larger:3M, then larger:4M, then subject:size-test-3mb smaller:4M. Write down which searches return the message." },
+      { "@type": "HowToStep", "name": "Read the result", "text": "The highest larger: value that still returns the message and the lowest smaller: value that returns it bracket the size Gmail uses for search. If it matches thresholds above the file size, Gmail is counting more than the raw file." },
+      { "@type": "HowToStep", "name": "Remove the test messages", "text": "Delete the sent and received test copies when you are done. They move to Trash, where Google says messages are recoverable for 30 days." }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can I use K for kilobytes, like smaller:500K?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Google's reference only shows an M example (larger:10M) and a plain number (size:1000000). Other units are not documented, so run the known-size test before relying on them, or use a plain number of bytes." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is 10M ten million bytes or 10 MiB?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Google doesn't say. The two differ by about 5%, which only matters for messages close to the threshold. Leave a margin, or bracket the message with the known-size test." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I search for a decimal size such as larger:2.5M?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Google notes that a dot in a search number is read as a decimal point, but it doesn't say whether size operators accept decimals. A whole number in bytes, such as larger:2500000, avoids the question." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the Size field in Gmail's search options the same thing?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Google describes the Size field in the search options panel only as searching for emails that match a certain size. Use it, then look at the query Gmail puts in the search box and compare the results with your typed search." }
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>📥</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-logo" href="/">📥 Inbox<span>Cleaner</span></a>
+  <a class="blog-nav-cta" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add to Chrome →</a>
+</nav>
+
+<main>
+  <div class="blog-wrap">
+    <span class="blog-eyebrow">Gmail Storage</span>
+    <h1 class="blog-h1">larger:, smaller: and size: in Gmail Search: What's the Difference?</h1>
+    <p class="blog-meta">Updated October 2026 · 4 min read</p>
+
+    <div class="blog-body">
+
+      <div class="quick-answer">
+        <strong>Quick answer:</strong> In Gmail search, <code>larger:</code> sets a lower size limit and <code>smaller:</code> sets an upper one. Both accept a unit, as in Google's example <code>larger:10M</code>. <code>size:</code> takes a plain number, as in Google's example <code>size:1000000</code>, but Google doesn't say whether it means "at least" or "exactly". For cleanup on a computer, use <code>larger:</code> and <code>smaller:</code>, combining them for a range such as <code>larger:5M smaller:10M</code>. Gmail filters by size; it does not sort largest first.
+      </div>
+
+      <p>Google's <a href="https://support.google.com/mail/answer/7190?hl=en">Gmail search operator reference</a> puts all three operators in one row, describes them only as "Find emails by their size", and gives two examples. Everything else people say about them, including in many guides, is inferred. This page separates what Google documents from what it leaves out and gives you a quick way to check the gaps in your own mailbox. If you already know which query you want and need the deletion steps, use <a href="../blog/gmail-delete-emails-by-size.html">how to delete Gmail emails by size safely</a>.</p>
+
+      <h2>What does each Gmail size operator do?</h2>
+      <table>
+        <thead>
+          <tr><th>Operator</th><th>Google's example</th><th>What you can rely on</th><th>What Google doesn't document</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>larger:</code></td><td><code>larger:10M</code></td><td>Finds emails above a size. Accepts the <code>M</code> unit.</td><td>Whether a message of exactly 10M matches. Whether M means 1,000,000 or 1,048,576 bytes. Which other units work.</td></tr>
+          <tr><td><code>smaller:</code></td><td>None given</td><td>The opposite direction: emails below a size. Listed in the same row as <code>larger:</code>.</td><td>No example at all, so units and boundaries are inferred from <code>larger:</code>.</td></tr>
+          <tr><td><code>size:</code></td><td><code>size:1000000</code></td><td>Takes a plain number.</td><td>Whether it matches emails at least that size or exactly that size, and whether it accepts units.</td></tr>
+        </tbody>
+      </table>
+      <p>Many third-party guides describe <code>size:</code> as a bytes-only version of <code>larger:</code>. That may be right, but Google doesn't state it. An exact-size match is rarely useful anyway, because you almost never know a message's size to the byte. For practical searches, <code>larger:</code> and <code>smaller:</code> say what they mean.</p>
+
+      <h2>Which size query should I use for my job?</h2>
+      <table>
+        <thead>
+          <tr><th>Job</th><th>Query</th><th>Note</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Find the heaviest mail first</td><td><code>larger:20M</code>, then <code>larger:10M</code></td><td>Lower the threshold step by step. See <a href="../blog/how-to-find-biggest-emails-gmail.html">how to find the biggest emails in Gmail</a>.</td></tr>
+          <tr><td>Work through one size band</td><td><code>larger:5M smaller:10M</code></td><td>Both conditions must match. Leave no gap or overlap when you move to the next band.</td></tr>
+          <tr><td>Large mail you sent</td><td><code>in:sent larger:5M</code></td><td>Your sent copy may be the only copy of the files.</td></tr>
+          <tr><td>Large mail with files</td><td><code>has:attachment larger:5M</code></td><td>Without <code>has:attachment</code>, the search covers every large message, whatever makes it large.</td></tr>
+          <tr><td>Mail of an exact size</td><td>No reliable query</td><td><code>size:</code> isn't documented as an exact match. Bracket it with <code>larger:</code> and <code>smaller:</code> instead.</td></tr>
+        </tbody>
+      </table>
+      <p>Keep the numbers whole. Google notes that in search, a space or a dash separates a number and a dot is a decimal point, but it doesn't say whether size operators accept decimals. If you need 2.5 MB, <code>larger:2500000</code> sidesteps the question, at the cost of assuming a plain number means bytes.</p>
+
+      <h2>How can I test where the thresholds fall in my own mailbox?</h2>
+      <p>A message is usually bigger than the file attached to it. Email sends attachments as text using Base64 encoding, which <a href="https://www.rfc-editor.org/rfc/rfc2045">RFC 2045</a> defines as turning every 3 bytes into 4 characters. That makes the encoded attachment about a third larger, before headers and the message body are added. Google doesn't say whether its size search counts the encoded message or the original file. You can find out in a few minutes with a test message whose size you know.</p>
+      <ol class="blog-steps">
+        <li><strong>Pick a test file of known size.</strong> Choose a photo or PDF of about 3 MB and note its exact size in bytes from your computer's file information panel.</li>
+        <li><strong>Email it to yourself.</strong> In Gmail on a computer, send a new message to your own address with the file attached and a unique subject such as <code>size-test-3mb</code>.</li>
+        <li><strong>Bracket it with thresholds.</strong> Search <code>subject:size-test-3mb larger:2M</code>, then <code>larger:3M</code> and <code>larger:4M</code>, then <code>subject:size-test-3mb smaller:4M</code>. Write down which searches return the message.</li>
+        <li><strong>Read the result.</strong> The highest <code>larger:</code> value that still returns the message and the lowest <code>smaller:</code> value that returns it bracket the size Gmail uses. If the message matches <code>larger:3M</code> or higher although the file was just under 3 MB, that suggests Gmail counts the whole encoded message, not the raw file. Add <code>size:</code> with the file's byte count to see how it behaves.</li>
+        <li><strong>Remove the test messages.</strong> Delete the sent and received copies. They move to Trash, where Google's <a href="https://support.google.com/mail/answer/7401?hl=en">deletion and recovery help</a> says they stay recoverable for 30 days.</li>
+      </ol>
+      <p>We have not run this test for this article, so no expected results are given here. The method is the point. If your result surprises you, adjust your thresholds by the margin you saw before searching your real mail.</p>
+
+      <h2>Why doesn't Gmail list results largest first?</h2>
+      <p>The size operators filter results; they don't sort them. Gmail's search reference documents no sort-by-size option, so the matching conversations appear in the usual date order. To get closer to a largest-first view, start with a high threshold and work down. Each pass shows a smaller, heavier group. Remember that a result count is a number of conversations, not bytes, so it can't tell you how much storage you will get back. For the account-wide picture, see <a href="../blog/how-to-free-up-gmail-storage.html">how to free up Gmail storage</a>.</p>
+
+      <h2>Why does a size search show conversations with small messages?</h2>
+      <p>Gmail matches individual messages and then shows their conversations. Google explains this for negative searches, noting that Gmail "identifies matching messages first", so a <code>-is:starred</code> search can still return a conversation containing a starred message. The same display applies to a size search. One large message can bring up a conversation full of small replies, and deleting the conversation removes all of them. Open results before you select them. When you're ready to act on a large result set, <a href="../blog/how-to-select-all-emails-gmail.html">how to select all emails in Gmail</a> explains the page-versus-all-conversations selection.</p>
+
+      <div class="blog-cta">
+        <h3>Clean up Gmail with the Chrome extension</h3>
+        <p>Install from the Chrome Web Store, then open Gmail and click Inbox Cleaner. Emails go to Trash (30-day recovery window).</p>
+        <a class="blog-cta-btn" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add Inbox Cleaner to Chrome →</a>
+      </div>
+
+      <h2>When is a size search the wrong tool?</h2>
+      <p>Size searches suit a few heavy messages. If your mailbox is full of thousands of small newsletters and notifications, no size threshold will isolate them. Clearing the senders will. Inbox Cleaner runs in an open Gmail tab in desktop Chrome, groups senders by email count and moves the selected senders' emails to Trash. It can't apply a size limit: everything from a chosen sender goes, large or small. Counts are email counts, not storage. Stay with native size searches when size is the reason you're deleting. For the sender approach, see <a href="../blog/delete-all-emails-from-one-sender-gmail.html">how to delete all emails from one sender in Gmail</a>.</p>
+
+      <p>Source review: 20 October 2026. Operator examples, the shared "Find emails by their size" description, the number-separator rule and the conversation-matching caveat were checked against Google's search operator reference. The Size field description was checked against Google's <a href="https://support.google.com/mail/answer/6593?hl=en">Search in Gmail</a> page, and Base64 expansion against RFC 2045. No live-mailbox test or original screenshot is claimed. <a href="/blog/">All guides</a>.</p>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <p class="faq-q">Can I use K for kilobytes, like smaller:500K?</p>
+          <p class="faq-a">Google's reference only shows an M example (<code>larger:10M</code>) and a plain number (<code>size:1000000</code>). Other units are not documented, so run the known-size test before relying on them, or use a plain number of bytes.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Is 10M ten million bytes or 10 MiB?</p>
+          <p class="faq-a">Google doesn't say. The two differ by about 5%, which only matters for messages close to the threshold. Leave a margin, or bracket the message with the known-size test.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Can I search for a decimal size such as larger:2.5M?</p>
+          <p class="faq-a">Google notes that a dot in a search number is read as a decimal point, but it doesn't say whether size operators accept decimals. A whole number in bytes, such as <code>larger:2500000</code>, avoids the question.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Is the Size field in Gmail's search options the same thing?</p>
+          <p class="faq-a">Google describes the Size field in the search options panel only as searching for emails that match a certain size. Use it, then look at the query Gmail puts in the search box and compare the results with your typed search.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>Built by <a href="https://github.com/iampushpendra" target="_blank" rel="noopener">@iampushpendra</a> · <a href="../privacy.html">Privacy Policy</a> · <a href="https://github.com/iampushpendra/inbox-cleaner" target="_blank" rel="noopener">GitHub</a> · Emails go to Trash — you have 30 days to restore them.</p>
+</footer>
+
+</body>
+</html>

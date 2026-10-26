@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="canonical" href="https://inbox-cleaner.vercel.app/blog/gmail-cleaner-without-oauth.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Can I Clean Gmail Without Giving a Tool OAuth Access? | Inbox Cleaner</title>
+  <meta name="description" content="Yes: Gmail itself needs no third-party access. A Chrome extension can skip OAuth but gets Gmail site access instead. Avoid app passwords.">
+  <meta property="og:title" content="Can I Clean Gmail Without Giving a Tool OAuth Access? | Inbox Cleaner">
+  <meta property="og:description" content="Yes: Gmail itself needs no third-party access. A Chrome extension can skip OAuth but gets Gmail site access instead. Avoid app passwords.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://inbox-cleaner.vercel.app/blog/gmail-cleaner-without-oauth.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Can I Clean Gmail Without Giving a Tool OAuth Access?",
+    "datePublished": "2026-10-21",
+    "dateModified": "2026-10-21",
+    "author": { "@type": "Organization", "name": "Inbox Cleaner" },
+    "publisher": { "@type": "Organization", "name": "Inbox Cleaner", "url": "https://inbox-cleaner.vercel.app" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Can I Clean Gmail Without Giving a Tool OAuth Access?",
+    "step": [
+      { "@type": "HowToStep", "name": "Search for the mail", "text": "Open Gmail on a computer and search for the mail to clear, for example from:news@example.com, adding conditions such as older_than:1y if you want to keep recent mail." },
+      { "@type": "HowToStep", "name": "Select every match", "text": "Click the select checkbox above the list. If Gmail offers to select all conversations that match the search, click that link so the selection covers more than the current page." },
+      { "@type": "HowToStep", "name": "Move it to Trash", "text": "Click Delete. The conversations move to Trash, where they stay for 30 days before Gmail removes them permanently." },
+      { "@type": "HowToStep", "name": "Check Trash", "text": "Open Trash and confirm only what you expected is there. Restore anything wrong with Move to." },
+      { "@type": "HowToStep", "name": "Stop new arrivals", "text": "To handle future mail from the same sender, use Show search options, enter the criteria, click Create filter and choose Delete it." }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Will a no-OAuth Chrome extension show up in my Google Account's third-party connections?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Google's third-party connections page covers Sign in with Google, account linking, apps with access to your Google Account and agent permissions. An extension that works inside the Gmail page is managed in Chrome instead, from Manage extensions." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is a mail client that uses my Gmail password an option?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Not with your normal password. Gmail no longer supports third-party apps or devices that require your Google username and password. Some clients accept an app password instead, which Google says is not recommended and is unnecessary in most cases." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does removing the tool undo the cleanup?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Removing an extension or revoking access stops future access only. Mail moved to Trash can be restored from Trash for 30 days; after that Gmail deletes it permanently." }
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>📥</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-logo" href="/">📥 Inbox<span>Cleaner</span></a>
+  <a class="blog-nav-cta" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add to Chrome →</a>
+</nav>
+
+<main>
+  <div class="blog-wrap">
+    <span class="blog-eyebrow">Cleanup Tools &amp; Privacy</span>
+    <h1 class="blog-h1">Can I Clean Gmail Without Giving a Tool OAuth Access?</h1>
+    <p class="blog-meta">Updated October 2026 · 5 min read</p>
+
+    <div class="blog-body">
+
+      <div class="quick-answer">
+        <strong>Quick answer:</strong> Yes. You can clean Gmail without giving any tool OAuth access. Gmail's own search, select-all and filters on a computer need no third-party access at all. A Chrome extension that works inside the Gmail page can also skip OAuth, but it gets Chrome site access to mail.google.com instead. That lets it read and change Gmail pages while you are signed in, so it is a different kind of access, not less access. Avoid "no OAuth" mail clients that ask for an app password. Google discourages them.
+      </div>
+
+      <p>OAuth is the "Sign in with Google" consent screen where an app asks for Gmail permissions. Skipping that screen does not mean no one gets access to your mail. It changes who grants the access, what it covers, where it is listed and how you take it back. Compare those four things before you choose a route.</p>
+
+      <h2>Which ways of cleaning Gmail avoid an OAuth grant?</h2>
+
+      <p>This table compares the common routes, based on Google's and Chrome's documentation cited below. It describes each access model. It does not rate any particular product.</p>
+
+      <div class="blog-table-scroll" role="region" aria-label="Ways to clean Gmail without an OAuth grant" tabindex="0">
+      <table class="compare-table">
+        <caption>Access models for cleaning Gmail, from Google and Chrome documentation</caption>
+        <thead>
+          <tr>
+            <th scope="col">Route</th>
+            <th scope="col">What you grant</th>
+            <th scope="col">What it can reach</th>
+            <th scope="col">Listed in Google Account connections?</th>
+            <th scope="col">How to stop it</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Gmail itself (search, select all, filters)</td>
+            <td>Nothing</td>
+            <td>Only what you do yourself</td>
+            <td>Not applicable</td>
+            <td>Delete the filter if you made one</td>
+          </tr>
+          <tr>
+            <td>Chrome extension working in the Gmail page</td>
+            <td>Chrome site access to mail.google.com, shown at install</td>
+            <td>Gmail pages in that Chrome profile while you are signed in, not just the message on screen</td>
+            <td>No</td>
+            <td>Chrome Manage extensions: remove it, or limit site access</td>
+          </tr>
+          <tr>
+            <td>Mail client with an app password</td>
+            <td>A 16-digit passcode for your Google Account</td>
+            <td>Your account through that app, not limited to cleanup</td>
+            <td>No; it has its own App passwords page</td>
+            <td>Remove the app password, or change your Google password</td>
+          </tr>
+          <tr>
+            <td>Your own Apps Script</td>
+            <td>This is still OAuth, granted to your own script</td>
+            <td>Whatever scopes the script requests</td>
+            <td>Yes</td>
+            <td>Remove the script's access in your Google Account</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p>Apps Script is listed because it is often suggested as a do-it-yourself route. It does not avoid OAuth. Google's <a href="https://developers.google.com/apps-script/guides/services/authorization">Apps Script authorization guide</a> says an authorization dialog appears when a script needs access to private data. The difference is that the code is yours.</p>
+
+      <h2>Does an extension without OAuth see less of my email?</h2>
+
+      <p>Not necessarily. Chrome's <a href="https://developer.chrome.com/docs/extensions/develop/concepts/content-scripts">content scripts documentation</a> says these scripts run in the context of web pages and can "read details of the web pages the browser visits, make changes to them." Chrome's <a href="https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions">permissions guide</a> says host permissions and content script match patterns decide which sites the extension can run on. A match pattern for <code>https://mail.google.com/*</code> covers all of Gmail on the web, not a single message or label.</p>
+
+      <p>Three practical differences follow:</p>
+
+      <ul>
+        <li><strong>It works through your Chrome profile.</strong> The extension acts through Gmail pages in the Chrome profile where it is installed and where you are signed in. It does not receive a Google token that would let it reach your mailbox from another device or server.</li>
+        <li><strong>Google's connections page will not show it.</strong> Google's <a href="https://support.google.com/accounts/answer/13533235?hl=en">third-party connections help</a> covers Sign in with Google, account linking, account access and agent permissions. It does not cover browser extensions. You review and remove extensions in Chrome.</li>
+        <li><strong>You can restrict when it runs.</strong> Chrome's <a href="https://support.google.com/chrome_webstore/answer/2664769?hl=en">extension management help</a> lets you set site access to "On select", "On specific sites" or "On all sites" from the extension's Details page.</li>
+      </ul>
+
+      <p>An extension's code can still send data elsewhere if it is built to. Whether it does is a question for its privacy disclosures and policy, not its sign-in method. Our guide to <a href="../blog/inbox-cleaner-setup-permissions-recovery.html">Inbox Cleaner's setup, permissions and recovery</a> shows how one extension explains its data flow.</p>
+
+      <h2>Why is an app password not a safer "no OAuth" route?</h2>
+
+      <p>Some desktop mail clients and older cleaners connect over IMAP. Gmail's <a href="https://support.google.com/mail/answer/7126229?hl=en">IMAP setup help</a> says Gmail "no longer supports third-party apps or devices which require you to share your Google username and password," and recommends the client's Sign in with Google option instead. The remaining password-style route is an app password.</p>
+
+      <p>Google's <a href="https://support.google.com/accounts/answer/185833?hl=en">app passwords help</a> describes one as a 16-digit passcode that "gives a less secure app or device permission to access your Google Account." It says app passwords "aren't recommended and are unnecessary in most cases." App passwords require 2-Step Verification. They are not available to accounts that use only security keys, to Advanced Protection accounts, or to some work and school accounts. Unlike an OAuth consent screen, an app password does not show you a list of narrow permissions. If you have used one, remove it from the App passwords page when you are done. Changing your Google password also revokes all app passwords.</p>
+
+      <h2>How do I clean Gmail with no third-party access at all?</h2>
+
+      <p>Gmail on a computer can search and bulk-delete without any extra access. This is also the more precise route when only some of a sender's mail should go.</p>
+
+      <ol class="blog-steps">
+        <li><strong>Search for the mail.</strong> For example, <code>from:news@example.com</code>. Add conditions such as <code>older_than:1y</code> if you want to keep recent mail. Gmail shows conversations, so check that the results contain nothing you want to keep.</li>
+        <li><strong>Select every match.</strong> Click the select checkbox above the list. It selects the current page first. If Gmail offers to select all conversations that match the search, click that link. <a href="../blog/how-to-select-all-emails-gmail.html">How to select all emails in Gmail</a> explains the banner and what to do when it doesn't appear.</li>
+        <li><strong>Move it to Trash.</strong> Click Delete. Gmail's <a href="https://support.google.com/mail/answer/7401?hl=en">delete and recover help</a> says messages stay in Trash for 30 days, after which they are permanently deleted.</li>
+        <li><strong>Check Trash.</strong> Open Trash and confirm only what you expected is there. Restore anything wrong with Move to.</li>
+        <li><strong>Stop new arrivals.</strong> Gmail's <a href="https://support.google.com/mail/answer/6579?hl=en">filter help</a> shows how: click Show search options, enter the criteria, click Create filter and choose Delete it. A filter acts on new mail; the search above handles what is already there.</li>
+      </ol>
+
+      <p>For a single sender, <a href="../blog/delete-all-emails-from-one-sender-gmail.html">how to delete all emails from one sender in Gmail</a> walks through the <code>from:</code> search in detail. If you only want mail out of view rather than gone, read <a href="../blog/gmail-archive-vs-delete.html">Gmail archive vs. delete</a> first. The trade-off is effort: Gmail does not rank your senders by volume, so with clutter spread across many senders you have to find them yourself before searching for each one.</p>
+
+      <div class="blog-cta">
+        <h3>Clean up Gmail with the Chrome extension</h3>
+        <p>Install from the Chrome Web Store, then open Gmail and click Inbox Cleaner. Emails go to Trash (30-day recovery window).</p>
+        <a class="blog-cta-btn" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add Inbox Cleaner to Chrome →</a>
+      </div>
+
+      <h2>Where does Inbox Cleaner fit?</h2>
+
+      <p>Disclosure: Inbox Cleaner publishes this guide, so check our claims the same way. In the public repository source (manifest version 3.3.1), Inbox Cleaner is a page-based extension. It requests host access to <code>https://mail.google.com/*</code>, <code>tabs</code> and <code>storage</code>. The reviewed code has no Google sign-in, Gmail API client or network client of its own. It groups senders from the Gmail page in your tab, then moves the senders you choose to Gmail Trash after you confirm. A sender cleanup covers all of that sender's matching mail, including archived mail. It cannot keep recent or starred messages, so use the Gmail steps above when you need that.</p>
+
+      <p>When we checked the Chrome Web Store listing on 21 October 2026, its description still listed Google sign-in (<code>identity</code>) and the <code>gmail.readonly</code> and <code>gmail.modify</code> scopes. That matches our older Gmail API build, not the repository source above. Until the listing and the package are confirmed to match, read the prompts you actually see. If Google asks you to sign in and approve Gmail access, that build uses OAuth. If Chrome asks only for access to mail.google.com, it is the page-based model described here. This describes source code, not an independent audit or a network capture of the installed package.</p>
+
+      <p>Source review: 21 October 2026. The app password, IMAP, third-party connections, Apps Script authorization, content script, host permission, extension site access, filter and Trash statements were checked against the linked Google and Chrome pages. Product statements come from the extension's manifest and source files in the public repository and the public Chrome Web Store listing. No third-party tool was installed or tested, no live mailbox test was run, and no screenshots are claimed. <a href="/blog/">All guides</a>.</p>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <p class="faq-q">Will a no-OAuth Chrome extension show up in my Google Account's third-party connections?</p>
+          <p class="faq-a">No. Google's third-party connections page covers Sign in with Google, account linking, apps with access to your Google Account and agent permissions. An extension that works inside the Gmail page is managed in Chrome instead, from Manage extensions.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Is a mail client that uses my Gmail password an option?</p>
+          <p class="faq-a">Not with your normal password. Gmail no longer supports third-party apps or devices that require your Google username and password. Some clients accept an app password instead, which Google says is not recommended and is unnecessary in most cases.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Does removing the tool undo the cleanup?</p>
+          <p class="faq-a">No. Removing an extension or revoking access stops future access only. Mail moved to Trash can be restored from Trash for 30 days; after that Gmail deletes it permanently.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>Built by <a href="https://github.com/iampushpendra" target="_blank" rel="noopener">@iampushpendra</a> · <a href="../privacy.html">Privacy Policy</a> · <a href="https://github.com/iampushpendra/inbox-cleaner" target="_blank" rel="noopener">GitHub</a> · Emails go to Trash — you have 30 days to restore them.</p>
+</footer>
+
+</body>
+</html>

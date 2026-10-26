@@ -1,0 +1,50 @@
+{
+  "slug": "gmail-search-operator-older-than",
+  "state": "draft",
+  "intent_owner": "gmail-search-operator-older-than",
+  "hub_slug": "how-to-delete-emails-older-than-a-year-gmail",
+  "target_query": "how to use the older_than search operator in gmail",
+  "product_manifest_version": "3.2.1",
+  "drafted_on": "2026-10-18",
+  "drafted_by": { "identity": "Claude Opus 5.5 scheduled editorial draft job (Claude Code)", "kind": "agent" },
+  "verification_kind": "source_review",
+  "verified_on": null,
+  "reviewer": null,
+  "post_sha256": null,
+  "sources": [
+    {
+      "url": "https://support.google.com/mail/answer/7190?hl=en",
+      "supports": "older_than:/newer_than: with units d, m, y (examples older_than:1y, newer_than:2d); after:/before: date formats 2004/04/16 and 04/16/2004; OR or { } (examples from:amy OR from:david, {from:amy from:david}); - (minus) excludes; ( ) groups terms; AND; in:anywhere includes Spam and Trash; label:; category: values including promotions; number rule (space or dash separates a number, dot is a decimal); negative-operator caveat that conversations with excluded criteria may still appear because Gmail identifies matching messages first; steps written for Gmail on a computer.",
+      "review_notes": "Fetched 2026-10-18 by the drafting agent. Confirmed each operator row and example quoted above. The page does not state that a plain space means AND (the draft states it as Gmail's implicit behaviour, consistent with the documented AND operator and the hub's existing combined recipes), does not document month/year conversion, week or hour units, case sensitivity, time zones or app-specific operator behaviour. The draft labels those as undocumented. Applying the matching-messages-first caveat to age searches and to -from: is the draft's reasoning from the documented negative-operator explanation, presented as such."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en",
+      "supports": "Trash recovery for 30 days before permanent deletion.",
+      "review_notes": "Not re-fetched in this run; relied on the 2026-10-17 fetch recorded for the sibling draft gmail-older-than-not-working, which confirmed the 30-day Trash statement. A reviewer should re-open it. Cited only for Trash recovery."
+    }
+  ],
+  "serp_review": {
+    "checked_on": "2026-10-18",
+    "query": "how to use older_than search operator gmail",
+    "observation": "Results were Google's own help page (several locale variants), general operator lists (leavemealone.com, rightinbox.com, mailmeteor.com), a find-oldest-emails guide (getinboxzero.com) and a university IT tip (it.fitnyc.edu). The search summary showed recipe pairings (category:promotions older_than:6m, from: + older_than, larger:10M older_than:1y). Pages were not opened individually; none of the snippets showed age bands with newer_than or braces/minus composition with an age condition.",
+    "limitation": "One standard US web search; result pages were not opened, so the composition claim about competitors rests on titles/snippets only. The search summary asserted operators are case-sensitive; this is unverified and was deliberately not used."
+  },
+  "information_gain": "A composition reference for the operator itself: a unit-conversion table (weeks to days, 1.5y to 18m) and a table pairing older_than with each documented combining operator (category, age band with newer_than, braces OR across senders, minus exclusion, label, in:anywhere, larger), plus the brace-placement rule so the age applies to every OR alternative, a build-one-condition-at-a-time procedure, and why minus exclusions and age cutoffs both leak through mixed conversations. Existing guides give 3-4 single recipes (gmail-search-operators-to-find-old-emails), the one-year cleanup (hub) or, in the pending draft gmail-older-than-not-working, mistyped-syntax troubleshooting; none cover newer_than bands, braces or minus with an age condition.",
+  "overlap_check": "Strong adjacent overlap with published gmail-search-operators-to-find-old-emails (operator recipes) and the hub. Distinctness rests on the combination table; the draft links to both for recipes/cleanup and does not repeat a deletion walkthrough. It deliberately keeps syntax troubleshooting short to avoid gmail-older-than-not-working (pending, draft exists) and only one line on before: to avoid gmail-older-than-vs-before (pending). A reviewer may reasonably decide the gain is too thin and merge the combination table into gmail-search-operators-to-find-old-emails as a refresh instead.",
+  "limitations": [
+    "Source and documentation review only; no live Gmail mailbox test was run. Results for the combined queries were not observed.",
+    "Implicit AND for spaces, brace placement behaviour with an age condition and in:anywhere being needed for Spam/Trash are inferred from Google's documented operators, not explicitly stated for older_than.",
+    "Month/year conversion, week/hour units, case sensitivity and mobile-app behaviour are undocumented and described as such.",
+    "The 7401 deletion source was not re-fetched in this run.",
+    "SERP review relied on result titles/snippets, not opened pages."
+  ],
+  "related_links": [
+    "/blog/how-to-delete-emails-older-than-a-year-gmail.html",
+    "/blog/gmail-search-operators-to-find-old-emails.html",
+    "/blog/how-to-select-all-emails-gmail.html",
+    "/blog/delete-all-emails-from-one-sender-gmail.html",
+    "/blog/gmail-filters-delete-emails-automatically.html"
+  ],
+  "assets": [],
+  "review_needed": "An independent substantive reviewer should re-open both Google pages, confirm each operator example, decide whether the composition table is sufficient information gain over gmail-search-operators-to-find-old-emails (or whether this should become a refresh of that page), ideally test the age-band and braces queries in a mailbox, then record evidence_checked or publish_ready with their real identity, verified_on and post_sha256 in scripts/content-records.json during a separate promotion."
+}

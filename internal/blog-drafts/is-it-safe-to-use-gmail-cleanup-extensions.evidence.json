@@ -1,0 +1,91 @@
+{
+  "slug": "is-it-safe-to-use-gmail-cleanup-extensions",
+  "state": "draft",
+  "intent_owner": "is-it-safe-to-use-gmail-cleanup-extensions",
+  "hub_slug": "delete-all-emails-from-one-sender-gmail",
+  "target_query": "is it safe to use gmail cleanup extensions",
+  "product_manifest_version": "3.3.1",
+  "drafted_on": "2026-10-21",
+  "drafted_by": { "identity": "Claude Opus 5.5 scheduled editorial draft job (Claude Code)", "kind": "agent" },
+  "verification_kind": "source_review",
+  "verified_on": null,
+  "reviewer": null,
+  "post_sha256": null,
+  "sources": [
+    {
+      "url": "https://developers.google.com/workspace/gmail/api/auth/scopes",
+      "supports": "Gmail API mail scopes (mail.google.com, gmail.modify, gmail.readonly, gmail.metadata, etc.) are classified Restricted; full mail.google.com scope should be requested only to permanently delete immediately and other actions are possible with less permissive scopes; gmail.modify does not allow permanent deletion bypassing Trash; restricted scopes require the most stringent verification and a security assessment if restricted data is stored on or transmitted to servers.",
+      "review_notes": "Fetched 2026-10-21 via WebFetch (summarised by fetch tool, not curl). Scope table and the quoted sentences on mail.google.com, gmail.modify and security assessment were returned. The article's 'scopes that read or modify mail are restricted' is a summary; gmail.send and add-on scopes are only Sensitive and are not described as restricted in the article."
+    },
+    {
+      "url": "https://support.google.com/cloud/answer/13464325?hl=en",
+      "supports": "Lists Gmail API scopes including https://mail.google.com/ as restricted scopes.",
+      "review_notes": "Fetched 2026-10-21. Confirms restricted classification only; the fetched excerpt did not include CASA/security assessment details, so the article sources that point to the Gmail scopes page instead. Not linked in the article; retained as corroboration."
+    },
+    {
+      "url": "https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions",
+      "supports": "Host permissions and manifest-declared content scripts let an extension interact with matching pages; changes to host_permissions and content_scripts.matches may trigger a warning.",
+      "review_notes": "Fetched 2026-10-21 via WebFetch. The page did not give the exact host-permission warning wording (it is in an image), so the article paraphrases 'read and change what Gmail shows you' rather than quoting Chrome's prompt text. This paraphrase is an inference from content-script capability and should be checked by the reviewer."
+    },
+    {
+      "url": "https://developer.chrome.com/docs/extensions/reference/permissions-list",
+      "supports": "tabs permission warning is 'Read your browsing history'; storage has no listed warning.",
+      "review_notes": "Fetched 2026-10-21 via WebFetch. Both confirmed. The actual install prompt for Inbox Cleaner was not observed."
+    },
+    {
+      "url": "https://developer.chrome.com/docs/webstore/program-policies/limited-use",
+      "supports": "Limited Use: data use limited to single purpose; bans transfer/sale to ad platforms and data brokers, personalized ads, credit use; humans may not read user data except listed exceptions (consent, security, law, aggregated internal ops); developers must state compliance.",
+      "review_notes": "Fetched 2026-10-21 via WebFetch. Confirmed; the article's 'apart from narrow exceptions' covers the human-access exceptions."
+    },
+    {
+      "url": "https://developer.chrome.com/docs/webstore/cws-dashboard-privacy",
+      "supports": "Developers must disclose collected user data types, permission justifications and Limited Use certification; 'Your disclosures are displayed to Chrome users.'",
+      "review_notes": "Fetched 2026-10-21 via WebFetch. The page does not explicitly name the listing section where disclosures appear; the article says 'privacy disclosures' and the HowTo says 'privacy practices on the Chrome Web Store listing' — reviewer should confirm the listing section name on a live listing. Not linked in the article body."
+    },
+    {
+      "url": "https://support.google.com/accounts/answer/13533235?hl=en",
+      "supports": "Review and remove third-party linked app access from the Google Account linked apps page: Access to your Google Account, select app, See details, Remove access.",
+      "review_notes": "Fetched 2026-10-21 via WebFetch (title 'Manage links between your Google Account & apps from other developers'). Steps confirmed."
+    },
+    {
+      "url": "https://support.google.com/chrome_webstore/answer/2664769?hl=en",
+      "supports": "Extension site access can be set to on click/select, on specific sites or on all sites; extensions removed via Remove from Chrome or Manage extensions.",
+      "review_notes": "Fetched 2026-10-21 via WebFetch (title 'Install and manage extensions - Chrome Web Store Help'). Confirmed."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en",
+      "supports": "Deleted messages stay in Trash up to 30 days and can be restored on a computer via More > Trash > Move to.",
+      "review_notes": "Fetched 2026-10-21 via WebFetch (title 'Delete messages in Gmail - Computer'). Confirmed."
+    },
+    {
+      "url": "https://github.com/iampushpendra/inbox-cleaner",
+      "supports": "Inbox Cleaner product statements: manifest 3.3.1 permissions storage and tabs, host https://mail.google.com/*; no fetch/XMLHttpRequest/sendBeacon/WebSocket/identity/OAuth calls in content.js, parsing.js, popup.js; moves selected senders to Trash; no permanent delete.",
+      "review_notes": "Checked 2026-10-21 against local manifest.json and a grep of content.js, parsing.js and popup.js for network and identity APIs and permanent-delete strings (none found). scripts/product-facts.json (reviewed for 3.2.1) supplies the sender-wide scope, Trash and no-Undo statements; its reviewed version predates 3.3.1, so the reviewer should confirm no behavior change. Not a verification of the installed Chrome Web Store package."
+    }
+  ],
+  "serp_review": {
+    "checked_on": "2026-10-21",
+    "query": "is it safe to use gmail cleanup extensions",
+    "observation": "One standard web search returned only Mozilla Add-ons privacy-policy pages for a single extension ('Cleanup Gmail') in many locales; no general guide ranked in that sample. The search summary suggested generic advice (check permissions, privacy policy, open source, reviews) without distinguishing OAuth scopes from Chrome site access or citing Google's scope classes.",
+    "limitation": "One standard US web search; result pages were not opened individually; not a Google ranking capture. Competitor guides were not reviewed."
+  },
+  "information_gain": "A vendor-neutral comparison of the two ways Gmail cleaners get access (Google OAuth Gmail API scopes vs a Chrome extension's site access to mail.google.com) against native Gmail, covering how access is granted, permanent-delete capability (mail.google.com vs gmail.modify, per Google's scopes page), which review applies (restricted-scope verification and security assessment vs Chrome Web Store Limited Use) and how to revoke each. The sampled results gave only one product's privacy policy and generic advice.",
+  "overlap_check": "Published inbox-cleaner-setup-permissions-recovery is product-specific (Inbox Cleaner permissions, setup, Trash recovery); this draft is vendor-neutral and links to it for detail rather than repeating it. Hub delete-all-emails-from-one-sender-gmail is procedural. Pending sibling trust topics overlap partially: gmail-cleanup-extension-permissions-explained (why access is needed), gmail-cleaner-without-oauth (native and DOM approaches without OAuth), 'can a gmail cleanup extension read my email content' and 'what should i check before choosing a free gmail cleaner' (buyer checklist). This draft's access-model table and pre-install checklist cover ground those topics would also touch; a reviewer should decide whether this page becomes the trust-cluster owner and the siblings are deferred or narrowed.",
+  "limitations": [
+    "Source and documentation review only. No third-party cleaner was installed or tested, no live mailbox test was run, and no screenshots exist.",
+    "Google and Chrome pages were read through a summarising fetch tool, not saved verbatim; quotations should be rechecked by the reviewer.",
+    "Chrome's exact host-permission warning text for mail.google.com was not found in the docs; the article paraphrases the capability.",
+    "Inbox Cleaner statements come from repository source (manifest 3.3.1) and product-facts reviewed for 3.2.1, not from the installed store package or a network capture.",
+    "SERP review was one standard search sample and does not represent Google rankings or competitor content in depth.",
+    "Workspace admin controls over third-party apps and extensions are out of scope."
+  ],
+  "related_links": [
+    "/blog/delete-all-emails-from-one-sender-gmail.html",
+    "/blog/how-to-select-all-emails-gmail.html",
+    "/blog/gmail-archive-vs-delete.html",
+    "/blog/inbox-cleaner-setup-permissions-recovery.html",
+    "/blog/inbox-cleaner-vs-native-gmail.html"
+  ],
+  "assets": [],
+  "review_needed": "An independent substantive reviewer should recheck each Google/Chrome page claim by claim (especially the 'restricted' summary and the host-permission paraphrase), confirm the Chrome Web Store listing's privacy section naming, confirm 3.3.1 behavior matches product-facts, decide the trust-cluster overlap with the pending sibling topics, and only then promote a record into scripts/content-records.json with real identity, verified_on and post_sha256."
+}

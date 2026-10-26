@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="canonical" href="https://inbox-cleaner.vercel.app/blog/gmail-older-than-not-working.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Is older_than Not Working in Gmail? | Inbox Cleaner</title>
+  <meta name="description" content="Gmail only documents older_than:1y style syntax: underscore, colon, a whole number and d, m or y. Compare common mistyped variants and how to check results.">
+  <meta property="og:title" content="Why Is older_than Not Working in Gmail?">
+  <meta property="og:description" content="Gmail only documents older_than:1y style syntax: underscore, colon, a whole number and d, m or y. Compare common mistyped variants and how to check results.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://inbox-cleaner.vercel.app/blog/gmail-older-than-not-working.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Why Is older_than Not Working in Gmail?",
+    "datePublished": "2026-10-17",
+    "dateModified": "2026-10-17",
+    "author": { "@type": "Organization", "name": "Inbox Cleaner" },
+    "publisher": { "@type": "Organization", "name": "Inbox Cleaner", "url": "https://inbox-cleaner.vercel.app" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Why Is older_than Not Working in Gmail?",
+    "step": [
+      { "@type": "HowToStep", "name": "Type the documented form", "text": "In Gmail on a computer, click the search box and type older_than:1y exactly: lowercase, underscore, colon, no spaces, a whole number and the unit d, m or y." },
+      { "@type": "HowToStep", "name": "Cross-check with a fixed date", "text": "Run a before: search with a date about one year ago, such as before:2025/10/17, and compare the two result sets. Expect small differences near the boundary." },
+      { "@type": "HowToStep", "name": "Add other conditions one at a time", "text": "Add one extra condition, such as from:sender@example.com, rerun the search, and only then add the next. If results disappear, the last condition you added is the cause." },
+      { "@type": "HowToStep", "name": "Widen the scope if mail seems missing", "text": "If you expect matches in Spam or Trash, add in:anywhere, which Google documents as including Spam and Trash." },
+      { "@type": "HowToStep", "name": "Open mixed conversations before acting", "text": "Open conversations that show recent dates. Gmail matches messages first, so a returned conversation can contain newer messages than your cutoff." }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does Gmail support older_than with weeks or hours?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Google's search operator reference lists only d (day), m (month) and y (year). Convert weeks to days, for example older_than:14d for two weeks." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use older_than:1.5y?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Google's examples use whole numbers, so use a whole number in a smaller unit instead, such as older_than:18m." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is older:1y the same as older_than:1y?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Google lists older: alongside before: as a date operator that takes a date such as 2025/10/17. older_than: takes a time period such as 1y." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does an older_than search show emails from this week?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Gmail matches individual messages, then shows their conversations. If an old message has a recent reply, the conversation can appear with a recent date. Open it before deleting." }
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>📥</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-logo" href="/">📥 Inbox<span>Cleaner</span></a>
+  <a class="blog-nav-cta" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add to Chrome →</a>
+</nav>
+
+<main>
+  <div class="blog-wrap">
+    <span class="blog-eyebrow">Gmail Search</span>
+    <h1 class="blog-h1">Why Is older_than Not Working in Gmail?</h1>
+    <p class="blog-meta">Updated October 2026 · 4 min read</p>
+
+    <div class="blog-body">
+
+      <div class="quick-answer">
+        <strong>Quick answer:</strong> When older_than does not work in Gmail, the usual cause is a search that doesn't match the documented form. Google documents <code>older_than:1y</code>: lowercase with an underscore, a colon, no spaces, a whole number and a unit of <code>d</code>, <code>m</code> or <code>y</code>. Retype it in the Gmail search box on a computer, then check any recent-looking results. Gmail can show a whole conversation when only an older message in it matches.
+      </div>
+
+      <p>These are the checks to run, in order, when a Gmail age search returns nothing, too much, or the wrong mail. The syntax rules come from Google's <a href="https://support.google.com/mail/answer/7190?hl=en">Gmail search operators reference</a>. If you only need the cleanup recipe, start with <a href="../blog/how-to-delete-emails-older-than-a-year-gmail.html">how to delete Gmail emails older than a year</a>.</p>
+
+      <h2>Which older_than variants does Gmail actually document?</h2>
+      <p>Google's reference gives exactly two period examples, <code>older_than:1y</code> and <code>newer_than:2d</code>, and lists three units: <code>d</code> (day), <code>m</code> (month) and <code>y</code> (year). Anything else is outside the documented syntax. Gmail may still return results for it, but they may come from matching ordinary text rather than message age. The table compares common variants with the documented fix.</p>
+
+      <table>
+        <thead>
+          <tr><th>What was typed</th><th>Problem</th><th>Documented form</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>older_than 1y</code></td><td>No colon. This is not the documented operator form.</td><td><code>older_than:1y</code></td></tr>
+          <tr><td><code>older-than:1y</code> or <code>olderthan:1y</code></td><td>Hyphen or missing underscore. Only <code>older_than:</code> is documented.</td><td><code>older_than:1y</code></td></tr>
+          <tr><td><code>older_than: 1y</code> or <code>older_than:1 y</code></td><td>Extra space. Google notes that a space separates a number in a search.</td><td><code>older_than:1y</code></td></tr>
+          <tr><td><code>older_than:1year</code>, <code>1yr</code>, <code>2w</code></td><td>Units that aren't documented. Only d, m and y are listed.</td><td><code>older_than:1y</code>, <code>older_than:14d</code></td></tr>
+          <tr><td><code>older_than:1.5y</code></td><td>Google's examples use whole numbers.</td><td><code>older_than:18m</code></td></tr>
+          <tr><td><code>older:1y</code></td><td>Google lists <code>older:</code> as a date operator, alongside <code>before:</code>, so it takes a date.</td><td><code>older_than:1y</code> or <code>older:2025/10/17</code></td></tr>
+          <tr><td><code>newer_than:1y</code> when you meant old mail</td><td>Wrong direction. This finds mail from the last year.</td><td><code>older_than:1y</code></td></tr>
+          <tr><td><code>before:17-10-2025</code></td><td>Not a documented date format. Google shows <code>2004/04/16</code> and <code>04/16/2004</code>.</td><td><code>before:2025/10/17</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>This table comes from Google's published syntax. We did not run these variants against a live mailbox, so it doesn't record what Gmail returns for each mistyped form. Treat any undocumented form as unreliable, even when it returns results.</p>
+
+      <h2>How do I check that my older_than search is working?</h2>
+      <ol class="blog-steps">
+        <li><strong>Type the documented form.</strong> In Gmail on a computer, click the search box and enter <code>older_than:1y</code> exactly. Retype it rather than pasting from another page; pasted text can carry different characters that look the same.</li>
+        <li><strong>Cross-check with a fixed date.</strong> Run <code>before:2025/10/17</code>, using today's date minus one year, and compare the two result sets. They should broadly agree. Expect small differences near the boundary, because Google doesn't document exactly how the rolling cutoff is calculated.</li>
+        <li><strong>Add other conditions one at a time.</strong> Add <code>from:sender@example.com</code> or <code>category:promotions</code>, rerun the search, and only then add the next condition. If the results disappear, the last condition you added is the cause, not <code>older_than</code>.</li>
+        <li><strong>Widen the scope if mail seems missing.</strong> If you expect old mail in Spam or Trash, add <code>in:anywhere</code>, which Google documents as including Spam and Trash.</li>
+        <li><strong>Open mixed conversations before acting.</strong> Open any result that shows a recent date before you select or delete it.</li>
+      </ol>
+
+      <h2>Why does an older_than search show recent emails?</h2>
+      <p>Google explains that Gmail "identifies matching messages first" and then shows conversations. It gives this as the reason a negative search such as <code>-is:starred</code> can still return a conversation that contains a starred message. The same logic applies to age. If a message from 2023 matches <code>older_than:1y</code> and someone replied last week, the conversation can appear in your results with last week's date. The search is working; the display is conversation-level. If you delete that conversation, the recent reply goes too, so check it first. For selecting a large result set after review, see <a href="../blog/how-to-select-all-emails-gmail.html">how to select all emails in Gmail</a>.</p>
+
+      <div class="blog-cta">
+        <h3>Clean up Gmail with the Chrome extension</h3>
+        <p>Install from the Chrome Web Store, then open Gmail and click Inbox Cleaner. Emails go to Trash (30-day recovery window).</p>
+        <a class="blog-cta-btn" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add Inbox Cleaner to Chrome →</a>
+      </div>
+
+      <h2>Why doesn't older_than work in a Gmail filter?</h2>
+      <p>Filters test each email as it arrives. A newly delivered email is never a year old, so an age condition in a filter has nothing to match at delivery time. Google's help says you can turn a search into a filter, but it doesn't describe filters as scheduled age-based cleanup. Run the age search by hand when you want to review old mail. See <a href="../blog/gmail-filters-delete-emails-automatically.html">what Gmail filters can and cannot do automatically</a>.</p>
+
+      <h2>Does older_than work in the Gmail mobile app?</h2>
+      <p>Google's search operator reference covers Gmail on a computer and doesn't say whether the Android or iPhone apps support operators. If a search behaves unexpectedly on your phone, repeat it in Gmail on a computer before concluding the syntax is wrong.</p>
+
+      <h2>When is a sender-wide cleanup a better fit?</h2>
+      <p>Sometimes the real goal is clearing out a few heavy senders, and age doesn't matter. In that case a date search is the wrong tool. Inbox Cleaner runs in an open Gmail tab in desktop Chrome, groups senders by email count, and moves the selected senders' emails to Trash. That action covers all of a sender's mail. It does not keep your <code>older_than</code> cutoff, so newer mail from that sender goes too. Counts are email counts, not storage size. If the age limit matters, stay with the native search. For the sender-only approach, see <a href="../blog/delete-all-emails-from-one-sender-gmail.html">deleting all emails from one sender in Gmail</a>. Mail in Trash is normally recoverable for up to 30 days, as described in Google's <a href="https://support.google.com/mail/answer/7401?hl=en">deletion and recovery help</a>.</p>
+
+      <p>Source review: 17 October 2026. Syntax, date formats, the <code>in:anywhere</code> scope and the conversation-matching caveat were checked against the linked Google help pages. No live-mailbox test or original screenshot is claimed. <a href="/blog/">All guides</a>.</p>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <p class="faq-q">Does Gmail support older_than with weeks or hours?</p>
+          <p class="faq-a">Google's search operator reference lists only d (day), m (month) and y (year). Convert weeks to days, for example <code>older_than:14d</code> for two weeks.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Can I use older_than:1.5y?</p>
+          <p class="faq-a">Google's examples use whole numbers, so use a whole number in a smaller unit instead, such as <code>older_than:18m</code>.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Is older:1y the same as older_than:1y?</p>
+          <p class="faq-a">No. Google lists <code>older:</code> alongside <code>before:</code> as a date operator that takes a date such as 2025/10/17. <code>older_than:</code> takes a time period such as 1y.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Why does an older_than search show emails from this week?</p>
+          <p class="faq-a">Gmail matches individual messages, then shows their conversations. If an old message has a recent reply, the conversation can appear with a recent date. Open it before deleting.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>Built by <a href="https://github.com/iampushpendra" target="_blank" rel="noopener">@iampushpendra</a> · <a href="../privacy.html">Privacy Policy</a> · <a href="https://github.com/iampushpendra/inbox-cleaner" target="_blank" rel="noopener">GitHub</a> · Emails go to Trash — you have 30 days to restore them.</p>
+</footer>
+
+</body>
+</html>

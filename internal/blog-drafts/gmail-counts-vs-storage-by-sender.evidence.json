@@ -1,0 +1,56 @@
+{
+  "slug": "gmail-counts-vs-storage-by-sender",
+  "state": "draft",
+  "intent_owner": "gmail-counts-vs-storage-by-sender",
+  "hub_slug": "gmail-delete-emails-by-size",
+  "target_query": "does the sender with the most gmail emails use the most storage",
+  "product_manifest_version": "3.2.2",
+  "drafted_on": "2026-10-20",
+  "drafted_by": { "identity": "Claude Opus 5.5 scheduled editorial draft job (Claude Code)", "kind": "agent" },
+  "verification_kind": "source_review",
+  "verified_on": null,
+  "reviewer": null,
+  "post_sha256": null,
+  "sources": [
+    {
+      "url": "https://support.google.com/mail/answer/7190?hl=en",
+      "supports": "from: finds emails sent from a specific person; size:, larger:, smaller: find emails by their size (examples size:1000000, larger:10M); negative-operator caveat that Gmail identifies matching messages first and can return a whole conversation.",
+      "review_notes": "Fetched 2026-10-20. The from: row and the shared size/larger/smaller row ('Find emails by their size') were confirmed, along with the -is:starred conversation caveat. The page does not define K/M units, so the article says the units aren't fully documented and treats the bands as approximate. The page doesn't say that from: and size operators can be combined in one query. The article's combined queries rely on Gmail's general operator combination, which a reviewer should confirm."
+    },
+    {
+      "url": "https://support.google.com/googleone/answer/9312312?hl=en",
+      "supports": "Gmail usage includes messages and attachments, including Spam and Trash; storage is shared across Gmail, Drive and Photos; 'Usage details' per-service breakdown; deletion FAQ says storage normally takes up to 48–72 hours to update accurately.",
+      "review_notes": "Fetched 2026-10-20. Confirmed 'Gmail messages and attachments, which includes your Spam and Trash folders' and the 48–72 hour 'normally' wording. The page says the per-service 'Usage details' breakdown is reached through the storage manager on mobile, so the article only says Google's storage help shows where to find usage per service and doesn't give desktop click paths."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en",
+      "supports": "Deleted messages move to Trash; recoverable for up to 30 days, then permanently deleted; Empty Trash now.",
+      "review_notes": "Fetched 2026-10-20. Confirmed 'Deleted messages move from your inbox to your trash' and the 30-day recovery and permanent-deletion statements. The claim that Trash still counts toward storage is sourced from 9312312, not this page."
+    }
+  ],
+  "serp_review": {
+    "checked_on": "2026-10-20",
+    "query": "does the sender with the most gmail emails use the most storage",
+    "observation": "One standard web search returned third-party guides (trimbox, a dev.to post, a university storage PDF, a primowater-hosted copy) and older news items. None directly compared sender message count with sender storage. Several suggested larger:10M or third-party per-sender storage tools. None showed a native per-sender size-band method or a worked count-versus-bytes example.",
+    "limitation": "One standard US web search. This is not a Google-specific ranking capture, and the result pages weren't opened individually."
+  },
+  "information_gain": "There are two things the existing pages don't have. The first is a worked example with explicitly illustrative numbers, in which the count ranking and the storage ranking reverse: 3,000×20 KB versus 40×8 MB. The second is a native-Gmail method for estimating one sender's footprint, combining from: with larger:/smaller: size bands, and it explains how each band turns into a rough byte range. The article ends with a question-to-tool decision table that separates the storage breakdown, the largest messages, a sender's size profile and the sender count. The published how-to-find-biggest-emails-gmail page answers the target query only in a one-line FAQ and a single body sentence.",
+  "overlap_check": "how-to-find-biggest-emails-gmail already says in an FAQ and one sentence that the highest-count sender may not use the most storage. This draft is the brief's designated intent_owner and expands that line into a per-sender method instead of repeating the account-wide larger: walkthrough. That walkthrough stays with the biggest-emails and delete-by-size pages, and this draft links to both. The pending topic gmail-larger-smaller-size-difference owns operator syntax. This draft doesn't explain the operators' semantics beyond citing them. A reviewer should decide whether the biggest-emails FAQ should then link here.",
+  "limitations": [
+    "Source and documentation review only. No live Gmail mailbox was searched, and there are no screenshots.",
+    "The worked-example sizes are illustrative round numbers and are labeled that way in the article. They are not measurements.",
+    "Google doesn't define the K/M unit size or exactly what counts toward a message's size. The bands are presented as approximate ranges.",
+    "Search results are conversations, and a matching conversation can include messages of other sizes or from other senders. The article states this.",
+    "Gmail result-count display (exact versus approximate for large sets) wasn't verified. The method asks the reader to note counts and doesn't promise exact totals.",
+    "Inbox Cleaner behaviour is described from scripts/product-facts.json and the published product pages (sender count ranking, sender-wide Trash, not storage). The installed package wasn't tested."
+  ],
+  "related_links": [
+    "/blog/how-to-find-biggest-emails-gmail.html",
+    "/blog/gmail-delete-emails-by-size.html",
+    "/blog/how-to-free-up-gmail-storage.html",
+    "/blog/delete-all-emails-from-one-sender-gmail.html",
+    "/blog/how-to-select-all-emails-gmail.html"
+  ],
+  "assets": [],
+  "review_needed": "An independent substantive reviewer should do the following. Re-read the three Google pages claim by claim. Confirm in a real Gmail account, or by documentation, that from: combines with larger:/smaller: as shown. Check that the band arithmetic and the 'usually outweighs' wording are fair. Confirm the worked example is clearly marked illustrative. Decide on the overlap with the biggest-emails FAQ. If satisfied, record evidence_checked or publish_ready with their real identity, verified_on and post_sha256 in scripts/content-records.json during a separate promotion."
+}

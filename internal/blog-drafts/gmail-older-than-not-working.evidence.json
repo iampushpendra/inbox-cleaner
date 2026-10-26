@@ -1,0 +1,53 @@
+{
+  "slug": "gmail-older-than-not-working",
+  "state": "draft",
+  "intent_owner": "gmail-older-than-not-working",
+  "hub_slug": "how-to-delete-emails-older-than-a-year-gmail",
+  "target_query": "why is older_than not working in gmail",
+  "product_manifest_version": "3.2.1",
+  "drafted_on": "2026-10-17",
+  "drafted_by": { "identity": "Claude Opus 5.5 scheduled editorial draft job (Claude Code)", "kind": "agent" },
+  "verification_kind": "source_review",
+  "verified_on": null,
+  "reviewer": null,
+  "post_sha256": null,
+  "sources": [
+    {
+      "url": "https://support.google.com/mail/answer/7190?hl=en",
+      "supports": "older_than:/newer_than: syntax and units (d, m, y; examples older_than:1y, newer_than:2d); after:/before:/older:/newer: as date operators with examples 2004/04/16 and 04/16/2004; number separation rule (space or dash separates a number, dot is a decimal); in:anywhere includes Spam and Trash; negative-operator caveat that Gmail identifies matching messages first; search results can be used to set up a filter; reference covers Gmail on a computer.",
+      "review_notes": "Fetched 2026-10-17 by the drafting agent. Confirmed the units list, examples, the date-operator grouping of older:/newer:, the in:anywhere row and the 'identifies matching messages first' wording. The page does not address case sensitivity, weeks/hours units, decimal periods, mobile-app operator support, or exact rolling-cutoff calculation; the draft states those as undocumented rather than as tested behaviour. Extending the matching-messages-first caveat from negative operators to age searches is the draft's reasoning, presented as such."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en",
+      "supports": "Computer steps for selecting and deleting messages; Trash recovery and permanent deletion after 30 days.",
+      "review_notes": "Fetched 2026-10-17. Confirmed the 30-day Trash statement and the select-all notification link. The draft cites it only for Trash recovery."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/6579?hl=en",
+      "supports": "Context only: Gmail filter creation help.",
+      "review_notes": "Fetched 2026-10-17. The fetched content did not mention age criteria or applying filters to existing conversations. The draft's filter claim (filters test mail as it arrives, so an age condition cannot match newly delivered mail) is aligned with the repository's content_gate rule, not quoted from this page. This page is not cited in the article. A reviewer should confirm the wording."
+    }
+  ],
+  "serp_review": {
+    "checked_on": "2026-10-17",
+    "query": "older_than not working gmail",
+    "observation": "The standard web search returned no direct troubleshooting answer. The results were general oldest-email guides (e.g. getinboxzero.com) and unrelated client and browser bug threads. None compared mistyped variants with the documented syntax.",
+    "limitation": "A single standard search, US results only; not a full SERP capture or a Google-specific ranking check."
+  },
+  "information_gain": "A variant-to-fix troubleshooting table: missing colon, hyphen or missing underscore, extra spaces, undocumented units (year/yr/w), decimal periods, older: confused with older_than:, the newer_than direction mix-up, and non-documented before: date formats, each mapped to its documented form. Also a five-step isolation check, including a cross-check against a fixed before: date and one-condition-at-a-time debugging, plus an explanation of why age searches can surface recent conversations. Existing guides give the recipe (hub) or the operator overview (gmail-search-operators-to-find-old-emails) but not troubleshooting.",
+  "overlap_check": "Hub how-to-delete-emails-older-than-a-year-gmail covers the cleanup recipe and rolling vs fixed dates. gmail-search-operators-to-find-old-emails covers operator recipes. The pending topic gmail-search-operator-older-than ('how to use') remains distinct: this draft deliberately avoids a general usage tutorial and links to the hub for the recipe.",
+  "limitations": [
+    "Source and documentation review only; no live Gmail mailbox test was run. Gmail's actual results for each mistyped variant were not observed.",
+    "Undocumented behaviour (case sensitivity, week/hour units, decimals, mobile-app operator support, exact rolling-cutoff boundary) is described as undocumented, not as tested.",
+    "The filter explanation relies on documented filter semantics in the repository gate and on reasoning; Google's filter page did not explicitly discuss age conditions in the fetched content.",
+    "The example dates (2025/10/17) assume the article date of 2026-10-17 and will need a reader-side adjustment."
+  ],
+  "related_links": [
+    "/blog/how-to-delete-emails-older-than-a-year-gmail.html",
+    "/blog/how-to-select-all-emails-gmail.html",
+    "/blog/delete-all-emails-from-one-sender-gmail.html",
+    "/blog/gmail-filters-delete-emails-automatically.html"
+  ],
+  "assets": [],
+  "review_needed": "An independent substantive reviewer should re-read the cited Google pages claim by claim, confirm the filter wording, consider whether the step-2 date example should be phrased generically, then (if satisfied) record state evidence_checked or publish_ready with their real identity, verified_on and post_sha256 in scripts/content-records.json during a separate promotion."
+}

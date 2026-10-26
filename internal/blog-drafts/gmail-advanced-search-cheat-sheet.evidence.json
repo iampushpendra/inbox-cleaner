@@ -1,0 +1,63 @@
+{
+  "slug": "gmail-advanced-search-cheat-sheet",
+  "state": "draft",
+  "intent_owner": "gmail-advanced-search-cheat-sheet",
+  "hub_slug": "delete-all-emails-from-one-sender-gmail",
+  "target_query": "gmail advanced search operators cheat sheet",
+  "product_manifest_version": "3.3.1",
+  "drafted_on": "2026-10-22",
+  "drafted_by": { "identity": "Claude Opus 5.5 scheduled editorial draft job (Claude Code)", "kind": "agent" },
+  "verification_kind": "source_review",
+  "verified_on": null,
+  "reviewer": null,
+  "post_sha256": null,
+  "sources": [
+    {
+      "url": "https://support.google.com/mail/answer/7190?hl=en",
+      "supports": "Every operator, example and syntax row in the cheat-sheet tables (from:, to:, cc:/bcc:, subject:, after:/before:/older:/newer:, older_than:/newer_than: with d/m/y, OR/{ }, AND, -, AROUND, label:, category: including reservations and purchases, has: types, list:, filename:, quotes, ( ), in:anywhere incl. Spam and Trash, in:archive, in:snoozed, is:muted, is: statuses, star types, deliveredto:, size:/larger:/smaller:, +, rfc822msgid, has:userlabels/nouserlabels with the 'labels are only added to a message, not an entire conversation' note, header:); the number tip (space or dash separates, dot is decimal); the negative-operator caveat that Gmail identifies matching messages first, with the -is:starred example.",
+      "review_notes": "Fetched 2026-10-22 by the drafting agent with curl and a text extraction of the full operator table; each operator, example and caveat used in the draft was compared against that text. The page does not document how OR combines with an implicit AND (precedence) or whether lowercase 'or' works; the draft states precedence is undocumented and recommends braces, and says only to write OR in capitals 'as Google's examples do'. category:reservations and category:purchases are newly listed; the draft hedges that readers should confirm what they return. The statement that a mixed-conversation caveat also applies to age+sender searches is the draft's extension of Google's negative-operator explanation, presented as reasoning. Page is the Computer version."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/6593?hl=en",
+      "supports": "Standard search excludes Spam and Trash by default; the Mail & Spam & Trash option in Show search options; searching a person's address also returns their alias and quoting limits it to the original address (Google's example quotes the whole from: term); a from: search can show Drive files shared by that address; results sort only by Most relevant or Most recent; search chips (From, Any time, Has attachment, To, Is unread, etc.) and the advanced search panel fields (From, To, Subject, Has the words, Doesn't have, Size, Date within, Search location); Create filter from the panel.",
+      "review_notes": "Fetched 2026-10-22 via curl text extraction and read in full through the Spam & Trash section. Each of these claims was matched to page text. The 'only two sort orders' FAQ is phrased as 'Google documents two sort orders', not as a guarantee no other sort exists."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en",
+      "supports": "Deleted messages move to Trash, are recoverable for up to 30 days and are permanently deleted after; select-page checkbox then the 'Select all N conversations' notification link; Delete this message for a single message in a conversation.",
+      "review_notes": "Fetched 2026-10-22 via curl text extraction. The 30-day statement and the selection notification wording were confirmed. The draft's statement that deleting a conversation from the results list affects the whole conversation is inferred from Google's separate 'Delete a message in a conversation' procedure (conversation view); a reviewer may wish to confirm in a mailbox."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/6579?hl=en",
+      "supports": "Create a filter from Show search options: enter criteria, click Search to check results, click Create filter, choose an action (actions include delete).",
+      "review_notes": "Fetched 2026-10-22 via curl text extraction. Steps match the FAQ and the step-5 follow-on sentence. The page's note that forwarding filters only affect new messages was not used. Whether 'also apply to matching conversations' is offered was not checked and the draft makes no claim about it."
+    }
+  ],
+  "serp_review": {
+    "checked_on": "2026-10-22",
+    "query": "gmail advanced search operators cheat sheet",
+    "observation": "Standard web search returned getmailbird.com, mailmeteor.com ('50+ Gmail search operators, 2026 guide'), a GRCC support-desk KB article, a Scribd filtering cheat sheet, hongkiat.com and ionos.com/.ca. From the search summaries these follow Google's own operator / description / example layout, with combining operators and the advanced search panel as add-ons. None surfaced (in the summaries) a per-operator cleanup risk, the documented alias / Drive-file behaviour of from:, the per-message label note, or the undocumented OR precedence.",
+    "limitation": "A single standard US search; not a full SERP capture. Competitor pages were seen only via the search tool's summaries and were not fetched, so the claimed gap is a hypothesis for the reviewer to confirm."
+  },
+  "information_gain": "A cleanup-oriented cheat sheet: operators grouped by cleanup job (who / when / where / what / state) with a 'check before deleting' column built from Google's own but scattered caveats (message-first matching of negative operators, labels on messages not conversations, from: alias and Drive-file matching with the quoting fix, Spam/Trash excluded by default, category: dependence on inbox categories, size filters not sorting), plus an explicit note that Google does not document OR-vs-AND precedence with a brace-based rewrite that removes the ambiguity, and a one-condition-at-a-time build procedure. Distinct from gmail-search-operators-to-find-old-emails (age operators only, four recipes) and from the hub delete-all-emails-from-one-sender-gmail (sender deletion procedure).",
+  "overlap_check": "Reviewed published gmail-search-operators-to-find-old-emails (594 words; age recipes, apply, mixed-conversation, Trash) and inbox-cleaner-vs-native-gmail. This draft links to the age guide rather than repeating its recipes and covers age in two table rows. Size details defer to gmail-delete-emails-by-size; pending gmail-larger-smaller-size-difference, gmail-older-than-vs-before, gmail-mailing-list-search-operator, gmail-search-operator-has-attachment and gmail-search-multiple-senders-at-once each get one table row or sentence only and remain distinct deeper intents. Overlap judged acceptable: no published page is a general operator reference.",
+  "limitations": [
+    "Source and documentation review only; no live Gmail mailbox test, screenshot or timing was produced. The build procedure has no recorded expected results.",
+    "OR/AND precedence and lowercase 'or' behaviour are undocumented; the draft says so but did not test either.",
+    "category:reservations and category:purchases availability across accounts and regions was not tested.",
+    "The claim that deleting a conversation from search results removes all its messages is inferred from Google's conversation-view documentation, not tested.",
+    "Mobile app operator support is not discussed; all cited pages are the computer versions.",
+    "Competitor gap is based on search-result summaries, not fetched pages.",
+    "CHANGELOG records that the live Chrome Web Store listing may not match the packaged DOM extension (3.2.1 OAuth-era listing); the extension paragraph describes the current repository build per scripts/product-facts.json, which itself was reviewed at manifest 3.2.1 while manifest.json is now 3.3.1."
+  ],
+  "related_links": [
+    "/blog/delete-all-emails-from-one-sender-gmail.html",
+    "/blog/how-to-select-all-emails-gmail.html",
+    "/blog/gmail-archive-vs-delete.html",
+    "/blog/gmail-search-operators-to-find-old-emails.html",
+    "/blog/gmail-delete-emails-by-size.html",
+    "/blog/gmail-filters-delete-emails-automatically.html"
+  ],
+  "assets": [],
+  "review_needed": "An independent substantive reviewer should re-read 7190, 6593, 7401 and 6579 claim by claim, decide whether the conversation-deletion inference and the OR-precedence note need a live test or softer wording, fetch two or three of the competitor cheat sheets to confirm the information gain, confirm the extension paragraph against the 3.3.1 build, then record evidence_checked or publish_ready with their real identity, verified_on and post_sha256 in scripts/content-records.json during a separate promotion."
+}

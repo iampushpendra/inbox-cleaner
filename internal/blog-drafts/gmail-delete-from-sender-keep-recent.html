@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="canonical" href="https://inbox-cleaner.vercel.app/blog/gmail-delete-from-sender-keep-recent.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete One Sender's Old Gmail Emails but Keep Recent Ones | Inbox Cleaner</title>
+  <meta name="description" content="Search from:sender@example.com older_than:3m in Gmail on a computer, preview what stays with newer_than:3m, then trash only the older results.">
+  <meta property="og:title" content="Delete One Sender's Old Gmail Emails but Keep Recent Ones">
+  <meta property="og:description" content="Search from:sender@example.com older_than:3m in Gmail on a computer, preview what stays with newer_than:3m, then trash only the older results.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://inbox-cleaner.vercel.app/blog/gmail-delete-from-sender-keep-recent.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Delete Emails from One Sender but Keep Recent Ones in Gmail",
+    "datePublished": "2026-10-19",
+    "dateModified": "2026-10-19",
+    "author": { "@type": "Organization", "name": "Inbox Cleaner" },
+    "publisher": { "@type": "Organization", "name": "Inbox Cleaner", "url": "https://inbox-cleaner.vercel.app" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Delete Emails from One Sender but Keep Recent Ones in Gmail",
+    "step": [
+      { "@type": "HowToStep", "name": "Preview what you will keep", "text": "In Gmail on a computer, search from:sender@example.com newer_than:3m, using the sender's real address and your own cutoff. These are the emails the cleanup should leave alone." },
+      { "@type": "HowToStep", "name": "Search for the older mail", "text": "Change the search to from:sender@example.com older_than:3m. This is the set you intend to trash." },
+      { "@type": "HowToStep", "name": "Open conversations with recent dates", "text": "Gmail matches messages and then shows their conversations, so a result can contain a recent reply. Open any result whose date is newer than your cutoff before selecting it." },
+      { "@type": "HowToStep", "name": "Select and move to Trash", "text": "Use the top checkbox to select the page. If Gmail offers a link to select all matching conversations, use it, then click Delete." },
+      { "@type": "HowToStep", "name": "Rerun both searches", "text": "Rerun the older_than search to see what remains, and the newer_than search to confirm the mail you meant to keep is still there." }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can a Gmail filter keep deleting a sender's old emails automatically?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Not by age. Filters act on mail as it arrives, and a new email is never older than your cutoff. Run the older_than search by hand whenever you want to clear the backlog." }
+      },
+      {
+        "@type": "Question",
+        "name": "Will this also remove the sender's emails from Spam and Trash?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Ordinary Gmail searches leave out Spam and Trash. Google documents in:anywhere as including both, so add it only if you deliberately want those folders in scope." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I get the trashed emails back?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Usually, yes. Google says you can recover a message from Trash within 30 days, unless you delete it forever sooner. Open Trash, select the messages and move them back to your inbox." }
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>📥</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-logo" href="/">📥 Inbox<span>Cleaner</span></a>
+  <a class="blog-nav-cta" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add to Chrome →</a>
+</nav>
+
+<main>
+  <div class="blog-wrap">
+    <span class="blog-eyebrow">Sender Cleanup</span>
+    <h1 class="blog-h1">How to Delete Emails from One Sender but Keep Recent Ones in Gmail</h1>
+    <p class="blog-meta">Updated October 2026 · 4 min read</p>
+
+    <div class="blog-body">
+
+      <div class="quick-answer">
+        <strong>Quick answer:</strong> To delete one sender's emails but keep the recent ones, search <code>from:sender@example.com older_than:3m</code> in Gmail on a computer, changing the address and the cutoff to suit you. First run the same search with <code>newer_than:3m</code> to see what will stay. Then open any result that shows a recent date, select the rest and move them to Trash. Gmail matches individual messages, so one conversation can hold both old and recent mail.
+      </div>
+
+      <p>Gmail has no "keep the latest" button for a sender. What it does have is a search that combines the sender with an age. The work is in two places: picking a cutoff that matches what "recent" means to you, and checking conversations that cross that cutoff.</p>
+
+      <h2>Which search matches what you want to keep?</h2>
+      <p>Google's <a href="https://support.google.com/mail/answer/7190?hl=en">search operator reference</a> documents <code>from:</code>, <code>older_than:</code> and <code>newer_than:</code> with the units <code>d</code>, <code>m</code> and <code>y</code>, plus <code>before:</code> and <code>after:</code> for fixed dates such as <code>2004/04/16</code>. Pick the row that matches your goal. In each case the "keep" search shows what should survive, and the "delete" search is the set you trash.</p>
+
+      <table>
+        <thead>
+          <tr><th>What you want to keep</th><th>Delete search</th><th>Keep search (preview)</th><th>Watch for</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>The last 30 days</td><td><code>from:sender@example.com older_than:30d</code></td><td><code>from:sender@example.com newer_than:30d</code></td><td>The cutoff rolls forward each day, so the same search finds more mail next week.</td></tr>
+          <tr><td>The last 3 months</td><td><code>from:sender@example.com older_than:3m</code></td><td><code>from:sender@example.com newer_than:3m</code></td><td>Same rolling cutoff. Google doesn't document how many days a month counts as, so expect small differences near the boundary.</td></tr>
+          <tr><td>Everything from this year</td><td><code>from:sender@example.com before:2026/01/01</code></td><td><code>from:sender@example.com after:2025/12/31</code></td><td>A fixed date doesn't move. Change it yourself when the year changes.</td></tr>
+          <tr><td>Roughly the latest 20 emails</td><td><code>from:sender@example.com before:YYYY/MM/DD</code>, using the date of the 20th newest email</td><td><code>from:sender@example.com after:YYYY/MM/DD</code></td><td>Gmail has no operator for "the last N emails". You turn a count into a date by hand, and emails sent on the boundary day can land on either side.</td></tr>
+          <tr><td>Recent mail plus anything you starred</td><td><code>from:sender@example.com older_than:3m -is:starred</code></td><td><code>from:sender@example.com is:starred</code></td><td>Google warns that conversations with excluded criteria may still appear. Check the starred search before you trash anything.</td></tr>
+        </tbody>
+      </table>
+
+      <p>Use the sender's actual address from an open message, not a display name. A company can send receipts and promotions from different addresses, so check which address the mail you want to clear really comes from. The <a href="../blog/delete-all-emails-from-one-sender-gmail.html">guide to deleting all emails from one sender in Gmail</a> covers finding the address and clearing a sender completely.</p>
+
+      <h2>How do I delete the older emails and keep the rest?</h2>
+      <ol class="blog-steps">
+        <li><strong>Preview what you will keep.</strong> In Gmail on a computer, search <code>from:sender@example.com newer_than:3m</code>, with your own address and cutoff. If anything here should go too, shorten the cutoff instead of deleting by hand.</li>
+        <li><strong>Search for the older mail.</strong> Change <code>newer_than</code> to <code>older_than</code> in the same search. This is the set you will trash.</li>
+        <li><strong>Open conversations with recent dates.</strong> If a result shows a date newer than your cutoff, open it. See the next section for why this happens.</li>
+        <li><strong>Select and move to Trash.</strong> The top checkbox selects the current page only. If Gmail shows a link to select all matching conversations, click it, then click Delete. The <a href="../blog/how-to-select-all-emails-gmail.html">guide to selecting all emails in Gmail</a> explains the page-versus-all-results difference.</li>
+        <li><strong>Rerun both searches.</strong> The <code>older_than</code> search should come back empty, or close to it. The <code>newer_than</code> search should still show the mail you meant to keep.</li>
+      </ol>
+
+      <h2>Why can an older-mail search still show a recent email?</h2>
+      <p>Google's reference says that Gmail identifies matching messages first. In conversation view, a thread whose first email is a year old can appear in an <code>older_than:1y</code> search even if the sender replied yesterday. Google's <a href="https://support.google.com/mail/answer/7401?hl=en">deletion help</a> describes deleting from the list for whole selections, and a separate "Delete this message" option inside an open conversation. So treat a list selection as acting on the conversation you see, and remove single messages from inside the conversation when a thread mixes old and new.</p>
+      <p>If many of this sender's threads mix old and new mail, Google's <a href="https://support.google.com/mail/answer/5900?hl=en">conversation view help</a> explains how to turn grouping off on a computer: Settings, See all settings, Conversation View, then Save Changes. With it off, each email shows separately. This changes how your whole inbox looks, so turn it back on afterwards if you prefer threads. We haven't tested in a live mailbox whether this changes which messages a bulk Trash action covers.</p>
+
+      <div class="blog-cta">
+        <h3>Clean up Gmail with the Chrome extension</h3>
+        <p>Install from the Chrome Web Store, then open Gmail and click Inbox Cleaner. Emails go to Trash (30-day recovery window).</p>
+        <a class="blog-cta-btn" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add Inbox Cleaner to Chrome →</a>
+      </div>
+
+      <h2>Can a sender cleanup extension keep recent emails?</h2>
+      <p>Not Inbox Cleaner. It runs in an open Gmail tab in desktop Chrome, ranks senders by email count, and moves all the selected senders' mail to Trash, including archived mail. It does not carry over a date, starred, category or size limit from a search you ran. So for this job, where recent mail must stay, use the native Gmail search above. The extension fits when you want a sender gone completely, such as a newsletter you no longer read. Its counts are email counts, not storage size.</p>
+      <p>If the old mail is history you might want later, rather than clutter, consider archiving instead. The <a href="../blog/gmail-archive-vs-delete.html">Gmail archive vs delete guide</a> explains what each one does to storage and search.</p>
+
+      <p>Source review: 19 October 2026. The operators, the conversation-matching caveat, the select-all link, the "Delete this message" option, conversation view settings and the 30-day Trash window were checked against the linked Google help pages for Gmail on a computer. No live-mailbox test or original screenshot is claimed. <a href="/blog/">All guides</a>.</p>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <p class="faq-q">Can a Gmail filter keep deleting a sender's old emails automatically?</p>
+          <p class="faq-a">Not by age. Filters act on mail as it arrives, and a new email is never older than your cutoff. Run the <code>older_than</code> search by hand whenever you want to clear the backlog.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Will this also remove the sender's emails from Spam and Trash?</p>
+          <p class="faq-a">No. Ordinary Gmail searches leave out Spam and Trash. Google documents <code>in:anywhere</code> as including both, so add it only if you deliberately want those folders in scope.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Can I get the trashed emails back?</p>
+          <p class="faq-a">Usually, yes. Google says you can recover a message from Trash within 30 days, unless you delete it forever sooner. Open Trash, select the messages and move them back to your inbox.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>Built by <a href="https://github.com/iampushpendra" target="_blank" rel="noopener">@iampushpendra</a> · <a href="../privacy.html">Privacy Policy</a> · <a href="https://github.com/iampushpendra/inbox-cleaner" target="_blank" rel="noopener">GitHub</a> · Emails go to Trash — you have 30 days to restore them.</p>
+</footer>
+
+</body>
+</html>

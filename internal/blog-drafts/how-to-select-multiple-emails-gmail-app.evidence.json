@@ -1,0 +1,93 @@
+{
+  "slug": "how-to-select-multiple-emails-gmail-app",
+  "state": "draft",
+  "intent_owner": "how-to-select-multiple-emails-gmail-app",
+  "hub_slug": "how-to-select-all-emails-gmail",
+  "target_query": "how to select multiple emails in the gmail mobile app",
+  "product_manifest_version": "3.3.1",
+  "drafted_on": "2026-10-23",
+  "drafted_by": { "identity": "Claude Opus 5.5 scheduled editorial draft job (Claude Code)", "kind": "agent" },
+  "verification_kind": "source_review",
+  "verified_on": null,
+  "reviewer": null,
+  "post_sha256": null,
+  "sources": [
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en&co=GENIE.Platform%3DAndroid",
+      "supports": "Android: 'Touch and hold a message'; 'tap the box at the top left, next to \"Select all\"'; 'By default, Gmail selects up to 50 messages to delete'; to select 50 more, scroll to the top and tap Select all again; tap Delete at the top; 'Touch and hold each message you want to delete'; search operators for specific emails.",
+      "review_notes": "Fetched 2026-10-23 by the drafting agent through a summarising fetch tool. Quotes above were returned verbatim; step order paraphrased. Page shows no last-updated date."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en&co=GENIE.Platform%3DiOS",
+      "supports": "iPhone/iPad: 'Touch and hold a message'; box next to 'Select all' at top left; up to 50 messages by default; scroll back to the top and tap Select all again for 50 more; 'At the top, tap Delete'.",
+      "review_notes": "Fetched 2026-10-23. Matches the Android page for selection; used for the both-platforms claim and the Delete row."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/12516?hl=en&co=GENIE.Platform%3DAndroid",
+      "supports": "Android mark multiple as read: 'On the left of the message, tap the sender's profile image'; 'At the top left, tap the box next to \"Select all.\"'; tip 'To select more messages, scroll down, then tap the box next to \"Select all\" again'; 'At the top right, tap Mark as read'.",
+      "review_notes": "Fetched 2026-10-23. This page documents the profile-image gesture and does not mention touch-and-hold. Its 'scroll down' tip differs from the deletion page's 'scroll to the top'; the draft reports that inconsistency and tells readers to rely on the selected count rather than choosing one."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/12516?hl=en&co=GENIE.Platform%3DiOS",
+      "supports": "iPhone/iPad mark multiple as read: same four steps as Android (sender's profile image, Select all box, 'scroll down' tip, Mark as read top right).",
+      "review_notes": "Fetched 2026-10-23. Supports the profile-image row as applying to both platforms."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/6576?hl=en&co=GENIE.Platform%3DAndroid",
+      "supports": "Android archive: 'Touch and hold a message or multiple messages', then Archive at the top.",
+      "review_notes": "Fetched 2026-10-23. No profile-image gesture mentioned."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/6576?hl=en&co=GENIE.Platform%3DiOS",
+      "supports": "iPhone/iPad archive: 'Touch and hold a message or multiple messages.' 'At the top, tap Archive.'",
+      "review_notes": "Fetched 2026-10-23."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/118708?hl=en&co=GENIE.Platform%3DAndroid",
+      "supports": "Android labels: 'Touch and hold one or more emails'; More > 'Label as', check labels, tap OK; move: More > 'Move to', choose label.",
+      "review_notes": "Fetched 2026-10-23. Source for the Android label/move cells of the action table."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/118708?hl=en&co=GENIE.Platform%3DiOS",
+      "supports": "iPhone/iPad labels: 'Touch and hold one or more emails'; More > 'Labels', check labels, tap Done; move: More > 'Change labels', uncheck current labels, select new labels, tap Done.",
+      "review_notes": "Fetched 2026-10-23. Source for the iOS label/move cells; the platform label differences in the table come from comparing these two pages."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en&co=GENIE.Platform%3DDesktop",
+      "supports": "Computer: Select box selects the current page; example 'All 50 conversations on this page are selected. Select all 2,000 conversations in Inbox.'; Trash keeps messages up to 30 days, then permanently deleted.",
+      "review_notes": "Fetched 2026-10-23. Used only to contrast computer all-matching selection with the app and for the 30-day Trash claim."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7190?hl=en",
+      "supports": "from: and is:unread operators; 'When you use negative search operators, conversations with excluded criteria may still appear.'",
+      "review_notes": "Fetched 2026-10-23; quote confirmed. The draft quotes it in the negative-operator context only and presents the broader 'open anything important' advice as a precaution."
+    }
+  ],
+  "serp_review": {
+    "checked_on": "2026-10-23",
+    "query": "how to select multiple emails in the gmail mobile app",
+    "observation": "Results: getmailbird.com, streak.com (two URLs), androidauthority.com, blog.incogni.com (several URLs), thestatesman.com news item on an Android 'Select all' (50) rollout, kobedigital.com. Snippets agree on press-and-hold then tap others; they conflict on whether the app has Select all at all. None reconciled Google's own two documented entry gestures or tabulated post-selection actions by platform.",
+    "limitation": "One standard US web search; result pages weren't opened, so the characterisation rests on titles and snippets."
+  },
+  "information_gain": "A cross-platform (Android + iPhone/iPad) selection guide whose job is selecting for any action, not deleting: it reconciles Google's two documented ways into selection mode (touch-and-hold on the delete/archive/label pages vs tapping the sender's profile image on the mark-as-read pages), flags Google's own inconsistent 'scroll to the top' vs 'scroll down' tip for adding the next 50, and gives a platform-by-platform action table (Delete, Archive, Mark as read, Label as vs Labels, Move to vs Change labels with OK vs Done) sourced from six device-specific help pages. The hub how-to-select-all-emails-gmail is desktop-focused and only carries a one-sentence Android aside.",
+  "overlap_check": "Material overlap exists with the unpublished pending drafts how-to-bulk-delete-emails-gmail-iphone and how-to-bulk-delete-emails-gmail-android, which both include touch-and-hold + Select all + 50-message steps as the first part of a deletion procedure. This draft deliberately does not repeat their deletion rounds table, Trash/swipe/restore paths or delete-all decision table, and focuses on selection mechanics and non-delete actions (archive, mark read, label, move). It does not link to those drafts because they are unpublished. A reviewer should decide whether this selection page and the two device delete pages should all stay separate; if they are kept, they should cross-link once published. Pending topics gmail-select-all-greyed-out, gmail-selected-emails-count-wrong and gmail-select-all-conversations-desktop-site-mobile are adjacent; this draft makes no claims about desktop-site mode on phones or greyed-out controls.",
+  "limitations": [
+    "Source and documentation review only; no live Android or iOS device or Gmail mailbox test, and no original screenshots.",
+    "The fetch tool summarised pages; exact UI labels should be confirmed on the live help pages or a current app build.",
+    "That tapping additional emails (rather than touching and holding each) adds them once in selection mode is not stated in Google's help; the draft instead follows Google's 'touch and hold each' wording.",
+    "Absence of an all-matching selection in the app is stated only as not described in Google's help, not as tested absence.",
+    "Whether 'Select all' counts messages or conversations in conversation view isn't documented; the draft uses Google's word 'messages'.",
+    "Apple Mail, Samsung Email and other mail apps weren't reviewed.",
+    "SERP review relied on result titles/snippets, not opened pages."
+  ],
+  "related_links": [
+    "/blog/how-to-select-all-emails-gmail.html",
+    "/blog/gmail-select-all-conversations-not-showing.html",
+    "/blog/gmail-archive-vs-delete.html",
+    "/blog/gmail-delete-all-unread-emails.html",
+    "/blog/delete-all-emails-from-one-sender-gmail.html"
+  ],
+  "assets": [],
+  "structural_check": "content_gate.check_post on the draft path returned no errors on 2026-10-23; all three JSON-LD blocks parse. --ready was not run (it targets docs/ and requires a publish_ready record).",
+  "review_needed": "An independent substantive reviewer should open the six device-specific Google help pages and confirm both entry gestures, the 50-message default, the scroll-direction discrepancy and every action-table cell, ideally on current Android and iOS app builds. They should also make the merge/separate decision against the iPhone and Android delete drafts, then record evidence_checked or publish_ready with their real identity, verified_on and post_sha256 in scripts/content-records.json during a separate promotion."
+}

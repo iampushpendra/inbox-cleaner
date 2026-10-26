@@ -1,0 +1,75 @@
+{
+  "slug": "gmail-inbox-empty-storage-full",
+  "state": "draft",
+  "intent_owner": "gmail-inbox-empty-storage-full",
+  "hub_slug": "gmail-mailbox-full-cant-receive-emails",
+  "target_query": "why is gmail storage full when my inbox is empty",
+  "product_manifest_version": "3.2.2",
+  "drafted_on": "2026-10-20",
+  "drafted_by": { "identity": "Claude Opus 5.5 scheduled editorial draft job (Claude Code)", "kind": "agent" },
+  "verification_kind": "source_review",
+  "verified_on": null,
+  "reviewer": null,
+  "post_sha256": null,
+  "sources": [
+    {
+      "url": "https://support.google.com/googleone/answer/9312312?hl=en",
+      "supports": "Each Google Account includes up to 15 GB shared across Gmail, Drive and Photos; 'Gmail messages and attachments, which includes your Spam and Trash folders' count; Drive files, Photos, Android and WhatsApp backups count; large deletions normally take up to 48–72 hours to update.",
+      "review_notes": "Fetched 2026-10-20 via curl (title 'How your Google storage works - Google One Help'). Quota sentence, 'What counts' list and 48–72 hour FAQ answer confirmed verbatim. The article says 'up to 15 GB on a standard account', matching 'up to 15 GB'."
+    },
+    {
+      "url": "https://support.google.com/drive/answer/6374270?hl=en",
+      "supports": "Trash and Spam count against the storage limit until permanently cleared; allow up to 48–72 hours; Gmail search example has:attachment larger:10M; backups and hidden app data under other storage.",
+      "review_notes": "Fetched 2026-10-20 via curl (title 'Manage your storage in Drive, Gmail & Photos'). Confirmed 'Until you permanently clear items in these folders, they count against your storage limit' and the has:attachment larger:10M example."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7190?hl=en",
+      "supports": "Operators in:anywhere ('This includes emails in Spam and Trash'), in:archive, category:, label:, from:me, has:attachment, larger:; negative-operator/conversation caveat (Gmail identifies matching messages first).",
+      "review_notes": "Fetched 2026-10-20 via curl (title 'Refine searches in Gmail - Computer'). Each operator used in the article appears in the table. in:sent and in:spam are NOT in the table, so the article uses the Sent/Spam folders and from:me instead. The combinations (in:anywhere larger:10M, in:archive larger:10M, from:me has:attachment larger:10M) rely on the page's general statement that operators can be combined; they were not run live."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/6576?hl=en",
+      "supports": "Archived messages no longer appear in the inbox but can be found under All mail; in:archive search; replies return archived conversations to the inbox.",
+      "review_notes": "Fetched 2026-10-20 via curl (title 'Archive Gmail messages - Computer'). Confirmed."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/118708?hl=en",
+      "supports": "Labels are different from folders; 'When you delete an email, it's removed from every label and your inbox.'",
+      "review_notes": "Fetched 2026-10-20 via curl (title 'Create & manage labels in Gmail - Computer'). Quoted sentence confirmed. The article's 'a label is a tag, not a copy' is an inference from this sentence and 'Labels are different from folders'; Google does not state storage accounting per label explicitly."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/3094499?hl=en",
+      "supports": "Default inbox type sorts mail into Primary, Social, Promotions, Updates and Forums; category: search; 'Archived emails don't appear in categories'.",
+      "review_notes": "Fetched 2026-10-20 via curl (title 'Organize your emails into categories - Computer'). Confirmed category list and search syntax."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en",
+      "supports": "Deleted messages move to Trash; recoverable up to 30 days; Empty Trash now; select-all banner extends selection beyond the current page.",
+      "review_notes": "Fetched 2026-10-20 via curl (title 'Delete messages in Gmail - Computer'). Confirmed."
+    }
+  ],
+  "serp_review": {
+    "checked_on": "2026-10-20",
+    "query": "why is gmail storage full when my inbox is empty",
+    "observation": "Standard web search returned getinboxzero.com (exact-intent title), clean.email, picbackman x2, dev.to, a codingblocks forum thread, a Mozilla support thread, a Google accounts community thread and getmailbird. Common points: Trash/Spam, archived mail, Drive/Photos shared quota, update lag (one unsourced 'up to seven days'), wrong account. Result summaries did not show category tabs as a hiding place, the label-is-not-a-copy point, sent attachments, or Google-documented operators per location.",
+    "limitation": "One standard US web search summary; result pages were not opened individually. Not a Google ranking capture."
+  },
+  "information_gain": "A location map of every place Gmail mail can sit outside the inbox view (category tabs, archive/All Mail, labels, Sent, Spam, Trash, outside Gmail), each paired with a Google-documented way to check it, plus the 'label is a tag, not a copy' clarification sourced to the labels help page, and a size-first search order using in:anywhere (documented as including Spam and Trash). Top results list generic causes but did not show tabs, label copies or per-location operators. Avoids the undocumented in:sent/in:spam operators other pages use.",
+  "overlap_check": "Hub gmail-mailbox-full-cant-receive-emails covers delivery failure; gmail-archive-vs-delete covers the archive decision (linked, not repeated). Unpublished sibling drafts gmail-empty-trash-storage-still-full and gmail-storage-not-updating-after-deleting start from a deletion the reader already made; this draft starts from the misconception that an empty inbox means an empty mailbox. Residual overlap: all three mention Spam/Trash counting and 48–72 hours, and pending topics gmail-storage-full-archive-does-not-help and gmail-spam-trash-storage-quota overlap the archive and Spam/Trash rows. The archive section here is two sentences and routes to the existing guide. A reviewer should confirm the cluster does not need consolidation before publishing more than one of these.",
+  "limitations": [
+    "Source and documentation review only. No live Gmail mailbox test was run; the combined searches were not executed and no screenshots exist.",
+    "The 'label is not a copy / does not change storage' framing is inferred from Gmail's labels help ('removed from every label'), not a direct Google storage statement.",
+    "The storage page's per-service breakdown is described generically; its exact UI was not checked live.",
+    "The 48–72 hour update timing is Google's 'normally' figure, not a guarantee.",
+    "Covers personal accounts in Gmail on a computer; mobile app views and Workspace admin quotas are out of scope."
+  ],
+  "related_links": [
+    "/blog/gmail-mailbox-full-cant-receive-emails.html",
+    "/blog/how-to-select-all-emails-gmail.html",
+    "/blog/delete-all-emails-from-one-sender-gmail.html",
+    "/blog/gmail-archive-vs-delete.html",
+    "/blog/gmail-delete-emails-by-size.html"
+  ],
+  "assets": [],
+  "review_needed": "An independent substantive reviewer should re-read the seven Google pages claim by claim, ideally run the three combined searches in a test mailbox, decide the overlap with the two sibling storage drafts and the archive/spam pending topics, and only then promote a record into scripts/content-records.json with real identity, verified_on and post_sha256."
+}

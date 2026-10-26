@@ -1,0 +1,105 @@
+{
+  "slug": "gmail-cleaner-without-oauth",
+  "state": "draft",
+  "intent_owner": "gmail-cleaner-without-oauth",
+  "hub_slug": "delete-all-emails-from-one-sender-gmail",
+  "target_query": "can i clean gmail without giving a tool oauth access",
+  "product_manifest_version": "3.3.1",
+  "drafted_on": "2026-10-21",
+  "drafted_by": {
+    "identity": "Claude Opus 5.5 scheduled editorial draft job (Claude Code)",
+    "kind": "agent"
+  },
+  "verification_kind": "source_review",
+  "verified_on": null,
+  "reviewer": null,
+  "post_sha256": null,
+  "publication_blocker": "The live Chrome Web Store listing (checked 2026-10-21 via WebFetch: version 3.2.2, updated 19 Oct 2026) still describes identity (Google sign-in) plus gmail.readonly and gmail.modify, and says nothing is sent anywhere except directly to Google's Gmail API. Repository manifest 3.3.1 declares only storage, tabs and host https://mail.google.com/*. CHANGELOG 'Open item — published listing does not match this package' records the same mismatch. The draft says so openly, but an article about avoiding OAuth with a CTA to a listing that describes OAuth should not be published until the listing text and uploaded package are confirmed to match the repository build (Developer Dashboard check).",
+  "sources": [
+    {
+      "url": "https://support.google.com/accounts/answer/185833?hl=en",
+      "supports": "App password is a 16-digit passcode that gives a less secure app or device permission to access your Google Account; requires 2-Step Verification; unavailable with security-key-only 2SV, work/school/organization accounts, Advanced Protection; 'App passwords aren't recommended and are unnecessary in most cases'; revoke from App passwords page; changing Google password revokes app passwords.",
+      "review_notes": "Fetched 2026-10-21 via WebFetch (summarising fetch tool). Quoted sentences returned. The article's 'some work and school accounts' softens Google's 'You're logged into a work, school, or another organization account' because admin policy varies; reviewer may tighten. The table's 'not limited to cleanup' is an inference from 'access your Google Account' and the absence of a scope list; Google's page does not enumerate what an app password can reach."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7126229?hl=en",
+      "supports": "Gmail no longer supports third-party apps or devices which require sharing Google username and password; recommends the client's Sign in with Google option; app passwords mentioned as discouraged fallback.",
+      "review_notes": "Fetched 2026-10-21 via WebFetch. Quoted sentence returned. The fetched content was truncated; IMAP delete/expunge behaviour was not reviewed and the article makes no claim about it."
+    },
+    {
+      "url": "https://support.google.com/accounts/answer/13533235?hl=en",
+      "supports": "Google Account third-party connections cover Sign in with Google, Google Account linking, Access to your Google Account and Agent permissions, with removal steps; page does not mention browser extensions or app passwords.",
+      "review_notes": "Fetched 2026-10-21 via WebFetch. The four categories and the absence of extensions/app passwords were confirmed by the fetch summary. 'Not listed' for extensions is an inference from that absence plus extensions having no Google Account grant; not observed on a live account page."
+    },
+    {
+      "url": "https://developers.google.com/apps-script/guides/services/authorization",
+      "supports": "Apps Script needs user authorization to access private data; an authorization dialog appears when a script needs authorization; revoke via Google Account Security > Your connections to third-party apps & services.",
+      "review_notes": "Fetched 2026-10-21 via WebFetch. Confirmed. The page implies rather than states that scripts are listed on the connections page; table cell 'Yes' relies on its revocation instructions."
+    },
+    {
+      "url": "https://developer.chrome.com/docs/extensions/develop/concepts/content-scripts",
+      "supports": "Content scripts run in the context of web pages and can read details of the web pages the browser visits and make changes to them.",
+      "review_notes": "Fetched 2026-10-21 via WebFetch; quoted phrase returned."
+    },
+    {
+      "url": "https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions",
+      "supports": "Host permissions allow extensions to interact with URLs matching patterns; content_scripts.matches patterns allow injection into hosts; changes to these may trigger warnings.",
+      "review_notes": "Fetched 2026-10-21 via WebFetch. The article's 'covers all of Gmail on the web, not a single message or label' is an inference from match-pattern semantics (https://mail.google.com/* matches every path on that host), not a sentence on this page."
+    },
+    {
+      "url": "https://developer.chrome.com/docs/extensions/develop/concepts/network-requests",
+      "supports": "Content scripts make requests on behalf of the page origin and are subject to same-origin policy; extension contexts with host permissions can reach those hosts.",
+      "review_notes": "Fetched 2026-10-21 via WebFetch. Used as background only for the 'does not get a token to reach your mailbox from somewhere else' and 'can still send data elsewhere if built to' statements; not linked in the article. The profile bullet was reworded to avoid implying the extension acts only on tabs the user opened; an extension with tabs permission can open or reuse Gmail tabs itself."
+    },
+    {
+      "url": "https://support.google.com/chrome_webstore/answer/2664769?hl=en",
+      "supports": "Extension Details page setting 'Allow this extension to read and change all your data on websites you visit' with On select / On specific sites / On all sites; Remove from Chrome or Manage extensions > Remove.",
+      "review_notes": "Fetched 2026-10-21 via WebFetch. Option labels confirmed as returned by the summariser; Chrome UI labels can vary by version."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/6579?hl=en",
+      "supports": "Create a filter: Show search options, enter criteria, Create filter, choose action, Create filter; filters can archive, delete, star or forward.",
+      "review_notes": "Fetched 2026-10-21 via WebFetch. Steps confirmed. The exact checkbox label 'Delete it' was not returned verbatim by the fetch; reviewer should confirm. The fetch did not mention an apply-to-existing option, so the article states filters act on new mail and uses search for existing mail."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en",
+      "supports": "Deleted messages stay in Trash 30 days, then are permanently deleted; restore via Trash > Move to on a computer.",
+      "review_notes": "Fetched 2026-10-21 via WebFetch. Confirmed."
+    },
+    {
+      "url": "https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep",
+      "supports": "Listing as of 2026-10-21: version 3.2.2, updated 19 Oct 2026; description lists identity, storage, gmail.readonly + gmail.modify.",
+      "review_notes": "Fetched 2026-10-21 via WebFetch (summarised). The install prompt itself was not observed and the uploaded package was not downloaded or inspected. Description text and package permissions may differ; this is the publication blocker above."
+    },
+    {
+      "url": "https://github.com/iampushpendra/inbox-cleaner",
+      "supports": "Repository manifest 3.3.1: permissions storage, tabs; host https://mail.google.com/*; content.js, parsing.js, popup.js contain no fetch/XMLHttpRequest/sendBeacon/WebSocket/chrome.identity/OAuth/Gmail API calls; sender cleanup moves matching mail to Trash after confirmation; no permanent delete, no Undo, sender-wide scope including archived mail.",
+      "review_notes": "Checked 2026-10-21 against local manifest.json and a grep of the three scripts (no matches). Behavioural statements rely on scripts/product-facts.json (reviewed for 3.2.1) and the CHANGELOG entries for later deletion-verification and pagination fixes, which do not change scope or Trash behaviour. Not a verification of the installed Chrome Web Store package."
+    }
+  ],
+  "serp_review": {
+    "checked_on": "2026-10-21",
+    "query": "can i clean gmail without giving a tool oauth access",
+    "observation": "One standard web search returned a Show HN / Indie Hackers / AlternativeTo trio for one product ('Clear Mail for Gmail') claiming local, no-OAuth processing, a local-first Gmail API tool needing user-supplied OAuth credentials, and forum threads (Vivaldi, Firetrust, a GitLab issue) on IMAP/password login that predate Google's removal of password sign-in. No result compared the routes, explained that DOM site access is still broad access, or pointed out where each route is (not) listed for revocation.",
+    "limitation": "One standard US web search; result pages were not opened individually; not a Google ranking capture."
+  },
+  "information_gain": "A route-by-route table of ways to clean Gmail without an OAuth consent (native Gmail, page-based Chrome extension, IMAP client with app password, own Apps Script) showing what is granted, what it can reach, whether it appears on Google's third-party connections page, and how to stop it. It also corrects two misconceptions in the sampled results: the forum advice that IMAP with a password avoids OAuth (Gmail no longer supports password sign-in; app passwords are Google-discouraged and unscoped), and the implication that 'no OAuth' extensions see less (content scripts with mail.google.com access read and change Gmail pages and are revoked in Chrome, not Google Account).",
+  "overlap_check": "Pending sibling draft is-it-safe-to-use-gmail-cleanup-extensions (internal/blog-drafts, unpublished) compares OAuth vs extension site access vs native Gmail and has an FAQ on extensions reading mail without Google sign-in. This draft overlaps on that point but its distinct job is the no-OAuth route choice: app passwords/IMAP, Apps Script, revocation location per route, and a native-only procedure. A reviewer should decide whether to cross-link the two and trim the safety draft's no-sign-in FAQ, or merge. Published inbox-cleaner-setup-permissions-recovery is product-specific and is linked rather than repeated.",
+  "limitations": [
+    "Source and documentation review only. No third-party tool, mail client or app password was set up or tested, no live mailbox test was run, and no screenshots exist.",
+    "Google and Chrome pages were read through a summarising fetch tool, not saved verbatim; quotations and UI labels (On select, Delete it) should be rechecked.",
+    "The Chrome Web Store listing describes an OAuth (identity, gmail.readonly, gmail.modify) build while repository manifest 3.3.1 does not; the uploaded package was not inspected. This blocks publication until resolved.",
+    "Inbox Cleaner statements come from repository source and product-facts reviewed for 3.2.1, not from the installed store package or a network capture.",
+    "The extension row assumes a page-based extension without its own network or token logic; individual extensions can differ, which the article states.",
+    "Workspace admin controls over app passwords, third-party apps and extensions are out of scope beyond noting some work/school accounts lack app passwords.",
+    "SERP review was one standard search sample."
+  ],
+  "related_links": [
+    "/blog/delete-all-emails-from-one-sender-gmail.html",
+    "/blog/how-to-select-all-emails-gmail.html",
+    "/blog/gmail-archive-vs-delete.html",
+    "/blog/inbox-cleaner-setup-permissions-recovery.html"
+  ],
+  "assets": [],
+  "review_needed": "Resolve the Chrome Web Store listing/package mismatch first. Then an independent substantive reviewer should recheck each Google/Chrome claim (especially app-password reach, connections-page absence for extensions, and filter/site-access UI labels), decide the overlap with the is-it-safe draft, and only then promote a record into scripts/content-records.json with real identity, verified_on and post_sha256."
+}

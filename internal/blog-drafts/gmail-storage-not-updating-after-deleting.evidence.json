@@ -1,0 +1,61 @@
+{
+  "slug": "gmail-storage-not-updating-after-deleting",
+  "state": "draft",
+  "intent_owner": "gmail-storage-not-updating-after-deleting",
+  "hub_slug": "gmail-mailbox-full-cant-receive-emails",
+  "target_query": "why is gmail storage still full after deleting emails",
+  "product_manifest_version": "3.2.2",
+  "drafted_on": "2026-10-19",
+  "drafted_by": { "identity": "Claude Opus 5.5 scheduled editorial draft job (Claude Code)", "kind": "agent" },
+  "verification_kind": "source_review",
+  "verified_on": null,
+  "reviewer": null,
+  "post_sha256": null,
+  "sources": [
+    {
+      "url": "https://support.google.com/googleone/answer/9312312?hl=en",
+      "supports": "Up to 15 GB shared across Gmail, Drive and Photos; Gmail storage includes messages and attachments in Spam and Trash; FAQ: after deleting a large number of files it normally takes up to 48–72 hours for storage to update accurately; over-quota Gmail send/receive can be impacted; 'Usage details' breakdown by service.",
+      "review_notes": "Fetched 2026-10-19 (page title 'How your Google storage works - Google One Help'). Quoted text confirmed for the Spam/Trash inclusion and the 48–72 hour FAQ answer. The article uses 48–72 hours only as Google's stated normal update time, not as a countdown or guarantee. The article does not quote the 15 GB figure as universal."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en",
+      "supports": "Deleted messages move to Trash; recoverable for up to 30 days, then deleted permanently; Delete forever and 'Empty Trash now' on a computer.",
+      "review_notes": "Fetched 2026-10-19 via curl. Confirmed 'When you delete a message in Gmail, it's moved to Trash', the 30-day statements and 'Empty Trash now'. This page does not discuss storage. The article's claim that Trash still counts toward storage is sourced from 9312312."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/78892?hl=en",
+      "supports": "Google's recommended IMAP client settings: 'You can find messages you delete from an IMAP folder in your \"All Mail\" label in Gmail.' Also warns that changing IMAP settings to save deleted messages in Trash makes them permanently deleted from Gmail in 30 days.",
+      "review_notes": "Fetched 2026-10-19 via curl. Confirmed the All Mail sentence. The article says deleting in an IMAP client 'can' leave mail in All Mail. It does not claim this for every client or configuration, because the result depends on client and Gmail IMAP settings. The page's client-specific setup steps were not checked one by one. The Gmail web-side IMAP option wording (archive / move to Trash / delete forever on expunge) was not confirmed from a fetched source and is not stated in the article."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7190?hl=en",
+      "supports": "in:trash, in:spam and larger: search operators.",
+      "review_notes": "Cited only for operator syntax. These operators are already relied on by published site guides. The page was rechecked in the 2026-10-17 drafting run, not re-fetched in this run. A reviewer should recheck it."
+    }
+  ],
+  "serp_review": {
+    "checked_on": "2026-10-19",
+    "query": "why is gmail storage still full after deleting emails",
+    "observation": "The standard web search returned third-party blogs (picbackman, clean.email, multcloud, dev.to, a twit.tv post) and a forum thread. Most of them name Trash, the shared quota and an update delay. Some cite timing that doesn't match Google's (for example 'seven days'). They raise mail-client sync as a cause, but none of them cite Google's IMAP documentation. None of them give a symptom-to-check table or a size-versus-count check.",
+    "limitation": "One standard US web search. This is not a Google-specific ranking capture. Result pages were not opened individually."
+  },
+  "information_gain": "A symptom → cause → check → next-step table for 'I deleted and nothing changed'. It covers mail still in Trash or Spam, deletion in an IMAP client that leaves mail in All Mail (sourced to Google's IMAP settings page), Drive or Photos dominating, count versus size (larger:10M), the wrong account, and Google's stated 48–72 hour update window. A matching ordered checklist follows. Existing site pages state the Trash and 48–72 hour facts. None of them diagnose why the number didn't move after a deletion, and none cover the IMAP All Mail route.",
+  "overlap_check": "Hub gmail-mailbox-full-cant-receive-emails covers delivery when full. how-to-free-up-gmail-storage and gmail-storage-upgrade-vs-cleanup cover how to reduce usage. gmail-empty-trash-automatically covers the 30-day rule. This draft links to them rather than repeating their recipes. The pending sibling gmail-empty-trash-storage-still-full (after emptying Trash) remains distinct. This draft stops at the decision to empty Trash and doesn't cover the post-emptying diagnostic tree. A reviewer should confirm the two don't converge.",
+  "limitations": [
+    "Source and documentation review only. No live Gmail mailbox, IMAP client or storage-page test was run, and no screenshots exist.",
+    "IMAP behaviour depends on the client and on Gmail IMAP settings. The article uses hedged 'can' wording and doesn't verify specific clients.",
+    "The phone-app swipe default (archive versus delete) was not found in a Google source, so the article doesn't claim it.",
+    "Google's 48–72 hour figure is described as 'normally', not guaranteed. The article doesn't give a countdown.",
+    "Workspace pooled or admin-set quotas are not covered."
+  ],
+  "related_links": [
+    "/blog/gmail-mailbox-full-cant-receive-emails.html",
+    "/blog/how-to-select-all-emails-gmail.html",
+    "/blog/delete-all-emails-from-one-sender-gmail.html",
+    "/blog/gmail-archive-vs-delete.html",
+    "/blog/how-to-permanently-delete-gmail-emails.html",
+    "/blog/gmail-delete-emails-by-size.html"
+  ],
+  "assets": [],
+  "review_needed": "An independent substantive reviewer should do the following. Re-read the four Google pages claim by claim. Confirm the IMAP All Mail wording and hedge. Decide whether the 'storage page' instruction should link a Google URL. Check overlap with the pending gmail-empty-trash-storage-still-full topic. If satisfied, record evidence_checked or publish_ready with their real identity, verified_on and post_sha256 in scripts/content-records.json during a separate promotion."
+}

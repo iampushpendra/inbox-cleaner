@@ -1,0 +1,69 @@
+{
+  "slug": "gmail-all-mail-delete-inbox-too",
+  "state": "draft",
+  "intent_owner": "gmail-all-mail-delete-inbox-too",
+  "hub_slug": "gmail-archive-vs-delete",
+  "target_query": "does deleting an email from all mail also delete it from the inbox",
+  "product_manifest_version": "3.3.1",
+  "drafted_on": "2026-10-22",
+  "drafted_by": { "identity": "Claude Opus 5.5 scheduled editorial draft job (Claude Code)", "kind": "agent" },
+  "verification_kind": "source_review",
+  "verified_on": null,
+  "reviewer": null,
+  "post_sha256": null,
+  "sources": [
+    {
+      "url": "https://support.google.com/mail/answer/118708?hl=en",
+      "supports": "'Labels are different from folders.' 'When you delete an email, it's removed from every label and your inbox.' Move an email to another label by unchecking the current label in the Labels menu.",
+      "review_notes": "Fetched 2026-10-22 via curl (title 'Create & manage labels in Gmail - Computer'). Both quoted sentences confirmed verbatim; this is the core support for the quick answer and every 'Delete' row in the table. The 'Uncheck the Work label' row relies on the 'Move an email to another label' steps (uncheck current label); the page does not state explicitly that unchecking leaves other labels and Inbox intact, so that row is an inference."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en",
+      "supports": "Deleted messages move to Trash; recoverable and movable back to the inbox for up to 30 days, then permanently deleted; Delete forever / Empty Trash now; All mail listed as a view to delete from; select-all banner text 'All 50 conversations on this page are selected'; 'Delete a message in a conversation': open it, next to Reply click More > Delete this message (conversation view on).",
+      "review_notes": "Fetched 2026-10-22 via curl (title 'Delete messages in Gmail - Computer'). All statements confirmed. The page says a recovered message can be moved 'back to your inbox' but says nothing about restoring original user labels, so the article tells readers to check labels after restoring rather than claiming either way. The article's 'checkbox selects a whole conversation' relies on the banner's 'conversations' wording plus the separate single-message procedure; Google does not state it in one sentence."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/6576?hl=en",
+      "supports": "Archived messages no longer appear in the inbox but can be found under the 'All mail' label; in:archive; Move to Inbox; replies return archived mail to the inbox.",
+      "review_notes": "Fetched 2026-10-22 via curl (title 'Archive Gmail messages - Computer'). Confirmed. The table's claim that archiving keeps Work and Receipts labels is an inference from labels-not-folders and is consistent with the published hub gmail-archive-vs-delete; the archive page does not state it directly."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/78892?hl=en",
+      "supports": "For IMAP clients (Outlook, Apple Mail, Thunderbird): 'You can find messages you delete from an IMAP folder in your \"All Mail\" label in Gmail.' Changing IMAP settings to save deleted messages in Trash makes them permanently deleted in 30 days.",
+      "review_notes": "Fetched 2026-10-22 via curl (title 'Choose your IMAP email client settings for Gmail'). Quoted sentence confirmed verbatim under 'Another email client > Deleting'. The article hedges that the exact effect depends on the app and its settings and does not describe any client's menus or the Gmail IMAP auto-expunge settings, which were not checked."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/5900?hl=en",
+      "supports": "Conversation view groups replies into conversations and can be turned on or off in Settings.",
+      "review_notes": "Fetched 2026-10-22 via curl (title 'Group emails into conversations - Computer'). Confirmed; cited only for the existence of conversation view."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7190?hl=en",
+      "supports": "from: operator used in the sender-cleanup section; 'Labels are only added to a message, and not an entire conversation' (has:userlabels row); in:archive.",
+      "review_notes": "Fetched 2026-10-22 via curl (title 'Refine searches in Gmail - Computer'). Confirmed. Not linked in the article body beyond what the linked sender guide covers; recorded because the article mentions from: searches."
+    }
+  ],
+  "serp_review": {
+    "checked_on": "2026-10-22",
+    "query": "does deleting an email from all mail also delete it from the inbox gmail",
+    "observation": "Standard web search returned mostly IMAP-client material: several Mozilla Thunderbird support threads, eM Client 'Understanding All Mail', Postbox 'Delete Behavior for Gmail Accounts', an Apple discussions thread, a 2020 Google Help community thread and a low-quality scraped article. Results agree that Inbox is a label on the single copy in All Mail. They are mainly client-specific or community answers; none showed a Google-sourced, per-action trace of one multi-labeled message in Gmail on the web.",
+    "limitation": "One standard US web search summary; result pages were not opened individually. Not a Google ranking capture."
+  },
+  "information_gain": "A worked example tracing one message carrying Inbox + Work + Receipts through six actions (no action, Archive, uncheck one label, Delete from All Mail, Delete from Inbox/label, Delete forever) across Inbox, labels, All Mail and Trash, sourced to Google's labels/archive/delete help; plus the Google-documented contrast that IMAP clients' delete lands in All Mail rather than Trash, which explains the forum-dominated results. Top results are client-specific community threads without a Gmail-web, Google-sourced action table.",
+  "overlap_check": "Hub gmail-archive-vs-delete compares archive vs delete at a high level and states archived mail keeps labels; it does not answer whether deleting in All Mail/label views removes inbox copies, the IMAP difference or the conversation-checkbox scope. This draft links the hub for the keep-or-remove decision rather than repeating it. Residual overlap: pending topic gmail-remove-inbox-label-vs-delete (same archive cluster) would cover the 'remove Inbox label' action; this draft only gives it one table row (Archive). Pending delete-all-mail-except-starred-gmail overlaps the select-all-in-All-Mail warning, kept here to two sentences routing to how-to-select-all-emails-gmail. Unpublished draft gmail-inbox-empty-storage-full also cites the 'removed from every label' sentence, in a storage context.",
+  "limitations": [
+    "Source and documentation review only. No live Gmail mailbox test was run; the six-row table is derived from Google help text, not recorded, and no screenshots exist.",
+    "The 'uncheck one label' and 'archive keeps other labels' rows are inferences from labels-are-not-folders and the label-move procedure, not direct Google statements.",
+    "Google does not document whether restoring from Trash brings back original user labels; the article says to check rather than claiming either way.",
+    "IMAP behavior is described only via Google's one-sentence statement; specific clients and Gmail's IMAP expunge settings were not tested and vary.",
+    "Covers Gmail on a computer (web). Gmail Android and iOS apps and Workspace retention policies are out of scope."
+  ],
+  "related_links": [
+    "/blog/gmail-archive-vs-delete.html",
+    "/blog/how-to-select-all-emails-gmail.html",
+    "/blog/delete-all-emails-from-one-sender-gmail.html",
+    "/blog/how-to-permanently-delete-gmail-emails.html"
+  ],
+  "assets": [],
+  "review_needed": "An independent substantive reviewer should re-read the Google pages claim by claim, ideally reproduce the six-row table with one labeled test message (including whether labels return after restoring from Trash), decide the overlap with pending gmail-remove-inbox-label-vs-delete, and only then promote a record into scripts/content-records.json with real identity, verified_on and post_sha256."
+}

@@ -1,0 +1,64 @@
+{
+  "slug": "how-to-bulk-delete-emails-gmail-iphone",
+  "state": "draft",
+  "intent_owner": "how-to-bulk-delete-emails-gmail-iphone",
+  "hub_slug": "how-to-select-all-emails-gmail",
+  "target_query": "how to bulk delete emails in gmail app on iphone",
+  "product_manifest_version": "3.3.1",
+  "drafted_on": "2026-10-21",
+  "drafted_by": { "identity": "Claude Opus 5.5 scheduled editorial draft job (Claude Code)", "kind": "agent" },
+  "verification_kind": "source_review",
+  "verified_on": null,
+  "reviewer": null,
+  "post_sha256": null,
+  "sources": [
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en&co=GENIE.Platform%3DiOS",
+      "supports": "Page titled 'Delete messages in Gmail - iPhone & iPad'. Touch and hold each message then tap Delete; 'Delete multiple messages quickly': touch and hold, tap the box next to Select all at the top left, 'By default, Gmail selects up to 50 messages', scroll to the top and tap Select all again to add 50 more, then tap Delete; 'To delete specific emails, enter a search operator in the search bar'; swipe actions via Menu > Settings > Inbox customizations > Mail swipe actions > Trash; Trash recovery up to 30 days then permanent deletion; deleted drafts can't be recovered from Trash; Empty trash now; restore via Trash > touch and hold > More > Move.",
+      "review_notes": "Fetched twice on 2026-10-21 by the drafting agent through a summarising fetch tool, which declined to reproduce the numbered steps word-for-word. The section headings and quoted phrases above were returned verbatim. Whether the repeated Select all accumulates before a single Delete comes from the summary ('To select 50 more, scroll back to the top and use Select all again', then 'Tap Delete'), which matches the published Android wording in how-to-bulk-delete-gmail-emails. A reviewer should open the page directly and confirm the accumulate-then-delete order and the exact Settings path labels."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en&co=GENIE.Platform%3DDesktop",
+      "supports": "Computer: Select box selects the current page; 'To select all conversations, click the link in the notification'; example notification 'All 50 conversations on this page are selected. Select all 2,000 conversations in Inbox.'; Trash 30-day recovery.",
+      "review_notes": "Fetched 2026-10-21. Used only to contrast the desktop all-matching selection with the iPhone app. The iOS page was checked for an equivalent and none was described; the draft says the iPhone help 'doesn't describe' it rather than asserting that the app lacks it."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7190?hl=en",
+      "supports": "from:, category:promotions, older_than:1y examples used in the search step; negative-operator caveat 'conversations with excluded criteria may still appear' because Gmail identifies matching messages first.",
+      "review_notes": "Fetched 2026-10-21; operator rows and the caveat confirmed. Extending the caveat to age cutoffs (an older_than:1y thread can hold a recent reply) is the draft's reasoning from the documented matching-messages-first behaviour and is presented that way. The page doesn't state operator behaviour specific to the iOS app."
+    }
+  ],
+  "unused_sources": [
+    {
+      "url": "https://support.apple.com/guide/iphone/delete-and-recover-emails-iphb02be90ba/ios",
+      "note": "Two fetch attempts returned only the guide's navigation, not the article text. No Apple Mail procedure is stated in the draft; the Apple row in the table is marked 'Not reviewed'."
+    }
+  ],
+  "serp_review": {
+    "checked_on": "2026-10-21",
+    "query": "how to bulk delete emails in gmail app on iphone",
+    "observation": "Results: blog.incogni.com (two iPhone/phone deletion guides), behance.net gallery, techloy.com, nira.com, geeksforgeeks.org and low-quality aggregator pages. The search summary showed conflicting answers: one guide says touch and hold then add messages, one says tap the avatar for checkboxes, one describes 'Edit' then 'Select all' (Apple Mail-style controls), one says the 50-message batch limit means using a desktop browser for large deletions, and one claims the native app has no select-all. Some results cover Apple's Mail app rather than the Gmail app.",
+    "limitation": "One standard US web search; individual result pages weren't opened, so the competitor characterisation rests on titles and snippets only."
+  },
+  "information_gain": "A source-checked, Gmail-app-specific (not Apple Mail) procedure that puts search first, makes the documented 50-message default actionable with a rounds table (selected count to Select all taps, and where a computer is the better tool), contrasts it with the desktop all-matching banner, and gives an app-identification table that resolves why other guides' Edit/Select All steps don't match the Gmail app. Published guides (how-to-bulk-delete-gmail-emails, delete-all-emails-from-one-sender-gmail) explicitly say the iPhone/iPad app 'was not reviewed here'; the hub how-to-select-all-emails-gmail is desktop-only.",
+  "overlap_check": "No published page covers the iPhone Gmail app. Adjacent overlap: how-to-bulk-delete-gmail-emails has an Android 50-batch FAQ, gmail-select-all-conversations-not-showing has one line on mobile, and the deferred delete-all-emails-gmail-app-android topic is Android. The draft links to the hub and the troubleshooting page instead of repeating desktop steps. A reviewer could reasonably ask whether a short iPhone section in the hub would be enough; the SERP confusion between apps and the rounds table are the case for a standalone page.",
+  "limitations": [
+    "Source and documentation review only; no live iPhone or Gmail mailbox test, and no original screenshots.",
+    "The fetch tool summarised rather than quoted the iOS 'Delete multiple messages quickly' steps; exact UI labels and the accumulate-then-delete order should be confirmed on the live page or a device.",
+    "The rounds table is arithmetic from Google's documented 50-message default, not a timed or observed test; the 'better tool' thresholds are editorial judgement.",
+    "Apple Mail behaviour wasn't reviewed (Apple's article text couldn't be fetched); the draft makes no Apple Mail procedural claim and only reports that several search results describe Edit-first controls.",
+    "Whether the Gmail iPhone app offers an all-matching selection beyond batches is stated only as 'not described in Google's help', not as tested absence.",
+    "SERP review relied on result titles/snippets, not opened pages."
+  ],
+  "related_links": [
+    "/blog/how-to-select-all-emails-gmail.html",
+    "/blog/gmail-select-all-conversations-not-showing.html",
+    "/blog/delete-all-emails-from-one-sender-gmail.html",
+    "/blog/gmail-archive-vs-delete.html",
+    "/blog/gmail-search-operators-to-find-old-emails.html",
+    "/blog/how-to-bulk-delete-gmail-emails.html"
+  ],
+  "assets": [],
+  "structural_check": "content_gate.check_post on the draft path returned no errors on 2026-10-21; all JSON-LD blocks parse. --ready was not run (it targets docs/ and requires a publish_ready record).",
+  "review_needed": "An independent substantive reviewer should open Google's iOS deletion page directly and confirm the Select all steps, the 50-message default, the accumulate-then-delete order and the swipe-settings path, ideally checking on a current Gmail iPhone app build. They should also decide whether the information gain justifies a standalone URL versus an iPhone section in how-to-select-all-emails-gmail, then record evidence_checked or publish_ready with their real identity, verified_on and post_sha256 in scripts/content-records.json during a separate promotion."
+}

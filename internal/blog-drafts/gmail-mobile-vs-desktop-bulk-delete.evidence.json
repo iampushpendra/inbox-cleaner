@@ -1,0 +1,64 @@
+{
+  "slug": "gmail-mobile-vs-desktop-bulk-delete",
+  "state": "draft",
+  "intent_owner": "gmail-mobile-vs-desktop-bulk-delete",
+  "hub_slug": "how-to-select-all-emails-gmail",
+  "target_query": "gmail mobile vs desktop bulk delete which is faster",
+  "product_manifest_version": "3.3.1",
+  "drafted_on": "2026-10-23",
+  "drafted_by": { "identity": "Claude Opus 5.5 scheduled editorial draft job (Claude Code)", "kind": "agent" },
+  "verification_kind": "source_review",
+  "verified_on": null,
+  "reviewer": null,
+  "post_sha256": null,
+  "sources": [
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en&co=GENIE.Platform%3DDesktop",
+      "supports": "Computer 'Delete all messages': select a category such as Inbox, Promotions or All mail; 'To select all messages on the current page, at the top left, above your messages, check the Select box'; notification example 'All 50 conversations on this page are selected. Select all 2,000 conversations in Inbox.'; 'To select all conversations, click the link in the notification'; 'At the top, click Delete'; Trash recovery 'Up to 30 days after deletion', then permanent; 'Empty Trash now'.",
+      "review_notes": "Fetched 2026-10-23 by the drafting agent through a summarising fetch tool. The quoted step text above was returned verbatim. These quotes support the desktop column of the capability table and the 3-action desktop count (Select box, link, Delete). The page doesn't say how long Gmail takes to process a large selection, and the draft makes no claim about that."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en&co=GENIE.Platform%3DAndroid",
+      "supports": "'Delete multiple messages quickly': 'Touch and hold a message.' 'At the top left, tap the box next to \"Select all.\"' 'By default, Gmail selects up to 50 messages to delete.' Scroll to the top and tap Select all again for 50 more; 'At the top, tap Delete'. 'To delete specific emails, enter a search operator in the search bar' with sender, after:/before:, keyword and has:attachment examples. 30-day Trash recovery.",
+      "review_notes": "Fetched 2026-10-23. When asked directly, the fetch summary reported that the page describes only 50-message batches and mentions no way to select every matching conversation at once. The draft words this as 'not described in Google's app help', not as a tested absence. The app action count (1 hold + ceil(N/50) Select all taps + ceil(N/50)-1 scrolls to top + 1 Delete) is derived from these steps."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en&co=GENIE.Platform%3DiOS",
+      "supports": "iPhone & iPad: same touch-and-hold, Select all, 'By default, Gmail selects up to 50 messages to delete', 'To delete 50 more messages: Scroll to the top of the page' and tap Select all again, then Delete; search-operator advice; 30-day Trash recovery.",
+      "review_notes": "Fetched 2026-10-23. Selection procedure and default match the Android page, so the draft treats both apps together in one column. The fetch summary also reported no all-matching selection on this page."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7190?hl=en",
+      "supports": "Operator rows (from:, older_than:, larger:, category:, in:anywhere) and the caveat 'When you use negative search operators, conversations with excluded criteria may still appear.'",
+      "review_notes": "Fetched 2026-10-23. The page's steps are written for a computer and don't say which operators the mobile apps support, so the draft lists only the app examples Google gives on its Android/iOS pages. Extending the caveat to date cutoffs is the draft's own reasoning from the conversation display, and the draft presents it as reasoning."
+    }
+  ],
+  "serp_review": {
+    "checked_on": "2026-10-23",
+    "query": "gmail mobile vs desktop bulk delete which is faster",
+    "observation": "Results included mailtrack.email (Mass Delete Gmail Emails 2026 guide), fyxer.com (two deletion guides), debounce.com, techloy.com, howtodelete.it.com, popsci.com (a Gmail speed tip, off-intent) and two auto-generated-looking pages on cloud.motorsport.unibo.it. Snippets agreed that desktop suits large deletions, but none gave a step count or a side-by-side capability comparison. Some contradicted each other or Google's help: one said the app forces tapping each avatar beyond 50, another said you keep scrolling. One vendor claimed 'less than a minute' without a measurement. None showed a head-to-head timing test.",
+    "limitation": "One standard US web search. Result pages weren't opened, so this characterisation rests on titles and snippets only."
+  },
+  "information_gain": "A side-by-side capability table (selection scope, all-matching action, search guidance, single-message triage, Trash, extension availability) for Gmail desktop versus both Gmail apps, plus an action-count table derived from Google's documented steps. The desktop count stays at 3 actions at any size, while the app count is 2*ceil(N/50)+1 (e.g. 41 actions for 1,000 emails, 201 for 5,000). This replaces the SERP's unmeasured 'desktop is faster' claims with a transparent, checkable basis and a size-based handoff rule (size the search on the phone, delete on desktop). It's framed as a decision page, not a device procedure.",
+  "overlap_check": "Unpublished sibling drafts how-to-bulk-delete-emails-gmail-iphone and how-to-bulk-delete-emails-gmail-android each have a rounds table (Select all taps by count) and a short 'when to switch to a computer' section. This page overlaps them on the 50-batch fact. It differs in intent (choosing a device rather than following steps), in covering both apps against desktop in one capability matrix, and in counting total actions on both surfaces rather than taps on one. Pending gmail-select-all-conversations-desktop-site-mobile (browser desktop mode on a phone) and gmail-cleaner-wrong-device (extension on phones) are adjacent. This draft makes no claim about desktop mode in a mobile browser, and it gives the extension point a single FAQ line. Published how-to-bulk-delete-gmail-emails has a one-FAQ Android aside. A reviewer could reasonably decide this comparison belongs as a section in the hub or in the device drafts. The case for a standalone URL is the distinct comparative query and the two-surface action table. If the device drafts are published first, the reviewer should add links to them from this page.",
+  "limitations": [
+    "Source and documentation review only. No live mailbox test on any device, no original screenshots.",
+    "'Faster' is expressed as a count of documented actions, not a measured time. Load time, scrolling distance and Gmail processing time for large selections are ignored.",
+    "The fetch tool summarised the pages. Quoted phrases were returned verbatim, but exact current app labels should be confirmed on the live pages or a device.",
+    "That the apps lack an all-matching selection is reported as 'not described in Google's help', not as tested absence. Whether an app keeps a selection across 100 Select all rounds wasn't tested.",
+    "The desktop 2-3 action figure assumes the select-all link appears when matches exceed one page, as documented; page size depends on the user's settings.",
+    "Which search operators work in the mobile apps beyond Google's app examples was not verified.",
+    "The cross-device Trash FAQ relies on both surfaces being the same account and doesn't cite a specific Google sync statement.",
+    "The SERP review relied on result titles and snippets, not opened pages."
+  ],
+  "related_links": [
+    "/blog/how-to-select-all-emails-gmail.html",
+    "/blog/gmail-select-all-conversations-not-showing.html",
+    "/blog/how-to-bulk-delete-gmail-emails.html",
+    "/blog/gmail-archive-vs-delete.html",
+    "/blog/delete-all-emails-from-one-sender-gmail.html"
+  ],
+  "assets": [],
+  "structural_check": "content_gate.check_post on the draft path returned no errors on 2026-10-23. --ready was not run (it targets docs/ and requires a publish_ready record).",
+  "review_needed": "An independent substantive reviewer should open Google's computer, Android and iOS deletion pages directly. They should confirm the select-all notification wording, the 50-message default and the scroll-to-top-then-Select-all sequence, and recheck the action-count arithmetic. They should judge the overlap with the iPhone/Android drafts and decide on a standalone URL versus a hub section. If kept, record evidence_checked or publish_ready with their real identity, verified_on and post_sha256 in scripts/content-records.json during a separate promotion."
+}

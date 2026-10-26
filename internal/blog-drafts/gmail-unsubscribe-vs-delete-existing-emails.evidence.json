@@ -1,0 +1,68 @@
+{
+  "slug": "gmail-unsubscribe-vs-delete-existing-emails",
+  "state": "draft",
+  "intent_owner": "gmail-unsubscribe-vs-delete-existing-emails",
+  "hub_slug": "gmail-delete-all-promotional-emails",
+  "target_query": "does gmail unsubscribe remove emails already in my inbox",
+  "product_manifest_version": "3.3.1",
+  "drafted_on": "2026-10-22",
+  "drafted_by": { "identity": "Claude Opus 5.5 scheduled editorial draft job (Claude Code)", "kind": "agent" },
+  "verification_kind": "source_review",
+  "verified_on": null,
+  "reviewer": null,
+  "post_sha256": null,
+  "sources": [
+    {
+      "url": "https://support.google.com/mail/answer/15621070?hl=en",
+      "supports": "Manage subscriptions under More in the left navigation; feature gradually rolling out; Gmail unsubscribes you from all active mailing lists related to the sender; 'It can take a few days for the sender to unsubscribe you'; after unsubscribing, new emails from the sender go to Spam with an explanatory banner, reversible with Report not spam; some senders require Go to website, with Block instead offered; clicking the sender's name or avatar shows all their emails.",
+      "review_notes": "Fetched 2026-10-22 by the drafting agent (via a summarizing fetch tool, not a raw page capture). The page does not say what happens to emails already received; the draft's first table row says 'Google documents no change' and the source note labels that row as an inference from silence. The Spam-routing sentence is the main fact the published unsubscribe guide lacks; the reviewer should confirm the exact wording and whether it applies only to Manage subscriptions or also to the per-message Unsubscribe control. The draft attributes it to Manage subscriptions only."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7190?hl=en",
+      "supports": "from: ('Find emails sent from a specific person', from:amy@example.com); older_than/newer_than with d, m, y; in:anywhere includes Spam and Trash.",
+      "review_notes": "Fetched 2026-10-22. 'An ordinary search does not cover Spam' is inferred from in:anywhere being described as including Spam and Trash, as in earlier drafts."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en",
+      "supports": "Computer steps (check boxes, Delete at top); select-all notification 'All 50 conversations on this page are selected. Select all 2,000 conversations in Inbox.'; deleted messages move to Trash; after 30 days the message is permanently deleted; delete-forever is unrecoverable.",
+      "review_notes": "Fetched 2026-10-22. The page does not say whether Trash counts toward storage; the draft makes no Trash-storage claim. 'Still using storage' in the table refers to untouched old mail, which is reasoning, not a quoted statement."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/8151?hl=en",
+      "supports": "'After you block a sender, all future emails from them go to Spam'; unsubscribing suggested as an alternative to blocking for promotional mail.",
+      "review_notes": "Fetched 2026-10-22. Visible text does not mention existing messages; the FAQ answer says exactly that. Kept to one FAQ to avoid overlapping pending topic gmail-unsubscribe-block-delete-difference."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/1366858?hl=en",
+      "supports": "Tip that for senders you signed up with you can click Unsubscribe or Go to website; Report spam moves mail to Spam; Not spam reversal.",
+      "review_notes": "Fetched 2026-10-22. Used only as support for the Unsubscribe control appearing on messages (the 'unsubscribe first' ordering advice). Not cited inline in the draft; the Spam auto-delete period was NOT found on this page, so the draft makes no claim about how long Spam keeps mail."
+    }
+  ],
+  "serp_review": {
+    "checked_on": "2026-10-22",
+    "query": "does gmail unsubscribe remove emails already in my inbox",
+    "observation": "A standard web search returned vendor pages (macpaw, getmailbird, trimbox x5, leavemealone, an unrelated mirror). They agree that unsubscribing targets future mail; one vendor tool offers 'unsubscribe and remove existing emails' as its own feature. None cited Google's current Manage subscriptions statement that post-unsubscribe mail goes to Spam, none gave a timeline of where each email ends up, and none addressed unsubscribing before deleting so a message with the Unsubscribe control still exists, or that post-unsubscribe mail in Spam is outside an ordinary from: search.",
+    "limitation": "A single standard search, US results only; no Google help page appeared in the results; not a full SERP capture."
+  },
+  "information_gain": "A three-row 'where each email ends up' table (already received / arriving during the few-day lag / arriving after unsubscribe -> Spam with banner, per Google's current Manage subscriptions help); 'unsubscribe before deleting' ordering with its reason; the gap that post-unsubscribe mail sits in Spam outside an ordinary from: search (in:anywhere); and the Manage subscriptions sender-avatar view as a backlog starting point. The published how-to-unsubscribe-from-emails-gmail guide states in one sentence that unsubscribing does not delete messages and has a short backlog section, but does not cover Spam routing after unsubscribe, ordering, or the Spam search gap.",
+  "overlap_check": "how-to-unsubscribe-from-emails-gmail (published) owns how to unsubscribe and already says unsubscribe does not delete; this draft links to it and does not repeat Manage-subscriptions finding/missing-control content. Overlap is real but the query-specific timeline and Spam-routing facts are new. Pending gmail-unsubscribe-block-delete-difference owns the action matrix, so block is limited to one FAQ. Pending gmail-unsubscribe-still-receiving-emails owns delays/multiple lists; this draft mentions the few-day lag in one table row only. delete-all-emails-from-one-sender-gmail owns sender deletion and is linked. Reviewer should judge whether the information gain is enough for a separate URL or better folded into the unsubscribe guide as a refresh.",
+  "limitations": [
+    "Source and documentation review only; no live Gmail mailbox test was run and no screenshots were produced.",
+    "Google does not state what happens to previously received emails; the 'no change' row is an inference from silence and is labelled as such in the article.",
+    "Spam routing after unsubscribe is documented for Manage subscriptions; whether the per-message Unsubscribe control behaves the same was not checked, and the feature is described by Google as gradually rolling out.",
+    "Google pages were read through a summarizing fetch tool; the reviewer should re-read them directly to confirm quoted wording ('can take a few days').",
+    "'Ordinary search excludes Spam' is inferred from the in:anywhere description.",
+    "Google pages cited are computer variants; Gmail app behaviour was not reviewed.",
+    "Vendor SERP results were reviewed only for coverage, not for factual claims."
+  ],
+  "related_links": [
+    "/blog/how-to-unsubscribe-from-emails-gmail.html",
+    "/blog/how-to-select-all-emails-gmail.html",
+    "/blog/how-to-delete-spam-emails-gmail.html",
+    "/blog/gmail-delete-all-promotional-emails.html",
+    "/blog/delete-all-emails-from-one-sender-gmail.html"
+  ],
+  "assets": [],
+  "content_gate_basic": "check_post() on the draft path returned no problems on 2026-10-22; --ready was not run because the draft is not in docs/blog.",
+  "review_needed": "An independent substantive reviewer should re-read answer/15621070 directly (Spam routing wording, scope, rollout), confirm the remaining Google claims, decide whether this belongs as a separate URL or a refresh of how-to-unsubscribe-from-emails-gmail, and only then record evidence_checked or publish_ready with a real identity, verified_on and post_sha256 in scripts/content-records.json during a separate promotion."
+}

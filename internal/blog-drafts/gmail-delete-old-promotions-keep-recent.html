@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="canonical" href="https://inbox-cleaner.vercel.app/blog/gmail-delete-old-promotions-keep-recent.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Gmail Promotions Older Than 30 Days, Keep Recent Ones | Inbox Cleaner</title>
+  <meta name="description" content="Search category:promotions older_than:30d in Gmail on a computer, rescue receipts first, then trash the rest. Recent promotions stay. Filters can't do this.">
+  <meta property="og:title" content="Delete Gmail Promotions Older Than 30 Days, Keep Recent Ones">
+  <meta property="og:description" content="Search category:promotions older_than:30d in Gmail on a computer, rescue receipts first, then trash the rest. Recent promotions stay. Filters can't do this.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://inbox-cleaner.vercel.app/blog/gmail-delete-old-promotions-keep-recent.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Delete Gmail Promotions Older Than 30 Days but Keep Recent Ones",
+    "datePublished": "2026-10-19",
+    "dateModified": "2026-10-19",
+    "author": { "@type": "Organization", "name": "Inbox Cleaner" },
+    "publisher": { "@type": "Organization", "name": "Inbox Cleaner", "url": "https://inbox-cleaner.vercel.app" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Delete Gmail Promotions Older Than 30 Days but Keep Recent Ones",
+    "step": [
+      { "@type": "HowToStep", "name": "Preview what stays", "text": "In Gmail on a computer, search category:promotions newer_than:30d. These are the promotions the cleanup should leave alone." },
+      { "@type": "HowToStep", "name": "Rescue records from the old set", "text": "Search category:promotions older_than:30d {receipt order invoice}. Open anything you still need, such as an order you might return, and move it to the Primary tab or save it before you continue." },
+      { "@type": "HowToStep", "name": "Search for the old promotions", "text": "Search category:promotions older_than:30d. This is the set you intend to trash." },
+      { "@type": "HowToStep", "name": "Open conversations with recent dates", "text": "Gmail matches messages first and then shows their conversations, so a result can contain a newer message. Open any result showing a date inside the last 30 days before selecting it." },
+      { "@type": "HowToStep", "name": "Select and move to Trash", "text": "Use the top checkbox to select the current page. If Gmail shows a link to select all matching conversations, click it, then click Delete." },
+      { "@type": "HowToStep", "name": "Rerun both searches", "text": "Rerun the older_than:30d search to see what remains and the newer_than:30d search to confirm recent promotions are still there." }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is older_than:30d the same as older_than:1m?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Not necessarily. Google documents d, m and y as units but does not say how many days m counts as. Use 30d when you mean exactly 30 days." }
+      },
+      {
+        "@type": "Question",
+        "name": "When are the trashed promotions gone for good?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Google says messages in Trash are permanently deleted after 30 days, or sooner if you delete them forever. That clock starts when you trash them, not when they arrived." }
+      },
+      {
+        "@type": "Question",
+        "name": "Will this also clear promotions in Spam or Trash?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Ordinary searches leave out Spam and Trash. Google documents in:anywhere as including both, so add it only if you deliberately want those folders in scope." }
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>📥</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-logo" href="/">📥 Inbox<span>Cleaner</span></a>
+  <a class="blog-nav-cta" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add to Chrome →</a>
+</nav>
+
+<main>
+  <div class="blog-wrap">
+    <span class="blog-eyebrow">Gmail Search</span>
+    <h1 class="blog-h1">How to Delete Gmail Promotions Older Than 30 Days but Keep Recent Ones</h1>
+    <p class="blog-meta">Updated October 2026 · 4 min read</p>
+
+    <div class="blog-body">
+
+      <div class="quick-answer">
+        <strong>Quick answer:</strong> To delete Gmail promotions older than 30 days but keep recent ones, search <code>category:promotions older_than:30d</code> in Gmail on a computer, select the results and move them to Trash. Before you do, check what stays with <code>newer_than:30d</code>, rescue any receipts from the old set, and open results that show a recent date. A filter can't do this on a schedule, so repeat the search by hand when the backlog builds up again.
+      </div>
+
+      <p>Gmail has no setting that expires promotions after a month. You can get the same result by hand with one search that combines the Promotions category with an age. The work is in three checks: what stays, what you'd regret losing from the old set, and conversations that cross the 30-day line.</p>
+
+      <h2>Which search finds promotions older than 30 days?</h2>
+      <p>Google's <a href="https://support.google.com/mail/answer/7190?hl=en">search operator reference</a> documents <code>category:promotions</code>, and <code>older_than:</code> and <code>newer_than:</code> with the units <code>d</code>, <code>m</code> and <code>y</code>. It also documents <code>before:</code> and <code>after:</code> for fixed dates and curly braces such as <code>{from:amy from:david}</code> for "any of these". The searches below build only on those.</p>
+
+      <table>
+        <thead>
+          <tr><th>Purpose</th><th>Search</th><th>What it can miss or overreach</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Delete: promotions older than 30 days</td><td><code>category:promotions older_than:30d</code></td><td>The cutoff rolls forward each day. A result can be a conversation that also holds a newer message.</td></tr>
+          <tr><td>Keep preview: the last 30 days</td><td><code>category:promotions newer_than:30d</code></td><td>Only promotions. Mail in other tabs is untouched by this whole job anyway.</td></tr>
+          <tr><td>Rescue check: records filed as promotions</td><td><code>category:promotions older_than:30d {receipt order invoice}</code></td><td>Word matching only. A receipt that doesn't use these words won't show, so skim the delete results too.</td></tr>
+          <tr><td>Fixed cutoff instead of rolling</td><td><code>category:promotions before:2026/09/19</code></td><td>The date doesn't move. Google doesn't say whether the boundary day is included, so expect differences on that day.</td></tr>
+          <tr><td>Month instead of days</td><td><code>category:promotions older_than:1m</code></td><td>Google doesn't say how many days <code>m</code> counts as. Use <code>30d</code> when you mean 30 days.</td></tr>
+        </tbody>
+      </table>
+
+      <p>Retailers often send order confirmations, shipping notices and return labels from the same addresses as their sales mail, so some of that can land in Promotions. A promotion that's 31 days old may still be the only copy of a warranty or a return window. That's why the rescue check comes before the delete.</p>
+
+      <h2>How do I delete the old promotions and keep the rest?</h2>
+      <ol class="blog-steps">
+        <li><strong>Preview what stays.</strong> In Gmail on a computer, search <code>category:promotions newer_than:30d</code>. If you'd happily lose most of this too, a shorter cutoff such as <code>14d</code> may suit you better.</li>
+        <li><strong>Rescue records from the old set.</strong> Search <code>category:promotions older_than:30d {receipt order invoice}</code>, adding words your stores use. Google's <a href="https://support.google.com/mail/answer/3094499?hl=en">inbox categories help</a> explains that you can move an email to a different tab, such as Primary. A moved message should then drop out of the Promotions search; rerun it to check.</li>
+        <li><strong>Search for the old promotions.</strong> Search <code>category:promotions older_than:30d</code>. This is the set you will trash.</li>
+        <li><strong>Open conversations with recent dates.</strong> If a result shows a date inside the last 30 days, open it before selecting. The next section explains why.</li>
+        <li><strong>Select and move to Trash.</strong> The top checkbox selects the current page only. If Gmail shows a link to select all matching conversations, click it, then click Delete. The <a href="../blog/how-to-select-all-emails-gmail.html">guide to selecting all emails in Gmail</a> covers the page-versus-all-results step.</li>
+        <li><strong>Rerun both searches.</strong> The <code>older_than:30d</code> search should come back empty or close to it. The <code>newer_than:30d</code> search should still show your recent promotions.</li>
+      </ol>
+
+      <h2>Why can a search for old promotions show a recent one?</h2>
+      <p>Google's search reference says that Gmail identifies matching messages first. In conversation view, a store's thread whose first email is two months old can match <code>older_than:30d</code> even if the latest message arrived yesterday. Google's <a href="https://support.google.com/mail/answer/7401?hl=en">deletion help</a> describes deleting selected mail from the list, and a separate "Delete this message" option inside an open conversation. So treat a list selection as acting on the whole conversation you see, and delete single messages from inside the thread when it mixes old and new. Promotional threads are usually short, but stores that reply to the same thread do exist.</p>
+
+      <h2>Does the Promotions tab show everything this search finds?</h2>
+      <p>Not always. Google's categories help says "Archived emails don't appear in categories" and points to All Mail to find them. Google doesn't say whether a <code>category:promotions</code> search includes archived mail, and we haven't tested it in a live mailbox. If you archive promotions instead of deleting them, also run <code>in:archive older_than:30d</code>, which Google documents for archived messages, and review it separately. That search isn't limited to promotions, so read it before selecting anything.</p>
+
+      <div class="blog-cta">
+        <h3>Clean up Gmail with the Chrome extension</h3>
+        <p>Install from the Chrome Web Store, then open Gmail and click Inbox Cleaner. Emails go to Trash (30-day recovery window).</p>
+        <a class="blog-cta-btn" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add Inbox Cleaner to Chrome →</a>
+      </div>
+
+      <h2>Can a Gmail filter delete promotions once they're 30 days old?</h2>
+      <p>No. Google's <a href="https://support.google.com/mail/answer/6579?hl=en">filters help</a> describes filters as a way to manage incoming mail. When a filter looks at a new promotion, that email is minutes old, so an <code>older_than:30d</code> condition has nothing to match. The filter doesn't wait and act a month later. A filter that deletes every promotion on arrival is possible, but it removes the recent ones you wanted to keep. The <a href="../blog/gmail-filters-delete-emails-automatically.html">guide to Gmail filters that delete email</a> covers safe uses for incoming rules.</p>
+      <p>The practical routine is to rerun <code>category:promotions older_than:30d</code> whenever the tab feels crowded, such as once a month.</p>
+
+      <h2>When do the two 30-day clocks matter?</h2>
+      <p>There are two separate 30-day periods here. Your search cutoff is about when a promotion arrived. Google's deletion help says a message in Trash is permanently deleted after 30 days, counted from when you trashed it, unless you delete it forever sooner. So a promotion that arrived 31 days ago and is trashed today stays recoverable for about another 30 days. If you need the space back sooner, the <a href="../blog/how-to-delete-emails-older-than-a-year-gmail.html">guide to deleting emails older than a year</a> covers bigger age cleanups, and storage use depends on message size, not how many promotions you remove.</p>
+
+      <h2>Can Inbox Cleaner keep recent promotions?</h2>
+      <p>No. Inbox Cleaner runs in an open Gmail tab in desktop Chrome, ranks senders by email count and moves all of a selected sender's mail to Trash, including archived mail. It doesn't carry over a date, category, starred or size limit from a search you ran. Use the native Gmail search above for "older than 30 days". The extension fits when you want a store or newsletter gone completely, as described in the <a href="../blog/delete-all-emails-from-one-sender-gmail.html">guide to deleting all emails from one sender in Gmail</a>. Its counts are email counts, not storage size.</p>
+
+      <p>Source review: 19 October 2026. The operators, the matching-messages caveat, the select-all link, "Delete this message", the 30-day Trash period, category moves, the archived-mail note and the filter description were checked against the linked Google help pages for Gmail on a computer. No live-mailbox test or original screenshot is claimed. <a href="/blog/">All guides</a>.</p>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <p class="faq-q">Is older_than:30d the same as older_than:1m?</p>
+          <p class="faq-a">Not necessarily. Google documents <code>d</code>, <code>m</code> and <code>y</code> as units but does not say how many days <code>m</code> counts as. Use <code>30d</code> when you mean exactly 30 days.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">When are the trashed promotions gone for good?</p>
+          <p class="faq-a">Google says messages in Trash are permanently deleted after 30 days, or sooner if you delete them forever. That clock starts when you trash them, not when they arrived.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Will this also clear promotions in Spam or Trash?</p>
+          <p class="faq-a">No. Ordinary searches leave out Spam and Trash. Google documents <code>in:anywhere</code> as including both, so add it only if you deliberately want those folders in scope.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>Built by <a href="https://github.com/iampushpendra" target="_blank" rel="noopener">@iampushpendra</a> · <a href="../privacy.html">Privacy Policy</a> · <a href="https://github.com/iampushpendra/inbox-cleaner" target="_blank" rel="noopener">GitHub</a> · Emails go to Trash — you have 30 days to restore them.</p>
+</footer>
+
+</body>
+</html>

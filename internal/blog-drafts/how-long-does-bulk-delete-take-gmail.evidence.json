@@ -1,0 +1,73 @@
+{
+  "slug": "how-long-does-bulk-delete-take-gmail",
+  "state": "draft",
+  "intent_owner": "how-long-does-bulk-delete-take-gmail",
+  "hub_slug": "how-to-select-all-emails-gmail",
+  "target_query": "how long does it take to bulk delete emails in gmail",
+  "product_manifest_version": "3.3.1",
+  "drafted_on": "2026-10-23",
+  "drafted_by": { "identity": "Claude Opus 5.5 scheduled editorial draft job (Claude Code)", "kind": "agent" },
+  "verification_kind": "source_review",
+  "verified_on": null,
+  "reviewer": null,
+  "post_sha256": null,
+  "sources": [
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en&co=GENIE.Platform%3DDesktop",
+      "supports": "Computer steps: 'To select all messages on the current page, at the top left, above your messages, check the Select box.' 'To select all conversations, click the link in the notification.' 'At the top, click Delete.' Notification example 'All 50 conversations on this page are selected. Select all 2,000 conversations in Inbox.' Trash: 'Up to 30 days after deletion' recoverable; 'After 30 days' permanently deleted; 'Empty Trash now'.",
+      "review_notes": "Fetched 2026-10-23 by the drafting agent through a summarising fetch tool, which returned the quoted text verbatim. Asked directly, the summary said the page doesn't state how long deletion takes. That absence is the basis for the 'Not published by Google' row and the first FAQ. The three-click count (Select box, link, Delete) comes from these steps."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en&co=GENIE.Platform%3DAndroid",
+      "supports": "'Touch and hold a message.' 'At the top left, tap the box next to \"Select all.\"' 'By default, Gmail selects up to 50 messages to delete.' Scroll to the top and tap Select all again for 50 more. No all-matching selection or processing time mentioned.",
+      "review_notes": "Fetched 2026-10-23. Supports the app row of the table and the app FAQ. The draft says only that the app needs repeated rounds; it gives no app action count, which keeps it apart from the sibling mobile-vs-desktop draft."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en&co=GENIE.Platform%3DiOS",
+      "supports": "iPhone & iPad: 'Touch and hold a message.' Select all box; 'By default, Gmail selects up to 50 messages to delete.' Scroll to top and select again for 50 more; 'At the top, tap Delete'. No processing time.",
+      "review_notes": "Fetched 2026-10-23. Matches the Android page on the 50-message default."
+    },
+    {
+      "url": "https://support.google.com/googleone/answer/9312312?hl=en",
+      "supports": "FAQ 'Why didn't my storage update after I deleted a lot of files?': 'it normally takes up to 48–72 hours for Google's systems to accurately update the storage space.' Gmail storage includes 'Gmail messages and attachments, which includes your Spam and Trash folders.'",
+      "review_notes": "Fetched twice on 2026-10-23. The second fetch confirmed the heading and that the 48–72 hour sentence sits under that FAQ. The tool truncated the full sentence, so the article quotes only the fragment returned. The FAQ talks about 'files' in general; the draft applies it to a large Gmail deletion, consistent with the page including Gmail in Google storage. The 'Trash still counts toward storage' claim rests on the Spam and Trash inclusion sentence."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7190?hl=en",
+      "supports": "older_than: row ('Search for emails older or newer than a time period'); from: row; caveat 'When you use negative search operators, conversations with excluded criteria may still appear.'",
+      "review_notes": "Fetched 2026-10-23. The page has no in:trash row (only in:anywhere, which includes Spam and Trash), so the draft says 'open Trash' rather than giving a Trash search operator. Applying the caveat to an older_than: cutoff (an old thread with a recent reply) is the draft's own reasoning from the conversation display, worded as an example rather than a Google statement."
+    },
+    {
+      "url": "https://github.com/iampushpendra/inbox-cleaner/blob/main/content.js",
+      "supports": "selectAllMatchingAndTrash(): navigates to the sender query, clicks the page checkbox, requires the select-all-matching banner (fails the chunk without deleting if missing), clicks Trash, then verifyChunkEmpty() waits up to 15 s for the query to show no rows. doDelete() reports status 'unverified' with a count when any chunk still shows rows; popup.js shows 'Deletion finished, but N of M batches could not be verified'. scripts/product-facts.json: sender queries in batches up to 20; no guaranteed scan time.",
+      "review_notes": "Checked against the local working tree at commit c0b95f1 (manifest 3.3.1) on 2026-10-23. The article claims only the batch size, the per-batch empty-query check and the 'unverified' report. It doesn't give any time figure for the extension, and the internal waits (500 ms, 1 s, 15 s timeouts) aren't published as durations. This is source-code review, not a run against a live mailbox."
+    }
+  ],
+  "serp_review": {
+    "checked_on": "2026-10-23",
+    "query": "how long does it take to bulk delete emails in gmail",
+    "observation": "Results were mostly low-quality or auto-generated pages (stream.magd.cam.ac.uk, cloud.motorsport.unibo.it, padlock.stukent.com, auth.luckysupermarkets.com), plus pcworld.com and techloy.com. PC World says filter-based deletion 'may take a minute or two'; one page says hundreds of emails go 'in under 10 seconds' with no method shown. Most others say only 'some time'. None separates selection, processing, Trash retention and storage recalculation, none cites Google's 48–72 hour storage figure, and none says how to confirm the deletion finished. A site:support.google.com search returned only community threads, no official timing figure.",
+    "limitation": "Two standard US web searches. The characterisation rests on the search tool's summary of titles and snippets; result pages weren't opened."
+  },
+  "information_gain": "A four-wait table (selecting, Gmail processing, Trash, storage meter), each with its documented duration or an explicit 'not published by Google', what it depends on, and how to tell it's done. It replaces the SERP's single unmeasured numbers. It adds a rerun-the-search completion check as numbered steps and brings in Google's 48–72 hour storage recalculation figure, which none of the reviewed results mention. It also says plainly that an extension changes only the first wait.",
+  "overlap_check": "Hub how-to-select-all-emails-gmail owns the selection procedure; this page links to it and doesn't repeat it. Published gmail-bulk-delete-not-working covers under-deletion troubleshooting ('wait for Gmail's feedback'), not timing; this page links to the select-all-missing guide instead. The unpublished sibling draft gmail-mobile-vs-desktop-bulk-delete owns the device action-count comparison, so this page keeps only one sentence on the 50-message app rounds and one FAQ. The unpublished draft gmail-storage-not-updating-after-deleting owns storage troubleshooting and cites the same 48–72 hour figure; here that figure is one table row and one FAQ. A reviewer should add links to those drafts if they publish first, and could reasonably fold this page into the hub as a 'how long' section if they judge the standalone intent too thin.",
+  "limitations": [
+    "Source and code review only. No live mailbox test, no timing measurement, no screenshots.",
+    "Google doesn't publish Gmail's processing time for bulk deletions. The article says so and gives no estimate; real duration wasn't observed.",
+    "The 48–72 hour figure is from a Google One FAQ about deleting 'a lot of files' in general, applied here to Gmail.",
+    "The fetch tool summarised pages. Quoted phrases came back verbatim, but the full 48–72 hour sentence was truncated by the tool, and live labels should be confirmed on the pages.",
+    "What happens if the tab is closed mid-deletion is undocumented; the FAQ says so and gives only a recheck habit.",
+    "'A page of 50 or 100' reflects Google's 50-conversation example and Gmail's page-size setting maximum; page size depends on the user's settings and wasn't checked against a Google settings page.",
+    "Extension claims come from the repository source at manifest 3.3.1, not the installed Chrome Web Store package.",
+    "The SERP review relied on summaries of titles and snippets, not opened pages."
+  ],
+  "related_links": [
+    "/blog/how-to-select-all-emails-gmail.html",
+    "/blog/gmail-select-all-conversations-not-showing.html",
+    "/blog/delete-all-emails-from-one-sender-gmail.html",
+    "/blog/gmail-archive-vs-delete.html"
+  ],
+  "assets": [],
+  "structural_check": "content_gate.check_post on the draft path returned no errors on 2026-10-23. --ready was not run (it targets docs/ and requires a publish_ready record).",
+  "review_needed": "An independent substantive reviewer should open Google's computer, Android and iOS deletion pages and the Google One storage page directly. They should confirm that no processing time is stated, the select-all notification wording, the 50-message default and the full 48–72 hour sentence. They should recheck the extension claims against content.js and popup.js at the then-current manifest version, judge the overlap with the hub and the two sibling drafts, then record evidence_checked or publish_ready with their real identity, verified_on and post_sha256 in scripts/content-records.json during a separate promotion."
+}

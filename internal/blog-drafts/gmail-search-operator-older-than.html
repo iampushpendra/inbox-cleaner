@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="canonical" href="https://inbox-cleaner.vercel.app/blog/gmail-search-operator-older-than.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use the older_than Search Operator in Gmail | Inbox Cleaner</title>
+  <meta name="description" content="Type older_than: plus a whole number and d, m or y in Gmail search. Combine it with newer_than, OR, braces and minus to build precise age searches.">
+  <meta property="og:title" content="How to Use the older_than Search Operator in Gmail">
+  <meta property="og:description" content="Type older_than: plus a whole number and d, m or y in Gmail search. Combine it with newer_than, OR, braces and minus to build precise age searches.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://inbox-cleaner.vercel.app/blog/gmail-search-operator-older-than.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Use the older_than Search Operator in Gmail",
+    "datePublished": "2026-10-18",
+    "dateModified": "2026-10-18",
+    "author": { "@type": "Organization", "name": "Inbox Cleaner" },
+    "publisher": { "@type": "Organization", "name": "Inbox Cleaner", "url": "https://inbox-cleaner.vercel.app" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Use the older_than Search Operator in Gmail",
+    "step": [
+      { "@type": "HowToStep", "name": "Start with the age alone", "text": "In Gmail on a computer, type older_than:1y in the search box and press Enter. Look at the dates on the last page of results to confirm you are seeing old mail." },
+      { "@type": "HowToStep", "name": "Add one condition", "text": "Add one narrowing condition after a space, such as category:promotions older_than:1y, and rerun the search." },
+      { "@type": "HowToStep", "name": "Add exclusions or alternatives", "text": "Use a minus sign to exclude, for example -from:boss@example.com, or braces to accept either of two senders, for example {from:a@example.com from:b@example.com}." },
+      { "@type": "HowToStep", "name": "Review before acting", "text": "Open any conversation that shows a recent date. Gmail matches messages first and then shows their conversations, so a result can contain newer messages than your cutoff." }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I find emails between one and two years old in Gmail?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Search older_than:1y newer_than:2y. Both conditions must match, so the results are mail older than one year but newer than two years." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use weeks or hours with older_than?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Google's reference lists only d (day), m (month) and y (year). For two weeks, use older_than:14d." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is older_than:12m the same as older_than:1y?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Google does not document how months and years are converted. Expect the two to be close, and check messages near the boundary if the exact cutoff matters." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does older_than search Spam and Trash?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Not unless you widen the scope. Add in:anywhere, which Google documents as including Spam and Trash." }
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>📥</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-logo" href="/">📥 Inbox<span>Cleaner</span></a>
+  <a class="blog-nav-cta" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add to Chrome →</a>
+</nav>
+
+<main>
+  <div class="blog-wrap">
+    <span class="blog-eyebrow">Gmail Tips</span>
+    <h1 class="blog-h1">How to Use the older_than Search Operator in Gmail</h1>
+    <p class="blog-meta">Updated October 2026 · 5 min read</p>
+
+    <div class="blog-body">
+
+      <div class="quick-answer">
+        <strong>Quick answer:</strong> To use the older_than search operator in Gmail, type <code>older_than:</code> followed by a whole number and a unit, <code>d</code> (day), <code>m</code> (month) or <code>y</code> (year), with no spaces: for example <code>older_than:1y</code>. Add other operators after a space to narrow it, such as <code>category:promotions older_than:1y</code>, or pair it with <code>newer_than:</code> to search an age band. Review the results before you act. A returned conversation can contain newer messages.
+      </div>
+
+      <p>This guide covers the operator itself: how to write it and how to combine it with Gmail's other operators. Every operator below comes from Google's <a href="https://support.google.com/mail/answer/7190?hl=en">Gmail search operators reference</a>. If you only need the cleanup steps for one cutoff, start with <a href="../blog/how-to-delete-emails-older-than-a-year-gmail.html">how to delete Gmail emails older than a year</a>. For ready-made old-mail recipes, see <a href="../blog/gmail-search-operators-to-find-old-emails.html">Gmail search operators for reviewing old emails</a>.</p>
+
+      <h2>How do I write an older_than search?</h2>
+      <p>The operator has three parts: <code>older_than:</code>, a number and a unit letter. Google lists three units and gives <code>older_than:1y</code> and <code>newer_than:2d</code> as its examples.</p>
+      <table>
+        <thead>
+          <tr><th>You want mail older than</th><th>Type</th><th>Note</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>3 days</td><td><code>older_than:3d</code></td><td>Days use <code>d</code>.</td></tr>
+          <tr><td>2 weeks</td><td><code>older_than:14d</code></td><td>There is no documented week unit, so convert to days.</td></tr>
+          <tr><td>6 months</td><td><code>older_than:6m</code></td><td><code>m</code> means month, not minute.</td></tr>
+          <tr><td>18 months</td><td><code>older_than:18m</code></td><td>Use a smaller unit instead of a decimal such as 1.5y.</td></tr>
+          <tr><td>1 year</td><td><code>older_than:1y</code></td><td>A rolling age. The set changes from day to day.</td></tr>
+        </tbody>
+      </table>
+      <p>Google's reference says a space or a dash separates a number in a query, so keep the number and unit together. If a search returns nothing or the wrong mail, compare what you typed with these examples before changing anything else.</p>
+
+      <h2>How do I combine older_than with other operators?</h2>
+      <p>This is where older_than becomes useful. Google documents <code>AND</code>, <code>OR</code> or braces <code>{ }</code>, the minus sign <code>-</code> for exclusions, and parentheses <code>( )</code> for grouping. The table shows each one with an age condition. The sender addresses are placeholders. Copy the real address from a message in your mailbox.</p>
+      <table>
+        <thead>
+          <tr><th>Job</th><th>Query</th><th>What it matches</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Old mail in one category</td><td><code>category:promotions older_than:6m</code></td><td>Promotions messages older than six months. Requires inbox categories.</td></tr>
+          <tr><td>An age band</td><td><code>older_than:1y newer_than:2y</code></td><td>Messages between one and two years old.</td></tr>
+          <tr><td>Either of two senders, both old</td><td><code>{from:a@example.com from:b@example.com} older_than:1y</code></td><td>Old mail from either sender. The braces mean OR.</td></tr>
+          <tr><td>Old mail, except one sender</td><td><code>older_than:1y -from:boss@example.com</code></td><td>Old mail without that sender. See the mixed-conversation caveat below.</td></tr>
+          <tr><td>Old mail under a label</td><td><code>label:receipts older_than:2y</code></td><td>Labelled messages older than two years.</td></tr>
+          <tr><td>Old mail including Spam and Trash</td><td><code>in:anywhere older_than:1y</code></td><td>Google documents <code>in:anywhere</code> as including Spam and Trash.</td></tr>
+          <tr><td>Old and large</td><td><code>older_than:1y larger:10M</code></td><td>Old messages over 10 MB. Results are not sorted by size.</td></tr>
+        </tbody>
+      </table>
+      <p>Two rules make these easier to get right. A plain space between conditions means all of them must match, so the age band needs both halves. And put <code>OR</code> alternatives inside braces, so the age condition applies to every alternative rather than to only one of them.</p>
+
+      <h2>How do I build and check a combined search?</h2>
+      <ol class="blog-steps">
+        <li><strong>Start with the age alone.</strong> In Gmail on a computer, search <code>older_than:1y</code>. Go to the last page of results and check that the dates are old.</li>
+        <li><strong>Add one condition.</strong> Add a single narrowing condition, such as <code>category:promotions</code>, and rerun the search. If the results vanish, the condition you just added is the cause.</li>
+        <li><strong>Add exclusions or alternatives.</strong> Add a minus exclusion or a braces group last, once the core search returns what you expect.</li>
+        <li><strong>Review before acting.</strong> Open any result that shows a recent date before you select or delete anything.</li>
+      </ol>
+      <p>When you are ready to act on a large result set, see <a href="../blog/how-to-select-all-emails-gmail.html">how to select all emails in Gmail</a> for selecting beyond the current page.</p>
+
+      <h2>Why does an older_than search show recent conversations?</h2>
+      <p>Google explains that Gmail "identifies matching messages first", then shows their conversations. It gives this as the reason a search with excluded criteria can still return conversations that contain them. The same applies to age. If a 2023 message matches <code>older_than:1y</code> and someone replied last week, the whole conversation appears with last week's date. Deleting it removes the recent reply as well. The minus exclusion has the same limit. <code>-from:boss@example.com</code> does not keep that sender's messages out of a mixed conversation. Open conversations like this and handle individual messages when the newer ones matter.</p>
+
+      <div class="blog-cta">
+        <h3>Clean up Gmail with the Chrome extension</h3>
+        <p>Install from the Chrome Web Store, then open Gmail and click Inbox Cleaner. Emails go to Trash (30-day recovery window).</p>
+        <a class="blog-cta-btn" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add Inbox Cleaner to Chrome →</a>
+      </div>
+
+      <h2>When is older_than the wrong tool?</h2>
+      <p>Use <code>before:</code> when you need a fixed calendar date that will not move, such as <code>before:2025/01/01</code>. Google documents dates in the form 2004/04/16 and 04/16/2004. And don't put an age condition in a filter as if it were a timer. Filters test each email as it arrives, and new mail is never a year old. See <a href="../blog/gmail-filters-delete-emails-automatically.html">what Gmail filters can do automatically</a>.</p>
+      <p>Sometimes age doesn't matter and the goal is clearing out a few heavy senders. Inbox Cleaner runs in an open Gmail tab in desktop Chrome, groups senders by email count, and moves the selected senders' emails to Trash. That action covers all of a sender's mail. It does not keep an older_than cutoff, so the sender's recent mail goes too. Counts are email counts, not storage size. If the age limit matters, use the native search. For the sender-only approach, see <a href="../blog/delete-all-emails-from-one-sender-gmail.html">deleting all emails from one sender in Gmail</a>. Mail in Trash is normally recoverable for up to 30 days, as described in Google's <a href="https://support.google.com/mail/answer/7401?hl=en">deletion and recovery help</a>.</p>
+
+      <h2>Does older_than work in the Gmail app?</h2>
+      <p>Google's reference walks through the steps for Gmail on a computer. It doesn't say whether the Android or iPhone apps handle each operator the same way. If a combined search behaves unexpectedly on your phone, repeat it in Gmail on a computer.</p>
+
+      <p>Source review: 18 October 2026. The units, examples, combining operators (AND, OR, braces, minus, parentheses), the <code>in:anywhere</code> scope, the number-separation rule and the matching-messages-first caveat were checked against the linked Google help pages. No live-mailbox test or original screenshot is claimed. <a href="/blog/">All guides</a>.</p>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <p class="faq-q">How do I find emails between one and two years old in Gmail?</p>
+          <p class="faq-a">Search <code>older_than:1y newer_than:2y</code>. Both conditions must match, so the results are mail older than one year but newer than two years.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Can I use weeks or hours with older_than?</p>
+          <p class="faq-a">Google's reference lists only d (day), m (month) and y (year). For two weeks, use <code>older_than:14d</code>.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Is older_than:12m the same as older_than:1y?</p>
+          <p class="faq-a">Google does not document how months and years are converted. Expect the two to be close, and check messages near the boundary if the exact cutoff matters.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Does older_than search Spam and Trash?</p>
+          <p class="faq-a">Not unless you widen the scope. Add <code>in:anywhere</code>, which Google documents as including Spam and Trash.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>Built by <a href="https://github.com/iampushpendra" target="_blank" rel="noopener">@iampushpendra</a> · <a href="../privacy.html">Privacy Policy</a> · <a href="https://github.com/iampushpendra/inbox-cleaner" target="_blank" rel="noopener">GitHub</a> · Emails go to Trash — you have 30 days to restore them.</p>
+</footer>
+
+</body>
+</html>

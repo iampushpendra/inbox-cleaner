@@ -1,0 +1,55 @@
+{
+  "slug": "gmail-delete-from-sender-keep-recent",
+  "state": "draft",
+  "intent_owner": "gmail-delete-from-sender-keep-recent",
+  "hub_slug": "delete-all-emails-from-one-sender-gmail",
+  "target_query": "how to delete emails from one sender but keep recent emails",
+  "product_manifest_version": "3.2.2",
+  "drafted_on": "2026-10-19",
+  "drafted_by": { "identity": "Claude Opus 5.5 scheduled editorial draft job (Claude Code)", "kind": "agent" },
+  "verification_kind": "source_review",
+  "verified_on": null,
+  "reviewer": null,
+  "post_sha256": null,
+  "sources": [
+    {
+      "url": "https://support.google.com/mail/answer/7190?hl=en",
+      "supports": "from: (example from:amy@example.com); older_than:/newer_than: with d, m, y (examples older_than:1y, newer_than:2d); after:/before: with dates such as 2004/04/16; in:anywhere includes Spam and Trash; is:starred under the is: row; the negative-operator caveat that conversations with excluded criteria may still appear because Gmail identifies matching messages first; the page is the Computer variant.",
+      "review_notes": "Fetched 2026-10-19 by the drafting agent. All operators in the decision table appear on the page. The page does not define whether after:/before: are inclusive of the given day, how many days 'm' represents, or result sort order, so the draft states those boundaries as uncertain. Applying the matching-messages-first caveat to positive age searches (not only negative operators) is the draft's reasoning from that sentence, presented as such."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en",
+      "supports": "Computer steps: check boxes, Delete at the top; select-all notification link ('Select all N conversations'); recover from Trash within 30 days; permanent deletion after 30 days or when deleted forever sooner; inside an open conversation, More > 'Delete this message' (conversation view must be on).",
+      "review_notes": "Fetched 2026-10-19. Confirmed the notification wording, the 30-day recovery statement and the 'Delete this message' option. The page does not explicitly state that a list selection trashes every message in a conversation; the draft infers it from the existence of the separate per-message option and words it as 'treat a list selection as acting on the conversation you see'. Reviewer should confirm this phrasing."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/5900?hl=en",
+      "supports": "Turning conversation view on or off on a computer (Settings > See all settings > Conversation View > Save Changes); with it off, each email shows up separately.",
+      "review_notes": "Fetched 2026-10-19. Steps and 'each email shows up separately' confirmed. The page says nothing about how bulk Trash behaves with conversation view off; the draft explicitly says this was not tested."
+    }
+  ],
+  "serp_review": {
+    "checked_on": "2026-10-19",
+    "query": "gmail delete emails from one sender but keep recent ones",
+    "observation": "A standard web search returned general sender-wide deletion guides (blocksender.io, fyxer.com, mailmeteor.com, xfanatical.com, proton.me). At most they mention combining from: with older_than: or before: in a single line. None offered a keep-preview search, a way to keep the latest N emails, a rolling-vs-fixed cutoff choice, or the mixed-conversation risk for this job.",
+    "limitation": "A single standard search, US results only; not a full Google SERP capture."
+  },
+  "information_gain": "A 'what you want to keep' decision table mapping five keep rules (last 30 days, last 3 months, this calendar year, roughly the latest N emails, recent plus starred) to paired delete and keep-preview searches with a specific caveat for each, including the manual count-to-date workaround for 'keep the last N' that Gmail has no operator for. Also a two-search verify step (rerun older_than and newer_than) and a mixed-conversation explanation specific to sender-plus-age cleanup. The hub covers this in one line (from:sender older_than:1y).",
+  "overlap_check": "Hub delete-all-emails-from-one-sender-gmail owns sender-wide deletion and has one 'Keep recent or important correspondence' line; this draft links there for address-finding and full clearance. Pending gmail-search-exclude-recent-replies owns the thread/recent-reply question; this draft covers it in two paragraphs only as it applies here. Pending gmail-older-than-vs-before and gmail-search-operator-older-than own operator mechanics; this draft uses them without a general tutorial. gmail-delete-old-promotions-keep-recent is the category analogue, not the sender one.",
+  "limitations": [
+    "Source and documentation review only; no live Gmail mailbox test was run and no screenshots were produced.",
+    "Boundary behaviour of before:/after: (inclusive or exclusive) and the length of an 'm' month are undocumented; the table warns of boundary differences rather than stating exact behaviour.",
+    "The claim that list selection acts on whole conversations is inferred from Google's separate 'Delete this message' option, not stated outright.",
+    "Effect of turning conversation view off on bulk Trash scope is untested and labelled as such.",
+    "The 'this year' row uses 2026/01/01 and 2025/12/31 and needs updating after the year changes.",
+    "Google's help pages cited are the computer variants; mobile app behaviour was not reviewed."
+  ],
+  "related_links": [
+    "/blog/delete-all-emails-from-one-sender-gmail.html",
+    "/blog/how-to-select-all-emails-gmail.html",
+    "/blog/gmail-archive-vs-delete.html"
+  ],
+  "assets": [],
+  "content_gate_basic": "check_post() on the draft path returned no problems on 2026-10-19; --ready was not run because the draft is not in docs/blog.",
+  "review_needed": "An independent substantive reviewer should re-read the three cited Google pages claim by claim, confirm the conversation-selection wording and the after:2025/12/31 'keep' example, then (if satisfied) record state evidence_checked or publish_ready with real identity, verified_on and post_sha256 in scripts/content-records.json during a separate promotion."
+}

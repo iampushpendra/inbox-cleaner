@@ -1,0 +1,60 @@
+{
+  "slug": "how-to-bulk-delete-emails-gmail-android",
+  "state": "draft",
+  "intent_owner": "how-to-bulk-delete-emails-gmail-android",
+  "hub_slug": "how-to-select-all-emails-gmail",
+  "absorbs_deferred": ["delete-all-emails-gmail-app-android"],
+  "target_query": "how to bulk delete emails in gmail app on android",
+  "product_manifest_version": "3.3.1",
+  "drafted_on": "2026-10-21",
+  "drafted_by": { "identity": "Claude Opus 5.5 scheduled editorial draft job (Claude Code)", "kind": "agent" },
+  "verification_kind": "source_review",
+  "verified_on": null,
+  "reviewer": null,
+  "post_sha256": null,
+  "sources": [
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en&co=GENIE.Platform%3DAndroid",
+      "supports": "Android phone & tablet deletion help: touch and hold each message then 'At the top, tap Delete'; 'Delete multiple messages quickly': touch and hold, 'At the top left, tap the box next to \"Select all.\"', by default 'Gmail selects up to 50 messages to delete', to select 50 more scroll to the top and tap the Select all box again, then tap Delete; enter a search operator (From:, after:/before:, has:attachment) to delete specific emails; Empty trash: Menu > Trash > 'Empty trash now'; restore: Menu > Trash > touch and hold > More (top right) > Move to; swipe: Menu > Settings > General settings > Swipe actions, next to Right/Left swipe tap Change, choose Delete; Trash recovery up to 30 days then permanent; deleted drafts can't be recovered from Trash.",
+      "review_notes": "Fetched 2026-10-21 by the drafting agent through a summarising fetch tool with a 125-character quote limit. UI labels and short phrases above were returned as quotes; the order of steps was paraphrased. The accumulate-then-delete order matches the wording already cited in the evidence_checked record for how-to-bulk-delete-gmail-emails (fetched 2026-10-18). The page does not describe an all-matching selection, a delete-everything action, the Promotions drawer entry, or other Android mail apps; the draft states those as not documented rather than tested. A reviewer should open the page directly to confirm exact labels."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en&co=GENIE.Platform%3DDesktop",
+      "supports": "Computer: Select box selects the current page; notification example 'All 50 conversations on this page are selected. Select all 2,000 conversations in Inbox.'; clicking the link selects every conversation; Trash recovery up to 30 days.",
+      "review_notes": "Fetched 2026-10-21. Used only to contrast the desktop all-matching selection with the Android app."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7190?hl=en",
+      "supports": "from:, category:, after:/before:, has:attachment operator rows; negative-operator caveat 'conversations with excluded criteria may still appear' because 'Gmail identifies matching messages first'.",
+      "review_notes": "Fetched 2026-10-21; rows and caveat confirmed. The page's instructions are for a computer and contain no Android-specific operator behaviour. Extending the caveat to before: date cutoffs is the draft's reasoning from the documented matching-messages-first behaviour and is presented as such."
+    }
+  ],
+  "serp_review": {
+    "checked_on": "2026-10-21",
+    "query": "how to bulk delete emails in gmail app on android",
+    "observation": "Results: blog.incogni.com (phone deletion guide, two URLs), nira.com (two URLs), clean.email (competitor; Android 'delete all at once' guide), techloy.com, geeksforgeeks.org, theexchange.africa web story, plus low-quality aggregator pages. Snippets conflicted: one says tap the sender avatar to select, one says long-press reveals Select all, one says the app has no built-in Select All and recommends Chrome Desktop View, one says mobile is limited to 50-message batches and large deletions need a desktop browser.",
+    "limitation": "One standard US web search; result pages weren't opened, so the characterisation rests on titles and snippets only. Desktop View in mobile Chrome is a separate pending topic (gmail-select-all-conversations-desktop-site-mobile) and the draft makes no claim about it."
+  },
+  "information_gain": "A source-checked, Gmail-Android-app-specific procedure (search first, Select all box, 50-message default, repeat-then-delete) with a rounds table, a 'delete all' decision table that absorbs the deferred delete-all-emails-gmail-app-android intent (sender / promotions / date / whole inbox, what to watch, and the note that clearing Inbox leaves archived mail), a reconciliation of the conflicting SERP advice (avatar tap, 'no Select all', other mail apps), and the Android-specific swipe path (General settings > Swipe actions > Change > Delete) and restore path (More > Move to). Published pages only carry a one-paragraph Android aside each; none is device-dedicated.",
+  "overlap_check": "Android one-paragraph asides exist in how-to-bulk-delete-gmail-emails, delete-all-emails-from-one-sender-gmail, gmail-mailbox-full-cant-receive-emails, how-to-delete-emails-older-than-a-year-gmail and how-to-find-biggest-emails-gmail, all citing the same Google Android page. The hub how-to-select-all-emails-gmail is desktop-focused. The sibling iPhone draft (how-to-bulk-delete-emails-gmail-iphone) shares structure; pending topics how-to-select-multiple-emails-gmail-app and gmail-mobile-vs-desktop-bulk-delete are adjacent and should not duplicate this page. A reviewer could reasonably argue that a single mobile page covering both apps would serve readers better than two near-parallel device pages; the device-specific settings/restore paths and the absorbed delete-all intent are the case for keeping this URL.",
+  "limitations": [
+    "Source and documentation review only; no live Android device or Gmail mailbox test, and no original screenshots.",
+    "The fetch tool summarised with a short quote limit; exact UI labels and step order should be confirmed on the live page or a device.",
+    "The rounds table is arithmetic from Google's documented 50-message default, not a timed or observed test; the 'better tool' thresholds are editorial judgement.",
+    "Samsung Email and other Android mail apps weren't reviewed; the draft makes no procedural claim about them.",
+    "Absence of an all-matching selection or delete-all button in the Android app is stated only as 'not described in Google's help', not as tested absence.",
+    "SERP review relied on result titles/snippets, not opened pages."
+  ],
+  "related_links": [
+    "/blog/how-to-select-all-emails-gmail.html",
+    "/blog/gmail-select-all-conversations-not-showing.html",
+    "/blog/delete-all-emails-from-one-sender-gmail.html",
+    "/blog/gmail-delete-all-promotional-emails.html",
+    "/blog/gmail-archive-vs-delete.html",
+    "/blog/gmail-search-operators-to-find-old-emails.html",
+    "/blog/how-to-bulk-delete-gmail-emails.html"
+  ],
+  "assets": [],
+  "structural_check": "content_gate.check_post on the draft path returned no errors on 2026-10-21; all three JSON-LD blocks parse. --ready was not run (it targets docs/ and requires a publish_ready record).",
+  "review_needed": "An independent substantive reviewer should open Google's Android deletion page directly and confirm the Select all steps, 50-message default, accumulate-then-delete order, swipe path and restore path, ideally on a current Gmail Android build. They should also decide whether this page and the iPhone draft should stay separate or merge into one mobile page, then record evidence_checked or publish_ready with their real identity, verified_on and post_sha256 in scripts/content-records.json during a separate promotion."
+}

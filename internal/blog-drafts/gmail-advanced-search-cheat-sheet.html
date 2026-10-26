@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="canonical" href="https://inbox-cleaner.vercel.app/blog/gmail-advanced-search-cheat-sheet.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gmail Advanced Search Operators Cheat Sheet for Cleanup | Inbox Cleaner</title>
+  <meta name="description" content="Gmail search operators grouped by cleanup job, with what each one can miss before you delete: mixed threads, aliases, labels, Spam and Trash.">
+  <meta property="og:title" content="Gmail Advanced Search Operators Cheat Sheet for Cleanup">
+  <meta property="og:description" content="Gmail search operators grouped by cleanup job, with what each one can miss before you delete: mixed threads, aliases, labels, Spam and Trash.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://inbox-cleaner.vercel.app/blog/gmail-advanced-search-cheat-sheet.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Gmail Advanced Search Operators Cheat Sheet for Cleanup",
+    "datePublished": "2026-10-22",
+    "dateModified": "2026-10-22",
+    "author": { "@type": "Organization", "name": "Inbox Cleaner" },
+    "publisher": { "@type": "Organization", "name": "Inbox Cleaner", "url": "https://inbox-cleaner.vercel.app" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Gmail Advanced Search Operators Cheat Sheet for Cleanup",
+    "step": [
+      { "@type": "HowToStep", "name": "Start with who", "text": "Search one sender, for example \"from:deals@example.com\", and open a few results to confirm they are the mail you mean." },
+      { "@type": "HowToStep", "name": "Add when", "text": "Add an age limit such as older_than:1y. Rerun the search and note how many conversations remain." },
+      { "@type": "HowToStep", "name": "Add exclusions", "text": "Add -is:starred -is:important. Remember that Gmail matches messages first, so a returned conversation can still contain starred or important messages." },
+      { "@type": "HowToStep", "name": "Review mixed conversations", "text": "Switch the results to Most recent, open conversations with several messages, and move out or handle individually anything you want to keep." },
+      { "@type": "HowToStep", "name": "Delete and recheck", "text": "Select the page, use the select-all-conversations link if Gmail offers it, click Delete, then rerun the search to see what remains. Deleted mail stays in Trash for 30 days." }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does Gmail search include Spam and Trash?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Not by default. Google says a standard search leaves out Spam and Trash. Use in:anywhere, or choose Mail & Spam & Trash in the search options, when you need them." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I sort Gmail search results by size?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Google documents two sort orders for search results: Most relevant and Most recent. To find large mail, filter with larger: and lower the threshold step by step." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I turn a cleanup search into a filter?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. In the search options panel, enter the criteria, click Search to check the results, then click Create filter and choose an action such as Delete. Check the results first, because the filter acts on mail you will not see." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to remember these operators?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. The search options panel and the search chips cover From, To, Subject, words, Size, dates and attachments. Operators matter when you need something the panel lacks, such as category:, list:, older_than: or a grouped OR." }
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>📥</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-logo" href="/">📥 Inbox<span>Cleaner</span></a>
+  <a class="blog-nav-cta" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add to Chrome →</a>
+</nav>
+
+<main>
+  <div class="blog-wrap">
+    <span class="blog-eyebrow">Gmail Tips</span>
+    <h1 class="blog-h1">Gmail Advanced Search Operators Cheat Sheet for Cleanup</h1>
+    <p class="blog-meta">Updated October 2026 · 6 min read · <a href="/blog/">All guides</a></p>
+
+    <div class="blog-body">
+
+      <div class="quick-answer">
+        <strong>Quick answer:</strong> The Gmail advanced search operators that matter most for cleanup are <code>from:</code>, <code>list:</code>, <code>category:</code>, <code>older_than:</code>, <code>before:</code>, <code>larger:</code>, <code>has:attachment</code> and <code>is:starred</code>, joined with spaces (AND), <code>OR</code>, <code>{ }</code>, <code>( )</code> and <code>-</code>. Type them in the Gmail search box on a computer. Before you delete, remember three limits Google documents: Gmail matches messages and can return whole mixed conversations, standard search skips Spam and Trash, and <code>from:</code> also matches a person's aliases.
+      </div>
+
+      <p>Google's <a href="https://support.google.com/mail/answer/7190?hl=en">Refine searches in Gmail</a> page is the authoritative operator list, and most cheat sheets copy it as operator, description and example. This one is arranged around cleanup: which operator does each job, and what it can catch or miss before you click Delete. Everything below was checked against Google's help pages on October 22, 2026. It is a documentation review, not a live mailbox test. For age searches in depth, see <a href="../blog/gmail-search-operators-to-find-old-emails.html">Gmail search operators for reviewing old emails</a>.</p>
+
+      <h2>Which Gmail search operators should I use to find mail to clean up?</h2>
+
+      <h3>Who sent it</h3>
+      <table>
+        <thead>
+          <tr><th>Operator</th><th>Example</th><th>Check before deleting</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>from:</code></td><td><code>from:deals@example.com</code></td><td>Google says an address search also returns the person's alias, and can show Drive files shared by that address. Put the term in quotes, <code>"from:deals@example.com"</code>, to limit it to the original address.</td></tr>
+          <tr><td><code>list:</code></td><td><code>list:info@example.com</code></td><td>Finds mailing-list mail. Useful when a newsletter arrives from several sending addresses under one list.</td></tr>
+          <tr><td><code>to:</code>, <code>cc:</code>, <code>bcc:</code></td><td><code>to:me</code></td><td>Matches recipients, not the sender. <code>from:me</code> finds your own sent mail.</td></tr>
+          <tr><td><code>deliveredto:</code></td><td><code>deliveredto:old-alias@example.com</code></td><td>Helpful for mail that reached you through a forwarding address or alias you no longer use.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>When it arrived</h3>
+      <table>
+        <thead>
+          <tr><th>Operator</th><th>Example</th><th>Check before deleting</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>older_than:</code>, <code>newer_than:</code></td><td><code>older_than:1y</code></td><td>A moving window. Units are <code>d</code>, <code>m</code> and <code>y</code>. The same search returns different mail next month.</td></tr>
+          <tr><td><code>before:</code>, <code>after:</code></td><td><code>after:2024/01/01 before:2025/01/01</code></td><td>A fixed cutoff. Google also lists <code>older:</code> and <code>newer:</code> in the same row. Spot-check results near the boundary date.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Where it is</h3>
+      <table>
+        <thead>
+          <tr><th>Operator</th><th>Example</th><th>Check before deleting</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>category:</code></td><td><code>category:promotions</code></td><td>Works only if you use inbox categories. Google's list now also includes <code>category:reservations</code> and <code>category:purchases</code>; confirm what those return in your account before acting on them.</td></tr>
+          <tr><td><code>label:</code></td><td><code>label:receipts</code></td><td>Searches your own labels.</td></tr>
+          <tr><td><code>has:userlabels</code>, <code>has:nouserlabels</code></td><td><code>has:nouserlabels older_than:2y</code></td><td>Google notes labels are added to individual messages, not whole conversations, so a conversation can contain both labelled and unlabelled messages.</td></tr>
+          <tr><td><code>in:archive</code>, <code>in:snoozed</code>, <code>is:muted</code></td><td><code>in:archive older_than:1y</code></td><td>Archived mail still uses storage. See <a href="../blog/gmail-archive-vs-delete.html">Gmail archive vs delete</a> before choosing.</td></tr>
+          <tr><td><code>in:anywhere</code></td><td><code>in:anywhere from:me</code></td><td>Includes Spam and Trash. Without it, standard search leaves them out.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>What it contains</h3>
+      <table>
+        <thead>
+          <tr><th>Operator</th><th>Example</th><th>Check before deleting</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>larger:</code>, <code>smaller:</code>, <code>size:</code></td><td><code>larger:10M</code></td><td>Filters by size but does not sort by it. Details in <a href="../blog/gmail-delete-emails-by-size.html">how to delete Gmail emails by size</a>.</td></tr>
+          <tr><td><code>has:attachment</code>, <code>filename:</code></td><td><code>has:attachment filename:pdf</code></td><td>Save files you need first. <code>has:drive</code> finds Drive links, which are not attachments.</td></tr>
+          <tr><td><code>subject:</code>, <code>" "</code>, <code>+</code></td><td><code>subject:"order shipped"</code></td><td>Plain words also match body text. Quotes force an exact phrase.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>What state it is in</h3>
+      <table>
+        <thead>
+          <tr><th>Operator</th><th>Example</th><th>Check before deleting</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>is:starred</code>, <code>is:important</code></td><td><code>-is:starred</code></td><td>Used as exclusions, these are the least reliable protection. See the mixed-conversation section below.</td></tr>
+          <tr><td><code>is:unread</code>, <code>is:read</code></td><td><code>is:unread older_than:6m</code></td><td>Unread mail can still be bills or account notices.</td></tr>
+          <tr><td><code>has:yellow-star</code> and other star types</td><td><code>has:red-bang</code></td><td>Only meaningful if you set up multiple star types.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>How do I combine Gmail search operators correctly?</h2>
+      <table>
+        <thead>
+          <tr><th>Syntax</th><th>Meaning</th><th>Example</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Space or <code>AND</code></td><td>All conditions must match</td><td><code>from:deals@example.com older_than:1y</code></td></tr>
+          <tr><td><code>OR</code> or <code>{ }</code></td><td>Any condition matches</td><td><code>{from:a@example.com from:b@example.com}</code></td></tr>
+          <tr><td><code>( )</code></td><td>Groups terms</td><td><code>subject:(sale clearance)</code></td></tr>
+          <tr><td><code>-</code></td><td>Excludes a term</td><td><code>category:promotions -from:bank@example.com</code></td></tr>
+        </tbody>
+      </table>
+      <p>Google's reference does not say how <code>OR</code> and a plain space combine when you use both in one search. A search such as <code>from:a@example.com OR from:b@example.com older_than:1y</code> could be read two ways, and the difference decides whether recent mail from one sender is included. Remove the doubt with braces: <code>{from:a@example.com from:b@example.com} older_than:1y</code>. Write <code>OR</code> in capitals, as Google's examples do. Google also notes that in search terms a space or dash separates numbers and a dot is a decimal point.</p>
+
+      <h2>Which searches can catch mail I meant to keep?</h2>
+      <p>Gmail identifies matching messages first, then shows their conversations. Google gives the key example: searching <code>-is:starred</code> can return an entire conversation if it contains at least one unstarred message, even when other messages in that conversation are starred. The same logic applies when you combine an age limit with a sender: an old conversation can include a recent reply. Selecting and deleting the conversation from the results list affects the whole conversation, not only the message that matched.</p>
+      <p>Three other gaps are worth checking. An address search can include aliases, so quote it when you want only one address. Labels sit on messages, so <code>has:nouserlabels</code> can return a conversation where one reply is labelled. And because standard search skips Spam and Trash, a clean result does not mean those folders are empty.</p>
+
+      <h2>How do I build a cleanup search step by step?</h2>
+      <p>Add one condition at a time and look at the results after each. This is a procedure for your own mailbox; the example sender is a placeholder.</p>
+      <ol class="blog-steps">
+        <li><strong>Start with who.</strong> Search <code>"from:deals@example.com"</code> and open a few results to confirm they are the mail you mean.</li>
+        <li><strong>Add when.</strong> Add <code>older_than:1y</code>. Rerun and note how many conversations remain.</li>
+        <li><strong>Add exclusions.</strong> Add <code>-is:starred -is:important</code>, keeping in mind that a returned conversation can still contain starred or important messages.</li>
+        <li><strong>Review mixed conversations.</strong> Switch results to Most recent and open conversations with several messages. Handle anything you want to keep separately.</li>
+        <li><strong>Delete and recheck.</strong> Select the page, use the select-all-conversations link if Gmail offers it, click Delete, then rerun the search. Google says deleted messages stay in Trash for 30 days unless you remove them sooner.</li>
+      </ol>
+      <p>The selection step is covered in detail in <a href="../blog/how-to-select-all-emails-gmail.html">how to select all emails in Gmail</a>. If the search is one you will repeat, Google lets you open the search options panel, click Create filter and choose an action; see <a href="../blog/gmail-filters-delete-emails-automatically.html">Gmail filters to delete emails automatically</a>.</p>
+
+      <div class="blog-cta">
+        <h3>Clean up Gmail with the Chrome extension</h3>
+        <p>Install from the Chrome Web Store, then open Gmail and click Inbox Cleaner. Emails go to Trash (30-day recovery window).</p>
+        <a class="blog-cta-btn" href="https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep">Add Inbox Cleaner to Chrome →</a>
+      </div>
+
+      <h2>When is a sender list simpler than a search query?</h2>
+      <p>Operators are the right tool when the cleanup depends on age, category, size, labels or starred status. If the job is simply "remove everything from these senders", writing and checking a <code>from:</code> query for each one is repetitive. Inbox Cleaner, which publishes this guide, runs in an open Gmail tab in desktop Chrome, lists senders by how many conversations Gmail shows for them, and moves the selected senders' mail to Trash. Its sender-wide action does not apply date, category, size or starred limits, includes archived mail from that sender, and its counts are conversation counts rather than storage. When you need any of those limits, use native Gmail search. For the manual version, see <a href="../blog/delete-all-emails-from-one-sender-gmail.html">how to delete all emails from one sender in Gmail</a>.</p>
+
+      <h2>Sources and review</h2>
+      <p>Operator syntax, examples and the mixed-conversation and number caveats come from Google's <a href="https://support.google.com/mail/answer/7190?hl=en">Refine searches in Gmail</a>. Spam and Trash behaviour, alias matching, sort options, chips and the search options panel come from <a href="https://support.google.com/mail/answer/6593?hl=en">Search in Gmail</a>. Deletion and the 30-day Trash period come from <a href="https://support.google.com/mail/answer/7401?hl=en">Delete messages in Gmail</a>, and Create filter from <a href="https://support.google.com/mail/answer/6579?hl=en">Create rules to filter your emails</a>. All four were read on October 22, 2026. The pages describe Gmail on a computer. No live mailbox test, screenshot or timing was produced for this guide; where Google is silent, such as how <code>OR</code> combines with AND, the guide says so.</p>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <p class="faq-q">Does Gmail search include Spam and Trash?</p>
+          <p class="faq-a">Not by default. Google says a standard search leaves out Spam and Trash. Use <code>in:anywhere</code>, or choose Mail &amp; Spam &amp; Trash in the search options, when you need them.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Can I sort Gmail search results by size?</p>
+          <p class="faq-a">Google documents two sort orders for search results: Most relevant and Most recent. To find large mail, filter with <code>larger:</code> and lower the threshold step by step.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Can I turn a cleanup search into a filter?</p>
+          <p class="faq-a">Yes. In the search options panel, enter the criteria, click Search to check the results, then click Create filter and choose an action such as Delete. Check the results first, because the filter acts on mail you will not see.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Do I need to remember these operators?</p>
+          <p class="faq-a">No. The search options panel and the search chips cover From, To, Subject, words, Size, dates and attachments. Operators matter when you need something the panel lacks, such as <code>category:</code>, <code>list:</code>, <code>older_than:</code> or a grouped OR.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>Built by <a href="https://github.com/iampushpendra" target="_blank" rel="noopener">@iampushpendra</a> · <a href="../privacy.html">Privacy Policy</a> · <a href="https://github.com/iampushpendra/inbox-cleaner" target="_blank" rel="noopener">GitHub</a> · Emails go to Trash — you have 30 days to restore them.</p>
+</footer>
+
+</body>
+</html>

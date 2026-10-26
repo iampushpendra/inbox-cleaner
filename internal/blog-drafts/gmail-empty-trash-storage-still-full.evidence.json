@@ -1,0 +1,75 @@
+{
+  "slug": "gmail-empty-trash-storage-still-full",
+  "state": "draft",
+  "intent_owner": "gmail-empty-trash-storage-still-full",
+  "hub_slug": "gmail-mailbox-full-cant-receive-emails",
+  "target_query": "why is gmail storage still full after emptying trash",
+  "product_manifest_version": "3.2.2",
+  "drafted_on": "2026-10-19",
+  "drafted_by": { "identity": "Claude Opus 5.5 scheduled editorial draft job (Claude Code)", "kind": "agent" },
+  "verification_kind": "source_review",
+  "verified_on": null,
+  "reviewer": null,
+  "post_sha256": null,
+  "sources": [
+    {
+      "url": "https://support.google.com/googleone/answer/9312312?hl=en",
+      "supports": "Storage shared across Gmail, Drive and Photos. What counts: Gmail messages and attachments including Spam and Trash; Drive files; Original-quality photos; Storage saver photos backed up after 1 June 2021; Android backups; WhatsApp backups on Android. FAQ: after deleting a large number of files it normally takes up to 48–72 hours to update storage accurately.",
+      "review_notes": "Fetched 2026-10-19 via curl (title 'How your Google storage works - Google One Help'). Confirmed the 'What counts towards your storage quota' list and the 48–72 hour FAQ answer word for word. The article's list paraphrases a subset and does not quote the 15 GB figure as universal."
+    },
+    {
+      "url": "https://support.google.com/drive/answer/6374270?hl=en",
+      "supports": "'Empty trash and spam folders… Until you permanently clear items in these folders, they count against your storage limit', with separate links for Gmail Trash & Spam, Drive Trash and Photos Trash; 'Allow time (up to 48–72 hours)'; 'If your account is still full after 30 minutes, you can perform advanced cleanup'; backups section, WhatsApp backups and hidden app data.",
+      "review_notes": "Fetched 2026-10-19 via curl (title 'Manage your storage in Drive, Gmail & Photos'). Both timings (30 minutes and 48–72 hours) appear on the same page. The article reports both and frames 30 minutes as an early check, not a deadline. This reconciliation is the article's own interpretation and is labelled as such ('A practical reading')."
+    },
+    {
+      "url": "https://support.google.com/drive/answer/2375102?hl=en",
+      "supports": "Files in Drive Trash still count towards storage until permanently deleted; files moved to Trash are deleted forever after 30 days; Empty trash deletes forever.",
+      "review_notes": "Fetched 2026-10-19 via curl (title 'Delete files in Google Drive - Computer'). Quoted sentences confirmed."
+    },
+    {
+      "url": "https://support.google.com/photos/answer/6128858?hl=en",
+      "supports": "Deleted photos and videos stay in Photos trash for 30 days before permanent deletion; emptying trash is permanent.",
+      "review_notes": "Fetched 2026-10-19 via curl. The fetched page is the Android phone & tablet variant. This page does not itself state that Photos trash counts toward storage; that claim rests on drive/answer/6374270, which lists Photos Trash among folders that count until cleared."
+    },
+    {
+      "url": "https://support.google.com/googleone/answer/9004015?hl=en",
+      "supports": "'Members of the Google family group do not have their own storage, they share the family group's storage quota'; files aren't shared with the family; all members can find how much shared storage they use.",
+      "review_notes": "Fetched 2026-10-19 via curl. The fetched wording contradicts a search-result snippet suggesting members keep a personal 15 GB first; the article follows the fetched page. Fetched text also confirms the heading 'Check storage usage by family member' and 'Members of a family group can only free up space from their own storage usage.' The article avoids claiming only the plan manager can see usage."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en",
+      "supports": "Deleted messages move to Trash; recoverable for up to 30 days; 'Empty Trash now'; after removal from Trash messages cannot be recovered.",
+      "review_notes": "Fetched 2026-10-19 via curl. Confirmed Trash, 30-day and Empty Trash now wording."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7190?hl=en",
+      "supports": "in:spam and larger: search operators.",
+      "review_notes": "Cited for operator syntax only. Not re-fetched in this run; operators are relied on by published site guides. A reviewer should recheck."
+    }
+  ],
+  "serp_review": {
+    "checked_on": "2026-10-19",
+    "query": "why is gmail storage still full after emptying trash",
+    "observation": "A standard web search returned third-party pages (getmailbird, picbackman x3, clean.email, dev.to x2, workalizer) and a forum thread. Common points: Spam counts, shared quota, Drive/Photos trash, update lag. At least one gives an unsourced 'up to seven days'. None in the result summaries mention family-plan shared quota or the two different update timings on Google's own pages, and none give a symptom-to-check table.",
+    "limitation": "One standard US web search summary; result pages were not opened individually. Not a Google ranking capture."
+  },
+  "information_gain": "A post-emptying diagnostic table and ordered checklist: wrong account, Spam not cleared by Empty Trash now, separate Drive and Photos trash, backups/hidden app data, Google One family-plan shared quota (sourced to 9004015), and update timing. It also reconciles Google's two published timings (30-minute recheck vs 48–72 hours) on drive/answer/6374270. Existing published pages and the sibling draft cover Trash itself and the 48–72 hour figure, but not family-shared quota, Drive/Photos trash as separate trash, or the 30-minute vs 48–72 hour discrepancy.",
+  "overlap_check": "Sibling draft gmail-storage-not-updating-after-deleting (unpublished) stops at the decision to empty Trash and covers IMAP All Mail; this draft starts after Trash is emptied and does not repeat the IMAP route. Hub gmail-mailbox-full-cant-receive-emails covers delivery and a short breakdown table; how-to-free-up-gmail-storage and gmail-delete-emails-by-size cover reduction recipes and are linked rather than repeated. Residual overlap: both storage drafts mention Spam, wrong account and 48–72 hours. A reviewer should decide whether both should publish or whether one should absorb the other. The draft does not link the unpublished sibling.",
+  "limitations": [
+    "Source and documentation review only. No live Gmail, Drive, Photos, family-plan or storage-page test was run, and no screenshots exist.",
+    "Photos trash counting toward storage relies on drive/answer/6374270, not the Photos help page; the fetched Photos page was the Android variant.",
+    "Google's timings (30 minutes, 48–72 hours) are stated as normal, not guaranteed; no countdown is given.",
+    "Workspace (work/school) pooled or admin-set quotas are out of scope and only mentioned as a referral to the administrator.",
+    "The 'Empty Trash now clears Trash only, not Spam' statement is inferred from Gmail's separate Trash and Spam controls, not quoted from one sentence."
+  ],
+  "related_links": [
+    "/blog/gmail-mailbox-full-cant-receive-emails.html",
+    "/blog/how-to-select-all-emails-gmail.html",
+    "/blog/delete-all-emails-from-one-sender-gmail.html",
+    "/blog/gmail-archive-vs-delete.html",
+    "/blog/gmail-delete-emails-by-size.html"
+  ],
+  "assets": [],
+  "review_needed": "An independent substantive reviewer should do the following. Re-read the seven Google pages claim by claim. Confirm Photos trash counts toward storage. Decide the overlap with gmail-storage-not-updating-after-deleting. If satisfied, record evidence_checked or publish_ready with real identity, verified_on and post_sha256 in scripts/content-records.json during a separate promotion."
+}

@@ -1,0 +1,64 @@
+{
+  "slug": "gmail-delete-old-promotions-keep-recent",
+  "state": "draft",
+  "intent_owner": "gmail-delete-old-promotions-keep-recent",
+  "hub_slug": "how-to-delete-emails-older-than-a-year-gmail",
+  "target_query": "how to delete gmail promotions older than 30 days but keep recent ones",
+  "product_manifest_version": "3.2.2",
+  "drafted_on": "2026-10-19",
+  "drafted_by": { "identity": "Claude Opus 5.5 scheduled editorial draft job (Claude Code)", "kind": "agent" },
+  "verification_kind": "source_review",
+  "verified_on": null,
+  "reviewer": null,
+  "post_sha256": null,
+  "sources": [
+    {
+      "url": "https://support.google.com/mail/answer/7190?hl=en",
+      "supports": "category:promotions (category: row); older_than:/newer_than: with d, m, y; after:/before: with dates such as 2004/04/16; OR and curly braces {from:amy from:david} meaning any of these; in:archive ('Search for archived messages'); in:anywhere includes Spam and Trash; the caveat that Gmail identifies matching messages first, so conversations with excluded criteria may still appear. Computer variant.",
+      "review_notes": "Fetched 2026-10-19 by the drafting agent. All operators used in the draft appear on the page; in:inbox does NOT appear, so the draft avoids it. The page does not define the day length of 'm', whether before:/after: include the boundary day, or whether category: searches include archived mail; the draft labels each as undocumented. Applying the matching-messages-first caveat to a positive age search (not only negative operators) is the draft's reasoning from that sentence. 'Ordinary searches leave out Spam and Trash' is inferred from in:anywhere being described as including them."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/7401?hl=en",
+      "supports": "Computer steps: check boxes, Delete icon at the top; select-all notification ('All 50 conversations on this page are selected. Select all 2,000 conversations in Inbox.'); recover from Trash; permanent deletion after 30 days; 'Delete this message' via More inside an open conversation.",
+      "review_notes": "Fetched 2026-10-19. Confirmed the notification wording, 30-day permanent deletion and the per-message option. The page does not explicitly say the 30 days are counted from when the message was trashed, nor that a list selection acts on every message in a conversation; both are stated in the draft as the natural reading and should be confirmed by the reviewer."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/3094499?hl=en",
+      "supports": "Promotions defined as 'Deals, offers, and other promotional emails'; emails can be moved to a different category tab; 'Archived emails don't appear in categories.' and 'To find archived emails, go to Gmail and select All mail label.'; category: search instructions.",
+      "review_notes": "Fetched 2026-10-19; archived-mail sentence quoted verbatim in the draft. The page does not state that moving a message to Primary removes it from category:promotions search results; the draft says it 'should' and tells the reader to rerun the search to check."
+    },
+    {
+      "url": "https://support.google.com/mail/answer/6579?hl=en",
+      "supports": "Filters are introduced as a way to manage incoming mail; creation flow (search options, Create filter, choose action); actions include label, archive, delete, star, forward.",
+      "review_notes": "Fetched 2026-10-19. The page does not discuss age conditions in filters or applying filters to existing mail. The draft's rejection of an older_than:30d standing filter is reasoning (a new message is minutes old when evaluated), consistent with the published gmail-filters-delete-emails-automatically guide, not a quoted Google statement."
+    }
+  ],
+  "serp_review": {
+    "checked_on": "2026-10-19",
+    "query": "gmail delete promotions older than 30 days keep recent",
+    "observation": "A standard web search returned general 'delete all promotions' guides (novocall, inquirer, androidauthority, incogni, clean.email, gizchina, getinboxzero). None gave a combined category:promotions older_than:30d recipe with a keep preview; one suggested using the search-options date field and another suggested filters for ongoing cleanup without addressing that filters cannot act on age. None covered rescuing receipts filed as promotions, mixed conversations, archived mail missing from the tab, or the difference between the search cutoff and the Trash 30-day period.",
+    "limitation": "A single standard search, US results only; not a full Google SERP capture. A follow-up search for official 'Date within' documentation found none, so the draft omits the search-options date field."
+  },
+  "information_gain": "A five-row search table for this exact job (delete, keep preview, receipt rescue with documented {} OR syntax, fixed-date alternative, 30d vs 1m) each with what it can miss; a rescue-before-delete step for receipts and return labels filed as promotions; an explicit explanation of why an older_than filter cannot act as a 30-day expiry; the archived-mail gap between the Promotions tab and search (quoted from Google); and the 'two 30-day clocks' clarification separating the search cutoff from Trash permanent deletion. Published owners cover this in one line each (hub: category:promotions older_than:1y; promotions guide: category:promotions older_than:6m).",
+  "overlap_check": "Hub how-to-delete-emails-older-than-a-year-gmail owns general age cleanup and has one promotions row; gmail-delete-all-promotional-emails owns clearing the whole category and has one older_than:6m line; gmail-filters-delete-emails-automatically owns incoming-rule setup and its age-filter paragraph is linked rather than repeated. Draft gmail-delete-from-sender-keep-recent is the sender analogue; this draft shares the step shape but its table, rescue step, archive note and Trash-clock section are category-specific.",
+  "limitations": [
+    "Source and documentation review only; no live Gmail mailbox test was run and no screenshots were produced.",
+    "Length of an 'm' month and inclusiveness of before:/after: are undocumented; the table warns rather than stating behaviour.",
+    "Whether category:promotions search includes archived mail is undocumented and untested; the draft says so.",
+    "That moving a message to Primary removes it from category:promotions results is inferred, and the reader is told to verify by rerunning.",
+    "The claim that list selection acts on whole conversations is inferred from Google's separate 'Delete this message' option.",
+    "That the Trash 30 days run from the trash date is the natural reading of Google's text, not a quoted statement.",
+    "The fixed-date example before:2026/09/19 is 30 days before the draft date and will look stale later.",
+    "The rescue search matches words only; receipts without 'receipt', 'order' or 'invoice' are missed, as the draft states.",
+    "Google pages cited are the computer variants; mobile app behaviour was not reviewed."
+  ],
+  "related_links": [
+    "/blog/how-to-delete-emails-older-than-a-year-gmail.html",
+    "/blog/how-to-select-all-emails-gmail.html",
+    "/blog/delete-all-emails-from-one-sender-gmail.html",
+    "/blog/gmail-filters-delete-emails-automatically.html"
+  ],
+  "assets": [],
+  "content_gate_basic": "check_post() on the draft path returned no problems on 2026-10-19; --ready was not run because the draft is not in docs/blog.",
+  "review_needed": "An independent substantive reviewer should re-read the four cited Google pages claim by claim, confirm the inferred points listed in limitations (conversation-level selection, Trash clock start, Primary move dropping out of category search), decide whether the before:2026/09/19 example should be replaced with a placeholder, then (if satisfied) record state evidence_checked or publish_ready with real identity, verified_on and post_sha256 in scripts/content-records.json during a separate promotion."
+}
