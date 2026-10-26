@@ -9,7 +9,7 @@ Plan task T06. Access-gated. Package comparison is complete; live disposable-mai
 | Repository source / `manifest.json` | 3.3.1 | `manifest.json` |
 | Built package `inbox-cleaner-extension-3.3.1.zip` | 3.3.1 | ZIP manifest, 9 entries |
 | `inbox-cleaner-extension.zip` | 3.3.1 | Identical SHA-256 to the versioned ZIP |
-| Chrome Web Store (published) | **3.2.1** | Owner confirmed on 2026-10-26; latest released version |
+| Chrome Web Store (published, per webfetch 2026-10-27) | **3.2.2** (updated Oct 19 2026; 22.41 KiB) | Owner confirmed on 2026-10-26; latest released version |
 | Repository archive `inbox-cleaner-extension-3.2.1.zip` | 3.2.1 | ZIP manifest; DOM build with `storage`, `tabs`, `mail.google.com` |
 | Installed local package | **Unverified** | No local installed-extension inspection in this run |
 | Published listing permission block | **Mismatched** | Listing shows OAuth scopes; repository 3.2.1 archive does not declare them. Dashboard access unavailable, so the cause is unresolved. |
