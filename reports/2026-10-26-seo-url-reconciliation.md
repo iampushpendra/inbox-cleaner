@@ -1,17 +1,18 @@
 # SEO URL reconciliation — 26 October 2026
 
-Execution of plan task T03. Checked at **2026-10-26T16:21Z** against the production alias `https://inbox-cleaner.vercel.app`. Raw evidence: `research_notes/SEO completion 2026-10-26/url-checks.json` (73 URLs, 0 problems).
+Execution of plan task T03. Checked at **2026-10-26T16:21Z**, rechecked after push at **2026-10-26T16:25Z** against the production alias `https://inbox-cleaner.vercel.app`. Raw evidence: `research_notes/SEO completion 2026-10-26/url-checks.json` (73 URLs, 0 problems).
 
 ## Candidate versus deployment
 
 | Item | Value |
 |---|---|
-| Local HEAD during the live check | `6ab560d` (plus uncommitted T01–T03 work) |
-| `origin/main` during the live check | `020bb2a` |
-| Production deployment | `https://inbox-cleaner-k8861yk2b-2ndincome.vercel.app`, created 2026-10-19 01:13 IST, status Ready |
-| Deployed revision | Consistent with `020bb2a` (same minute; Vercel CLI exposes no git SHA metadata) |
+| Local/release HEAD | `15b77cd` (post-push recheck) |
+| `origin/main` at the post-push recheck | `15b77cd` |
+| Pre-push deployment | `https://inbox-cleaner-k8861yk2b-2ndincome.vercel.app`, 2026-10-19 01:13 IST, Ready, consistent with `020bb2a` |
+| Post-push deployment | `https://inbox-cleaner-no9upxyah-2ndincome.vercel.app`, 2026-10-26, Ready |
+| Deployed revision | Post-push alias serves the `15b77cd` candidate; Vercel CLI exposes no git SHA metadata |
 
-The check therefore verified the **currently deployed** candidate, not the local uncommitted fixes. A post-push recheck is required and is recorded in the completion status ledger.
+Both checks passed: the first verified the then-deployed `020bb2a`, the second verified the pushed `15b77cd` candidate. Both returned 0 problems over 73 URLs.
 
 ## Local inventory
 
@@ -67,4 +68,4 @@ These private paths all returned **404** on the production host: plan file under
 - **Search Console URL Inspection** (last crawl, Google vs user canonical) needs authenticated owner access; not available here. No indexing outcome is asserted.
 - **Backlink evidence** was not available at merge decision time and is still not collected; mappings are validated for live behavior, not retroactively proven lossless in link equity.
 - The deployment revision is inferred from remote HEAD plus deployment timing; Vercel CLI gave no git SHA.
-- A post-push live recheck is still required because the verified deployment predates the T01–T03 changes.
+- Not verified: authenticated indexing state, crawl date, backlink equity and dashboard metrics. See the completion status ledger.

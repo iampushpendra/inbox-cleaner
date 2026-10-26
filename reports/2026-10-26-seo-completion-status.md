@@ -6,18 +6,18 @@ Execution ledger for `internal/superpowers/plans/2026-10-26-seo-completion-plan.
 
 | Item | Value |
 |---|---|
-| Remote `origin/main` at check time | `020bb2a` |
-| Local release candidate | `1f7131b` + `2ae2889` + this documentation commit |
+| Remote `origin/main` at final check | `15b77cd` |
+| Release candidate | `15b77cd` (pushed) |
 | Production URL checked | `https://inbox-cleaner.vercel.app` |
-| Production deployment | `inbox-cleaner-k8861yk2b-2ndincome.vercel.app`, Ready, created 2026-10-19 01:13 IST |
+| Production deployment | `inbox-cleaner-no9upxyah-2ndincome.vercel.app`, Ready, serving `https://inbox-cleaner.vercel.app` after push |
 | Node tests | **89 passed, 0 failed** (`node --test test/*.test.js`) |
 | Python tests | **27 passed, 0 failed** (`python3 -m unittest discover -s test -p 'test_*.py'`) |
 | Site build | two consecutive runs, second produced **0 changes** |
 | Gated pages | both `--ready` commands pass |
 | Basic gate | 0 failures across all 39 articles |
-| Live URL check | 73 URLs, **0 problems** at 2026-10-26T16:21Z |
+| Live URL check | 73 URLs, **0 problems** pre-push (16:21Z) and post-push (16:25Z) |
 
-The live check verified the deployed `020bb2a` candidate, not the local commits above. A post-push recheck is the remaining release step.
+The post-push recheck passed against the deployed `15b77cd` candidate.
 
 ## Task status
 
@@ -25,7 +25,7 @@ The live check verified the deployed `020bb2a` candidate, not the local commits 
 |---|---|---|---|
 | T01 repository verification | **complete** | Publisher fixture fixed at the root (tool links only for configured tools); coverage validity tests; 89 Node / 27 Python pass | none |
 | T02 source/evidence reconciliation | **complete with stated limit** | Facts at 3.3.1; two gated pages and five consolidation owners re-reviewed; 7 current records, 32 visibly stale; idempotent build | re-review the 32 stale owners in editorial batches; do not bless hashes |
-| T03 consolidation/deployment/crawl | **complete for deployed candidate** | `reports/2026-10-26-seo-url-reconciliation.md`; 44 sitemap URLs, 12 single-hop 308 merges, aliases, assets and private-path checks pass; new repository contract test | re-run the URL check after push |
+| T03 consolidation/deployment/crawl | **complete for deployed candidate** | `reports/2026-10-26-seo-url-reconciliation.md`; 44 sitemap URLs, 12 single-hop 308 merges, aliases, assets and private-path checks pass pre- and post-push; new repository contract test | authenticated indexing inspection remains blocked |
 | T04 fresh acquisition baseline | **blocked_access** | `research_notes/Analytics intelligence 2026-10-26/collection-manifest.json`; no GSC/GA/store session | owner exports the latest complete windows; then rerun scorecard |
 | T05 acquisition measurement | **complete (decision: no tracker)** | `internal/superpowers/specs/2026-10-26-acquisition-measurement.md`; voluntary feedback template | only implement events if separately authorized |
 | T06 package and live tasks | **in_progress / blocked_access** | ZIP is byte-identical to source at 3.3.1, 9 files, SHA-256 `2043139a…`; installed/store identity unverified; no disposable account authorized | confirm installed package; authorize and run the seeded mailbox tasks |
