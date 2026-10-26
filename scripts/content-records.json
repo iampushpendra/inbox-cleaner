@@ -239,14 +239,14 @@
   "how-to-select-all-emails-gmail": {
     "state": "evidence_checked",
     "intent_owner": "how-to-select-all-emails-gmail",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; OpenCode SEO completion re-review 2026-10-26",
       "kind": "agent"
     },
-    "post_sha256": "d76794fa7cb7aa702e371a5fd08cbd62cd3ad8a327da28a8ba1b2bbb804b036f",
+    "post_sha256": "f01903b222d3d5c0ee369f8eb874e387c08bc2d390fc65b4d75c4f155a3be0bc",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -537,14 +537,14 @@
   "how-to-find-biggest-emails-gmail": {
     "state": "evidence_checked",
     "intent_owner": "how-to-find-biggest-emails-gmail",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-18",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; OpenCode Space Bunny mobile-handoff source review 2026-10-18",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; OpenCode Space Bunny mobile-handoff source review 2026-10-18; OpenCode SEO completion re-review 2026-10-26",
       "kind": "agent"
     },
-    "post_sha256": "8b5608eb48bd0f00f4e4bf26f2c42dfb5a0945634efae9e6fb2e7b2ce60be69d",
+    "post_sha256": "81a97a5916c9e5eb02108b5a9bf4fc276e440c5297886f710be425f05e1ec222",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -580,14 +580,14 @@
   "gmail-delete-emails-by-size": {
     "state": "evidence_checked",
     "intent_owner": "gmail-delete-emails-by-size",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; OpenCode SEO completion re-review 2026-10-26",
       "kind": "agent"
     },
-    "post_sha256": "d4249f6a4212b377d0418b95025b7f9a2b31b79751f19e4bd3923c7b44ff63b7",
+    "post_sha256": "994da967219e832dc969b5879597aa3c2fb981c073045849966e04cfcfff44e7",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -691,14 +691,14 @@
   "how-to-delete-emails-older-than-a-year-gmail": {
     "state": "evidence_checked",
     "intent_owner": "how-to-delete-emails-older-than-a-year-gmail",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-18",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; OpenCode Space Bunny mobile-handoff source review 2026-10-18",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; OpenCode Space Bunny mobile-handoff source review 2026-10-18; OpenCode SEO completion re-review 2026-10-26",
       "kind": "agent"
     },
-    "post_sha256": "7648625e9e2f14bda621f84e36f1b1fe71a5dde658ad324e3ba1c139c767bfee",
+    "post_sha256": "ae991da58895d3340e73b9b919df3b77398f249cb5ffe08608ad112b3ed7cb51",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -956,14 +956,14 @@
   "gmail-mailbox-full-cant-receive-emails": {
     "state": "evidence_checked",
     "intent_owner": "gmail-mailbox-full-cant-receive-emails",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-18",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; OpenCode Space Bunny mobile-handoff source review 2026-10-18",
+      "identity": "Codex /root/content_refresh source review; /root/content_review independent static and procedural spot review; /root original-five review; OpenCode Space Bunny mobile-handoff source review 2026-10-18; OpenCode SEO completion re-review 2026-10-26",
       "kind": "agent"
     },
-    "post_sha256": "3fa2698a0cf9c7fbb231f8025e2decc4680c30f6a63f10fe227d3b47b9e72a3f",
+    "post_sha256": "a69f8a72989bc0d60ac49705e320c38f5b33a871fbaf114bb3731a5cd18de5c7",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -4367,14 +4367,14 @@
   "inbox-cleaner-setup-permissions-recovery": {
     "state": "publish_ready",
     "intent_owner": "inbox-cleaner-setup-permissions-recovery",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root source review after /root/evidence_assets authorship and second text review",
+      "identity": "Codex /root source review after /root/evidence_assets authorship and second text review; OpenCode SEO completion re-review 2026-10-26",
       "kind": "agent"
     },
-    "post_sha256": "800db74826080f4dbe250708dfe4e327fcd8b8d090a570d6da4d9b3ed5b86eaa",
+    "post_sha256": "64906b31e06825b1acfbfd4067b76233658aae996fac6a9c26dbc308f59aab82",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
@@ -4409,14 +4409,14 @@
   "inbox-cleaner-vs-native-gmail": {
     "state": "publish_ready",
     "intent_owner": "inbox-cleaner-vs-native-gmail",
-    "product_manifest_version": "3.2.1",
-    "verified_on": "2026-10-17",
+    "product_manifest_version": "3.3.1",
+    "verified_on": "2026-10-26",
     "verification_kind": "source_review",
     "reviewer": {
-      "identity": "Codex /root source review after /root/evidence_assets authorship and second text review",
+      "identity": "Codex /root source review after /root/evidence_assets authorship and second text review; OpenCode SEO completion re-review 2026-10-26",
       "kind": "agent"
     },
-    "post_sha256": "c456fa5575f62ad7d4634f74140ec9a4ac9e2eefbe64b08d4813f8dde9316a8f",
+    "post_sha256": "cf232d846ea15922dcc5cea2ec6c2f86246b71859c530ada3488959ae739a743",
     "sources": [
       {
         "url": "https://support.google.com/mail/answer/7190?hl=en",
