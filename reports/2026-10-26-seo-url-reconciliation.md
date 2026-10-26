@@ -1,18 +1,19 @@
 # SEO URL reconciliation — 26 October 2026
 
-Execution of plan task T03. Checked at **2026-10-26T16:21Z**, rechecked after push at **2026-10-26T16:25Z** against the production alias `https://inbox-cleaner.vercel.app`. Raw evidence: `research_notes/SEO completion 2026-10-26/url-checks.json` (73 URLs, 0 problems).
+Execution of plan task T03. Checked at **2026-10-26T16:21Z**, rechecked after push at **2026-10-26T16:25Z**, and rechecked again at **2026-10-26T16:53Z** after the evidence re-review, against the production alias `https://inbox-cleaner.vercel.app`. Raw evidence: `research_notes/SEO completion 2026-10-26/url-checks.json` (73 URLs, 0 problems) and `url-checks-13f45fc.json` (75 checks, 0 problems).
 
 ## Candidate versus deployment
 
 | Item | Value |
 |---|---|
-| Local/release HEAD | `15b77cd` (post-push recheck) |
-| `origin/main` at the post-push recheck | `15b77cd` |
+| Local/release HEAD | `13f45fc` (third check) |
+| `origin/main` at the third check | `13f45fc` |
 | Pre-push deployment | `https://inbox-cleaner-k8861yk2b-2ndincome.vercel.app`, 2026-10-19 01:13 IST, Ready, consistent with `020bb2a` |
 | Post-push deployment | `https://inbox-cleaner-no9upxyah-2ndincome.vercel.app`, 2026-10-26, Ready |
+| Evidence-review deployment | `https://inbox-cleaner-j6f1jg8y9-2ndincome.vercel.app`, 2026-10-26 16:50Z, Ready |
 | Deployed revision | Post-push alias serves the `15b77cd` candidate; Vercel CLI exposes no git SHA metadata |
 
-Both checks passed: the first verified the then-deployed `020bb2a`, the second verified the pushed `15b77cd` candidate. Both returned 0 problems over 73 URLs.
+All three checks returned 0 problems: the first verified the then-deployed `020bb2a`, the second the pushed `15b77cd` candidate, and the third the pushed `13f45fc` evidence re-review. The third covered 75 checks: 44 sitemap URLs, 39 article canonicals, 15 redirects, 11 assets and tool pages, and 5 private paths that must stay 404.
 
 ## Local inventory
 

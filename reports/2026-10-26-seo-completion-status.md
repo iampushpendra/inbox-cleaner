@@ -6,20 +6,20 @@ Execution ledger for `internal/superpowers/plans/2026-10-26-seo-completion-plan.
 
 | Item | Value |
 |---|---|
-| Remote `origin/main` at final check | `15b77cd` |
-| Release candidate | `15b77cd` + release-status correction (pushed) |
+| Remote `origin/main` at final check | `13f45fc` |
+| Release candidate | `13f45fc` (pushed) |
 | Extension release status | Store **3.2.1** is latest published; repository **3.3.1** is unreleased (owner-confirmed 2026-10-26) |
 | Production URL checked | `https://inbox-cleaner.vercel.app` |
-| Production deployment | `inbox-cleaner-no9upxyah-2ndincome.vercel.app`, Ready, serving `https://inbox-cleaner.vercel.app` after push |
+| Production deployment | `inbox-cleaner-j6f1jg8y9-2ndincome.vercel.app`, Ready, serving `https://inbox-cleaner.vercel.app` after push |
 | Node tests | **89 passed, 0 failed** (`node --test test/*.test.js`) |
 | Reviewed coverage | **39 current, 0 stale** (`python3 scripts/growth_scorecard.py`) |
 | Python tests | **27 passed, 0 failed** (`python3 -m unittest discover -s test -p 'test_*.py'`) |
 | Site build | two consecutive runs, second produced **0 changes** |
 | Gated pages | both `--ready` commands pass |
 | Basic gate | 0 failures across all 39 articles |
-| Live URL check | 73 URLs, **0 problems** pre-push (16:21Z) and post-push (16:25Z) |
+| Live URL check | 73 URLs **0 problems** pre-push (16:21Z) and post-push (16:25Z); 75 checks **0 problems** at `13f45fc` (16:53Z) |
 
-The post-push recheck passed against the deployed `15b77cd` candidate. The later record re-review changed only evidence metadata, one newsletter caveat and footer review dates; it is pending its own push and live recheck.
+The post-push recheck passed against the deployed `15b77cd` candidate. The later record re-review (metadata, one newsletter caveat, footer review dates) was pushed as `13f45fc` and rechecked on the new deployment at 16:53Z with 0 problems.
 
 ## Task status
 

@@ -1,0 +1,387 @@
+{
+  "checked_at_utc": "2026-10-26T16:53:02Z",
+  "base": "https://inbox-cleaner.vercel.app",
+  "sitemap_status": 200,
+  "sitemap_urls": 44,
+  "canonical_pages_checked": 39,
+  "total_checks": 75,
+  "problem_count": 0,
+  "problems": [],
+  "results": [
+    {
+      "url": "https://inbox-cleaner.vercel.app/",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/privacy.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/tools/gmail-cleanup-search-builder/",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/tools/gmail-storage-troubleshooter/",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/delete-zoom-meeting-emails-gmail.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/gmail-bulk-delete-not-working.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/gmail-select-all-conversations-not-showing.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/inbox-cleaner-setup-permissions-recovery.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/inbox-cleaner-vs-native-gmail.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/delete-paypal-emails-gmail.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/delete-job-alert-emails-gmail.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/delete-linkedin-connection-request-emails.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/delete-shipping-confirmation-emails-gmail.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/delete-bank-statement-emails-safely-gmail.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/delete-uber-eats-doordash-receipts-gmail.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/delete-amazon-order-emails-gmail.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/best-way-to-clean-gmail-2026.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/gmail-mailbox-full-cant-receive-emails.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/gmail-search-operators-to-find-old-emails.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/how-to-permanently-delete-gmail-emails.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/how-to-delete-newsletter-emails-gmail.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/gmail-storage-upgrade-vs-cleanup.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/how-to-organize-cluttered-gmail-inbox.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/gmail-vs-outlook-bulk-delete.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/gmail-empty-trash-automatically.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/how-to-delete-emails-older-than-a-year-gmail.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/how-to-delete-spam-emails-gmail.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/gmail-delete-emails-by-size.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/how-to-find-biggest-emails-gmail.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/gmail-delete-social-media-notifications.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/how-to-clean-gmail-inbox-in-5-minutes.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/how-to-mass-delete-emails-gmail.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/how-to-delete-old-emails-gmail.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/gmail-filters-delete-emails-automatically.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/gmail-archive-vs-delete.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/gmail-delete-all-unread-emails.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/how-to-select-all-emails-gmail.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/gmail-delete-all-promotional-emails.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/how-to-unsubscribe-from-emails-gmail.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/how-to-bulk-delete-gmail-emails.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/delete-all-emails-from-one-sender-gmail.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/gmail-inbox-zero.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/how-to-free-up-gmail-storage.html",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/privacy",
+      "status": 308,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/index.html",
+      "status": 308,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/index.html",
+      "status": 308,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/delete-facebook-notification-emails-gmail.html",
+      "status": 308,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/delete-instagram-emails-gmail.html",
+      "status": 308,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/delete-linkedin-notification-emails-gmail.html",
+      "status": 308,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/delete-twitter-x-notification-emails-gmail.html",
+      "status": 308,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/delete-google-alerts-emails-gmail.html",
+      "status": 308,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/delete-calendar-invite-emails-gmail.html",
+      "status": 308,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/gmail-bulk-delete-by-sender.html",
+      "status": 308,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/gmail-delete-all-emails-from-multiple-senders.html",
+      "status": 308,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/how-to-delete-thousands-of-emails-gmail.html",
+      "status": 308,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/clean-up-gmail-inbox.html",
+      "status": 308,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/gmail-storage-full-how-to-fix.html",
+      "status": 308,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/blog/gmail-storage-almost-full-what-to-do.html",
+      "status": 308,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/favicon.ico",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/og-image.png",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/robots.txt",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/llms.txt",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/style.css",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/tools/query-builder.js",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/tools/query-builder.css",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/tools/storage-troubleshooter.js",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/tools/storage-troubleshooter.css",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/tools/gmail-cleanup-search-builder",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/tools/gmail-storage-troubleshooter",
+      "status": 200,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/superpowers/plans/2026-10-26-seo-completion-plan.md",
+      "status": 404,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/research_notes/SEO%20completion%202026-10-26/url-checks.json",
+      "status": 404,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/internal/CHROME_WEB_STORE.md",
+      "status": 404,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/scripts/content-records.json",
+      "status": 404,
+      "detail": ""
+    },
+    {
+      "url": "https://inbox-cleaner.vercel.app/reports/2026-10-18-seo-audit-inbox-cleaner.md",
+      "status": 404,
+      "detail": ""
+    }
+  ]
+}
