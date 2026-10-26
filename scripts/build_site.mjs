@@ -162,6 +162,7 @@ export function buildSite(root = projectRoot) {
   // Contextual tool mention: storage posts point at the troubleshooter,
   // search/select posts at the builder, everything else gets both.
   const toolMention = post => {
+    if (!tools.length) return '';
     const haystack = (post.slug + ' ' + post.title).toLowerCase();
     const isStorage = /storage|mailbox|quota|size|full/.test(haystack);
     const isSearch = /search|select|operator|bulk|sender|delete|filter/.test(haystack);

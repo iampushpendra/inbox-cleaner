@@ -126,6 +126,46 @@ test('the publishing command refuses a post with a disproved claim and leaves th
   assert.doesNotMatch(fs.readFileSync(path.join(root, 'docs/sitemap.xml'), 'utf8'), /gmail-bad/, 'a rejected post must not enter the sitemap');
 });
 
+test('every permanent redirect resolves to one live self-canonical owner that stays out of the sitemap', () => {
+  // The deployed contract is the checked-in vercel.json and generated sitemap;
+  // this asserts the repository's real mappings, not a synthetic copy.
+  const repo = path.resolve(__dirname, '..');
+  const docs = path.join(repo, 'docs');
+  const sitemap = fs.readFileSync(path.join(docs, 'sitemap.xml'), 'utf8');
+  const redirects = JSON.parse(fs.readFileSync(path.join(repo, 'vercel.json'), 'utf8')).redirects;
+  const blog = new Map(redirects.filter(r => r.source.startsWith('/blog/') && r.source !== '/blog/index.html').map(r => [r.source, r]));
+  assert.equal(blog.size, 12, 'the twelve reviewed consolidations are the fixed redirect inventory');
+  for (const [source, redirect] of blog) {
+    assert.equal(redirect.permanent, true, `${source} must keep a permanent status`);
+    assert.doesNotMatch(redirect.destination, /^https?:/, `${source} must stay a single internal hop`);
+    assert.ok(!blog.has(redirect.destination), `${source} must not chain into another redirect`);
+    assert.match(sitemap, new RegExp(`<loc>https://inbox-cleaner\\.vercel\\.app${redirect.destination.replaceAll('.', '\\.')}</loc>`),
+      `${source} owner must be in the sitemap`);
+    assert.doesNotMatch(sitemap, new RegExp(`<loc>https://inbox-cleaner\\.vercel\\.app${source.replaceAll('.', '\\.')}</loc>`),
+      `${source} is retired and must not be sitemapped`);
+    const owner = path.join(docs, 'blog', path.basename(redirect.destination));
+    assert.ok(fs.existsSync(owner), `owner for ${source} must exist`);
+    const html = fs.readFileSync(owner, 'utf8');
+    assert.match(html, new RegExp(`rel="canonical" href="https://inbox-cleaner\\.vercel\\.app${redirect.destination}"`),
+      `${source} owner must be self-canonical`);
+    assert.ok(html.length > 2000, `${source} owner must retain substantive content`);
+  }
+  for (const redirect of redirects.filter(r => !r.source.startsWith('/blog/') || r.source === '/blog/index.html')) {
+    assert.equal(redirect.permanent, true);
+    assert.ok(!redirects.some(other => other.source === redirect.destination), `${redirect.source} must not chain`);
+    assert.doesNotMatch(sitemap, new RegExp(`<loc>[^<]*${redirect.source.replaceAll('.', '\\.')}</loc>`));
+  }
+  // Every internal link in every published article resolves, including related
+  // and evidence links that a consolidation could have left dangling.
+  for (const file of fs.readdirSync(path.join(docs, 'blog')).filter(name => name.endsWith('.html') && name !== 'index.html')) {
+    const html = fs.readFileSync(path.join(docs, 'blog', file), 'utf8');
+    for (const href of [...html.matchAll(/href="(\/[^"#?]*)/g)].map(match => match[1])) {
+      const target = href.endsWith('/') ? path.join(docs, href, 'index.html') : path.join(docs, href);
+      assert.ok(fs.existsSync(target), `${file} links to missing ${href}`);
+    }
+  }
+});
+
 test('the build refuses to publish internal documents left in docs/', async t => {
   const { buildSite } = await import('../scripts/build_site.mjs');
   const root = fixture(t);

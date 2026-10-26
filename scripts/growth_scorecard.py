@@ -2,16 +2,21 @@
 import argparse
 import csv
 import json
+import sys
 from collections import Counter
 from datetime import date, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'scripts'))
+from content_gate import post_fingerprint
 DEFAULT_EVIDENCE = ROOT / 'research_notes/Analytics intelligence 2026-10-17'
 
 # A record in one of these states has cleared review and may publish; `draft`
 # is not verified coverage, however plausible the article reads.
 REVIEWED_STATES = ('evidence_checked', 'publish_ready')
+# A consolidated record is history, not live coverage for a page that no longer exists.
+RETIRED_STATES = ('merged', 'retired')
 
 
 def compare_windows(rows):
@@ -42,14 +47,35 @@ def coverage(root=ROOT):
     An article is covered only when a record for its exact slug has reached a
     reviewed state. A published page with no reviewed record, or a reviewed
     record with no page, is reported rather than silently averaged away.
+
+    A reviewed state label is not current evidence: after a manifest update or
+    an authored edit the recorded version and fingerprint must still match the
+    live source. `reviewed` stays the historical label count; only
+    `current_reviewed` is verified coverage.
     """
     articles = {path.stem for path in (root / 'docs/blog').glob('*.html')} - {'index'}
     records = json.loads((root / 'scripts/content-records.json').read_text(encoding='utf-8'))
     topics = json.loads((root / 'scripts/blog-topics.json').read_text(encoding='utf-8'))
+    try:
+        version = json.loads((root / 'manifest.json').read_text(encoding='utf-8')).get('version')
+    except (OSError, ValueError):
+        version = None
     reviewed = {slug for slug, record in records.items() if record.get('state') in REVIEWED_STATES}
+    retired = {slug for slug, record in records.items()
+               if record.get('state') in RETIRED_STATES and slug not in articles}
+    stale = set()
+    for slug in reviewed & articles:
+        record = records[slug]
+        path = root / 'docs/blog' / f'{slug}.html'
+        if (not version or record.get('product_manifest_version') != version
+                or record.get('post_sha256') != post_fingerprint(path)):
+            stale.add(slug)
     return dict(articles=len(articles),
                 records=len(records),
                 reviewed=len(reviewed),
+                current_reviewed=len(reviewed & articles) - len(stale),
+                stale_records=sorted(stale),
+                retired_records=sorted(retired),
                 states=Counter(record.get('state') for record in records.values()),
                 topic_status=Counter(topic.get('status') for topic in topics),
                 uncovered_articles=sorted(articles - reviewed),
@@ -115,7 +141,10 @@ def coverage_section(cov):
     lines = ['## Verified coverage, not article count', '',
              f"- Published articles: {cov['articles']}",
              f"- Evidence records: {cov['records']} ({states})",
-             f"- Reviewed records: {cov['reviewed']} — only these count as verified coverage",
+             f"- Reviewed records: {cov['reviewed']} — historical state labels, not current verification",
+             f"- Current verified coverage: {cov['current_reviewed']} — record version and authored fingerprint match today's source",
+             f"- Stale reviewed records: {len(cov['stale_records'])} — {', '.join(cov['stale_records']) if cov['stale_records'] else 'none'}",
+             f"- Retired records with no live page: {', '.join(cov['retired_records']) if cov['retired_records'] else 'none'}",
              f"- Topics by status: {topics}",
              '',
              f"Articles with no reviewed record: {', '.join(cov['uncovered_articles']) if cov['uncovered_articles'] else 'none'}.",
@@ -123,6 +152,10 @@ def coverage_section(cov):
     if cov['uncovered_articles'] or cov['orphan_records']:
         lines += ['A mismatch on either line is a contradiction to fix before publishing anything else: an unreviewed '
                   'page is a gate failure, and a reviewed record for a missing page is stale evidence.', '']
+    if cov['stale_records']:
+        lines += ['Stale records name a manifest version or authored fingerprint that no longer matches the running '
+                  'source. The article must be re-reviewed; refreshing the hash or version alone would defeat the '
+                  'gate. A stale label is not verified coverage.', '']
     lines += ['Reviewed coverage is tracked here instead of an article total because a longer backlog is not progress. '
               'A `draft` record is unverified no matter how plausible the article reads, and index exclusions stay an '
               'external gate until an owner inspection exists.', '']

@@ -27,7 +27,7 @@ class ScorecardTest(unittest.TestCase):
         self.assertIsNone(result['latest']['ctr'])
         self.assertIsNone(result['latest']['position'])
 
-    def build_repo(self, articles, records, topics):
+    def build_repo(self, articles, records, topics, version='3.3.1'):
         root = Path(tempfile.mkdtemp())
         (root / 'docs/blog').mkdir(parents=True)
         (root / 'scripts').mkdir()
@@ -35,6 +35,7 @@ class ScorecardTest(unittest.TestCase):
             (root / 'docs/blog' / f'{name}.html').write_text('<html></html>')
         (root / 'scripts/content-records.json').write_text(json.dumps(records))
         (root / 'scripts/blog-topics.json').write_text(json.dumps(topics))
+        (root / 'manifest.json').write_text(json.dumps({'version': version}))
         return root
 
     def test_coverage_counts_reviewed_records_not_article_totals(self):
@@ -59,6 +60,33 @@ class ScorecardTest(unittest.TestCase):
         root = self.build_repo(['alpha'], {'alpha': {'state': 'evidence_checked'}}, [{'status': 'published'}])
         section = '\n'.join(growth.coverage_section(growth.coverage(root)))
         self.assertIn('Articles with no reviewed record: none.', section)
+
+    def test_coverage_separates_current_stale_and_retired_records(self):
+        self.load()
+        article = '<html><body>Reviewed text.</body></html>'
+        record = {'state': 'evidence_checked', 'product_manifest_version': '3.3.1',
+                  'post_sha256': __import__('hashlib').sha256(article.encode()).hexdigest()}
+        root = self.build_repo(['example'], {'example': record, 'gone': {'state': 'merged'}},
+                               [{'status': 'published'}])
+        (root / 'docs/blog/example.html').write_text(article)
+        cov = growth.coverage(root)
+        self.assertEqual(cov['current_reviewed'], 1)
+        self.assertEqual(cov['stale_records'], [])
+        self.assertEqual(cov['retired_records'], ['gone'])
+        self.assertEqual(cov['orphan_records'], [])
+
+        record['product_manifest_version'] = '3.3.0'
+        (root / 'scripts/content-records.json').write_text(json.dumps({'example': record, 'gone': {'state': 'merged'}}))
+        cov = growth.coverage(root)
+        self.assertEqual(cov['current_reviewed'], 0, 'a stale manifest version is not current coverage')
+        self.assertEqual(cov['stale_records'], ['example'])
+        self.assertIn('example', '\n'.join(growth.coverage_section(cov)))
+
+        record['product_manifest_version'] = '3.3.1'
+        (root / 'docs/blog/example.html').write_text('<html><body>Edited after review.</body></html>')
+        (root / 'scripts/content-records.json').write_text(json.dumps({'example': record, 'gone': {'state': 'merged'}}))
+        self.assertEqual(growth.coverage(root)['stale_records'], ['example'],
+                         'an edit after review invalidates the recorded fingerprint')
 
     def test_missing_dimension_exports_stay_unknown_instead_of_zero(self):
         self.load()
