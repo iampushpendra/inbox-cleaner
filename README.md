@@ -5,7 +5,7 @@
 [![Live App](https://img.shields.io/badge/Live%20App-open-blue?style=flat-square)](https://inbox-cleaner.vercel.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-**Current version: 3.3.2** — complete SEO execution plan and status reconciliation; extension runtime remains 3.3.1. See [CHANGELOG.md](CHANGELOG.md) for what's new.
+**Current version: 3.3.3** — scan pagination follows Gmail's search routes and waits for conversation rows. See [CHANGELOG.md](CHANGELOG.md) for what's new.
 
 ---
 
@@ -128,7 +128,7 @@ Inputs stay in page memory and are not saved to the tool URL, local storage or a
 3. **Load unpacked** → select the repo root folder (not `docs/`)
 4. Click the 📥 icon in your Chrome toolbar
 
-**Updating an existing unpacked installation:** replace its files with the new package (or keep using this repo folder), click **Reload** on Inbox Cleaner at `chrome://extensions`, then **reload the Gmail tab** before clicking the extension's Refresh button. Chrome does not replace content scripts already running in an open Gmail tab when the extension is updated. The new package is `inbox-cleaner-extension-3.3.1.zip`.
+**Updating an existing unpacked installation:** replace its files with the new package (or keep using this repo folder), click **Reload** on Inbox Cleaner at `chrome://extensions`, then **reload the Gmail tab** before clicking the extension's Refresh button. Chrome does not replace content scripts already running in an open Gmail tab when the extension is updated. The popup header must show **v3.3.3**. Build the versioned and default packages with `python3 scripts/package_extension.py`; the new package is `inbox-cleaner-extension-3.3.3.zip`.
 
 No sign-in step — the extension reads whichever Gmail tab you already have open.
 

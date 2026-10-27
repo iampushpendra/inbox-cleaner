@@ -181,7 +181,7 @@ async function waitForPageChange(previousRows, previousRange, pageIndex = 0, tim
     const rows = extractVisibleRows(pageIndex);
     if (rows.length && rowSignature(rows) !== previousSignature) return true;
     const range = readResultRange();
-    if (previousRange && range && range.start !== previousRange.start) return true;
+    if (rows.length && previousRange && range && range.start !== previousRange.start) return true;
     await sleep(200);
   }
   return false;
@@ -279,8 +279,14 @@ async function scanCategory(op, onPage) {
     const older = findOlderButton();
     if (older) {
       if (pages >= MAX_PAGES_PER_CATEGORY) throw new Error('Scan incomplete: category page safety limit reached.');
-      older.click();
-      if (!(await waitForPageChange(pageRows, range, pageIndex))) throw new Error('Scan incomplete: Gmail did not load the next page. Please retry.');
+      // Gmail's Older control changes this search route. HTMLElement.click()
+      // does not reproduce the control's mouse event sequence in every layout.
+      // Navigate the same route directly, then require changed results (the
+      // hash alone is not evidence that Gmail loaded the requested page).
+      location.hash = `search/${encodeURIComponent(`category:${op}`)}/p${pages + 1}`;
+      if (!(await waitForPageChange(pageRows, range, pageIndex))) {
+        throw new Error(`Scan incomplete: Gmail did not load the next page (${op}, page ${pages + 1}). Please retry.`);
+      }
       continue;
     }
 

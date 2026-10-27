@@ -4,6 +4,16 @@ All notable changes to this project are documented in this file.
 Format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Versioning: see `VERSION` file (semver, no `package.json` — this isn't a Node/build project).
 
+## [3.3.3] - 2026-10-28
+
+### Fixed — extension scan pagination
+
+- Follow Gmail's observed `search/<query>/pN` route when an enabled Older control indicates another page, instead of relying on `HTMLElement.click()`. A route change alone never counts as a loaded page; changed conversation results are still required.
+- Wait for nonempty rendered conversation rows even when Gmail changes the result counter first. Stalled navigation still fails without replacing the last complete cache; errors identify the category and requested page.
+- Show v3.3.3 in the popup header so an old installed popup is distinguishable from the repaired package. Rebuild both the versioned and default zip from an explicit extension-file allowlist.
+- Built from the committed 3.3.1 runtime, excluding unrelated unfinished 3.4.0 working-tree changes. Live Gmail verified both the Older control and direct page-two route displaying conversations 51–100; a full scan in the updated installed extension remains unverified.
+- Verification: all 91 Node tests and 27 Python tests pass. Both new pagination regressions failed before their fixes. JavaScript syntax, diff whitespace and every packaged file's bytes were checked.
+
 ## [Unreleased]
 
 ### Changed — consolidated 12 near-duplicate guides

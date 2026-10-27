@@ -6,7 +6,7 @@ const parsing = require('../parsing.js');
 
 // Run the actual content script against paginated Gmail-shaped DOM results.
 // No mailbox, Chrome profile, credentials, or deletion actions are involved.
-function gmail({ total = 10000, counter = true, stalled = false, searchConfirms = true, positionalIds = false, identicalPages = false, enabledStyle = false, hiddenRows = false, nestedIds = false, queryAware = false } = {}) {
+function gmail({ total = 10000, counter = true, stalled = false, searchConfirms = true, positionalIds = false, identicalPages = false, enabledStyle = false, hiddenRows = false, nestedIds = false, queryAware = false, ignoresClick = false } = {}) {
   let page = 0;
   let clock = 0;
   const range = () => `${page * 100 + 1}–${Math.min(total, (page + 1) * 100)} of ${total.toLocaleString('en-US')}`;
@@ -15,9 +15,9 @@ function gmail({ total = 10000, counter = true, stalled = false, searchConfirms 
     hasAttribute: () => false,
     getClientRects: () => [{}],
     classList: { contains: name => enabledStyle && name === 'T-I-Js-Gs' },
-    click() { dom.olderClicks += 1; if (!stalled) page++; },
+    click() { dom.olderClicks += 1; if (!stalled && !ignoresClick) page++; },
   };
-  const dom = { olderClicks: 0, broadcasts: [], listeners: [], cache: null };
+  const dom = { olderClicks: 0, pageNavigations: [], broadcasts: [], listeners: [], cache: null };
   const toolbar = { getClientRects: () => [{}], querySelectorAll: () => counter ? [{ textContent: range(), getClientRects: () => [{}] }] : [] };
   let cachedRowKey = null;
   let cachedRows = [];
@@ -52,7 +52,7 @@ function gmail({ total = 10000, counter = true, stalled = false, searchConfirms 
       if (selector === 'tr.zA') return rows()[0];
       if (selector === 'div[gh="tm"]') return toolbar;
       if (selector.includes('Older')) return older;
-      if (selector === 'input[name="q"]') return { get value() { return searchConfirms ? decodeURIComponent(context.location.hash.replace(/^search\//, '')) : 'stale-query'; } };
+      if (selector === 'input[name="q"]') return { get value() { return searchConfirms ? decodeURIComponent(context.location.hash.replace(/^#?search\//, '').replace(/\/p\d+$/, '')) : 'stale-query'; } };
       return null;
     },
     querySelectorAll(selector) {
@@ -78,21 +78,56 @@ function gmail({ total = 10000, counter = true, stalled = false, searchConfirms 
   });
   vm.runInContext(fs.readFileSync(require.resolve('../content.js'), 'utf8'), context);
   context.__dom = dom;
-  if (queryAware) {
-    let hash = context.location.hash;
-    Object.defineProperty(context.location, 'hash', {
-      get: () => hash,
-      set: value => { hash = value; page = 0; },
-    });
-  }
+  let hash = context.location.hash;
+  Object.defineProperty(context.location, 'hash', {
+    get: () => hash,
+    set: value => {
+      hash = value;
+      const target = value.match(/\/p(\d+)$/);
+      if (target) {
+        dom.pageNavigations.push(value);
+        if (!stalled) page = Number(target[1]) - 1;
+      } else if (queryAware) page = 0;
+    },
+  });
   return context;
 }
+
+test('a scan reaches later pages even when Gmail ignores scripted Older clicks', async () => {
+  const context = gmail({ total: 350, ignoresClick: true });
+  const rows = await vm.runInContext('scanCategory("primary")', context);
+  assert.equal(rows.length, 350);
+  assert.equal(new Set(rows.map(row => row.threadId)).size, 350);
+  assert.deepEqual(context.__dom.pageNavigations, [
+    'search/category%3Aprimary/p2', 'search/category%3Aprimary/p3', 'search/category%3Aprimary/p4',
+  ]);
+  assert.equal(context.__dom.olderClicks, 0);
+});
 
 test('one scan reads 10000 conversations when Gmail hides its result counter', async () => {
   const context = gmail({ counter: false });
   const rows = await vm.runInContext('scanCategory("primary")', context);
   assert.equal(rows.length, 10000);
   assert.equal(new Set(rows.map(row => row.threadId)).size, 10000);
+});
+
+test('a changed range cannot finish pagination before conversation rows render', async () => {
+  const context = gmail({ total: 350 });
+  context.previousRows = vm.runInContext('extractVisibleRows()', context);
+  const oldAll = context.document.querySelectorAll;
+  let elapsed = 0;
+  const timeout = context.setTimeout;
+  context.setTimeout = (fn, ms) => { elapsed += ms; return timeout(fn, ms); };
+  context.document.querySelectorAll = selector => {
+    if (selector === 'tr.zA' && elapsed < 1200) return [];
+    if (selector === 'div[gh="tm"]') return [{
+      getClientRects: () => [{}],
+      querySelectorAll: () => [{ textContent: '101–200 of 350', getClientRects: () => [{}] }],
+    }];
+    return oldAll(selector);
+  };
+  assert.equal(await vm.runInContext('waitForPageChange(previousRows, { start: 1, end: 100, total: 350 })', context), true);
+  assert.ok(elapsed >= 1200, 'wait for rows even if Gmail updates the range first');
 });
 
 test('one scan reads all 10000 conversations with the result counter visible', async () => {
@@ -348,7 +383,8 @@ test('a stuck Older button is still detected when only positional ids and no cou
     vm.runInContext('scanCategory("primary")', context),
     /did not load the next page/i,
   );
-  assert.equal(context.__dom.olderClicks, 1, 'Older must be tried once, then the stall reported');
+  assert.equal(context.__dom.pageNavigations.length, 1, 'try the next page once, then report the stall');
+  assert.equal(context.__dom.olderClicks, 0, 'scanning must not depend on a synthetic click');
 });
 
 // Captured live Gmail structure on 2026-10-21: T-I-Js-Gs is present on the
