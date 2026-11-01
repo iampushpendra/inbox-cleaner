@@ -6,6 +6,12 @@ Versioning: see `VERSION` file (semver, no `package.json` — this isn't a Node/
 
 ## [3.0.0] - 2026-09-06
 
+### Repository synchronization — 2026-11-01
+
+- Preserve the updated website copy, layout, and stylesheet.
+- Excluded local credentials, runtime caches, and customer exports from this synchronization.
+
+
 ### Changed
 - **Breaking:** replaced the Gmail API + OAuth architecture (`chrome.identity`, `gmail.readonly`/`gmail.modify` scopes, `background.js` service worker) with a content script (`content.js`/`parsing.js`) that automates the live Gmail web UI directly on `mail.google.com`. This eliminates Google's restricted-scope OAuth "unverified app" verification wall, which was blocking every real user except the developer/test accounts from signing in. Scanning is slower (renders and scrolls each category instead of batched API calls) and depends on Gmail's DOM staying stable, but requires no OAuth consent screen at all.
 - Extension now requires a `mail.google.com` tab to already be open — it does not auto-open one.

@@ -933,6 +933,156 @@ footer a:hover { text-decoration: underline; }
   max-width: 720px;
 }
 
+/* .faq-item is a <details> element and .faq-q its <summary> — only the
+   disclosure-widget mechanics live here; layout/color rules above are untouched. */
+.faq-item > .faq-q {
+  cursor: pointer;
+  list-style: none;
+  display: list-item;
+}
+.faq-item > .faq-q::-webkit-details-marker { display: none; }
+.faq-item > .faq-q::before {
+  content: "+";
+  display: inline-block;
+  width: 16px;
+  color: var(--accent);
+  font-weight: 800;
+}
+.faq-item[open] > .faq-q::before { content: "−"; }
+.faq-item[open] > .faq-a { margin-top: 10px; }
+
+/* ── How it works ────────────────────────────────────────────────────────── */
+#section-how {
+  border-bottom: var(--border);
+  background: var(--gray-100);
+}
+
+.how-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 40px;
+}
+
+.how-heading {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--dark);
+  margin-bottom: 36px;
+}
+
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.how-step {
+  background: var(--white);
+  border: var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.how-step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--accent);
+  color: var(--white);
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.how-step-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.how-step-text {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.6;
+}
+
+.how-step-img {
+  width: 100%;
+  border: var(--border);
+  border-radius: 6px;
+  margin-top: 16px;
+  display: block;
+}
+
+/* ── Privacy section ─────────────────────────────────────────────────────── */
+#section-privacy {
+  border-bottom: var(--border);
+  background: var(--white);
+}
+
+.privacy-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 40px;
+}
+
+.privacy-heading {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--dark);
+  margin-bottom: 32px;
+  max-width: 720px;
+}
+
+.privacy-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.privacy-item {
+  font-size: 16px;
+  color: var(--gray-600);
+  line-height: 1.6;
+  max-width: 720px;
+  padding-left: 28px;
+  position: relative;
+}
+.privacy-item::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 800;
+}
+
+/* ── Closing CTA ──────────────────────────────────────────────────────────── */
+#section-closing-cta {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media (max-width: 700px) {
+  .how-inner { padding: 40px 20px; }
+  .how-heading { font-size: 24px; }
+  .how-steps { grid-template-columns: 1fr; }
+  .privacy-inner { padding: 40px 20px; }
+  .privacy-heading { font-size: 24px; }
+  #section-closing-cta { padding: 0 20px; }
+}
+
 /* ── Blog ────────────────────────────────────────────────────────────────── */
 .blog-wrap {
   max-width: 760px;

@@ -1,5 +1,7 @@
 # 📥 Inbox Cleaner
 
+**Current version:** 3.0.0 — see [CHANGELOG.md](CHANGELOG.md).
+
 **See who's filling your Gmail. Select senders and move all their emails to Trash in one click.**
 
 [![Live App](https://img.shields.io/badge/Live%20App-open-blue?style=flat-square)](https://iampushpendra.github.io/inbox-cleaner/)
