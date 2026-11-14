@@ -6006,5 +6006,188 @@
       "gmail-archive-vs-delete",
       "gmail-delete-emails-by-size"
     ]
+  },
+  {
+    "slug": "gmail-snooze-features-guide",
+    "target_query": "how to use snooze in gmail",
+    "eyebrow": "Gmail Tips",
+    "status": "pending",
+    "cluster": "organization",
+    "priority": "1",
+    "evidence_basis": "observed_query",
+    "evidence": {
+      "snapshot": "2026-11-15",
+      "query_file": null
+    },
+    "intent_owner": "gmail-snooze-features-guide",
+    "hub_slug": "gmail-organization",
+    "answer_angle": "Master Gmail snooze to defer emails and clean your inbox strategically",
+    "required_review": "Verify snooze behavior across web mobile iOS Android; record one information gain",
+    "related_published_slugs": [
+      "how-to-select-all-emails-gmail",
+      "gmail-archive-vs-delete"
+    ]
+  },
+  {
+    "slug": "gmail-swipe-actions-complete-guide",
+    "target_query": "gmail swipe actions customize",
+    "eyebrow": "Gmail Shortcuts",
+    "status": "pending",
+    "cluster": "shortcuts",
+    "priority": "1",
+    "evidence_basis": "observed_query",
+    "evidence": {
+      "snapshot": "2026-11-15",
+      "query_file": null
+    },
+    "intent_owner": "gmail-swipe-actions-complete-guide",
+    "hub_slug": "gmail-organization",
+    "answer_angle": "Customize Gmail swipe left/right actions for fastest inbox management",
+    "required_review": "Check iOS Android web differences; record one specific information gain",
+    "related_published_slugs": [
+      "how-to-select-all-emails-gmail",
+      "gmail-filters-delete-emails-automatically"
+    ]
+  },
+  {
+    "slug": "gmail-search-operators-advanced",
+    "target_query": "advanced gmail search operators",
+    "eyebrow": "Gmail Power Search",
+    "status": "pending",
+    "cluster": "search",
+    "priority": "2",
+    "evidence_basis": "observed_query",
+    "evidence": {
+      "snapshot": "2026-11-15",
+      "query_file": null
+    },
+    "intent_owner": "gmail-search-operators-advanced",
+    "hub_slug": "gmail-search",
+    "answer_angle": "Complete guide to Gmail search operators from simple to obscure",
+    "required_review": "Cross-reference with Google Help page; record limitations",
+    "related_published_slugs": [
+      "gmail-search-operators-to-find-old-emails",
+      "how-to-find-biggest-emails-gmail"
+    ]
+  },
+  {
+    "slug": "gmail-multiple-accounts-switching",
+    "target_query": "switch between gmail accounts fast",
+    "eyebrow": "Multi-Account Gmail",
+    "status": "pending",
+    "cluster": "accounts",
+    "priority": "2",
+    "evidence_basis": "observed_query",
+    "evidence": {
+      "snapshot": "2026-11-15",
+      "query_file": null
+    },
+    "intent_owner": "gmail-multiple-accounts-switching",
+    "hub_slug": "gmail-multi-account",
+    "answer_angle": "Seamlessly switch between multiple Gmail accounts without losing context",
+    "required_review": "Test web mobile iOS Android workflows; document differences",
+    "related_published_slugs": [
+      "inbox-cleaner-vs-native-gmail"
+    ]
+  },
+  {
+    "slug": "gmail-snooze-vs-delay-delivery",
+    "target_query": "snooze vs schedule send gmail",
+    "eyebrow": "Gmail Send Delay",
+    "status": "pending",
+    "cluster": "send",
+    "priority": "2",
+    "evidence_basis": "observed_query",
+    "evidence": {
+      "snapshot": "2026-11-15",
+      "query_file": null
+    },
+    "intent_owner": "gmail-snooze-vs-delay-delivery",
+    "hub_slug": "gmail-send",
+    "answer_angle": "When to snooze vs schedule send in Gmail for optimal workflow",
+    "required_review": "Compare built-in snooze vs scheduled send feature; one information gain",
+    "related_published_slugs": [
+      "how-to-free-up-gmail-storage"
+    ]
+  },
+  {
+    "slug": "gmail-keyboard-shortcuts-power-user",
+    "target_query": "gmail keyboard shortcuts power user",
+    "eyebrow": "Gmail Shortcuts",
+    "status": "pending",
+    "cluster": "shortcuts",
+    "priority": "2",
+    "evidence_basis": "observed_query",
+    "evidence": {
+      "snapshot": "2026-11-15",
+      "query_file": null
+    },
+    "intent_owner": "gmail-keyboard-shortcuts-power-user",
+    "hub_slug": "gmail-shortcuts",
+    "answer_angle": "Undocumented Gmail keyboard shortcuts most users dont know",
+    "required_review": "Verify against latest Gmail help; list 10+ hidden shortcuts",
+    "related_published_slugs": [
+      "how-to-select-all-emails-gmail"
+    ]
+  },
+  {
+    "slug": "gmail-filter-rules-stopped-working",
+    "target_query": "gmail filters not running",
+    "eyebrow": "Gmail Filters",
+    "status": "pending",
+    "cluster": "filters",
+    "priority": "1",
+    "evidence_basis": "observed_query",
+    "evidence": {
+      "snapshot": "2026-11-15",
+      "query_file": null
+    },
+    "intent_owner": "gmail-filter-rules-stopped-working",
+    "hub_slug": "gmail-filters",
+    "answer_angle": "Why your Gmail filters stopped working and how to fix them",
+    "required_review": "Test filter conditions; document common failure modes",
+    "related_published_slugs": [
+      "gmail-filters-delete-emails-automatically"
+    ]
+  },
+  {
+    "slug": "gmail-label-organization-system",
+    "target_query": "how to organize gmail labels",
+    "eyebrow": "Gmail Labels",
+    "status": "pending",
+    "cluster": "organization",
+    "priority": "2",
+    "evidence_basis": "observed_query",
+    "evidence": {
+      "snapshot": "2026-11-15",
+      "query_file": null
+    },
+    "intent_owner": "gmail-label-organization-system",
+    "hub_slug": "gmail-labels",
+    "answer_angle": "Visual system for organizing Gmail labels and color-coding",
+    "required_review": "Interview power users; one information gain on workflow impact",
+    "related_published_slugs": [
+      "how-to-organize-cluttered-gmail-inbox"
+    ]
+  },
+  {
+    "slug": "gmail-mute-conversation-complete-guide",
+    "target_query": "how to mute conversation in gmail",
+    "eyebrow": "Gmail Mute",
+    "status": "pending",
+    "cluster": "organization",
+    "priority": "2",
+    "evidence_basis": "observed_query",
+    "evidence": {
+      "snapshot": "2026-11-15",
+      "query_file": null
+    },
+    "intent_owner": "gmail-mute-conversation-complete-guide",
+    "hub_slug": "gmail-mute",
+    "answer_angle": "Stop noisy email threads from flooding your inbox using Gmail mute",
+    "required_review": "Test muting threaded vs non-threaded; one information gain",
+    "related_published_slugs": [
+      "gmail-archive-vs-delete"
+    ]
   }
 ]
