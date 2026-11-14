@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Inbox Cleaner",
-  "version": "3.3.1",
-  "description": "See who's filling your Gmail. Select senders, then confirm to move all their mail to Trash.",
+  "version": "3.4.0",
+  "description": "See who's filling your Gmail. Select senders, review the exact scope, then move their mail to Trash or Archive.",
   "permissions": ["storage", "tabs"],
   "host_permissions": [
     "https://mail.google.com/*"

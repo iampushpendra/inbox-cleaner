@@ -4,6 +4,19 @@ All notable changes to this project are documented in this file.
 Format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Versioning: see `VERSION` file (semver, no `package.json` — this isn't a Node/build project).
 
+## [3.4.0] - 2026-10-27
+
+### Extension — account-bound cleanup, exact review counts, protections and receipts
+
+- Bound every scan and cleanup to the signed-in Gmail address read from Gmail's own account control. An absent, ambiguous or changed address refuses or discards the run; scans and snapshots are stored per account and legacy results migrate to a visible read-only state. The popup verifies the account before scanning, review and execution, and a stale document id is refused after a tab reload.
+- Replaced the cache-as-receipt model with canonical cleanup policies. A policy carries the action (Trash or Archive), normalized and deduplicated sender addresses, starred/important protections (on by default), optional unread protection and an optional `before:` date, plus `-in:trash` and, for Archive, `in:inbox`.
+- Review now performs a read-only `COUNT_POLICY` search per batch. A single batch's Gmail count is the exact destructive total. A sum across multiple batches is labelled an upper bound, because a conversation can match more than one batch and Gmail's cross-batch behavior is unverified. Sums of individual sender rows are never used as the destructive total, and an inexact or "of many" count stays unknown.
+- Execution revalidates identity and document at every boundary, selects all matching conversations per chunk of 20 senders, and records each chunk as verified, unknown, failed or not attempted. Unknown is never reported as failed or complete. Stop is available during scan and cleanup.
+- Added a per-run receipt and a local history of the last 20 runs, including action, account, query scope, per-batch outcome and sender addresses. No message bodies, subjects, credentials or telemetry are stored. History can be cleared without touching mail.
+- UI and accessibility: verified account header, blocked states for missing content script, unknown/ambiguous/mismatched identity, unbound snapshots and interrupted runs, tab chooser for multiple accounts, progress phases and elapsed time, select-all shown/results, hidden-selection reveal, review dialog, modal focus trap, live announcements and reduced-motion handling.
+- Permissions are unchanged at `storage`, `tabs` and host access to `https://mail.google.com/*`. No OAuth, cloud, AI or permanent-delete path was added.
+- Verification: 108 Node tests pass, including new contract tests for normalization, policy operators, global dedupe, confidence labels, union totals, legacy migration, receipts and identity ambiguity. The existing Gmail-shaped DOM harness now exercises the account boundary and v2 storage. Live Gmail selectors, operators, Archive controls and real delete behavior remain unverified in this environment; no zip was rebuilt.
+
 ## [Unreleased]
 
 ### Changed — consolidated 12 near-duplicate guides

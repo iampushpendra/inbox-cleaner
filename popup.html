@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inbox Cleaner</title>
   <link rel="stylesheet" href="popup.css">
 </head>
@@ -10,28 +11,38 @@
 <!-- ── Loading ─────────────────────────────────────────────────────────────── -->
 <div id="screen-loading" class="screen">
   <div class="center-col">
-    <div class="spinner"></div>
-    <p class="muted">Connecting…</p>
+    <div class="spinner" aria-hidden="true"></div>
+    <p class="muted">Connecting to Gmail…</p>
+  </div>
+</div>
+
+<!-- ── Blocked / prerequisite state ─────────────────────────────────────────── -->
+<div id="screen-blocked" class="screen hidden">
+  <div class="center-col">
+    <div class="hero-icon" aria-hidden="true">📥</div>
+    <h2 id="blocked-title">Gmail needs attention</h2>
+    <p id="blocked-body" class="muted"></p>
+    <div id="tab-choices" class="tab-choices hidden" role="group" aria-label="Choose a Gmail tab"></div>
+    <button id="btn-blocked-primary" class="btn-primary btn-lg">Continue</button>
+    <button id="btn-blocked-secondary" class="btn-ghost hidden">Retry</button>
   </div>
 </div>
 
 <!-- ── First-time / empty ───────────────────────────────────────────────────── -->
 <div id="screen-empty" class="screen hidden">
   <div class="center-col">
-    <div class="hero-icon">📥</div>
-    <h2>Inbox Cleaner</h2>
-    <p class="muted">Find out who's filling your Gmail<br>across every category — then delete them.</p>
-    <button id="btn-first-scan" class="btn-primary btn-lg">Scan my inbox</button>
-  </div>
-</div>
-
-<!-- ── No Gmail tab open ────────────────────────────────────────────────────────── -->
-<div id="screen-no-tab" class="screen hidden">
-  <div class="center-col">
-    <div class="hero-icon">📥</div>
-    <h2>Inbox Cleaner</h2>
-    <p class="muted">Open (or reload) Gmail in a tab, then come back here to scan your inbox.</p>
-    <button id="btn-retry-tab" class="btn-primary btn-lg">Retry</button>
+    <div class="hero-icon" aria-hidden="true">📥</div>
+    <h2>Scan Gmail senders</h2>
+    <p class="muted">Find out who is filling your five Inbox categories, then review before anything moves.</p>
+    <p id="empty-account" class="verified"></p>
+    <ul class="checklist">
+      <li>Runs on this device. No account password, no upload.</li>
+      <li>Reads Primary, Social, Promotions, Updates and Forums.</li>
+      <li>Takes a few minutes on a large mailbox.</li>
+      <li>Nothing moves until you review and confirm.</li>
+    </ul>
+    <button id="btn-first-scan" class="btn-primary btn-lg">Scan Gmail senders</button>
+    <p class="fine">Scan → Review → Trash or Archive. Trash includes archived mail but excludes mail already in Trash; Archive only affects Inbox mail. Starred and important mail are kept by default.</p>
   </div>
 </div>
 
@@ -40,79 +51,161 @@
 
   <header class="header">
     <div class="header-left">
-      <span class="logo">📥</span>
+      <span class="logo" aria-hidden="true">📥</span>
       <div>
         <div class="title">Inbox Cleaner</div>
+        <span id="account-line" class="account-line"></span>
         <span id="header-stats" class="subtitle"></span>
       </div>
     </div>
-    <button id="btn-refresh" class="btn-icon" title="Re-scan inbox">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="23 4 23 10 17 10"></polyline>
-        <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
-      </svg>
-    </button>
+    <div class="header-actions">
+      <button id="btn-history" class="btn-icon" aria-label="Cleanup history" title="Cleanup history">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 14"></polyline>
+        </svg>
+      </button>
+      <button id="btn-refresh" class="btn-icon" aria-label="Rescan Gmail" title="Rescan Gmail">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="23 4 23 10 17 10"></polyline>
+          <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+        </svg>
+      </button>
+    </div>
   </header>
 
-  <!-- Scan progress bar (shown while scanning) -->
+  <div id="banner" class="banner hidden" role="status"></div>
+
   <div id="scan-progress" class="scan-progress hidden">
-    <div class="progress-bar"><div id="progress-fill" class="progress-fill" style="width:0%"></div></div>
-    <span id="progress-text" class="progress-text">Scanning…</span>
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-labelledby="progress-text"
+         aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div id="progress-fill" class="progress-fill" style="width:0%"></div>
+    </div>
+    <div class="progress-row">
+      <span id="progress-text" class="progress-text" aria-live="polite">Discovering senders…</span>
+      <span id="progress-time" class="progress-time"></span>
+    </div>
+    <button id="btn-stop" class="btn-ghost btn-stop">Stop scan</button>
   </div>
 
-  <!-- Search + sort -->
   <div class="controls">
     <div class="search-wrap">
-      <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+      <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
         <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
       </svg>
-      <input id="search" type="search" placeholder="Search senders…" class="search-input" autocomplete="off" spellcheck="false">
+      <input id="search" type="search" placeholder="Search senders…" class="search-input" autocomplete="off" spellcheck="false" aria-label="Search senders">
     </div>
-    <div class="sort-group">
-      <button class="sort-btn active" data-sort="count">Most emails</button>
-      <button class="sort-btn" data-sort="name">A → Z</button>
-      <button class="sort-btn" data-sort="date">Recent</button>
+    <div class="sort-group" role="group" aria-label="Sort senders">
+      <button class="sort-btn active" data-sort="count" aria-pressed="true">Most mail</button>
+      <button class="sort-btn" data-sort="name" aria-pressed="false">A → Z</button>
+      <button class="sort-btn" data-sort="date" aria-pressed="false">Recent</button>
+    </div>
+
+    <details id="options" class="options">
+      <summary>Cleanup options</summary>
+      <div class="option-body">
+        <label class="option"><input id="protect-starred" type="checkbox" checked> Keep starred mail</label>
+        <label class="option"><input id="protect-important" type="checkbox" checked> Keep important mail</label>
+        <label class="option"><input id="protect-unread" type="checkbox"> Keep unread mail</label>
+        <label class="option date-option">Only mail before
+          <input id="before-date" type="date" aria-label="Only mail before this date">
+        </label>
+        <div class="preset-row">
+          <button type="button" class="btn-ghost" data-preset="promotions">Old promotions</button>
+          <button type="button" class="btn-ghost" data-preset="social">Old social</button>
+          <button type="button" id="btn-reset-options" class="btn-link">Reset</button>
+        </div>
+        <p id="options-summary" class="fine"></p>
+      </div>
+    </details>
+
+    <div class="scope-row">
+      <button id="btn-select-shown" class="btn-link">Select all shown</button>
+      <button id="btn-select-all" class="btn-link hidden"></button>
+      <span id="selection-note" class="selection-note"></span>
     </div>
   </div>
 
-  <!-- Sender list -->
-  <div id="sender-list" class="sender-list"></div>
+  <div id="sender-list" class="sender-list" role="list" aria-label="Senders found"></div>
 
-  <!-- Sticky action bar (visible when ≥1 selected) -->
   <div id="action-bar" class="action-bar hidden">
-    <span id="action-summary" class="action-summary"></span>
+    <div class="action-summary-row">
+      <span id="action-summary" class="action-summary"></span>
+      <button id="btn-show-hidden" class="btn-link hidden">Show all selected</button>
+    </div>
     <div class="action-btns">
-      <button id="btn-clear" class="btn-ghost">Clear</button>
+      <button id="btn-clear" class="btn-ghost">Clear selection</button>
+      <button id="btn-archive" class="btn-ghost btn-archive">Archive</button>
       <button id="btn-delete" class="btn-danger">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
         Move to Trash
       </button>
     </div>
   </div>
 </div>
 
-<!-- ── Deleting progress ─────────────────────────────────────────────────────── -->
-<div id="screen-deleting" class="screen hidden">
+<!-- ── Executing ─────────────────────────────────────────────────────────────── -->
+<div id="screen-executing" class="screen hidden">
   <div class="center-col">
-    <div class="spinner"></div>
-    <p id="delete-text" class="muted delete-msg">Starting deletion…</p>
-    <div class="progress-bar del-bar"><div id="delete-fill" class="progress-fill" style="width:0%"></div></div>
+    <div class="spinner" aria-hidden="true"></div>
+    <h2 id="execute-title">Moving mail…</h2>
+    <p id="delete-text" class="muted delete-msg" aria-live="polite">Starting…</p>
+    <div class="progress-bar del-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="execute-bar">
+      <div id="delete-fill" class="progress-fill" style="width:0%"></div>
+    </div>
+    <span id="execute-time" class="progress-time"></span>
+    <button id="btn-stop-execute" class="btn-ghost btn-stop">Stop after this batch</button>
+    <p class="fine">Closing this popup does not stop the run. Gmail navigation is expected.</p>
   </div>
 </div>
 
-<!-- ── Confirm modal ─────────────────────────────────────────────────────────── -->
-<div id="modal" class="modal hidden">
+<!-- ── Receipt / history ─────────────────────────────────────────────────────── -->
+<div id="screen-receipt" class="screen hidden">
+  <header class="header receipt-header">
+    <div class="header-left">
+      <span class="logo" aria-hidden="true">✅</span>
+      <div>
+        <div class="title" id="receipt-title">Cleanup receipt</div>
+        <span id="receipt-account" class="account-line"></span>
+      </div>
+    </div>
+  </header>
+  <div class="receipt-scroll">
+    <div id="receipt-body" class="receipt-body" aria-live="polite"></div>
+    <div class="receipt-actions">
+      <button id="btn-open-trash" class="btn-ghost">Open Trash</button>
+      <button id="btn-review-mail" class="btn-ghost">Review affected mail</button>
+      <button id="btn-receipt-scan" class="btn-ghost">Scan again</button>
+    </div>
+    <section class="history" aria-labelledby="history-title">
+      <h3 id="history-title">Local cleanup history</h3>
+      <p class="fine">Keeps the last 20 receipts on this device. No email bodies, no uploads.</p>
+      <div id="history-list" class="history-list"></div>
+      <button id="btn-clear-history" class="btn-link">Clear local history</button>
+    </section>
+  </div>
+  <div class="receipt-footer">
+    <button id="btn-receipt-back" class="btn-primary">Back to senders</button>
+  </div>
+</div>
+
+<!-- ── Review modal ──────────────────────────────────────────────────────────── -->
+<div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
   <div class="modal-box">
-    <div class="modal-icon">🗑️</div>
-    <h3>Move to Trash?</h3>
-    <p id="modal-text" class="muted"></p>
+    <div id="modal-icon" class="modal-icon" aria-hidden="true">🗑️</div>
+    <h3 id="modal-title">Review cleanup</h3>
+    <div id="modal-text" class="modal-text"></div>
+    <div id="modal-error" class="modal-error hidden" role="alert"></div>
     <div class="modal-btns">
+      <button id="btn-preview" class="btn-ghost">View in Gmail</button>
       <button id="btn-cancel" class="btn-ghost">Cancel</button>
       <button id="btn-confirm" class="btn-danger">Move to Trash</button>
     </div>
   </div>
 </div>
 
+<div id="live" class="sr-only" aria-live="polite"></div>
+
+<script src="parsing.js"></script>
 <script src="popup.js"></script>
 </body>
 </html>

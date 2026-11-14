@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.inboxcleaner.weeklystatus</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/bash</string>
+		<string>-c</string>
+		<string>TELEGRAM_BOT_TOKEN=$TELEGRAM_BOT_TOKEN TELEGRAM_CHAT_ID=$TELEGRAM_CHAT_ID /Users/pushpendrasingh/.local/bin/python3 /Users/pushpendrasingh/projects/inbox-cleaner/scripts/telegram_weekly_status.py</string>
+	</array>
+	<key>StartCalendarInterval</key>
+	<dict>
+		<key>Weekday</key>
+		<integer>1</integer>
+		<key>Hour</key>
+		<integer>9</integer>
+		<key>Minute</key>
+		<integer>0</integer>
+	</dict>
+	<key>StandardOutPath</key>
+	<string>/Users/pushpendrasingh/projects/inbox-cleaner/scripts/weekly_status.launchd.log</string>
+	<key>StandardErrorPath</key>
+	<string>/Users/pushpendrasingh/projects/inbox-cleaner/scripts/weekly_status.launchd.log</string>
+	<key>RunAtLoad</key>
+	<false/>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>HOME</key>
+		<string>/Users/pushpendrasingh</string>
+		<key>USER</key>
+		<string>pushpendrasingh</string>
+		<key>LOGNAME</key>
+		<string>pushpendrasingh</string>
+		<key>PATH</key>
+		<string>/Users/pushpendrasingh/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+	</dict>
+</dict>
+</plist>

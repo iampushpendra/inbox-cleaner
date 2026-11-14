@@ -18,6 +18,12 @@ function gmail({ total = 10000, counter = true, stalled = false, searchConfirms 
     click() { dom.olderClicks += 1; if (!stalled) page++; },
   };
   const dom = { olderClicks: 0, broadcasts: [], listeners: [], cache: null };
+  let identityLabel = 'owner@example.com';
+  const identityEl = {
+    getClientRects: () => [{}],
+    getAttribute: name => name === 'aria-label' ? identityLabel : null,
+  };
+  dom.setIdentity = value => { identityLabel = value; };
   const toolbar = { getClientRects: () => [{}], querySelectorAll: () => counter ? [{ textContent: range(), getClientRects: () => [{}] }] : [] };
   let cachedRowKey = null;
   let cachedRows = [];
@@ -60,16 +66,22 @@ function gmail({ total = 10000, counter = true, stalled = false, searchConfirms 
         ? [{ ...rows()[0], id: 'hidden', getClientRects: () => [], getAttribute: () => 'hidden-thread' }, ...rows()]
         : rows();
       if (selector === 'div[gh="tm"]') return [toolbar];
+      if (selector === 'a[aria-label*="@"]') return [identityEl];
       if (selector.includes('Older')) return [older];
       return [];
     },
   };
   const context = vm.createContext({
     self: { InboxCleanerParsing: parsing }, InboxCleanerParsing: parsing,
-    document, location: { hash: 'search/category:primary' },
+    document, location: { hash: 'search/category:primary', pathname: '/mail/u/0/' },
     chrome: {
       runtime: { onMessage: { addListener(fn) { dom.listeners.push(fn); } }, sendMessage: async msg => { dom.broadcasts.push(msg); } },
-      storage: { local: { set: async data => { dom.cache = data.inboxCleanerData; } } },
+      storage: {
+        local: {
+          get: async key => ({ [key]: dom.cache }),
+          set: async data => { if (data.inboxCleanerData !== undefined) dom.cache = data.inboxCleanerData; },
+        },
+      },
     },
     Date: class extends Date { static now() { return clock; } },
     setTimeout(callback, ms) { clock += ms; queueMicrotask(callback); return 0; },
@@ -78,6 +90,7 @@ function gmail({ total = 10000, counter = true, stalled = false, searchConfirms 
   });
   vm.runInContext(fs.readFileSync(require.resolve('../content.js'), 'utf8'), context);
   context.__dom = dom;
+  context.__listeners = dom.listeners;
   if (queryAware) {
     let hash = context.location.hash;
     Object.defineProperty(context.location, 'hash', {
@@ -203,11 +216,32 @@ test('an infinite scroll that stops while Gmail reports more pages is an incompl
 // all matching" banner, and the toolbar's Trash button. Rows vanish when Trash
 // is clicked, as Gmail's do. `banner: false` models Gmail never rendering the
 // banner; `clearOnTrash: false` models Gmail leaving the rows in place.
-function gmailDelete({ banner = true, clearOnTrash = true } = {}) {
+function gmailDelete({ banner = true, clearOnTrash = true, identities = ['owner@example.com'], snapshot = true, storageFails = false } = {}) {
   let clock = 0;
   let rows = 4;
   const dom = { trashClicks: 0, bannerClicks: 0 };
+  const identityEls = identities.map(label => ({
+    getClientRects: () => [{}],
+    getAttribute: name => name === 'aria-label' ? label : null,
+  }));
+  // A complete, bound snapshot is the precondition for any action (C-20–C-23).
+  const store = snapshot ? {
+    inboxCleanerData: {
+      version: 2,
+      accounts: {
+        'owner@example.com': {
+          accountKey: 'owner@example.com',
+          scannedAt: 1,
+          unit: 'conversations',
+          discoveryScope: 'category:primary',
+          total: 4,
+          senders: [{ email: 'sender@example.com', count: 4 }],
+        },
+      },
+    },
+  } : {};
   const rowEls = () => Array.from({ length: rows }, (_, i) => ({
+    getClientRects: () => [{}],
     getAttribute: name => name === 'data-legacy-thread-id' ? `thread-${i}` : null,
     querySelector: () => ({ getAttribute: name => name === 'email' ? 'sender@example.com' : null }),
   }));
@@ -216,13 +250,21 @@ function gmailDelete({ banner = true, clearOnTrash = true } = {}) {
   const listeners = [];
   const context = vm.createContext({
     self: { InboxCleanerParsing: parsing }, InboxCleanerParsing: parsing,
-    location: { hash: '' },
+    location: { hash: '', pathname: '/mail/u/0/' },
     chrome: {
       runtime: {
         onMessage: { addListener(fn) { listeners.push(fn); } },
         sendMessage: async message => { context.broadcasts.push({ type: message.type, data: message.data }); },
       },
-      storage: { local: { get: async () => ({}), set: async () => {} } },
+      storage: {
+        local: {
+          get: async key => ({ [key]: store[key] }),
+          set: async data => {
+            if (storageFails) throw new Error('storage quota exceeded');
+            Object.assign(store, data);
+          },
+        },
+      },
     },
     Date: class extends Date { static now() { return clock; } },
     setTimeout(callback, ms) { clock += ms; queueMicrotask(callback); return 0; },
@@ -232,6 +274,7 @@ function gmailDelete({ banner = true, clearOnTrash = true } = {}) {
   context.broadcasts = [];
   context.__listeners = listeners;
   context.__dom = dom;
+  context.__store = store;
   context.document = {
     querySelector(selector) {
       if (selector === 'input[name="q"]') return { get value() { return decodeURIComponent(context.location.hash.replace(/^search\//, '')); } };
@@ -242,7 +285,11 @@ function gmailDelete({ banner = true, clearOnTrash = true } = {}) {
       if (selector === 'div[gh="tm"] div[aria-label="Delete"]') return trash;
       return null;
     },
-    querySelectorAll(selector) { return selector === 'tr.zA' ? rowEls() : []; },
+    querySelectorAll(selector) {
+      if (selector === 'tr.zA') return rowEls();
+      if (selector === 'a[aria-label*="@"]') return identityEls;
+      return [];
+    },
   };
   vm.runInContext(fs.readFileSync(require.resolve('../content.js'), 'utf8'), context);
   return context;
@@ -254,33 +301,34 @@ const drain = () => new Promise(resolve => setImmediate(resolve));
 
 function send(context, msg) {
   for (const listener of context.__listeners) {
-    let out;
-    listener(msg, {}, value => { out = value; });
-    if (out !== undefined) return out;
+    let settle;
+    const response = new Promise(resolve => { settle = resolve; });
+    const handled = listener(msg, {}, settle);
+    if (handled === true) return response;
   }
   return undefined;
 }
 
 const lastState = context => context.broadcasts.filter(m => m.type === 'DELETE_STATE').pop();
-const lastError = context => context.broadcasts.filter(m => m.type === 'DELETE_ERROR').pop();
 
 test('a missing "select all matching" banner never clicks Trash and never reports completion', async () => {
   const context = gmailDelete({ banner: false });
-  send(context, { type: 'DELETE', emails: ['sender@example.com'] });
+  const response = await send(context, { type: 'DELETE', emails: ['sender@example.com'], expectedAccount: 'owner@example.com' });
   await drain();
 
+  assert.equal(response.ok, true);
   assert.equal(context.__dom.trashClicks, 0);
-  assert.notEqual(lastState(context).data.status, 'done');
-  assert.match(lastError(context).data, /select all matching|layout may have changed/i);
+  assert.equal(lastState(context).data.status, 'failed');
+  assert.match(lastState(context).data.error, /select all|layout may have changed/i);
 });
 
-test('a chunk Gmail leaves in place is reported as unverified, not complete', async () => {
+test('a chunk Gmail leaves in place is reported as unknown, not complete', async () => {
   const context = gmailDelete({ clearOnTrash: false });
-  send(context, { type: 'DELETE', emails: ['sender@example.com'] });
+  await send(context, { type: 'DELETE', emails: ['sender@example.com'], expectedAccount: 'owner@example.com' });
   await drain();
 
   assert.equal(context.__dom.trashClicks, 1);
-  assert.equal(lastState(context).data.status, 'unverified');
+  assert.equal(lastState(context).data.status, 'unknown');
 });
 
 test('a query the search box never confirms yields no exact count, not the previous sender total', async () => {
@@ -292,21 +340,27 @@ test('a query the search box never confirms yields no exact count, not the previ
 
 test('duplicate and mixed-case addresses in one DELETE are actioned once', async () => {
   const context = gmailDelete();
-  send(context, { type: 'DELETE', emails: ['Sender@Example.com', 'sender@example.com', 'sender@EXAMPLE.com'] });
+  await send(context, {
+    type: 'DELETE',
+    emails: ['Sender@Example.com', 'sender@example.com', 'sender@EXAMPLE.com'],
+    expectedAccount: 'owner@example.com',
+  });
   await drain();
 
   assert.equal(context.__dom.trashClicks, 1);
-  assert.equal(decodeURIComponent(context.location.hash), 'search/from:(sender@example.com)');
+  const hash = decodeURIComponent(context.location.hash);
+  assert.ok(hash.startsWith('search/from:(sender@example.com) '));
+  assert.equal(hash.match(/sender@example\.com/gi).length, 1, 'the address appears once, lowercased');
 });
 
 test('a DELETE arriving while a delete is already running is rejected', async () => {
   const context = gmailDelete();
-  const first = send(context, { type: 'DELETE', emails: ['sender@example.com'] });
-  const second = send(context, { type: 'DELETE', emails: ['sender@example.com'] });
+  const first = send(context, { type: 'DELETE', emails: ['sender@example.com'], expectedAccount: 'owner@example.com' });
+  const second = await send(context, { type: 'DELETE', emails: ['sender@example.com'], expectedAccount: 'owner@example.com' });
 
-  assert.equal(first.ok, true);
   assert.equal(second.ok, false);
-  assert.equal(second.reason, 'already running');
+  assert.equal(second.reason, 'run-busy');
+  assert.equal((await first).ok, true);
   await drain();
   assert.equal(context.__dom.trashClicks, 1);
 });
@@ -437,15 +491,19 @@ test('exact sender counts wait for the sender result counter instead of reading 
 test('Refresh scans all five paginated categories and saves only their visible senders', async () => {
   const context = gmail({ total: 350, enabledStyle: true, hiddenRows: true, nestedIds: true, queryAware: true });
   const replies = [];
-  for (const listener of context.__dom.listeners) listener({ type: 'START_SCAN' }, {}, reply => replies.push(reply));
+  for (const listener of context.__dom.listeners) {
+    listener({ type: 'START_SCAN', tabId: 1, expectedAccount: 'owner@example.com' }, {}, reply => replies.push(reply));
+  }
   await drain();
   const final = context.__dom.broadcasts.filter(msg => msg.type === 'SCAN_STATE').pop();
-  assert.equal(final.data.status, 'done');
-  assert.equal(context.__dom.cache.total, 1750);
-  assert.equal(context.__dom.cache.senders.length, 5);
-  for (const sender of context.__dom.cache.senders) {
+  assert.equal(final.data.status, 'completed');
+  const snapshot = context.__dom.cache.accounts['owner@example.com'];
+  assert.equal(snapshot.total, 1750);
+  assert.equal(snapshot.senders.length, 5);
+  for (const sender of snapshot.senders) {
     assert.equal(sender.sampledCount, 350);
     assert.equal(sender.count, 350);
+    assert.equal(sender.confidence, 'exact');
     assert.equal(sender.categories.length, 1);
     assert.equal(sender.categories[0], sender.email.split('@')[0].toUpperCase());
   }
@@ -453,13 +511,18 @@ test('Refresh scans all five paginated categories and saves only their visible s
 
 test('a failed Refresh preserves the last complete cache and reports failure', async () => {
   const context = gmail({ total: 350, enabledStyle: true, stalled: true });
-  const previous = { total: 123, senders: [{ email: 'old@example.com' }] };
+  const previous = {
+    version: 2,
+    accounts: { 'owner@example.com': { accountKey: 'owner@example.com', total: 123, senders: [{ email: 'old@example.com' }] } },
+  };
   context.__dom.cache = previous;
-  for (const listener of context.__dom.listeners) listener({ type: 'START_SCAN' }, {}, () => {});
+  for (const listener of context.__dom.listeners) {
+    listener({ type: 'START_SCAN', tabId: 1, expectedAccount: 'owner@example.com' }, {}, () => {});
+  }
   await drain();
   assert.equal(context.__dom.cache, previous);
   const final = context.__dom.broadcasts.filter(msg => msg.type === 'SCAN_STATE').pop();
-  assert.equal(final.data.status, 'error');
+  assert.equal(final.data.status, 'failed');
   assert.match(final.data.error, /next page/i);
 });
 
@@ -496,4 +559,136 @@ test('a new query with identical conversations can still resolve its exact count
   context.document.querySelectorAll = selector => selector === 'tr.zA'
     ? elapsed < 1500 ? original : replacement : oldAll(selector);
   assert.equal(await vm.runInContext('countSenderExactly("sender@example.com")', context), 3);
+});
+
+test('an unknown or ambiguous account refuses cleanup before any click (C-20, C-22)', async () => {
+  const noIdentity = gmailDelete({ identities: [] });
+  const unknown = await send(noIdentity, {
+    type: 'DELETE', emails: ['sender@example.com'], expectedAccount: 'owner@example.com',
+  });
+  await drain();
+  assert.equal(unknown.ok, false);
+  assert.equal(unknown.reason, 'identity-unknown');
+  assert.equal(noIdentity.__dom.trashClicks, 0, 'nothing may move without a verified account');
+
+  const twoAccounts = gmailDelete({ identities: ['owner@example.com', 'other@example.com'] });
+  const ambiguous = await send(twoAccounts, {
+    type: 'DELETE', emails: ['sender@example.com'], expectedAccount: 'owner@example.com',
+  });
+  await drain();
+  assert.equal(ambiguous.ok, false);
+  assert.equal(ambiguous.reason, 'identity-unknown');
+  assert.equal(twoAccounts.__dom.trashClicks, 0);
+});
+
+test('an EXECUTE for another account or without a bound snapshot is refused (C-21, C-23)', async () => {
+  const policy = { emails: ['sender@example.com'], action: 'trash' };
+  const wrongAccount = gmailDelete();
+  const mismatch = await send(wrongAccount, {
+    type: 'EXECUTE', policy, expectedAccount: 'other@example.com',
+  });
+  await drain();
+  assert.equal(mismatch.ok, false);
+  assert.equal(mismatch.reason, 'identity-mismatch');
+  assert.equal(wrongAccount.__dom.trashClicks, 0);
+
+  const unbound = gmailDelete({ snapshot: false });
+  const refused = await send(unbound, {
+    type: 'EXECUTE', policy, expectedAccount: 'owner@example.com',
+  });
+  await drain();
+  assert.equal(refused.ok, false);
+  assert.equal(refused.reason, 'snapshot-unbound');
+  assert.equal(unbound.__dom.trashClicks, 0);
+});
+
+test('a stale document id is refused so a reopened tab cannot act (C-24)', async () => {
+  const context = gmailDelete();
+  const response = await send(context, {
+    type: 'EXECUTE',
+    policy: { emails: ['sender@example.com'], action: 'trash' },
+    expectedAccount: 'owner@example.com',
+    expectedDocumentId: 'a-different-document',
+  });
+  await drain();
+  assert.equal(response.ok, false);
+  assert.equal(response.reason, 'interrupted-document');
+  assert.equal(context.__dom.trashClicks, 0);
+});
+
+test('a scan whose account changes mid-run is discarded and writes nothing', async () => {
+  const context = gmail({ total: 350, counter: true, queryAware: true });
+  for (const listener of context.__dom.listeners) {
+    listener({ type: 'START_SCAN', tabId: 1, expectedAccount: 'owner@example.com' }, {}, () => {});
+  }
+  context.__dom.setIdentity('other@example.com');
+  await drain();
+
+  const final = context.__dom.broadcasts.filter(msg => msg.type === 'SCAN_STATE').pop();
+  assert.equal(final.data.status, 'failed');
+  assert.match(final.data.error, /account changed/i);
+  assert.equal(context.__dom.cache, null, 'a cross-account scan must never be written');
+});
+
+test('a reopened popup can identify the run to stop, without mixing scan and execute ids', async () => {
+  const context = gmailDelete();
+  vm.runInContext(
+    "activeRun = { id: 'run-1', kind: 'execute', accountKey: 'owner@example.com' }",
+    context,
+  );
+  const state = await send(context, { type: 'GET_IDENTITY' });
+  assert.equal(state.executeState.runId, 'run-1');
+  assert.equal(state.scanState.runId, null, 'the scan stop control must not target an execute run');
+});
+
+test('a local write failure does not turn a completed cleanup into a failed receipt', async () => {
+  const context = gmailDelete({ storageFails: true });
+  await send(context, { type: 'DELETE', emails: ['sender@example.com'], expectedAccount: 'owner@example.com' });
+  await drain();
+
+  assert.equal(context.__dom.trashClicks, 1);
+  assert.equal(lastState(context).data.status, 'completed');
+  assert.match(lastState(context).data.error, /storage quota/i);
+  assert.equal(context.broadcasts.filter(msg => msg.type === 'RECEIPT').length, 1,
+    'the receipt is still reported even when local history cannot be saved');
+});
+
+function countContext(emails, options = {}) {
+  const context = gmail({ total: 350, queryAware: true, ...options });
+  context.__dom.cache = {
+    version: 2,
+    accounts: {
+      'owner@example.com': { accountKey: 'owner@example.com', senders: emails.map(email => ({ email, count: 1 })) },
+    },
+  };
+  return context;
+}
+
+test('a single-batch review reports Gmail\'s exact union count', async () => {
+  const context = countContext(['a@example.com']);
+  const response = await send(context, {
+    type: 'COUNT_POLICY',
+    policy: { emails: ['a@example.com'], action: 'trash' },
+    expectedAccount: 'owner@example.com',
+  });
+  assert.equal(response.ok, true);
+  assert.equal(response.union.status, 'exact');
+  assert.equal(response.union.total, 350);
+  assert.equal(response.union.upperBound, null);
+  assert.equal(response.union.reason, '');
+});
+
+test('a multi-batch review never presents the summed count as exact', async () => {
+  const emails = Array.from({ length: 21 }, (_, i) => `s${i}@example.com`);
+  const context = countContext(emails);
+  const response = await send(context, {
+    type: 'COUNT_POLICY',
+    policy: { emails, action: 'trash' },
+    expectedAccount: 'owner@example.com',
+  });
+  assert.equal(response.ok, true);
+  assert.equal(response.union.status, 'bounded');
+  assert.equal(response.union.total, null);
+  assert.equal(response.union.upperBound, 700);
+  assert.match(response.union.reason, /summed across batches/);
 });

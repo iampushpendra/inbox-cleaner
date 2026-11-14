@@ -1,11 +1,11 @@
 # 📥 Inbox Cleaner
 
-**See which senders fill your Gmail. Select senders, review the sender-wide scope, then confirm a move to Trash.**
+**See which senders fill your Gmail. Select senders, review the exact scope, then confirm a move to Trash or Archive.**
 
 [![Live App](https://img.shields.io/badge/Live%20App-open-blue?style=flat-square)](https://inbox-cleaner.vercel.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-**Current version: 3.3.2** — complete SEO execution plan and status reconciliation; extension runtime remains 3.3.1. See [CHANGELOG.md](CHANGELOG.md) for what's new.
+**Current version: 3.4.0** — account-bound cleanup, exact review counts, protections and date scope, receipts, and Archive. See [CHANGELOG.md](CHANGELOG.md) for what's new.
 
 ---
 
@@ -13,11 +13,15 @@
 
 Inbox Cleaner discovers senders by paginating **five Gmail categories** — Primary, Social, Promotions, Updates and Forums — and ranks discovered senders by conversation/result counts. Those counts do not measure storage:
 
-- **Conversation/result count** per sender (color-coded: red ≥100, orange ≥50)
+- **Conversation/result counts** per sender (color-coded: red ≥100, orange ≥50), labelled exact, sampled or unknown
 - **Category badges** showing which Gmail tab their mail lands in
 - **Last received** — relative timestamp of most recent email
 - **Checkbox selection** — pick one sender or dozens at once
-- **Confirmed sender-wide Trash** — select senders, review the scope, then confirm. The extension navigates Gmail once per batch of up to 20 senders. Separate search exclusions are not inherited.
+- **Verified account binding** — a scan or cleanup is tied to the signed-in address read from Gmail; an unknown, ambiguous or changed account blocks the action
+- **Exact review count** — before acting, the extension performs a read-only `from:(…)` search and uses Gmail's own count for the reviewed scope. A single batch is exact; a combined multi-batch total is shown as an upper bound because a conversation can match more than one batch. Sender sums are never presented as the destructive total
+- **Protections and date scope** — starred and important mail are excluded by default, optionally unread mail, and an optional `before:` date
+- **Trash or Archive** — review the policy, then confirm. The extension navigates Gmail once per batch of up to 20 senders
+- **Local receipts** — the last 20 runs record per-batch verified, unknown, failed and not-attempted outcomes; no message bodies or telemetry
 
 The extension has no independent network client or backend; Gmail itself remains an online service. Scan results are cached locally. Website hosting, optional browser-app authentication and any waitlist submission are separate surfaces.
 
@@ -39,16 +43,17 @@ Install the [Chrome extension](https://chromewebstore.google.com/detail/inbox-cl
 Open Gmail in a tab
        │
        ▼
-Content script navigates category:primary / social / promotions / updates / forums
+Content script verifies the signed-in account, then scans
+category:primary / social / promotions / updates / forums
   Paginates category results with page guards, reading sender + date off each row
        │
        ▼
-Group by sender → ranked list (chrome.storage.local)
+Group by sender → ranked list (chrome.storage.local, per account)
        │
-  [You select senders + click "Move to Trash"]
+  [You select senders → read-only exact count + policy review]
        │
        ▼
-  from:(a OR b OR ...) search → Gmail's own "select all matching search" + Trash
+  from:(a OR b OR …) with protections → "select all matching search" → Trash or Archive
 ```
 
 **Web app** (`docs/index.html` at [inbox-cleaner.vercel.app](https://inbox-cleaner.vercel.app/)) is a separate surface that still uses Google Identity Services + the Gmail API directly — see `docs/app.js`.
@@ -112,8 +117,10 @@ Inputs stay in page memory and are not saved to the tool URL, local storage or a
 
 **Chrome extension:**
 - **No extension API or OAuth client** — the content script reads rendered sender/date information and operates Gmail’s interface; it makes no independent network requests
-- **Local cache** — scan results live in `chrome.storage.local` on your device
-- **Trash recovery** — ordinary mail can normally be restored for up to 30 days unless permanently removed sooner. The extension has no separate one-click Undo.
+- **Local cache** — scan results live in `chrome.storage.local` on your device, separated by verified Gmail account
+- **Local receipts** — the last 20 cleanup receipts record the action, scope, per-batch outcome and sender addresses; no message bodies, subjects, credentials or telemetry
+- **Account checks** — the signed-in address is read from Gmail’s own account control. If it cannot be read unambiguously, cleanup is blocked rather than guessed
+- **Trash recovery** — ordinary mail can normally be restored for up to 30 days unless permanently removed sooner. Archive stays searchable and does not free storage. The extension has no separate one-click Undo.
 
 **Web app:** all API calls go directly from your browser to `gmail.googleapis.com`; only `From`/`Date` headers are read.
 
@@ -128,7 +135,7 @@ Inputs stay in page memory and are not saved to the tool URL, local storage or a
 3. **Load unpacked** → select the repo root folder (not `docs/`)
 4. Click the 📥 icon in your Chrome toolbar
 
-**Updating an existing unpacked installation:** replace its files with the new package (or keep using this repo folder), click **Reload** on Inbox Cleaner at `chrome://extensions`, then **reload the Gmail tab** before clicking the extension's Refresh button. Chrome does not replace content scripts already running in an open Gmail tab when the extension is updated. The new package is `inbox-cleaner-extension-3.3.1.zip`.
+**Updating an existing unpacked installation:** replace its files with the new package (or keep using this repo folder), click **Reload** on Inbox Cleaner at `chrome://extensions`, then **reload the Gmail tab** before clicking the extension's Refresh button. Chrome does not replace content scripts already running in an open Gmail tab when the extension is updated. The checked-in zip files may lag this source; rebuild the package if you distribute one.
 
 No sign-in step — the extension reads whichever Gmail tab you already have open.
 
@@ -141,7 +148,7 @@ No sign-in step — the extension reads whichever Gmail tab you already have ope
 | Auth (web app) | Google Identity Services `initTokenClient` — token flow, no backend |
 | Auth (extension) | None — content script reads the page you're already signed into |
 | Scan (extension) | Content-script DOM automation — category searches and Gmail pagination |
-| Trash (extension) | Gmail's native "select all conversations that match this search" bulk action |
+| Cleanup (extension) | Gmail's native "select all conversations that match this search" bulk action, Trash or Archive |
 | Storage | `localStorage` (web) · `chrome.storage.local` (extension) |
 | Framework | None — vanilla JS; static discovery build with Node, Python publishing gate |
 
@@ -171,11 +178,13 @@ inbox-cleaner/
 ## Known limitations
 
 - **Sender discovery reflects Gmail's category tabs** — the scan walks Primary/Social/Promotions/Updates/Forums, paginating each to the end. A sender who appears in none of those tabs will not be discovered.
-- **Result counts are bounded and may overlap.** Up to the top 250 discovered senders are counted from Gmail search results when resolvable. Other or unresolved counts are estimates. Conversations can contain several senders, so summing sender counts is not a unique-message, deletion-outcome or storage guarantee.
+- **The total is Gmail's count for the reviewed search.** Up to the top 250 discovered senders are counted. Conversations can contain several senders, so a sum of sender counts is an upper bound, not a unique-message or storage guarantee. An inexact or unavailable union count is shown as unknown, and no moved-conversation total is claimed.
+- **Protections are query-level** — starred, important and optionally unread mail, plus an optional `before:` date, are excluded from both the review count and the action. Gmail's native selection still decides which conversations match.
+- **Account binding is required** — the signed-in address must be readable from Gmail's account control. If the address is absent, ambiguous across tabs, or changes mid-run, the run is refused or discarded; nothing is guessed or written to another account.
 - **One scan supports 10,000+ conversations** — the extension follows Gmail's Older control until the final page, even when the result counter is unavailable. An unresponsive page produces an incomplete-scan error rather than silently reporting success. The safety guard is 500 pages per category (up to 50,000 conversations per category at Gmail's 100-per-page setting).
 - **Scan duration varies** — it paginates category views and then runs searches per counted sender. Fixture tests do not establish live performance or installed-package reliability.
-- **The scan/delete flow depends on Gmail's DOM structure** and may need selector updates if Gmail changes its markup — see the `SELECTORS` object in `content.js`.
-- **English Gmail UI only** — selectors may not match other locales.
+- **The scan/cleanup flow depends on Gmail's DOM structure** and may need selector updates if Gmail changes its markup — see the `SELECTORS` object in `content.js`. Gmail search operators (`-in:trash`, `-is:starred`, `-is:important`, `-is:unread`, `before:`) and the Archive/Delete toolbar controls require live verification.
+- **English Gmail UI only** — action-button and pagination selectors may not match other locales. Unsupported locales fail closed before any click.
 
 ---
 

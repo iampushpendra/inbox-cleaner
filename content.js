@@ -1,4 +1,8 @@
 // content.js — Inbox Cleaner content script (Gmail DOM automation)
+//
+// The content script is the enforcement point for account binding and mutation
+// (roadmap R03–R09). The popup is UX only: it can be closed at any moment, so
+// every destructive boundary re-reads the account from this tab's live DOM.
 
 const {
   parseSenderFromAttrs,
@@ -9,13 +13,21 @@ const {
   parseResultRange,
   hasMorePages,
   buildSenderQuery,
-  applyExactCounts,
+  applyCountResults,
+  normalizeAddresses,
+  normalizePolicy,
+  policyOperators,
+  buildPolicyChunks,
+  ACTIONS,
+  chooseIdentity,
+  accountSnapshot,
+  migrateContainer,
+  putAccountSnapshot,
+  isActionableSnapshot,
+  appendHistory,
+  receiptStatus,
 } = self.InboxCleanerParsing;
 
-// Gmail's own `category:` search operator names (lowercase, matches what a
-// user would type in the search box) mapped to the display label popup.css
-// already has badge colors for (uppercase, matching the old Gmail API's
-// category label suffixes).
 const CATEGORIES = [
   { op: 'primary', label: 'PRIMARY' },
   { op: 'social', label: 'SOCIAL' },
@@ -27,27 +39,11 @@ const CATEGORIES = [
 const RENDER_TIMEOUT_MS = 15000;
 const SCROLL_SETTLE_MS = 700;
 const PAGE_SETTLE_MS = 400;
-
-// Gmail caps its own list at 100 conversations per page, so this is a runaway
-// guard, not a product limit: 500 pages is ~50k conversations per category.
 const MAX_PAGES_PER_CATEGORY = 500;
-
-// Gmail's newer list view infinite-scrolls instead of paginating: there is no
-// Older button and no "1-100 of N" counter. A scroll round that adds no new
-// conversation is treated as the end of the list after this many consecutive
-// stalls, so a temporarily idle render doesn't stop the walk early.
 const SCROLL_STALL_LIMIT = 3;
-
-// Phase B costs one Gmail search per sender (~1-2s each). Counting every sender
-// in a long tail would run for an hour, so only the heaviest senders get an
-// exact total; the rest keep their sampled count and are flagged inexact.
 const MAX_SENDERS_TO_COUNT = 250;
+const SETTLE_AFTER_ACTION_MS = 1000;
 
-// These target Gmail's classic list-view markup. Gmail does not publish a
-// stable API for its own DOM — if a scan/delete step starts throwing
-// "Gmail's layout may have changed" errors, open Gmail in DevTools, inspect
-// the relevant element, and update ONLY this object (see Task 3 Step 1 and
-// Task 4 Step 1 for the verification procedure).
 const SELECTORS = {
   row: 'tr.zA',
   senderSpan: 'span[email]',
@@ -56,20 +52,53 @@ const SELECTORS = {
   selectAllCheckbox: 'div[gh="tm"] div[role="checkbox"]',
   selectAllMatchingLink: 'span.Dj',
   toolbar: 'div[gh="tm"]',
-  // Tried in order; the first one present and not aria-disabled wins. Like
-  // trashButton, these are English-UI only.
   olderButton: [
     'div[gh="tm"] div[role="button"][aria-label^="Older"]',
     'div[gh="tm"] div[aria-label^="Older"]',
     'div[gh="tm"] div[data-tooltip^="Older"]',
   ],
-  // aria-label is localized by Gmail's UI language — this only matches an
-  // English-language Gmail UI. Non-English locales will time out here.
-  trashButton: 'div[gh="tm"] div[aria-label="Delete"]',
+  // aria-label is localized by Gmail's UI language — these only match an
+  // English-language Gmail UI. Unsupported locales fail closed at the control.
+  actionButtons: {
+    trash: 'div[gh="tm"] div[aria-label="Delete"]',
+    archive: 'div[gh="tm"] div[aria-label="Archive"]',
+  },
 };
+
+// The account control is Gmail's top-right avatar/account link. The address is
+// taken from an attribute by regex, never from the words around it, so a
+// localized UI still matches. Any ambiguity fails closed (R03 design §3).
+const ACCOUNT_SELECTORS = [
+  'a[aria-label*="@"]',
+  '[role="button"][aria-label*="@"]',
+  'img[alt*="@"]',
+  '[title*="Google Account"]',
+];
+
+const DOCUMENT_ID = (() => {
+  try {
+    if (typeof crypto !== 'undefined' && crypto.randomUUID) return crypto.randomUUID();
+  } catch { /* no crypto in some test contexts */ }
+  return `doc-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+})();
+
+function createId(prefix) {
+  try {
+    if (typeof crypto !== 'undefined' && crypto.randomUUID) return `${prefix}-${crypto.randomUUID()}`;
+  } catch { /* fall through */ }
+  return `${prefix}-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+}
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+class CancelledError extends Error {}
+class BoundaryError extends Error {
+  constructor(reason, message) {
+    super(message || reason);
+    this.reason = reason;
+  }
 }
 
 function waitForElement(selector, timeoutMs = RENDER_TIMEOUT_MS) {
@@ -94,11 +123,6 @@ function waitForElement(selector, timeoutMs = RENDER_TIMEOUT_MS) {
   });
 }
 
-// Gmail's rows normally carry `data-legacy-thread-id`; `rowEl.id` is only a
-// fallback and may be positional ("p0", "p1", …), which repeats on every page.
-// A bare fallback would collapse page 2 into page 1's conversations, so
-// qualify it with the page it was seen on. Rows with neither attribute stay
-// id-less and are still dropped by the dedupe.
 function extractRow(rowEl, pageIndex = 0) {
   const senderEl = rowEl.querySelector(SELECTORS.senderSpan);
   const dateEl = rowEl.querySelector(SELECTORS.dateSpan);
@@ -135,9 +159,6 @@ async function scrollListToBottom() {
   container.dispatchEvent(new Event('scroll', { bubbles: true }));
 }
 
-// Gmail's "1-100 of 12,847" counter. Read by text rather than class name so a
-// Gmail CSS reshuffle doesn't silently break pagination; the tightest-matching
-// element wins so an outer container's stray digits can't be misread.
 function readResultRange() {
   const toolbar = [...document.querySelectorAll(SELECTORS.toolbar)].find(el => el.getClientRects().length);
   if (!toolbar) return null;
@@ -154,6 +175,11 @@ function readResultRange() {
   return best ? best.range : null;
 }
 
+function isEmptyResults() {
+  return [...document.querySelectorAll('td.TC')].some(el =>
+    el.getClientRects().length && /no conversations|no messages/i.test(el.textContent));
+}
+
 function findOlderButton() {
   for (const selector of SELECTORS.olderButton) {
     for (const el of document.querySelectorAll(selector)) {
@@ -164,12 +190,6 @@ function findOlderButton() {
   return null;
 }
 
-// Page-change signal. The dedupe key is page-qualified, so it cannot detect
-// advancement (every page tags its rows identically). Signal on what Gmail
-// actually re-rendered instead: row identity when it is available, plus row
-// CONTENT (sender + date), which differs between real pages even when Gmail
-// offers nothing but positional ids and no counter. A counter that advanced is
-// a third, independent signal.
 function rowSignature(rows) {
   return rows.map(row => `${row.threadId}|${row.email}|${row.dateTs}`).join('\n');
 }
@@ -193,8 +213,6 @@ function extractVisibleRows(pageIndex = 0) {
     .map(el => extractRow(el, pageIndex));
 }
 
-// Wait for a new query's visible result list. Gmail retains old hidden tables,
-// and updates its search input before it finishes replacing the old results.
 async function openScanSearch(query) {
   const input = document.querySelector('input[name="q"]');
   const sameQuery = input && input.value.trim() === query.trim() &&
@@ -224,9 +242,45 @@ async function openScanSearch(query) {
   throw new Error('Scan incomplete: Gmail did not finish loading the search results. Please retry.');
 }
 
-// Phase A: walk every rendered page of a category, then scroll only when Gmail
-// provides no pagination control. Hidden tables never contribute scan rows.
+async function waitForSearchQuery(query, timeoutMs = RENDER_TIMEOUT_MS) {
+  const start = Date.now();
+  while (Date.now() - start < timeoutMs) {
+    const input = document.querySelector('input[name="q"]');
+    if (input && input.value.trim() === query.trim()) return;
+    await sleep(200);
+  }
+  throw new Error(`Gmail's layout may have changed — search box never reflected the query "${query}"`);
+}
+
+function throwIfCancelled() {
+  if (cancelRequested) throw new CancelledError('Stopped by you');
+}
+
+// ── Account identity ───────────────────────────────────────────────────────────
+
+function resolveIdentity() {
+  const texts = [];
+  for (const selector of ACCOUNT_SELECTORS) {
+    for (const el of document.querySelectorAll(selector)) {
+      if (el.getClientRects && !el.getClientRects().length) continue;
+      for (const attr of ['aria-label', 'title', 'alt']) {
+        const value = el.getAttribute ? el.getAttribute(attr) : '';
+        if (value) texts.push(value);
+      }
+    }
+  }
+  return chooseIdentity({
+    texts,
+    pathname: typeof location !== 'undefined' ? location.pathname : '',
+    documentId: DOCUMENT_ID,
+    source: 'avatar',
+  });
+}
+
+// ── Scan ───────────────────────────────────────────────────────────────────────
+
 async function scanCategory(op, onPage) {
+  throwIfCancelled();
   await openScanSearch(`category:${op}`);
   if (!extractVisibleRows().length) return [];
 
@@ -234,9 +288,6 @@ async function scanCategory(op, onPage) {
   const seen = new Set();
   let pages = 0;
 
-  // Conversations are deduped on the way in, so the count of distinct
-  // conversations is the size of `seen` — recounting `rows` would re-add ids
-  // that `record` has already seen and report zero progress.
   const record = batch => {
     for (const row of batch) {
       if (row.threadId) {
@@ -248,19 +299,13 @@ async function scanCategory(op, onPage) {
   };
 
   while (pages < MAX_PAGES_PER_CATEGORY) {
+    throwIfCancelled();
     await sleep(PAGE_SETTLE_MS);
-
-    // Capture the page index once: these rows are tagged with it, and
-    // waitForPageChange must compare them against rows tagged with the SAME
-    // index. Passing the already-incremented `pages` would make every id
-    // differ by its prefix and report a page change before Gmail re-rendered.
     const pageIndex = pages;
 
     let pageRows = extractVisibleRows(pageIndex);
     const range = readResultRange();
 
-    // If Gmail rendered fewer rows than the page claims to hold, the list is
-    // lazily filling — scroll once and re-read rather than losing the rest.
     const expected = range ? range.end - range.start + 1 : 0;
     if (expected && pageRows.length < expected) {
       await scrollListToBottom();
@@ -272,8 +317,6 @@ async function scanCategory(op, onPage) {
     pages += 1;
     if (onPage) onPage(pages, seen.size);
 
-    // The counter is optional: an enabled Older button is enough to continue.
-    // Never mistake a hidden/unparseable counter for the end of the mailbox.
     if (range && !hasMorePages(range)) break;
 
     const older = findOlderButton();
@@ -284,26 +327,24 @@ async function scanCategory(op, onPage) {
       continue;
     }
 
-    // No Older button and no counter: Gmail is infinite-scrolling this view
-    // rather than paginating it. Treating that as "end of category" is what
-    // silently truncated large mailboxes to the first screenful, so keep
-    // scrolling and accumulate until the list genuinely stops growing.
-    //
-    // Scroll rows are read with a FIXED index: this is one continuous list, so
-    // re-tagging the same row with a new page index each round would give it a
-    // fresh id and defeat the dedupe that counts conversations.
     const before = seen.size;
     let grew = false;
     for (let attempt = 0; attempt < SCROLL_STALL_LIMIT; attempt += 1) {
+      throwIfCancelled();
       await scrollListToBottom();
       await sleep(SCROLL_SETTLE_MS);
       record(extractVisibleRows(0));
       if (seen.size > before) { grew = true; break; }
     }
     if (!grew) {
-      // The list stopped growing. If Gmail still claims more pages, the walk
-      // is incomplete and must be reported rather than cached as a full scan.
-      if (range && hasMorePages(range)) throw new Error('Scan incomplete: Gmail reports more pages but this view stopped loading rows. Please retry.');
+      // Gmail still claims more pages but the list stopped producing rows. This
+      // is a partial result, not a complete scan (R07), so it must never be
+      // cached as complete or acted on.
+      if (range && hasMorePages(range)) {
+        const error = new Error('Scan incomplete: Gmail reports more pages but this view stopped loading rows. Please retry.');
+        error.partialRows = dedupeRowsByThreadId(rows);
+        throw error;
+      }
       break;
     }
     if (onPage) onPage(pages, seen.size);
@@ -313,143 +354,339 @@ async function scanCategory(op, onPage) {
   return dedupeRowsByThreadId(rows);
 }
 
-// Phase B: ask Gmail how many messages this sender actually has across All
-// Mail, instead of trusting how many happened to land in the scanned pages.
-// This is the same scope the delete step uses, so the number shown is the
-// number that will be trashed. Returns null when Gmail won't give an exact
-// total (an estimated "of many" result, or no counter at all).
-async function countSenderExactly(email) {
-  const query = buildSenderQuery(email);
-  // A query/input change alone is not evidence that the old counter was
-  // replaced. Use the same visible-result readiness check as discovery.
+async function countQueryTotal(query) {
+  throwIfCancelled();
   const landed = await openScanSearch(query).then(() => true, () => false);
-  if (!landed) return null;
+  if (!landed) return { status: 'unknown', reason: 'Gmail did not finish loading the search' };
 
   const deadline = Date.now() + RENDER_TIMEOUT_MS;
   while (Date.now() < deadline) {
+    throwIfCancelled();
     const range = readResultRange();
-    if (range) return range.estimated ? null : range.total;
+    if (range) {
+      if (range.estimated || range.total === null) {
+        return { status: 'unknown', reason: 'Gmail reports "of many"' };
+      }
+      return { status: 'exact', total: range.total };
+    }
+    if (!extractVisibleRows().length && isEmptyResults()) return { status: 'exact', total: 0 };
     await sleep(200);
   }
-  return null;
+  return { status: 'unknown', reason: 'Gmail did not show a result count' };
 }
 
-let scanState = {
-  status: 'idle', phase: 'pages', done: 0, total: CATEGORIES.length, detail: '', error: null,
-};
+// Backwards-compatible wrapper used by the focused count tests.
+async function countSenderExactly(email) {
+  const result = await countQueryTotal(buildSenderQuery(email));
+  return result.status === 'exact' ? result.total : null;
+}
+
+let scanState = { status: 'idle', phase: 'discovering', done: 0, total: CATEGORIES.length, detail: '', error: null };
+let executeState = { status: 'idle', action: 'trash', chunk: 0, total: 0, detail: '', error: null };
+let activeRun = null;
+let cancelRequested = false;
+let countBusy = false;
+let lastReview = null; // last COUNT_POLICY result this document produced
 
 function broadcast(type, data) {
-  chrome.runtime.sendMessage({ type, data }).catch(() => {});
+  try {
+    const sent = chrome.runtime.sendMessage({ type, data });
+    if (sent && sent.catch) sent.catch(() => {});
+  } catch { /* popup closed */ }
+}
+
+function runPayload(state, kind) {
+  const run = activeRun && (!kind || activeRun.kind === kind) ? activeRun : null;
+  return {
+    ...state,
+    accountKey: run ? run.accountKey : null,
+    documentId: DOCUMENT_ID,
+    runId: run ? run.id : null,
+  };
 }
 
 function setScanState(patch) {
   scanState = { ...scanState, ...patch };
-  broadcast('SCAN_STATE', { ...scanState });
+  broadcast('SCAN_STATE', runPayload(scanState, 'scan'));
 }
 
-async function doScan() {
-  // ── Phase A: paginate every category and collect the senders ──────────────
-  setScanState({
-    status: 'scanning', phase: 'pages', done: 0, total: CATEGORIES.length, detail: '', error: null,
+async function readStorage(key) {
+  try {
+    const data = await chrome.storage.local.get(key);
+    return data ? data[key] : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+async function writeStorage(key, value) {
+  await chrome.storage.local.set({ [key]: value });
+}
+
+async function startScan(tabId, expectedAccount) {
+  const identity = resolveIdentity();
+  if (!identity.accountKey) {
+    return { ok: false, reason: identity.ambiguous ? 'identity-ambiguous' : 'identity-unknown' };
+  }
+  if (expectedAccount && identity.accountKey !== expectedAccount) {
+    return { ok: false, reason: 'identity-mismatch' };
+  }
+  if (activeRun || countBusy) return { ok: false, reason: 'run-busy' };
+
+  const binding = {
+    id: createId('scan'),
+    kind: 'scan',
+    accountKey: identity.accountKey,
+    uIndex: identity.uIndex,
+    tabId: Number.isInteger(tabId) ? tabId : null,
+    documentId: DOCUMENT_ID,
+    startedAt: Date.now(),
+  };
+  activeRun = binding;
+  cancelRequested = false;
+  scanState = {
+    status: 'discovering', phase: 'discovering', done: 0, total: CATEGORIES.length,
+    detail: '', error: null, startedAt: binding.startedAt,
+  };
+  broadcast('SCAN_STATE', runPayload(scanState, 'scan'));
+
+  doScan(binding).catch(error => {
+    if (error instanceof CancelledError) {
+      scanState = {
+        ...scanState, status: 'cancelled',
+        error: 'Stopped by you. The last complete scan was kept.',
+      };
+    } else {
+      scanState = {
+        ...scanState, status: 'failed',
+        phase: 'discovering', error: error.message,
+      };
+    }
+    broadcast('SCAN_STATE', runPayload(scanState, 'scan'));
+    activeRun = null;
   });
 
+  return { ok: true, runId: binding.id, accountKey: identity.accountKey, documentId: DOCUMENT_ID };
+}
+
+async function doScan(binding) {
   let accumulator = {};
+  const seenThreads = new Set();
+  let partialReason = '';
+
   for (let i = 0; i < CATEGORIES.length; i++) {
     const cat = CATEGORIES[i];
-    const rows = await scanCategory(cat.op, (pages, rowsSoFar) => {
-      setScanState({ detail: `${cat.label} · page ${pages} · ${rowsSoFar} rows` });
-    });
-    accumulator = mergeCategoryResults(accumulator, cat.label, rows);
+    let rows;
+    try {
+      rows = await scanCategory(cat.op, (pages, rowsSoFar) => {
+        setScanState({ detail: `${cat.label} · page ${pages} · ${rowsSoFar} rows` });
+      });
+    } catch (error) {
+      if (error instanceof CancelledError) throw error;
+      if (!error.partialRows) throw error;
+      rows = error.partialRows;
+      partialReason = error.message;
+    }
+
+    // Global conversation dedupe across categories (C-5): a thread that appears
+    // in PRIMARY and SOCIAL contributes once, not once per category.
+    const fresh = rows.filter(row => !row.threadId || !seenThreads.has(row.threadId));
+    for (const row of fresh) if (row.threadId) seenThreads.add(row.threadId);
+    accumulator = mergeCategoryResults(accumulator, cat.label, fresh);
     setScanState({ done: i + 1 });
+    if (partialReason) break;
   }
 
   let senders = finalizeSenders(accumulator);
-
-  // ── Phase B: replace sampled counts with Gmail's own All Mail totals ──────
+  const discoveredConversations = seenThreads.size;
   const targets = senders.slice(0, MAX_SENDERS_TO_COUNT);
-  setScanState({ phase: 'counts', done: 0, total: targets.length, detail: '' });
 
-  const exactCounts = {};
-  for (let i = 0; i < targets.length; i++) {
-    const sender = targets[i];
-    try {
-      exactCounts[sender.email] = await countSenderExactly(sender.email);
-    } catch {
-      exactCounts[sender.email] = null; // stays inexact rather than failing the scan
+  if (!partialReason) {
+    setScanState({ phase: 'counting', done: 0, total: targets.length, detail: '' });
+    const results = {};
+    for (let i = 0; i < targets.length; i++) {
+      throwIfCancelled();
+      const sender = targets[i];
+      try {
+        results[sender.email] = await countQueryTotal(buildSenderQuery(sender.email));
+      } catch (error) {
+        if (error instanceof CancelledError) throw error;
+        results[sender.email] = { status: 'unknown', reason: 'Gmail did not answer the count' };
+      }
+      setScanState({ done: i + 1, detail: sender.email });
     }
-    setScanState({ done: i + 1, detail: sender.email });
+    senders = applyCountResults(senders, results);
   }
 
-  senders = applyExactCounts(senders, exactCounts);
-  const total = senders.reduce((sum, s) => sum + s.count, 0);
-  const exactCount = senders.filter(s => s.exact).length;
-
-  await chrome.storage.local.set({
-    inboxCleanerData: { senders, scannedAt: Date.now(), total, exactCount },
-  });
-
-  setScanState({ status: 'done', detail: '' });
-}
-
-chrome.runtime.onMessage.addListener((msg, _sender, respond) => {
-  if (msg.type === 'GET_SCAN_STATE') {
-    respond({ ok: true, scanState });
-    return true;
+  // Re-resolve identity after discovery. A scan that started on A and ended on
+  // B is discarded; it is never written into either account's snapshot (B-2).
+  const identity = resolveIdentity();
+  if (!identity.accountKey || identity.accountKey !== binding.accountKey) {
+    throw new Error('The Gmail account changed during the scan, so the results were discarded. Rescan this account.');
   }
 
-  if (msg.type === 'START_SCAN') {
-    if (scanState.status === 'scanning') {
-      respond({ ok: false, reason: 'already running' });
+  const endedAt = Date.now();
+  const snapshot = {
+    accountKey: binding.accountKey,
+    uIndex: binding.uIndex,
+    tabId: binding.tabId,
+    documentId: DOCUMENT_ID,
+    scannedAt: endedAt,
+    unit: 'conversations',
+    discoveryScope: CATEGORIES.map(cat => `category:${cat.op}`).join(','),
+    partial: Boolean(partialReason),
+    viewOnly: false,
+    senders,
+    discoveredConversations,
+    exactCount: senders.filter(sender => sender.confidence === 'exact').length,
+    total: senders.reduce((sum, sender) => sum + sender.count, 0),
+    reason: partialReason || null,
+  };
+
+  const raw = await readStorage('inboxCleanerData');
+  const box = migrateContainer(raw);
+
+  if (partialReason) {
+    const existing = accountSnapshot(box, binding.accountKey);
+    if (existing && existing.senders && existing.partial !== true) {
+      existing.partialScan = {
+        scannedAt: endedAt, senders, discoveredConversations, reason: partialReason,
+      };
+      box.accounts = { ...box.accounts, [binding.accountKey]: existing };
     } else {
-      doScan().catch(e => {
-        scanState = { status: 'error', category: 0, total: CATEGORIES.length, error: e.message };
-        broadcast('SCAN_STATE', { ...scanState });
-      });
-      respond({ ok: true });
+      box.accounts = { ...box.accounts, [binding.accountKey]: snapshot };
     }
-    return true;
+    await writeStorage('inboxCleanerData', box);
+    scanState = {
+      ...scanState, status: 'partial', phase: 'discovering',
+      error: partialReason,
+    };
+    broadcast('SCAN_STATE', runPayload(scanState, 'scan'));
+    activeRun = null;
+    return;
   }
-});
 
-async function waitForSearchQuery(query, timeoutMs = RENDER_TIMEOUT_MS) {
-  const start = Date.now();
-  while (Date.now() - start < timeoutMs) {
-    const input = document.querySelector('input[name="q"]');
-    if (input && input.value.trim() === query.trim()) return;
-    await sleep(200);
-  }
-  throw new Error(`Gmail's layout may have changed — search box never reflected the query "${query}"`);
+  await writeStorage('inboxCleanerData', putAccountSnapshot(box, binding.accountKey, snapshot));
+  scanState = {
+    ...scanState, status: 'completed', phase: 'counting',
+    done: scanState.total, detail: '',
+  };
+  broadcast('SCAN_STATE', runPayload(scanState, 'scan'));
+  activeRun = null;
 }
 
-async function selectAllMatchingAndTrash(query) {
-  location.hash = `search/${encodeURIComponent(query)}`;
-  await waitForSearchQuery(query);
+// ── Review count (read-only) ────────────────────────────────────────────────────
+
+function assertBoundary(accountKey) {
+  if (!accountKey) throw new BoundaryError('identity-required', 'No verified account was supplied.');
+  const identity = resolveIdentity();
+  if (!identity.accountKey) {
+    throw new BoundaryError('identity-unknown', 'The Gmail account could not be verified.');
+  }
+  if (identity.accountKey !== accountKey) {
+    throw new BoundaryError('identity-changed', 'The Gmail account changed. Nothing further was moved.');
+  }
+}
+
+async function countPolicy(policy, expectedAccount) {
+  if (!expectedAccount) return { ok: false, reason: 'identity-required' };
+  if (activeRun || countBusy) return { ok: false, reason: 'run-busy' };
+
+  countBusy = true;
+  try {
+    const identity = resolveIdentity();
+    if (!identity.accountKey) return { ok: false, reason: 'identity-unknown' };
+    if (identity.accountKey !== expectedAccount) return { ok: false, reason: 'identity-mismatch' };
+
+    const snapshotRaw = await readStorage('inboxCleanerData');
+    const snapshot = accountSnapshot(snapshotRaw, expectedAccount);
+    if (!isActionableSnapshot(snapshot, expectedAccount)) {
+      return { ok: false, reason: 'snapshot-unbound' };
+    }
+
+    const chunks = buildPolicyChunks(policy);
+    if (!chunks.length) return { ok: false, reason: 'no-senders' };
+
+    const results = [];
+    for (const chunk of chunks) {
+      assertBoundary(expectedAccount);
+      const counted = await countQueryTotal(chunk.query);
+      results.push({ query: chunk.query, status: counted.status, total: counted.total, reason: counted.reason });
+    }
+    const allExact = results.every(result => result.status === 'exact');
+    const sum = allExact ? results.reduce((total, result) => total + result.total, 0) : null;
+    // A single chunk's Gmail counter is exact for that union query. With more
+    // than one chunk the sum is only an upper bound until C-8's Gmail behaviour
+    // is confirmed in a disposable mailbox (C-19), so it never becomes `total`.
+    const union = !allExact
+      ? {
+        status: 'unknown',
+        total: null,
+        upperBound: null,
+        reason: (results.find(result => result.reason) || {}).reason || 'Gmail did not give an exact count',
+      }
+      : chunks.length === 1
+        ? { status: 'exact', total: sum, upperBound: null, reason: '' }
+        : {
+          status: 'bounded',
+          total: null,
+          upperBound: sum,
+          reason: 'summed across batches; a conversation can match more than one batch',
+        };
+    lastReview = {
+      accountKey: expectedAccount,
+      policyKey: chunks.map(chunk => chunk.query).join('|'),
+      total: union.total,
+      confidence: union.status,
+    };
+    return {
+      ok: true,
+      accountKey: expectedAccount,
+      uIndex: identity.uIndex,
+      documentId: DOCUMENT_ID,
+      policy,
+      chunks: results,
+      union,
+      previewQuery: chunks[0].query,
+    };
+  } catch (error) {
+    return { ok: false, reason: error.reason || 'identity-changed', error: error.message };
+  } finally {
+    countBusy = false;
+  }
+}
+
+// ── Execute (Trash / Archive) ──────────────────────────────────────────────────
+
+function normalizeAction(value) {
+  return value === 'archive' ? 'archive' : 'trash';
+}
+
+async function selectAllMatchingAndAction(query, action, accountKey) {
+  await openScanSearch(query);
   await waitForElement(SELECTORS.selectAllCheckbox);
-  await sleep(500); // let the result list settle before selecting
+  await sleep(500);
+  throwIfCancelled();
 
   const checkbox = document.querySelector(SELECTORS.selectAllCheckbox);
   checkbox.click();
 
-  // The banner is what widens the selection from this page's ~100 visible rows to
-  // every matching conversation. Without it Trash would move only the visible
-  // page, so a missing banner must fail the chunk rather than under-delete
-  // silently and report it as the whole set.
   const matchingLink = await waitForElement(SELECTORS.selectAllMatchingLink, 5000).catch(() => null);
   if (!matchingLink) {
-    throw new Error('Gmail\'s layout may have changed — the "select all conversations that match" banner is unavailable, so only the visible page would have been deleted. Nothing was deleted; please retry.');
+    throw new Error('Gmail\'s "select all conversations that match" control is unavailable, so only the visible page would have been affected. Nothing was moved.');
   }
   matchingLink.click();
 
-  const trash = await waitForElement(SELECTORS.trashButton);
-  trash.click();
-  await sleep(1000); // let Gmail's own delete animation/toast finish before navigating again
+  const selector = SELECTORS.actionButtons[action] || SELECTORS.actionButtons.trash;
+  const control = await waitForElement(selector);
+  // Last boundary check before the only click that moves mail (R03 §8 B-c).
+  assertBoundary(accountKey);
+  control.click();
+  await sleep(SETTLE_AFTER_ACTION_MS);
 
   return await verifyChunkEmpty();
 }
 
-// Post-state evidence for one chunk: after trashing everything matching the
-// chunk's own query, that query should come back with no rows. Rows still there
-// means the outcome is unknown — not success.
 async function verifyChunkEmpty() {
   const deadline = Date.now() + RENDER_TIMEOUT_MS;
   while (Date.now() < deadline) {
@@ -459,69 +696,232 @@ async function verifyChunkEmpty() {
   return false;
 }
 
-let deleteState = { status: 'idle', chunk: 0, total: 0, error: null };
+async function startExecute(payload) {
+  const policy = normalizePolicy(payload.policy || { emails: payload.emails, action: payload.action });
+  const action = normalizeAction(policy.action);
+  const accountKey = payload.expectedAccount;
 
-async function doDelete(emails) {
-  const queries = InboxCleanerParsing.buildFromQueries(emails);
-  deleteState = { status: 'deleting', chunk: 0, total: queries.length, error: null };
-  broadcast('DELETE_STATE', { ...deleteState });
-
-  let unverified = 0;
-  for (let i = 0; i < queries.length; i++) {
-    if (!(await selectAllMatchingAndTrash(queries[i]))) unverified += 1;
-    deleteState = { status: 'deleting', chunk: i + 1, total: queries.length, error: null };
-    broadcast('DELETE_STATE', { ...deleteState });
+  if (!accountKey) return { ok: false, reason: 'identity-required' };
+  if (payload.expectedDocumentId && payload.expectedDocumentId !== DOCUMENT_ID) {
+    return { ok: false, reason: 'interrupted-document' };
   }
+  if (activeRun) return { ok: false, reason: 'run-busy' };
+  if (countBusy) return { ok: false, reason: 'run-busy' };
+  if (!policy.emails.length) return { ok: false, reason: 'no-senders' };
 
-  const stored = (await chrome.storage.local.get('inboxCleanerData')).inboxCleanerData;
-  if (stored) {
-    const deletedEmails = new Set(emails);
-    stored.senders = stored.senders.filter(s => !deletedEmails.has(s.email));
-    stored.total = stored.senders.reduce((sum, s) => sum + s.count, 0);
-    await chrome.storage.local.set({ inboxCleanerData: stored });
-  }
+  const identity = resolveIdentity();
+  if (!identity.accountKey) return { ok: false, reason: 'identity-unknown' };
+  if (identity.accountKey !== accountKey) return { ok: false, reason: 'identity-mismatch' };
 
-  // Completion is only claimed when every chunk was verified; anything left
-  // unverified is reported as partial rather than as a finished deletion.
-  deleteState = {
-    status: unverified ? 'unverified' : 'done',
-    chunk: queries.length, total: queries.length, unverified, error: null,
+  // Reserve the run before the first await so two EXECUTE messages arriving in
+  // the same tick cannot both pass the run-busy guard.
+  const binding = {
+    id: createId('run'),
+    kind: 'execute',
+    accountKey,
+    uIndex: identity.uIndex,
+    documentId: DOCUMENT_ID,
+    startedAt: Date.now(),
   };
-  broadcast('DELETE_STATE', { ...deleteState });
+  activeRun = binding;
+
+  const snapshot = accountSnapshot(await readStorage('inboxCleanerData'), accountKey);
+  if (!isActionableSnapshot(snapshot, accountKey)) {
+    activeRun = null;
+    return { ok: false, reason: 'snapshot-unbound' };
+  }
+
+  const chunks = buildPolicyChunks(policy);
+  cancelRequested = false;
+  executeState = {
+    status: 'executing', action, chunk: 0, total: chunks.length, detail: '',
+    error: null, accountKey, startedAt: binding.startedAt,
+  };
+  broadcast('DELETE_STATE', runPayload(executeState, 'execute'));
+
+  doExecute(policy, chunks, binding).catch(async error => {
+    executeState = {
+      ...executeState,
+      status: 'failed',
+      error: error.message,
+    };
+    broadcast('DELETE_STATE', runPayload(executeState, 'execute'));
+    activeRun = null;
+  });
+
+  return { ok: true, runId: binding.id, accountKey, documentId: DOCUMENT_ID, total: chunks.length };
 }
 
-// `msg.emails` crosses a trust boundary (any extension page can send it), and a
-// duplicate or differently-cased address would be actioned twice — so
-// normalize once, here.
-function normalizeAddresses(emails) {
-  const list = Array.isArray(emails) ? emails : [];
-  const seen = new Set();
-  const unique = [];
-  for (const raw of list) {
-    const email = typeof raw === 'string' ? raw.trim().toLowerCase() : '';
-    if (!email.includes('@') || seen.has(email)) continue;
-    seen.add(email);
-    unique.push(email);
+async function doExecute(policy, chunks, binding) {
+  const action = normalizeAction(policy.action);
+  const outcomes = [];
+  let stopped = false;
+  const cancellationReasons = [];
+
+  for (let i = 0; i < chunks.length; i++) {
+    if (cancelRequested) {
+      stopped = true;
+      break;
+    }
+    const chunk = chunks[i];
+    try {
+      assertBoundary(binding.accountKey);
+      const verified = await selectAllMatchingAndAction(chunk.query, action, binding.accountKey);
+      // One more identity read after the action: a change does not retroactively
+      // make this chunk verified, but it must stop the next chunk.
+      outcomes.push({ query: chunk.query, senders: chunk.emails, outcome: verified ? 'verified' : 'unknown' });
+    } catch (error) {
+      if (error instanceof CancelledError) {
+        stopped = true;
+        break;
+      }
+      if (error instanceof BoundaryError) {
+        cancellationReasons.push(error.reason);
+        outcomes.push({ query: chunk.query, senders: chunk.emails, outcome: 'not-attempted', error: error.message });
+        stopped = true;
+        break;
+      }
+      // Before the action control is clicked nothing moved (failed). If the
+      // action was issued and verification failed, it is unknown (C-25).
+      const moved = error && error.afterAction === true;
+      outcomes.push({
+        query: chunk.query,
+        senders: chunk.emails,
+        outcome: moved ? 'unknown' : 'failed',
+        error: error.message,
+      });
+    }
+    executeState = {
+      ...executeState, chunk: i + 1, total: chunks.length, detail: chunk.emails[0] || '',
+    };
+    broadcast('DELETE_STATE', runPayload(executeState, 'execute'));
   }
-  return unique;
+
+  if (stopped) {
+    for (let i = outcomes.length; i < chunks.length; i++) {
+      outcomes.push({ query: chunks[i].query, senders: chunks[i].emails, outcome: 'not-attempted' });
+    }
+  }
+
+  const anyOutcome = outcomes.some(chunk => chunk.outcome === 'verified' || chunk.outcome === 'unknown');
+  let status = receiptStatus(outcomes);
+  if (stopped) status = anyOutcome ? 'partial' : 'cancelled';
+  if (cancellationReasons.length && !anyOutcome) status = 'failed';
+
+  const endedAt = Date.now();
+  const policyKey = chunks.map(chunk => chunk.query).join('|');
+  const reviewedTotal = lastReview && lastReview.accountKey === binding.accountKey &&
+    lastReview.policyKey === policyKey ? lastReview.total : null;
+  const verifiedChunks = outcomes.filter(chunk => chunk.outcome === 'verified');
+  const verifiedSenders = new Set(verifiedChunks.flatMap(chunk => chunk.senders));
+  const receipt = {
+    id: binding.id,
+    accountKey: binding.accountKey,
+    action,
+    status,
+    unit: 'conversations',
+    startedAt: binding.startedAt,
+    endedAt,
+    total: status === 'completed' ? reviewedTotal : null,
+    reviewedTotal,
+    senders: policy.emails,
+    operators: policyOperators(policy),
+    chunks: outcomes,
+    error: cancellationReasons.length ? cancellationReasons.join(', ') : null,
+  };
+
+  const raw = await readStorage('inboxCleanerData');
+  const box = migrateContainer(raw);
+  const snapshot = accountSnapshot(box, binding.accountKey);
+  let storageError = null;
+  if (snapshot && snapshot.accountKey === binding.accountKey) {
+    if (verifiedSenders.size) {
+      snapshot.senders = (snapshot.senders || []).filter(sender => !verifiedSenders.has(sender.email));
+      snapshot.total = snapshot.senders.reduce((sum, sender) => sum + sender.count, 0);
+    }
+    snapshot.stale = anyOutcome === true || verifiedSenders.size > 0;
+    snapshot.updatedAt = endedAt;
+    box.accounts = { ...box.accounts, [binding.accountKey]: snapshot };
+    try {
+      await writeStorage('inboxCleanerData', box);
+    } catch (error) {
+      storageError = error.message;
+    }
+  }
+
+  try {
+    const history = await readStorage('inboxCleanerHistory');
+    await writeStorage('inboxCleanerHistory', appendHistory(history, receipt, 20));
+  } catch (error) {
+    storageError = storageError || error.message;
+  }
+
+  executeState = {
+    ...executeState,
+    status,
+    chunk: outcomes.filter(chunk => chunk.outcome !== 'not-attempted').length,
+    total: chunks.length,
+    detail: '',
+    error: receipt.error || storageError || (outcomes.find(chunk => chunk.error) || {}).error || null,
+  };
+  broadcast('DELETE_STATE', runPayload(executeState, 'execute'));
+  broadcast('RECEIPT', receipt);
+  activeRun = null;
 }
+
+// ── Messaging ──────────────────────────────────────────────────────────────────
 
 chrome.runtime.onMessage.addListener((msg, _sender, respond) => {
-  if (msg.type === 'DELETE') {
-    if (deleteState.status === 'deleting') {
-      respond({ ok: false, reason: 'already running' });
+  if (!msg || !msg.type) return undefined;
+
+  if (msg.type === 'GET_IDENTITY' || msg.type === 'GET_SCAN_STATE' || msg.type === 'GET_STATE') {
+    const state = {
+      identity: resolveIdentity(),
+      scanState: runPayload(scanState, 'scan'),
+      executeState: runPayload(executeState, 'execute'),
+      documentId: DOCUMENT_ID,
+    };
+    respond({ ok: true, ...state });
+    return true;
+  }
+
+  if (msg.type === 'START_SCAN') {
+    startScan(msg.tabId, msg.expectedAccount).then(respond);
+    return true;
+  }
+
+  if (msg.type === 'COUNT_POLICY') {
+    countPolicy(msg.policy, msg.expectedAccount).then(respond);
+    return true;
+  }
+
+  if (msg.type === 'EXECUTE' || msg.type === 'DELETE') {
+    const payload = msg.type === 'DELETE'
+      ? { ...msg, policy: { emails: normalizeAddresses(msg.emails), action: 'trash' } }
+      : msg;
+    startExecute(payload).then(respond);
+    return true;
+  }
+
+  if (msg.type === 'STOP_RUN') {
+    if (!activeRun) {
+      respond({ ok: false, reason: 'no-run' });
       return true;
     }
-    const emails = normalizeAddresses(msg.emails);
-    if (!emails.length) {
-      respond({ ok: false, reason: 'no valid email addresses' });
+    if (msg.runId && msg.runId !== activeRun.id) {
+      respond({ ok: false, reason: 'stale-run' });
       return true;
     }
-    doDelete(emails).catch(e => {
-      deleteState = { status: 'error', chunk: 0, total: 0, error: e.message };
-      broadcast('DELETE_ERROR', e.message);
-    });
+    cancelRequested = true;
+    if (activeRun.kind === 'scan') {
+      setScanState({ status: activeRun.kind === 'scan' ? 'stopping' : scanState.status });
+    } else {
+      executeState = { ...executeState, status: 'stopping' };
+      broadcast('DELETE_STATE', runPayload(executeState, 'execute'));
+    }
     respond({ ok: true });
     return true;
   }
+
+  return undefined;
 });

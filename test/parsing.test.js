@@ -204,3 +204,204 @@ test('applyExactCounts re-sorts by the exact count, not the sampled one', () => 
   const result = applyExactCounts(senders, { 'a@x.com': 60, 'b@y.com': 4000 });
   assert.deepEqual(result.map(s => s.email), ['b@y.com', 'a@x.com']);
 });
+
+// --- cleanup contract (R03–R09): policy, counts, identity, storage ---
+
+const {
+  normalizeAddress,
+  normalizeAddresses,
+  normalizePolicy,
+  normalizeDateInput,
+  policyOperators,
+  buildPolicyQuery,
+  buildPolicyChunks,
+  applyCountResults,
+  confidenceOf,
+  formatCount,
+  summarizeSelection,
+  formatSelectionSummary,
+  formatUpperBound,
+  receiptStatus,
+  extractAddresses,
+  chooseIdentity,
+  buildGmailSearchUrl,
+  buildGmailTrashUrl,
+  migrateContainer,
+  accountSnapshot,
+  putAccountSnapshot,
+  isActionableSnapshot,
+  appendHistory,
+} = require('../parsing.js');
+
+test('normalizeAddresses lowercases, trims, dedupes and rejects non-addresses', () => {
+  assert.deepEqual(
+    normalizeAddresses([' A@X.com ', 'a@x.com', 'not-an-email', 'two words@x.com', 'b@x.com']),
+    ['a@x.com', 'b@x.com'],
+  );
+  assert.equal(normalizeAddress(''), '');
+  assert.equal(normalizeAddress('a@x.com)OR(from:victim@x.com'), '', 'query syntax cannot ride in on an address');
+  assert.equal(normalizeAddress('"a"@x.com'), '');
+});
+
+test('policy chunks are disjoint and carry the same operators (C-18)', () => {
+  const policy = normalizePolicy({
+    emails: ['A@X.com', 'b@x.com', 'a@x.com'],
+    action: 'trash',
+    protect: { starred: true, important: true },
+  });
+  assert.deepEqual(policy.emails, ['a@x.com', 'b@x.com']);
+  assert.deepEqual(buildPolicyChunks(policy), [{
+    emails: ['a@x.com', 'b@x.com'],
+    query: 'from:(a@x.com OR b@x.com) -in:trash -is:starred -is:important',
+  }]);
+  assert.equal(buildPolicyQuery(policy), 'from:(a@x.com OR b@x.com) -in:trash -is:starred -is:important');
+});
+
+test('archive is scoped to Inbox and never includes mail already in Trash', () => {
+  const policy = normalizePolicy({
+    emails: ['a@x.com'], action: 'archive', protect: { starred: false, important: false, unread: true },
+    before: '2025-01-02',
+  });
+  assert.deepEqual(policyOperators(policy), ['in:inbox', '-in:trash', '-is:unread', 'before:2025/01/02']);
+  assert.equal(buildPolicyChunks(policy)[0].query,
+    'from:(a@x.com) in:inbox -in:trash -is:unread before:2025/01/02');
+});
+
+test('protections default ON and unread defaults OFF', () => {
+  assert.deepEqual(normalizePolicy({ emails: ['a@x.com'] }).protect,
+    { starred: true, important: true, unread: false });
+});
+
+test('normalizeDateInput accepts only real calendar dates and normalizes separators', () => {
+  assert.equal(normalizeDateInput('2026-02-03'), '2026/02/03');
+  assert.equal(normalizeDateInput('2026/02/03'), '2026/02/03');
+  assert.equal(normalizeDateInput('2026-02-30'), '', 'February 30 does not exist');
+  assert.equal(normalizeDateInput('2026-2-03'), '');
+  assert.equal(normalizeDateInput('tomorrow'), '');
+});
+
+test('an exact union count is the only destructive total; a sender sum stays an upper bound', () => {
+  const senders = [
+    { email: 'a@x.com', count: 10, confidence: 'exact' },
+    { email: 'b@x.com', count: 5, confidence: 'sampled' },
+  ];
+  const exact = summarizeSelection({ senders, union: { status: 'exact', total: 12 } });
+  assert.equal(exact.total, 12);
+  assert.equal(exact.senderSum, 15);
+  assert.equal(formatSelectionSummary(exact), '2 senders · 12 conversations');
+  assert.match(formatUpperBound(exact), /up to 15 conversations/);
+
+  const unknown = summarizeSelection({ senders, union: { status: 'unknown', total: 12, reason: 'of many' } });
+  assert.equal(unknown.total, null, 'a number from an inexact scope is never promoted to a total');
+  assert.equal(formatSelectionSummary(unknown), '2 senders · total unknown (of many)');
+
+  const bounded = summarizeSelection({
+    senders, union: { status: 'bounded', total: null, upperBound: 12, reason: 'summed across batches' },
+  });
+  assert.equal(bounded.total, null);
+  assert.equal(bounded.upperBound, 12);
+  assert.equal(formatSelectionSummary(bounded),
+    '2 senders · up to 12 conversations (summed across batches)');
+});
+
+test('a hostile or missing union cannot supply a total', () => {
+  const summary = summarizeSelection({ senders: [{ email: 'a@x.com', count: 3 }] });
+  assert.equal(summary.confidence, 'unverified');
+  assert.equal(summary.total, null);
+});
+
+test('applyCountResults never upgrades an unknown count to exact and preserves the sample', () => {
+  const senders = [
+    { email: 'a@x.com', count: 5 },
+    { email: 'b@x.com', count: 7 },
+    { email: 'c@x.com', count: 9 },
+  ];
+  const result = applyCountResults(senders, {
+    'a@x.com': { status: 'exact', total: 40 },
+    'b@x.com': { status: 'unknown', reason: 'of many' },
+  });
+  const byEmail = Object.fromEntries(result.map(sender => [sender.email, sender]));
+  assert.deepEqual(
+    { count: byEmail['a@x.com'].count, sampledCount: byEmail['a@x.com'].sampledCount, confidence: byEmail['a@x.com'].confidence },
+    { count: 40, sampledCount: 5, confidence: 'exact' },
+  );
+  assert.deepEqual(
+    { count: byEmail['b@x.com'].count, confidence: byEmail['b@x.com'].confidence },
+    { count: 7, confidence: 'unknown' },
+  );
+  assert.deepEqual(
+    { count: byEmail['c@x.com'].count, confidence: byEmail['c@x.com'].confidence },
+    { count: 9, confidence: 'sampled' },
+  );
+  assert.equal(confidenceOf({ exact: true }), 'exact');
+  assert.equal(confidenceOf({}), 'sampled');
+});
+
+test('formatCount labels unknown and unverified without a number', () => {
+  assert.equal(formatCount(10, 'exact'), '10 conversations');
+  assert.equal(formatCount(10, 'sampled'), '≈10 conversations');
+  assert.equal(formatCount(10, 'unknown'), 'total unknown');
+  assert.equal(formatCount(10, 'unverified'), 'could not be verified');
+});
+
+test('receiptStatus reports only what the chunks prove', () => {
+  assert.equal(receiptStatus([]), 'failed');
+  assert.equal(receiptStatus([{ outcome: 'not-attempted' }]), 'cancelled');
+  assert.equal(receiptStatus([{ outcome: 'verified' }, { outcome: 'verified' }]), 'completed');
+  assert.equal(receiptStatus([{ outcome: 'verified' }, { outcome: 'not-attempted' }]), 'partial');
+  assert.equal(receiptStatus([{ outcome: 'verified' }, { outcome: 'unknown' }]), 'partial');
+  assert.equal(receiptStatus([{ outcome: 'unknown' }]), 'unknown');
+  assert.equal(receiptStatus([{ outcome: 'failed' }]), 'failed');
+  assert.equal(receiptStatus([{ outcome: 'verified' }, { outcome: 'failed' }]), 'partial');
+});
+
+test('identity is the single addressed account, never a guess between accounts', () => {
+  assert.deepEqual(
+    chooseIdentity({ texts: ['Account: Owner@Example.com'], pathname: '/mail/u/3/', documentId: 'doc-1' }),
+    { accountKey: 'owner@example.com', ambiguous: false, uIndex: 3, source: 'avatar', documentId: 'doc-1' },
+  );
+  const two = chooseIdentity({ texts: ['a@x.com', 'b@x.com'], pathname: '/mail/u/0/' });
+  assert.equal(two.accountKey, null);
+  assert.equal(two.ambiguous, true);
+  assert.equal(two.source, 'unknown');
+  assert.equal(chooseIdentity({ texts: ['no address here'] }).accountKey, null);
+  assert.deepEqual(extractAddresses(['A@X.com', 'a@x.com b@y.com']), ['a@x.com', 'b@y.com']);
+});
+
+test('Gmail links use the verified account index', () => {
+  assert.equal(buildGmailSearchUrl(2, 'from:(a@x.com)'),
+    'https://mail.google.com/mail/u/2/#search/from%3A(a%40x.com)');
+  assert.equal(buildGmailSearchUrl(undefined, 'x'), 'https://mail.google.com/mail/u/0/#search/x');
+  assert.equal(buildGmailTrashUrl(1), 'https://mail.google.com/mail/u/1/#trash');
+});
+
+test('legacy payloads migrate read-only and can never be acted on', () => {
+  const legacy = migrateContainer({ total: 3, senders: [{ email: 'old@x.com' }] });
+  assert.equal(legacy.version, 2);
+  assert.deepEqual(legacy.accounts, {});
+  assert.equal(legacy.legacyUnbound.viewOnly, true);
+  assert.equal(legacy.legacyUnbound.accountKey, null);
+  assert.equal(isActionableSnapshot(legacy.legacyUnbound, null), false);
+
+  const snapshot = { accountKey: 'owner@example.com', senders: [] };
+  const bound = putAccountSnapshot(legacy, 'owner@example.com', snapshot);
+  assert.equal(accountSnapshot(bound, 'owner@example.com'), snapshot);
+  assert.equal(isActionableSnapshot(snapshot, 'owner@example.com'), true);
+  assert.equal(isActionableSnapshot(snapshot, 'other@example.com'), false, 'snapshots are per account');
+  assert.equal(isActionableSnapshot({ ...snapshot, partial: true }, 'owner@example.com'), false);
+  assert.equal(isActionableSnapshot({ ...snapshot, viewOnly: true }, 'owner@example.com'), false);
+});
+
+test('account snapshots for different accounts do not overwrite each other', () => {
+  let box = putAccountSnapshot({}, 'a@x.com', { accountKey: 'a@x.com', senders: [] });
+  box = putAccountSnapshot(box, 'b@x.com', { accountKey: 'b@x.com', senders: [] });
+  assert.equal(accountSnapshot(box, 'a@x.com').accountKey, 'a@x.com');
+  assert.equal(accountSnapshot(box, 'b@x.com').accountKey, 'b@x.com');
+});
+
+test('appendHistory keeps newest first and caps the record count', () => {
+  let history = appendHistory(null, { id: 1 }, 2);
+  history = appendHistory(history, { id: 2 }, 2);
+  history = appendHistory(history, { id: 3 }, 2);
+  assert.deepEqual(history, { version: 1, entries: [{ id: 3 }, { id: 2 }] });
+});

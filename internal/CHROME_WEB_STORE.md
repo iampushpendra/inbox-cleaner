@@ -1,8 +1,8 @@
 # Chrome Web Store listing draft and submission evidence
 
-Reviewed October 26, 2026 against `manifest.json`, `content.js`, `popup.js`, `parsing.js` and `scripts/product-facts.json`. This is prepared copy only: no upload, submission or live listing change was performed. **Release status confirmed by the owner on 26 October 2026: Chrome Web Store 3.2.1 is the latest published version; repository version 3.3.1 is unreleased.** Repository documentation versions can differ from the manifest.
+Reviewed October 26, 2026 against `manifest.json`, `content.js`, `popup.js`, `parsing.js` and `scripts/product-facts.json`. This is prepared copy only: no upload, submission or live listing change was performed. **Release status confirmed by the owner on 26 October 2026: Chrome Web Store 3.2.1 is the latest published version; repository version 3.4.0 is unreleased.** Repository documentation versions can differ from the manifest.
 
-**Listing comparison, 18 October 2026, status updated 26 October 2026.** The public listing page was read and compared against this package. It shows published version 3.2.1 with permissions `identity`, `gmail.readonly` and `gmail.modify`, and OAuth-era copy: "One click moves everything from selected senders to Trash", "nothing is ever sent anywhere except directly to Google's Gmail API", "cached locally in your browser and cleared on sign-out". The repository's 3.2.1 archive declares only `storage`, `tabs` and `mail.google.com` access, so the published permission block does not match that archive. Chrome renders a listing's permission block from the uploaded manifest; either the store carries a different 3.2.1 build or the listing metadata is stale. The Developer Dashboard was not accessible, so this is not resolved. The prepared 3.3.1 package would change the permission block only when uploaded; no submission is authorized or performed here.
+**Listing comparison, 18 October 2026, status updated 26 October 2026.** The public listing page was read and compared against this package. It shows published version 3.2.1 with permissions `identity`, `gmail.readonly` and `gmail.modify`, and OAuth-era copy: "One click moves everything from selected senders to Trash", "nothing is ever sent anywhere except directly to Google's Gmail API", "cached locally in your browser and cleared on sign-out". The repository's 3.2.1 archive declares only `storage`, `tabs` and `mail.google.com` access, so the published permission block does not match that archive. Chrome renders a listing's permission block from the uploaded manifest; either the store carries a different 3.2.1 build or the listing metadata is stale. The Developer Dashboard was not accessible, so this is not resolved. The prepared 3.4.0 package would change the permission block only when uploaded; no submission is authorized or performed here.
 
 Listing: https://chromewebstore.google.com/detail/inbox-cleaner/pnlnpdidhjimchppdmojledmfakpepep
 
@@ -17,7 +17,7 @@ Inbox Cleaner — Gmail Sender Cleanup
 **Summary** (under 132 characters)
 
 ```text
-Review Gmail senders in desktop Chrome. Select unwanted senders, then confirm a move to Trash. Requires an open Gmail tab.
+Review Gmail senders in desktop Chrome. Select unwanted senders, then confirm a move to Trash or Archive. Requires an open Gmail tab.
 ```
 
 **Description**
@@ -31,7 +31,7 @@ HOW TO USE IT
 • Install the extension, then open the Gmail account you want to clean in desktop Chrome.
 • Start a scan and let it finish. A full scan of a large mailbox can take several minutes.
 • Review the discovered senders and their broader mail history.
-• Select the senders you want to clear, review the scope, then confirm Move to Trash.
+• Select the senders you want to clear, review the exact count and scope, then confirm Move to Trash or Archive.
 
 WHAT IT DOES
 • Scans all five Gmail categories, not just Primary.
@@ -42,10 +42,10 @@ WHAT IT DOES
 UNDERSTAND THE SCOPE
 • This is sender cleanup: a selected sender's search can include archived matching mail.
 • A category badge helps discovery; it does not limit the action to that category.
-• Age, size, unread and starred exclusions from a separate Gmail search do not carry over.
+• Starred and important mail are excluded by default, unread optionally, and an optional before: date applies to both the review count and the action. Category, size and other exclusions from a separate Gmail search do not carry over.
 • Use Gmail's own reviewed searches when you need those restrictions.
-• Counts describe Gmail conversations/results, may be approximate or unresolved, and are not storage measurements. Up to 250 senders are checked against Gmail result counts when resolvable.
-• Selected senders are processed in batches of up to 20.
+• Counts describe Gmail conversations/results, may be approximate or unresolved, and are not storage measurements. Up to 250 senders are checked against Gmail result counts when resolvable; review uses Gmail’s count for the exact union search and keeps an inexact total labelled unknown.
+• Selected senders are processed in batches of up to 20. The run is bound to the signed-in Gmail address shown in the tab; an unknown or changed account is refused or discarded.
 • No scan-time, deletion-size or recovered-storage guarantee is made.
 
 PRIVACY AND RECOVERY

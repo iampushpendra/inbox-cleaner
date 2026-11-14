@@ -1,10 +1,10 @@
 {
-  "reviewed_on": "2026-10-26",
-  "extension_manifest_version": "3.3.1",
+  "reviewed_on": "2026-10-27",
+  "extension_manifest_version": "3.4.0",
   "release_status": {
-    "repository_source": "3.3.1 (unreleased)",
+    "repository_source": "3.4.0 (unreleased)",
     "published_store": "3.2.1",
-    "statement": "The Chrome Web Store listing is on 3.2.1, confirmed by the owner on 2026-10-26. Version 3.3.1 exists in the repository only and has not been released; an installed copy may not include 3.3.1 changes."
+    "statement": "The Chrome Web Store listing is on 3.2.1, confirmed by the owner on 2026-10-26. Version 3.4.0 exists in the repository only and has not been released; an installed copy may not include 3.4.0 changes."
   },
   "evidence_scope": "Current repository source and local fixture tests; not certification of the installed Chrome Web Store package or a live mailbox run.",
   "source_files": ["manifest.json", "content.js", "parsing.js", "popup.js"],
@@ -12,9 +12,11 @@
   "host_permissions": ["https://mail.google.com/*"],
   "architecture": "DOM automation in an already-open Gmail tab in desktop Chrome; no extension OAuth, Gmail API, model API or independent network client.",
   "scan": "Discovers senders by paginating five category views, following enabled Older controls or scrolling an infinite list until it stops growing. Reads only visible conversation rows and range counters. Bounded by page guards, available DOM and scan completion.",
-  "counts": "Gmail conversation/result counts, not bytes. Up to the top 250 senders are counted from Gmail results when resolvable; unresolved or sampled counts are estimates. No blanket exactness or unique-message guarantee.",
-  "action": "Selected sender queries, in batches up to 20, move matching mail to Gmail Trash. Sender-wide scope includes archived matching mail; date, category, size, starred and other restrictions from a separate search are not inherited.",
-  "recovery": "Ordinary Gmail Trash is normally recoverable for up to 30 days unless permanently removed sooner. No extension one-click Undo or permanent-delete capability is claimed.",
+  "counts": "Gmail conversation/result counts, not bytes. Up to the top 250 senders are counted from Gmail results when resolvable. Review uses Gmail's count for the exact per-batch search; a single batch is exact, while a sum across batches is labelled an upper bound because a conversation can match more than one batch. Unresolved or inexact totals are shown as unknown, never promoted to a number. No unique-message guarantee.",
+  "action": "Selected sender queries, in batches up to 20, move matching mail to Gmail Trash or remove it from Inbox with Archive. Starred and important mail are excluded by default, unread mail optionally, and an optional before: date applies to both the review count and the action. Trash includes archived matching mail; Archive applies to Inbox mail only.",
+  "account_binding": "A scan or cleanup is bound to the signed-in Gmail address read from Gmail's account control. An absent, ambiguous or changed address refuses or discards the run; results are stored per account and legacy unbound results stay read-only.",
+  "receipts": "The last 20 cleanup receipts are stored locally with account, action, query scope, per-batch verified/unknown/failed/not-attempted outcomes and sender addresses. No message bodies, subjects, credentials or telemetry.",
+  "recovery": "Ordinary Gmail Trash is normally recoverable for up to 30 days unless permanently removed sooner. Archive stays searchable and does not free storage. No extension one-click Undo or permanent-delete capability is claimed.",
   "unsupported_claims": ["mobile extension support", "guaranteed scan time", "guaranteed reclaimed storage", "native Gmail page-limit bypass", "automatic unsubscribe", "scheduled age cleanup", "guaranteed protection of starred messages", "verified installed-package identity"],
   "separate_surfaces": {
     "website": "Static hosting, external fonts and any explicit waitlist network submission are separate from the extension.",
