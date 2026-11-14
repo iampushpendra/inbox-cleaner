@@ -30,44 +30,13 @@ if [ -n "$(git status --porcelain --untracked-files=no)" ]; then
   exit 1
 fi
 
-# Process up to 3 blogs per day, prioritized by priority level then GSC potential
+# Process up to 3 blogs per day, prioritized by priority level
 published=0
 max_blogs=3
 
 for ((i=1; i<=max_blogs; i++)); do
-  # Select topic: prioritize by priority level, then by cluster coverage
-  if ! selection=$(python3 -c "
-import json
-from collections import Counter
-
-with open('scripts/blog-topics.json') as f:
-    topics = json.load(f)
-
-# Get pending topics
-pending = [t for t in topics if t['status'] == 'pending']
-
-# Priority order: 1 first, then 2
-prio_order = []
-for p in ['1', '2']:
-    pri_topics = [t for t in pending if t.get('priority') == p]
-    prio_order.extend(pri_topics)
-
-if not prio_order:
-    print('empty')
-    exit(0)
-
-# Group by cluster to ensure coverage, then pick first available
-clusters_seen = set()
-for t in prio_order:
-    c = t.get('cluster', 'unknown')
-    if c not in clusters_seen:
-        clusters_seen.add(c)
-        print(f'{t[\"action\"]} {t[\"slug\"]}')
-        exit(0)
-
-# If we get here, all clusters have been covered, pick the first remaining
-print(f'{prio_order[0][\"action\"]} {prio_order[0][\"slug\"]}')
-" 2>&1); then
+  # Select topic: prioritize by priority level (1 first, then 2), using original publish_blog.py logic
+  if ! selection=$(python3 scripts/publish_blog.py --select); then
     notify_failure "could not read topic queue or evidence records"
     break
   fi
